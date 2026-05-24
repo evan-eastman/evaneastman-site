@@ -4,10 +4,16 @@ Last updated: 2026-05-24.
 
 ## Status
 
-Migration off Dropbox complete. Project lives at
-`%USERPROFILE%\Projects\evaneastman-site\` on each machine and syncs via
-`github.com/evan-eastman/evaneastman-site` (public). `quarto render`
-builds cleanly. Site has not been published yet — DNS for
+**Home PC**: migrated. Project lives at
+`C:\Users\Evan\Projects\evaneastman-site\`, builds cleanly with
+`quarto render`, syncs via `github.com/evan-eastman/evaneastman-site`
+(public). The Dropbox copy at `C:\Users\Evan\Dropbox\Website\` has been
+deleted (recoverable from Dropbox web UI for 30 days if needed).
+
+**School/work PC**: still on Dropbox — follow "Setting up the other
+machine" below the next time you sit there.
+
+**Publishing**: site has not been published yet. DNS for
 `evaneastman.com` still needs to point at a host once you pick one (see
 README "Publishing" section).
 
@@ -53,6 +59,10 @@ On the work/school PC where the project still lives in Dropbox:
 - **Never put this project back inside Dropbox.** `quarto render` will
   fail on cleanup with `os error 32`. See the bottom of README.md for
   the full story.
+- **`gh` may not be on PATH in old terminals.** If you installed `gh`
+  in a previous session, terminals open from before that install won't
+  see it. Close and reopen the terminal (or Claude Code session) and
+  `gh` will resolve normally.
 - **`HANDOFF.md` is tracked in git** so it syncs across machines, but
   `_quarto.yml` has `render: ["*.qmd"]` which keeps it out of the
   rendered `_site/`. Don't remove that line unless you also want this
