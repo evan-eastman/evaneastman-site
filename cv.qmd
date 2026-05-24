@@ -1,0 +1,11 @@
+---
+title: "CV"
+---
+
+[Download CV (PDF)](files/cv.pdf){.btn .btn-outline-primary}
+
+<br>
+
+```{=html}
+<iframe src="files/cv.pdf" width="100%" height="900px" style="border: 1px solid #ddd;"></iframe>
+```

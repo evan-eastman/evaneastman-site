@@ -1,0 +1,64 @@
+---
+title: "Research"
+toc: true
+toc-location: right
+toc-title: " "
+---
+
+## Published & Forthcoming
+
+::: {.pub-entry}
+**Reinsurance Purchases and the Corporate Lifecycle**  
+With [Coauthors].  
+*Journal of Corporate Finance*, forthcoming.  
+[[Pre-print](#)] [[Published](#)] [[Replication](#)]
+:::
+
+::: {.pub-entry}
+**[Paper Title]**  
+With [Coauthors].  
+*[Journal Name]*, [Year], [Volume](Issue), pp–pp.  
+[[Pre-print](#)] [[Published](#)] [[Replication](#)]
+:::
+
+## Working Papers
+
+::: {.pub-entry}
+**Enterprise Risk Management and Workplace Safety**  
+With [Coauthors].  
+*Working paper*, revised [Month Year].  
+[[Pre-print](#)] [[Slides](#)]
+
+> Using propensity-score matching and difference-in-differences, we show that ERM adoption is associated with approximately a 31% reduction in workplace injuries.
+:::
+
+::: {.pub-entry}
+**Electoral Uncertainty and Insurer Outcomes**  
+With [Coauthors].  
+*Working paper*, [Month Year].  
+[[Pre-print](#)]
+:::
+
+::: {.pub-entry}
+**Mandated Insurers and Pricing in Florida's Homeowners Market**  
+With [Coauthors].  
+*Working paper*, [Month Year].
+:::
+
+## Work in Progress
+
+- **Loss Reserving and Workforce Dynamics** — using Revelio Labs workforce data to test whether workforce contraction predicts adverse reserve development.
+- **TCJA, Tax Function Convexity, and Corporate Hedging** — XBRL-based extraction from SEC EDGAR filings.
+- **Board Risk Oversight Delegation** — LLM-based analysis of SEC proxy statement disclosures.
+
+## Selected Presentations
+
+- [Conference], [Location], [Year]
+- Risk Theory Society Annual Meeting, FSU, 2025
+- FSU RMI Research Symposium, Tampa, 2026
+
+## Service & Editorial
+
+- Editorial role, *Journal of Risk and Insurance*
+- ARIA Kulp-Wright Book Award Committee, 2025
+- Organizer, FSU RMI Research Symposium (2026) and Risk Theory Society Annual Meeting (2025)

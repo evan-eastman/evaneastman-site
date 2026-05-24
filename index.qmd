@@ -1,0 +1,33 @@
+---
+title: "Evan M. Eastman"
+pagetitle: "Evan M. Eastman"
+about:
+  template: trestles
+  image: files/profile.jpg
+  image-shape: rounded
+  image-width: 16em
+  links:
+    - icon: envelope
+      text: Email
+      href: "mailto:eeastman@wertheim.fsu.edu"
+    - icon: building
+      text: FSU RMI Center
+      href: "https://business.fsu.edu/REPLACE"
+    - text: "{{< iconify simple-icons googlescholar >}} Scholar"
+      href: "https://scholar.google.com/citations?user=ksnlHLAAAAAJ&hl=en"
+    - text: "{{< iconify ai ssrn >}} SSRN"
+      href: "https://papers.ssrn.com/sol3/cf_dev/AbsByAuth.cfm?per_id=2361505"
+---
+
+I am the Director of Research at the [Risk Management and Insurance Center](https://business.fsu.edu/REPLACE) at Florida State University, where I also serve as a faculty member in the Department of Risk Management/Insurance, Real Estate, and Legal Studies.
+
+My research focuses on empirical insurance economics. Active areas include property/casualty loss reserving, Florida homeowners insurance markets and the role of state-sponsored insurers, reinsurance demand, enterprise risk management, and the application of large language models to insurance disclosure data.
+
+I work regularly with NAIC, QUASR, and S&P/SNL data, and collaborate with industry and regulatory partners including the Florida Office of Insurance Regulation.
+
+## Contact
+
+Department of Risk Management/Insurance, Real Estate, and Legal Studies  
+College of Business, Florida State University  
+Tallahassee, FL  
+[eeastman@wertheim.fsu.edu](mailto:eeastman@wertheim.fsu.edu)

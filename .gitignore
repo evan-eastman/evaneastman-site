@@ -1,0 +1,13 @@
+# Quarto build artifacts
+/_site/
+/.quarto/
+/site_libs/
+/_freeze/
+/*_files/
+
+# OS noise
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log

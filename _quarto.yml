@@ -1,0 +1,37 @@
+project:
+  type: website
+  output-dir: _site
+
+website:
+  title: "Evan M. Eastman"
+  description: "Evan M. Eastman | Risk Management & Insurance, Florida State University"
+  site-url: "https://evaneastman.com"
+
+  navbar:
+    pinned: true
+    right:
+      - href: index.qmd
+        text: About
+      - href: research.qmd
+        text: Research
+      - href: teaching.qmd
+        text: Teaching
+      - href: cv.qmd
+        text: CV
+
+  page-footer:
+    left: "© 2026 Evan M. Eastman"
+    right:
+      - icon: envelope
+        href: "mailto:eeastman@wertheim.fsu.edu"
+
+format:
+  html:
+    theme:
+      - cosmo
+      - styles.scss
+    toc: false
+    fontsize: 1.05em
+    linkcolor: "#782F40"   # FSU garnet — swap for any accent you prefer
+    grid:
+      body-width: 850px

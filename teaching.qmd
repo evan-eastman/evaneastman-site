@@ -1,0 +1,32 @@
+---
+title: "Teaching"
+---
+
+## Florida State University
+
+::: {.course-entry}
+**RMI XXXX — [Course Title]**  
+[Undergraduate / Graduate] | [Semesters taught]  
+
+Brief description of the course: topics covered, level, and any distinctive elements (data projects, industry guest speakers, etc.).
+
+[[Syllabus](files/syllabus-rmiXXXX.pdf)]
+:::
+
+::: {.course-entry}
+**RMI XXXX — [Course Title]**  
+[Undergraduate / Graduate] | [Semesters taught]  
+
+Brief description.
+
+[[Syllabus](files/syllabus-rmiXXXX.pdf)]
+:::
+
+## Doctoral Mentoring
+
+Brief note on PhD students advised, dissertation committees, etc.
+
+## Workshops & Invited Lectures
+
+- [Workshop title], [Venue], [Year]
+- PhD Student Symposium — research trends panel
