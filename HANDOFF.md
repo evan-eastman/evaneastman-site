@@ -1,6 +1,6 @@
 # Handoff — evaneastman-site
 
-Last updated: 2026-05-24.
+Last updated: 2026-05-24 (end of second session).
 
 ## Status
 
@@ -13,19 +13,41 @@ deleted (recoverable from Dropbox web UI for 30 days if needed).
 **School/work PC**: still on Dropbox — follow "Setting up the other
 machine" below the next time you sit there.
 
-**Publishing**: site has not been published yet. DNS for
-`evaneastman.com` still needs to point at a host once you pick one (see
-README "Publishing" section).
+**Content**: all four pages (`index`, `research`, `teaching`, `cv`) are
+populated with real content. Bio is finalized; URLs filled in; icons
+rendering. Site has not been visually QA'd on all browsers yet, but
+renders correctly under `quarto preview`.
 
-## What's still to fill in
+**Publishing**: still not pushed to a host. DNS for `evaneastman.com`
+still needs to be pointed.
 
-| Where                 | What                                                                       |
-| --------------------- | -------------------------------------------------------------------------- |
-| `index.qmd` L15, L25  | FSU RMI Center URL (currently `business.fsu.edu/REPLACE` in two places)    |
-| `index.qmd` L25–29    | Bio paragraphs — read through; defaults are reasonable but may be off      |
-| `research.qmd`        | Every entry: `[Coauthors]`, `[Paper Title]`, `[Year]`, `[Journal]`, links. Easiest with CV in hand. |
-| `teaching.qmd`        | Two course slots: `RMI XXXX — [Course Title]`, semesters, syllabus PDFs    |
-| Publishing + DNS      | Pick a host (GitHub Pages recommended), run `quarto publish gh-pages`, point `evaneastman.com` DNS at it |
+**Uncommitted work**: this session's changes (research/teaching content,
+font swap, iconify fix, bio rewrite, URL fills) have not been committed
+yet. Run `git status` to see; recommend committing in 1–2 logical
+commits before publishing.
+
+## Next session — pick up here
+
+In rough priority order:
+
+1. **Commit current state.** `git status` will show ~5 modified files
+   (`research.qmd`, `teaching.qmd`, `index.qmd`, `_quarto.yml`,
+   `styles.scss`, `HANDOFF.md`). Recommend one commit for content
+   (`research`/`teaching`/`index`) and a second for theming
+   (`styles.scss`/`_quarto.yml`).
+2. **Visual QA.** Click through the site under `quarto preview` and
+   tell Claude what to tweak (spacing, icon size, layout).
+3. **Publish to GitHub Pages.** `quarto publish gh-pages` from the
+   project root. Site lands at
+   `https://evan-eastman.github.io/evaneastman-site/`. (Quarto will
+   create the `gh-pages` branch and push automatically.)
+4. **Point DNS.** In your registrar, add a CNAME record for
+   `evaneastman.com` → `evan-eastman.github.io`. Then add a `CNAME`
+   file in the repo root containing `evaneastman.com`, commit, push,
+   re-publish. README "Publishing" section has more.
+5. **Optional polish:** review the bio prose with a fresh eye;
+   double-check coauthor names and middle initials in `research.qmd`;
+   add a `[Slides]` link to any working papers with public slide decks.
 
 ## Working across machines
 
@@ -71,9 +93,28 @@ On the work/school PC where the project still lives in Dropbox:
   is visible at `github.com/evan-eastman/evaneastman-site`. Keep
   anything sensitive out of the repo, or switch the repo to private in
   GitHub settings.
+- **`quarto render` kills `quarto preview`.** If preview is running and
+  Claude (or anyone) runs `quarto render`, the preview server crashes
+  with exit code 1. Workflow: let preview do the rebuilding when files
+  change; only run an explicit `quarto render` when preview is stopped.
+  Exception: a *full* `quarto render` (no file argument) is sometimes
+  needed to re-inject the iconify `<script>` tag — a single-file
+  `quarto render research.qmd` won't add the dependency. If preview
+  dies after that, just restart it.
+- **Iconify identifiers must use the canonical set prefix.** `ai` (an
+  older alias for academicons) returns 404 from the Iconify CDN. Use
+  `academicons:ssrn`, `academicons:doi`, etc. Other sets in use:
+  `simple-icons:googlescholar` for the Scholar icon.
 
 ## Recent history
 
+- 2026-05-24 — Bio paragraphs rewritten by Evan in `index.qmd`: title is now "Independent Life and Accident Insurance Associate Professor and Research Coordinator for the Risk Management and Insurance Center"; research focus reframed as "empirical archival insurance economics" with active areas in financial accounting, taxation, corporate risk management, and real estate. Contact block expanded with full mailing address.
+- 2026-05-24 — Iconify prefix bug fixed: `ai:ssrn` and `ai:doi` returned 404 from the Iconify CDN (the `ai` prefix appears deprecated). Replaced site-wide with `academicons:ssrn` and `academicons:doi`. **Lesson**: always test an iconify identifier with `https://api.iconify.design/<set>:<icon>.svg` before relying on it in a Quarto shortcode — the Lua filter renders the tag whether or not the icon resolves.
+- 2026-05-24 — `research.qmd` per-entry links now render with iconify icons (extension vendored at `_extensions/mcanouil/iconify/`): `academicons:ssrn` for `[SSRN]` links, `academicons:doi` for `[Published]` links. Pattern: `[[{{< iconify academicons ssrn >}} SSRN](url)]`. Outer brackets preserved for a tag/button look.
+- 2026-05-24 — FSU RMI Center URL filled in across both spots in `index.qmd` (sidebar `links:` entry and inline bio): `https://insurancecenter.business.fsu.edu/`.
+- 2026-05-24 — `teaching.qmd` populated: 5 FSU courses (RMI 3011 / 4115 / 4292 / 5710 / 6395) + 1 UGA course (RMIN 4000), each linking to FSU's mobile catalog (`m.fsu.edu/default/course_catalog/detail?area=RMI&course=RMI+XXXX&term=all`). Doctoral Mentoring section lists 3 FSU committee members (Carrillo, Cather, Telljohann — all 2025 grads) and 2 external (Qi at UNT, Yang at UGA). Note: FSU bulletin lists RMI 4115 as "Lifecycle Risk Management"; CV (and this page) uses "Life/Health Insurance" — verify with Evan if this matters.
+- 2026-05-24 — Site font switched to Open Sans (FSU brand): Google Fonts loaded via `_quarto.yml` `include-in-header`; `styles.scss` `$font-family-sans-serif` updated to lead with `"Open Sans"`. Prior config declared `"Inter"` but never loaded it, so the page silently fell back to system Segoe UI.
+- 2026-05-24 — `research.qmd` restructured to mirror legacy site's three-bucket convention: `## Publications` (14 refereed: 3 forthcoming + 11 published), `## Working Papers` (19, merging former Under Review + Working Papers into one flat list, no status labels), `## Other` (with `### Selected Invited Talks` and `### Service & Editorial` as sub-sections). DOIs/SSRN links cover ~80% of entries. Hard breaks within `.pub-entry` blocks use explicit `<br>` tags (PowerShell 5.1 Get-Content/Out-File mangled UTF-8 in an earlier attempt at trailing-two-space breaks).
 - 2026-05-23 — Iconify extension switched from unmaintained
   `quarto-ext/iconify` to actively-maintained `mcanouil/quarto-iconify`
   v3.2.1, vendored at `_extensions/mcanouil/iconify/`.

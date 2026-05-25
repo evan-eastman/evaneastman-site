@@ -2,31 +2,62 @@
 title: "Teaching"
 ---
 
+I teach risk management and insurance courses across the undergraduate, master's, and Ph.D. programs at FSU. For current schedules, see the [FSU Department of Risk Management/Insurance](https://business.fsu.edu/departments/rmi).
+
 ## Florida State University
 
 ::: {.course-entry}
-**RMI XXXX — [Course Title]**  
-[Undergraduate / Graduate] | [Semesters taught]  
-
-Brief description of the course: topics covered, level, and any distinctive elements (data projects, industry guest speakers, etc.).
-
-[[Syllabus](files/syllabus-rmiXXXX.pdf)]
+**RMI 3011 — Risk Management/Insurance**<br>
+Undergraduate.<br>
+Introduction to the principles of risk management and insurance and their application to personal and business pure risk problems.<br>
+[[Catalog](https://m.fsu.edu/default/course_catalog/detail?area=RMI&course=RMI+3011&term=all)]
 :::
 
 ::: {.course-entry}
-**RMI XXXX — [Course Title]**  
-[Undergraduate / Graduate] | [Semesters taught]  
+**RMI 4115 — Life/Health Insurance**<br>
+Undergraduate.<br>
+Personal and business life and health insurance needs, plan characteristics, rating, underwriting, and financial analysis.<br>
+[[Catalog](https://m.fsu.edu/default/course_catalog/detail?area=RMI&course=RMI+4115&term=all)]
+:::
 
-Brief description.
+::: {.course-entry}
+**RMI 4292 — Property and Casualty Insurer Operations**<br>
+Undergraduate.<br>
+The composition, financial structure, and operations of the property-casualty insurance industry, with special consideration of consumer problems and regulatory responses.<br>
+[[Catalog](https://m.fsu.edu/default/course_catalog/detail?area=RMI&course=RMI+4292&term=all)]
+:::
 
-[[Syllabus](files/syllabus-rmiXXXX.pdf)]
+::: {.course-entry}
+**RMI 5710 — Insurance Company Operations**<br>
+Master's (online).<br>
+Fundamentals of risk, the management of pure risk, insurance mechanisms, insurer operations, and the evolution of enterprise risk management.<br>
+[[Catalog](https://m.fsu.edu/default/course_catalog/detail?area=RMI&course=RMI+5710&term=all)]
+:::
+
+::: {.course-entry}
+**RMI 6395 — Seminar on the Theory of Risk and Insurance**<br>
+Ph.D.<br>
+Review of the theoretical foundations of risk and insurance: the concept of risk, contributions from related disciplines, determinants of insurance consumption and risk management decisions, and industry dynamics.<br>
+[[Catalog](https://m.fsu.edu/default/course_catalog/detail?area=RMI&course=RMI+6395&term=all)]
+:::
+
+## University of Georgia
+
+::: {.course-entry}
+**RMIN 4000 — Risk Management and Insurance**<br>
+Undergraduate (Summer 2014 – Spring 2017).<br>
+Risk identification, risk evaluation, and risk treatment methods, with emphasis on insurance as a risk management tool. Designed for non-majors as well as a foundation for advanced RMI coursework.
 :::
 
 ## Doctoral Mentoring
 
-Brief note on PhD students advised, dissertation committees, etc.
+**Committee member, Florida State University:**
 
-## Workshops & Invited Lectures
+- Gabriel Carrillo (Risk Management and Insurance, 2025) — University of Central Florida.
+- William D. Cather (Accounting, 2025) — Oklahoma State University.
+- Dana Telljohann (Risk Management and Insurance, 2025) — University of Cincinnati.
 
-- [Workshop title], [Venue], [Year]
-- PhD Student Symposium — research trends panel
+**External committee member:**
+
+- Yuchen Qi (Finance, University of North Texas).
+- Dan Yang (Risk Management and Insurance, University of Georgia, 2022) — Troy University.

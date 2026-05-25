@@ -5,60 +5,225 @@ toc-location: right
 toc-title: " "
 ---
 
-## Published & Forthcoming
+My research focuses on empirical insurance economics, with emphasis on financial accounting, taxation, regulation, and enterprise risk management. For a full record, see my [CV](cv.qmd).
+
+## Publications
 
 ::: {.pub-entry}
-**Reinsurance Purchases and the Corporate Lifecycle**  
-With [Coauthors].  
-*Journal of Corporate Finance*, forthcoming.  
-[[Pre-print](#)] [[Published](#)] [[Replication](#)]
+**Healthy Competition? Health Insurer Mergers Pre- and Post-ACA**<br>
+With Joshua D. Frederick and Charles C. Yang.<br>
+Forthcoming, *North American Actuarial Journal*.
 :::
 
 ::: {.pub-entry}
-**[Paper Title]**  
-With [Coauthors].  
-*[Journal Name]*, [Year], [Volume](Issue), pp–pp.  
-[[Pre-print](#)] [[Published](#)] [[Replication](#)]
+**Actuarial Implications of Changes in Financial Reporting on Insurer Investments and Earnings Management**<br>
+With Dan Yang and James M. Carson.<br>
+Forthcoming, *North American Actuarial Journal*.<br>
+[[{{< iconify academicons ssrn >}} SSRN](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5268327)]
+:::
+
+::: {.pub-entry}
+**Risk Management and Corporate Lifecycles: Evidence from Reinsurance Purchases**<br>
+With Cassandra R. Cole.<br>
+*Journal of Corporate Finance*, 2026, 98: 102961.<br>
+[[{{< iconify academicons doi >}} Published](https://www.sciencedirect.com/science/article/abs/pii/S0929119926000192)]
+:::
+
+::: {.pub-entry}
+**Accounting Standards and Gains Trading**<br>
+With Kyeonghee Kim and Marc A. Ragin.<br>
+*Journal of Insurance Regulation*, 2025, 44(5): 1–43.<br>
+[[{{< iconify academicons ssrn >}} SSRN](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3969335)]
+:::
+
+::: {.pub-entry}
+**Enterprise Risk Management and Corporate Tax Planning**<br>
+With Anne C. Ehinger and Jianren Xu.<br>
+*Journal of Risk and Insurance*, 2024, 91(3): 529–566.<br>
+[[{{< iconify academicons doi >}} Published](https://doi.org/10.1111/jori.12469)]
+:::
+
+::: {.pub-entry}
+**Capital Structure and Financing in the Health Insurance Industry: Evidence from the Affordable Care Act**<br>
+With Joshua D. Frederick and J. Bradley Karl.<br>
+*Journal of Insurance Issues*, 2024, 47(1): 1–34.<br>
+[[{{< iconify academicons doi >}} Published](https://www.jstor.org/stable/48770672)]
+:::
+
+::: {.pub-entry}
+**Are Internal Capital Markets Ex-Post Efficient?**<br>
+With James M. Carson, David L. Eckles, and Joshua D. Frederick.<br>
+*North American Actuarial Journal*, 2023, 27(4): 630–655.<br>
+[[{{< iconify academicons doi >}} Published](https://doi.org/10.1080/10920277.2022.2126373)]
+:::
+
+::: {.pub-entry}
+**Managed Care or Carefully Managed? Management of Underwriting Profitability by Health Insurers**<br>
+With Patricia H. Born and E. Tice Sirmans.<br>
+*Geneva Papers on Risk and Insurance—Issues and Practice*, 2023, 48(1): 5–31.<br>
+[[{{< iconify academicons doi >}} Published](https://doi.org/10.1057/s41288-021-00239-1)]
+:::
+
+::: {.pub-entry}
+**Market Reactions to Enterprise Risk Management Adoption, Incorporation by Ratings Agencies, and ORSA Act Passage**<br>
+With Jianren Xu.<br>
+*Risk Management and Insurance Review*, 2021, 24(2): 151–180.<br>
+[[{{< iconify academicons doi >}} Published](https://doi.org/10.1111/rmir.12170)]
+:::
+
+::: {.pub-entry}
+**Accounting-Based Regulation: Evidence from Health Insurers and the Affordable Care Act**<br>
+With David L. Eckles and Andrew Van Buskirk.<br>
+*The Accounting Review*, 2021, 96(2): 231–259.<br>
+[[{{< iconify academicons doi >}} Published](https://doi.org/10.2308/tar-2019-0173)]
+:::
+
+::: {.pub-entry}
+**Reducing Medical Malpractice Loss Reserve Volatility Through Tort Reform**<br>
+With Patricia H. Born and W. Kip Viscusi.<br>
+*North American Actuarial Journal*, 2020, 24(4): 626–646.<br>
+[[{{< iconify academicons doi >}} Published](https://doi.org/10.1080/10920277.2020.1733616)]
+:::
+
+::: {.pub-entry}
+**It's About Time: An Examination of Loss Reserve Development Time Horizons**<br>
+With Michael M. Barth and David L. Eckles.<br>
+*North American Actuarial Journal*, 2019, 23(2): 143–168.<br>
+[[{{< iconify academicons doi >}} Published](https://doi.org/10.1080/10920277.2018.1538804)]
+:::
+
+::: {.pub-entry}
+**CEO Overconfidence and Earnings Management: Evidence from Property-Liability Insurers' Reserve Errors**<br>
+With Thomas R. Berry-Stölzle and Jianren Xu.<br>
+*North American Actuarial Journal*, 2018, 22(3): 380–404.<br>
+[[{{< iconify academicons doi >}} Published](https://doi.org/10.1080/10920277.2017.1421977)]
+:::
+
+::: {.pub-entry}
+**Ratings: It's Accrual World**<br>
+With James M. Carson and David L. Eckles.<br>
+*Journal of Risk and Insurance*, 2018, 85(3): 787–809.<br>
+[[{{< iconify academicons doi >}} Published](https://doi.org/10.1111/jori.12179)]
 :::
 
 ## Working Papers
 
 ::: {.pub-entry}
-**Enterprise Risk Management and Workplace Safety**  
-With [Coauthors].  
-*Working paper*, revised [Month Year].  
-[[Pre-print](#)] [[Slides](#)]
-
-> Using propensity-score matching and difference-in-differences, we show that ERM adoption is associated with approximately a 31% reduction in workplace injuries.
+**Regulatory Capital and Deferred Tax Assets**<br>
+With Anne C. Ehinger and Cathryn M. Meegan.<br>
+[[{{< iconify academicons ssrn >}} SSRN](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3461346)]
 :::
 
 ::: {.pub-entry}
-**Electoral Uncertainty and Insurer Outcomes**  
-With [Coauthors].  
-*Working paper*, [Month Year].  
-[[Pre-print](#)]
+**The Capital Market Consequences Associated with Classifying Unrealized Gains and Losses on Available-For-Sale (AFS) Equity Securities in GAAP Net Income**<br>
+With John L. Campbell, James M. Carson, and Dan Yang.<br>
+[[{{< iconify academicons ssrn >}} SSRN](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4032821)]
 :::
 
 ::: {.pub-entry}
-**Mandated Insurers and Pricing in Florida's Homeowners Market**  
-With [Coauthors].  
-*Working paper*, [Month Year].
+**Regulatory Capital and Catastrophe Risk**<br>
+With Kyeonghee Kim.<br>
+[[{{< iconify academicons ssrn >}} SSRN](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4468543)]
 :::
 
-## Work in Progress
+::: {.pub-entry}
+**Asymmetry in Earnings Management Surrounding Targeted Ratings**<br>
+With David L. Eckles and Martin Halek.<br>
+[[{{< iconify academicons ssrn >}} SSRN](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3846968)]
+:::
 
-- **Loss Reserving and Workforce Dynamics** — using Revelio Labs workforce data to test whether workforce contraction predicts adverse reserve development.
-- **TCJA, Tax Function Convexity, and Corporate Hedging** — XBRL-based extraction from SEC EDGAR filings.
-- **Board Risk Oversight Delegation** — LLM-based analysis of SEC proxy statement disclosures.
+::: {.pub-entry}
+**Earnings Management, Executive Compensation, and Ownership Structure**<br>
+With David L. Eckles, Martin Halek, and Lawrence S. Powell.
+:::
 
-## Selected Presentations
+::: {.pub-entry}
+**Homeowners Insurance and Housing Prices**<br>
+With Kyeonghee Kim and Tingyu Zhou.<br>
+[[{{< iconify academicons ssrn >}} SSRN](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4852702)]
+:::
 
-- [Conference], [Location], [Year]
-- Risk Theory Society Annual Meeting, FSU, 2025
-- FSU RMI Research Symposium, Tampa, 2026
+::: {.pub-entry}
+**The Usefulness of Disaggregated Disclosures for Complex Estimates: Evidence from the Claim Loss Reserve**<br>
+With Anne C. Ehinger and Andrea Tillet.<br>
+[[{{< iconify academicons ssrn >}} SSRN](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4447626)]
+:::
 
-## Service & Editorial
+::: {.pub-entry}
+**Accounting Discretion and Loss Reserve Discounting: Evidence from Canadian Property-Casualty Insurers**<br>
+With David L. Eckles and Mary Kelly.<br>
+[[{{< iconify academicons ssrn >}} SSRN](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4130633)]
+:::
 
-- Editorial role, *Journal of Risk and Insurance*
-- ARIA Kulp-Wright Book Award Committee, 2025
-- Organizer, FSU RMI Research Symposium (2026) and Risk Theory Society Annual Meeting (2025)
+::: {.pub-entry}
+**A Text-Based Measure of Corporate Risk Management**<br>
+With Steve M. Miller and Po-Lin Wang.
+:::
+
+::: {.pub-entry}
+**Climate Risk and Commercial Property Insurance**<br>
+With Stephen L. Buschbom, Chongyu Wang, and Tingyu Zhou.
+:::
+
+::: {.pub-entry}
+**Enterprise Risk Management and Financial Misconduct**<br>
+With Chan Li, Lili Sun, and Jianren Xu.
+:::
+
+::: {.pub-entry}
+**Enterprise Risk Management and Employee Safety**<br>
+With Yuchen Qi and Jianren Xu.
+:::
+
+::: {.pub-entry}
+**Capital Structure, Financial Strength Ratings, and Market Discipline**<br>
+With James M. Carson and Dan Yang.
+:::
+
+::: {.pub-entry}
+**Insurance Solvency Regulation in the Shadows: Evidence and Effects of Informal Regulatory Intervention**<br>
+With Michael M. Barth and Robert W. Klein.
+:::
+
+::: {.pub-entry}
+**Personal Characteristics and Accounting Estimates: Evidence from CEOs, Actuaries, and Reported Loss Reserves**<br>
+With Olga Kanj and Mary Kelly.
+:::
+
+::: {.pub-entry}
+**Errors in Claim-Level Reserving: Evidence from Medical Malpractice Claims**<br>
+With Patricia H. Born and Paul C. Schriefer.
+:::
+
+::: {.pub-entry}
+**Bad Faith Claims Litigation in the Property-Casualty Insurance Industry**<br>
+With Patricia H. Born and Dana Telljohann.
+:::
+
+::: {.pub-entry}
+**Managerial Style and Accounting Discretion: Evidence from the Property-Casualty Insurance Industry**
+:::
+
+::: {.pub-entry}
+**Innovation and Cost of Capital: An Examination of the 2010 Affordable Care Act**<br>
+With Anne C. Ehinger.
+:::
+
+## Other
+
+### Selected Invited Talks
+
+- February 2025 — University of Georgia, Athens, GA. *Homeowners Insurance and Housing Prices*.
+- November 2023 — University of North Texas, Denton, TX. *Regulatory Capital and Catastrophe Risk*.
+- January 2022 — Egyptian Online Seminar in Business Accounting and Economics (Virtual). *The Capital Market Consequences Associated with Classifying Unrealized Gains and Losses on AFS Equity Securities in GAAP Net Income*.
+- November 2019 — Wilfrid Laurier University, Waterloo, Canada. *Accounting Discretion and Loss Reserve Discounting: Evidence from the Canadian Property-Casualty Insurance Industry*.
+- September 2018 — Temple University, Philadelphia, PA. *Accounting Discretion and Regulation: Evidence from Health Insurers and the Affordable Care Act*.
+
+### Service & Editorial
+
+- **Associate Editor**, *Risk Management and Insurance Review* (2025–present).
+- **Chair**, ARIA Kulp-Wright Book Award Committee (2026); committee member (2020, 2023, 2025).
+- **Secretary**, Southern Risk and Insurance Association (2025–2026); board member (2019–2021, 2024–2025).
+- Member, ARIA Program Committee (2020, 2023–2026); ARIA Nomination Committee (2022); ARIA Hagen Family Foundation Travel Award Committee (2018, 2020).
+
+Ad-hoc reviewer for *Accounting Forum*, *Applied Economics*, *Geneva Papers on Risk and Insurance—Issues and Practice*, *Journal of Contingencies and Crisis Management*, *Journal of Financial Research*, *Journal of Insurance Issues*, *Journal of Insurance Regulation*, *Journal of Risk and Insurance*, *North American Actuarial Journal*, *Risk Management and Insurance Review*, *Risks*, and *The Financial Review*.

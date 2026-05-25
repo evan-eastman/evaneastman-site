@@ -12,22 +12,23 @@ about:
       href: "mailto:eeastman@wertheim.fsu.edu"
     - icon: building
       text: FSU RMI Center
-      href: "https://business.fsu.edu/REPLACE"
+      href: "https://insurancecenter.business.fsu.edu/"
     - text: "{{< iconify simple-icons googlescholar >}} Scholar"
       href: "https://scholar.google.com/citations?user=ksnlHLAAAAAJ&hl=en"
-    - text: "{{< iconify ai ssrn >}} SSRN"
+    - text: "{{< iconify academicons ssrn >}} SSRN"
       href: "https://papers.ssrn.com/sol3/cf_dev/AbsByAuth.cfm?per_id=2361505"
 ---
 
-I am the Director of Research at the [Risk Management and Insurance Center](https://business.fsu.edu/REPLACE) at Florida State University, where I also serve as a faculty member in the Department of Risk Management/Insurance, Real Estate, and Legal Studies.
+I am the Independent Life and Accident Insurance Associate Professor and  Research Coordinator for the [Risk Management and Insurance Center](https://insurancecenter.business.fsu.edu/) at Florida State University in the Herbert Wertheim College of Business.  I serve as a faculty member in the Department of Risk Management/Insurance, Real Estate, and Legal Studies in the Dr. William T. Hold/The Alliance's Program in Risk Management and Insurance.
 
-My research focuses on empirical insurance economics. Active areas include property/casualty loss reserving, Florida homeowners insurance markets and the role of state-sponsored insurers, reinsurance demand, enterprise risk management, and the application of large language models to insurance disclosure data.
-
-I work regularly with NAIC, QUASR, and S&P/SNL data, and collaborate with industry and regulatory partners including the Florida Office of Insurance Regulation.
+My research focuses on empirical archival insurance economics. Active areas include financial accounting, taxation, corporate risk management, and real estate.
 
 ## Contact
 
-Department of Risk Management/Insurance, Real Estate, and Legal Studies  
-College of Business, Florida State University  
-Tallahassee, FL  
+Dr. William T. Hold/The Alliance's Program in Risk Management & Insurance<br>
+402 W. Gaines Street <br>
+Wertheim Center for Business Excellence 4814<br>
+Herbert Wertheim College for Business<br>
+Florida State University<br>
+Tallahassee, FL, 32301<br>
 [eeastman@wertheim.fsu.edu](mailto:eeastman@wertheim.fsu.edu)
