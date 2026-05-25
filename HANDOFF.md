@@ -1,53 +1,60 @@
 # Handoff — evaneastman-site
 
-Last updated: 2026-05-24 (end of second session).
+Last updated: 2026-05-25 (end of third session — site is LIVE).
 
 ## Status
 
-**Home PC**: migrated. Project lives at
-`C:\Users\Evan\Projects\evaneastman-site\`, builds cleanly with
-`quarto render`, syncs via `github.com/evan-eastman/evaneastman-site`
-(public). The Dropbox copy at `C:\Users\Evan\Dropbox\Website\` has been
-deleted (recoverable from Dropbox web UI for 30 days if needed).
+**Site**: live at https://evaneastman.com with valid HTTPS. CNAME file
+committed on `main`; Quarto copies it into `_site/` on each render so
+it lands in the `gh-pages` branch on publish. GitHub Pages auto-detects
+the domain and re-issues the Let's Encrypt cert as needed (current cert
+covers both apex and `www.evaneastman.com`, expires 2026-08-23,
+GitHub auto-renews ~30 days before).
+
+**Home PC**: working copy at `C:\Users\Evan\Projects\evaneastman-site\`,
+all work pushed to `origin/main` and `origin/gh-pages`. Working tree
+clean as of session close.
 
 **School/work PC**: still on Dropbox — follow "Setting up the other
-machine" below the next time you sit there.
+machine" below the next time you sit there. This session didn't touch
+the Dropbox copy.
 
-**Content**: all four pages (`index`, `research`, `teaching`, `cv`) are
-populated with real content. Bio is finalized; URLs filled in; icons
-rendering. Site has not been visually QA'd on all browsers yet, but
-renders correctly under `quarto preview`.
+**Content**: all four pages (`index`, `research`, `teaching`, `cv`)
+populated; SSRN links added across working and published papers; bio
+finalized; custom domain shipped.
 
-**Publishing**: still not pushed to a host. DNS for `evaneastman.com`
-still needs to be pointed.
+## What's left to add (next session ideas)
 
-**Uncommitted work**: this session's changes (research/teaching content,
-font swap, iconify fix, bio rewrite, URL fills) have not been committed
-yet. Run `git status` to see; recommend committing in 1–2 logical
-commits before publishing.
+- More SSRN links — several published papers (#3, 4, 5, 6, 8, 9, 10, 11
+  from this session's prompt) weren't added because no IDs were
+  available at the time. Working papers without links are #2, 5–13 in
+  the same list. Easiest workflow: copy IDs off your SSRN author page.
+- **JIR paper** ("Accounting Standards and Gains Trading", JIR 2025)
+  is SSRN-only — you wanted to check on whether the post-publication
+  editorial change left it with a stable journal URL we can add as a
+  `[Published]` link.
+- Photo polish: current is 800×1000 / 92 KB. Replace if you want a
+  different shot.
+- Optional: `[Slides]` iconify link on working papers with public
+  slide decks.
+- Visual QA on phone / different browsers if you haven't already.
 
-## Next session — pick up here
+## Standard workflow (re-publish)
 
-In rough priority order:
+Now that the initial setup is behind us, every future change is just:
 
-1. **Commit current state.** `git status` will show ~5 modified files
-   (`research.qmd`, `teaching.qmd`, `index.qmd`, `_quarto.yml`,
-   `styles.scss`, `HANDOFF.md`). Recommend one commit for content
-   (`research`/`teaching`/`index`) and a second for theming
-   (`styles.scss`/`_quarto.yml`).
-2. **Visual QA.** Click through the site under `quarto preview` and
-   tell Claude what to tweak (spacing, icon size, layout).
-3. **Publish to GitHub Pages.** `quarto publish gh-pages` from the
-   project root. Site lands at
-   `https://evan-eastman.github.io/evaneastman-site/`. (Quarto will
-   create the `gh-pages` branch and push automatically.)
-4. **Point DNS.** In your registrar, add a CNAME record for
-   `evaneastman.com` → `evan-eastman.github.io`. Then add a `CNAME`
-   file in the repo root containing `evaneastman.com`, commit, push,
-   re-publish. README "Publishing" section has more.
-5. **Optional polish:** review the bio prose with a fresh eye;
-   double-check coauthor names and middle initials in `research.qmd`;
-   add a `[Slides]` link to any working papers with public slide decks.
+```powershell
+cd "$env:USERPROFILE\Projects\evaneastman-site"
+git pull
+# ... edit, quarto preview to QA ...
+git add .; git commit -m "..."
+git push origin main
+quarto publish gh-pages --no-prompt --no-browser
+```
+
+`quarto publish gh-pages` re-renders, pushes to `gh-pages`, and GitHub
+Pages serves the update within a minute or two. CNAME is preserved on
+every publish because it lives in the source tree at repo root.
 
 ## Working across machines
 
@@ -70,7 +77,7 @@ other machine, edit the marker blocks (`<<<<<<<` / `=======` /
 On the work/school PC where the project still lives in Dropbox:
 
 1. Install the GitHub CLI: `winget install --id GitHub.cli`.
-2. Authenticate: `gh auth login` (web browser flow, like you just did).
+2. Authenticate: `gh auth login` (web browser flow).
 3. Clone into Projects: `git clone https://github.com/evan-eastman/evaneastman-site.git "$env:USERPROFILE\Projects\evaneastman-site"`.
 4. Confirm the new copy renders: `cd` in, run `quarto render`.
 5. Delete the Dropbox copy at `C:\Users\Evan\Dropbox\Website\evaneastman-site\` (the junction in `.quarto/` there needs `cmd /c rmdir` to remove, not `Remove-Item -Recurse`, or it will delete the cache target).
@@ -101,6 +108,29 @@ On the work/school PC where the project still lives in Dropbox:
   needed to re-inject the iconify `<script>` tag — a single-file
   `quarto render research.qmd` won't add the dependency. If preview
   dies after that, just restart it.
+- **Quarto preview watcher misses some external file writes.** When
+  files are edited via tooling that doesn't trip the inotify watcher
+  (Claude's Edit tool is one example), preview's auto-rebuild can run
+  on stale input — the rendered HTML stays unchanged even though
+  `_site/research.html` shows a fresh mtime. Fix: stop preview, run a
+  full `quarto render`, restart preview. Browser-edit-and-save in the
+  IDE does *not* hit this.
+- **First publish to GitHub Pages is a one-time gotcha.** `quarto
+  publish gh-pages --no-prompt` fails on a fresh repo with "the remote
+  origin does not have a branch named 'gh-pages'". The branch has to
+  pre-exist on origin. This session fixed it by `git push origin
+  main:gh-pages` to seed it; Quarto's first publish then replaced the
+  content. No longer relevant — `gh-pages` exists on origin, so
+  re-publishes via `--no-prompt` work fine.
+- **Cloudflare DNS records must be "DNS only" (gray cloud)**, not
+  "Proxied" (orange cloud), for GitHub Pages' cert provisioning to
+  succeed. Apex `evaneastman.com` is four A records to
+  `185.199.108.153 / .109.153 / .110.153 / .111.153`;
+  `www.evaneastman.com` is a CNAME to `evan-eastman.github.io`. All
+  gray-cloud.
+- **Apex domains can't use CNAME records** (RFC restriction). Use A
+  records for the bare domain. CNAMEs are fine for subdomains like
+  `www`.
 - **Iconify identifiers must use the canonical set prefix.** `ai` (an
   older alias for academicons) returns 404 from the Iconify CDN. Use
   `academicons:ssrn`, `academicons:doi`, etc. Other sets in use:
@@ -108,6 +138,29 @@ On the work/school PC where the project still lives in Dropbox:
 
 ## Recent history
 
+- 2026-05-25 — Custom domain shipped. Added `CNAME` at repo root (Quarto
+  auto-copies into `_site/`); pushed; re-published. GitHub auto-detected
+  the domain, issued a Let's Encrypt cert covering both apex and `www`,
+  expires 2026-08-23. Enabled HTTPS enforcement via
+  `gh api -X PUT repos/evan-eastman/evaneastman-site/pages -F https_enforced=true`.
+  Site verified live at https://evaneastman.com.
+- 2026-05-25 — DNS configured at Cloudflare. Four A records at apex →
+  GitHub IPs (185.199.108-111.153); CNAME for `www` →
+  `evan-eastman.github.io`. All "DNS only" (gray cloud). Propagation
+  verified via whatsmydns.net before publish.
+- 2026-05-25 — First publish to GitHub Pages succeeded after seeding
+  `gh-pages` branch on origin via `git push origin main:gh-pages`.
+  Quarto's first publish then rewrote contents to the rendered site.
+  Live initially at `https://evan-eastman.github.io/evaneastman-site/`
+  before the custom domain was wired in.
+- 2026-05-25 — Added SSRN links across the bibliography. Working papers:
+  *A Text-Based Measure* (Miller/Wang, 5624330), *Climate Risk and
+  Commercial Property* (Buschbom/Wang/Zhou, 5841862). Published papers
+  (added alongside existing `[Published]`): *Risk Mgmt & Corporate
+  Lifecycles* (JCF, 4608575), *ERM & Corporate Tax Planning* (JRI,
+  3717865), *Accounting-Based Regulation* (TAR, 3282300). Convention:
+  `[SSRN]` first, then `[Published]` (chronological — working paper
+  precedes journal version).
 - 2026-05-24 — Bio paragraphs rewritten by Evan in `index.qmd`: title is now "Independent Life and Accident Insurance Associate Professor and Research Coordinator for the Risk Management and Insurance Center"; research focus reframed as "empirical archival insurance economics" with active areas in financial accounting, taxation, corporate risk management, and real estate. Contact block expanded with full mailing address.
 - 2026-05-24 — Iconify prefix bug fixed: `ai:ssrn` and `ai:doi` returned 404 from the Iconify CDN (the `ai` prefix appears deprecated). Replaced site-wide with `academicons:ssrn` and `academicons:doi`. **Lesson**: always test an iconify identifier with `https://api.iconify.design/<set>:<icon>.svg` before relying on it in a Quarto shortcode — the Lua filter renders the tag whether or not the icon resolves.
 - 2026-05-24 — `research.qmd` per-entry links now render with iconify icons (extension vendored at `_extensions/mcanouil/iconify/`): `academicons:ssrn` for `[SSRN]` links, `academicons:doi` for `[Published]` links. Pattern: `[[{{< iconify academicons ssrn >}} SSRN](url)]`. Outer brackets preserved for a tag/button look.
