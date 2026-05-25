@@ -26,7 +26,7 @@ Forthcoming, *North American Actuarial Journal*.<br>
 **Risk Management and Corporate Lifecycles: Evidence from Reinsurance Purchases**<br>
 With Cassandra R. Cole.<br>
 *Journal of Corporate Finance*, 2026, 98: 102961.<br>
-[[{{< iconify academicons doi >}} Published](https://www.sciencedirect.com/science/article/abs/pii/S0929119926000192)]
+[[{{< iconify academicons ssrn >}} SSRN](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4608575)] [[{{< iconify academicons doi >}} Published](https://www.sciencedirect.com/science/article/abs/pii/S0929119926000192)]
 :::
 
 ::: {.pub-entry}
@@ -40,7 +40,7 @@ With Kyeonghee Kim and Marc A. Ragin.<br>
 **Enterprise Risk Management and Corporate Tax Planning**<br>
 With Anne C. Ehinger and Jianren Xu.<br>
 *Journal of Risk and Insurance*, 2024, 91(3): 529–566.<br>
-[[{{< iconify academicons doi >}} Published](https://doi.org/10.1111/jori.12469)]
+[[{{< iconify academicons ssrn >}} SSRN](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3717865)] [[{{< iconify academicons doi >}} Published](https://doi.org/10.1111/jori.12469)]
 :::
 
 ::: {.pub-entry}
@@ -75,7 +75,7 @@ With Jianren Xu.<br>
 **Accounting-Based Regulation: Evidence from Health Insurers and the Affordable Care Act**<br>
 With David L. Eckles and Andrew Van Buskirk.<br>
 *The Accounting Review*, 2021, 96(2): 231–259.<br>
-[[{{< iconify academicons doi >}} Published](https://doi.org/10.2308/tar-2019-0173)]
+[[{{< iconify academicons ssrn >}} SSRN](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3282300)] [[{{< iconify academicons doi >}} Published](https://doi.org/10.2308/tar-2019-0173)]
 :::
 
 ::: {.pub-entry}
@@ -157,12 +157,14 @@ With David L. Eckles and Mary Kelly.<br>
 
 ::: {.pub-entry}
 **A Text-Based Measure of Corporate Risk Management**<br>
-With Steve M. Miller and Po-Lin Wang.
+With Steve M. Miller and Po-Lin Wang.<br>
+[[{{< iconify academicons ssrn >}} SSRN](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5624330)]
 :::
 
 ::: {.pub-entry}
 **Climate Risk and Commercial Property Insurance**<br>
-With Stephen L. Buschbom, Chongyu Wang, and Tingyu Zhou.
+With Stephen L. Buschbom, Chongyu Wang, and Tingyu Zhou.<br>
+[[{{< iconify academicons ssrn >}} SSRN](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5841862)]
 :::
 
 ::: {.pub-entry}
