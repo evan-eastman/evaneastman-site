@@ -1,6 +1,6 @@
 # Handoff — evaneastman-site
 
-Last updated: 2026-05-25 (end of third session — site is LIVE).
+Last updated: 2026-05-26 (analytics wired in).
 
 ## Status
 
@@ -10,6 +10,13 @@ it lands in the `gh-pages` branch on publish. GitHub Pages auto-detects
 the domain and re-issues the Let's Encrypt cert as needed (current cert
 covers both apex and `www.evaneastman.com`, expires 2026-08-23,
 GitHub auto-renews ~30 days before).
+
+**Analytics**: Cloudflare Web Analytics wired in via `_quarto.yml`
+`include-in-header`. Token is bound to `evaneastman.com` in the
+Cloudflare dashboard (Analytics & Logs → Web Analytics). Privacy-
+respecting (no cookies, no consent banner needed); reports country,
+referrers, top pages, browsers, and OS. Data appears in the dashboard
+within a few minutes of each visit.
 
 **Home PC**: working copy at `C:\Users\Evan\Projects\evaneastman-site\`,
 all work pushed to `origin/main` and `origin/gh-pages`. Working tree
@@ -135,9 +142,36 @@ On the work/school PC where the project still lives in Dropbox:
   older alias for academicons) returns 404 from the Iconify CDN. Use
   `academicons:ssrn`, `academicons:doi`, etc. Other sets in use:
   `simple-icons:googlescholar` for the Scholar icon.
+- **Auto-mode classifier blocks `git push origin main` without
+  pre-authorization.** Default classifier behavior treats pushes to the
+  default branch as PR-bypass. The `autoMode.allow` rules in
+  `.claude/settings.local.json` document why this project is an
+  exception (single-author static site). Self-modification of
+  `.claude/settings.local.json` itself is also blocked — the file has
+  to be authored by you (paste via the `!`-prefixed PowerShell
+  here-string in this session's history, or edit by hand), not by
+  Claude on your behalf.
+- **`.claude/settings.local.json` is gitignored and machine-local.**
+  The publish-workflow permission rules don't sync across machines.
+  When you bring up the school PC, recreate the same file there using
+  the same JSON — see the 2026-05-26 history entry below for content.
 
 ## Recent history
 
+- 2026-05-26 — Cloudflare Web Analytics wired in. Beacon snippet added
+  to `_quarto.yml` `include-in-header` so it loads on every rendered
+  page. Privacy-respecting (no cookies, no consent banner), country-
+  level geo, referrers, top pages, browsers/OS. Token configured at
+  Cloudflare dashboard, bound to `evaneastman.com`. Also created
+  `.claude/settings.local.json` (gitignored) with `permissions.allow`
+  and `autoMode.allow` entries for `git push origin main` and
+  `quarto publish gh-pages --no-prompt --no-browser` so future
+  sessions can run the publish workflow without the auto-mode
+  classifier blocking. **Note**: the classifier blocks self-
+  modification of that settings file, so Evan wrote it himself via a
+  `!`-prefixed PowerShell here-string. Reproduce on the school PC by
+  pasting the same JSON. `.gitignore` extended to exclude
+  `.claude/settings.local.json`.
 - 2026-05-25 — Custom domain shipped. Added `CNAME` at repo root (Quarto
   auto-copies into `_site/`); pushed; re-published. GitHub auto-detected
   the domain, issued a Let's Encrypt cert covering both apex and `www`,

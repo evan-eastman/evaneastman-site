@@ -9,6 +9,9 @@
 .DS_Store
 Thumbs.db
 
+# Claude Code local settings (machine-specific permission rules)
+.claude/settings.local.json
+
 # Logs
 *.log
 
