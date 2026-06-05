@@ -20,6 +20,8 @@ website:
         text: Teaching
       - href: cv.qmd
         text: CV
+      - href: other.qmd
+        text: Other
 
   page-footer:
     left: "© 2026 Evan M. Eastman"

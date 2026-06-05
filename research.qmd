@@ -12,14 +12,15 @@ My research focuses on empirical insurance economics, with emphasis on financial
 ::: {.pub-entry}
 **Healthy Competition? Health Insurer Mergers Pre- and Post-ACA**<br>
 With Joshua D. Frederick and Charles C. Yang.<br>
-Forthcoming, *North American Actuarial Journal*.
+Forthcoming, *North American Actuarial Journal*.<br>
+[[{{< iconify academicons doi >}} Published](https://doi.org/10.1080/10920277.2026.2664596)]
 :::
 
 ::: {.pub-entry}
 **Actuarial Implications of Changes in Financial Reporting on Insurer Investments and Earnings Management**<br>
 With Dan Yang and James M. Carson.<br>
 Forthcoming, *North American Actuarial Journal*.<br>
-[[{{< iconify academicons ssrn >}} SSRN](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5268327)]
+[[{{< iconify academicons ssrn >}} SSRN](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5268327)] [[{{< iconify academicons doi >}} Published](https://doi.org/10.1080/10920277.2026.2639547)]
 :::
 
 ::: {.pub-entry}
@@ -33,7 +34,7 @@ With Cassandra R. Cole.<br>
 **Accounting Standards and Gains Trading**<br>
 With Kyeonghee Kim and Marc A. Ragin.<br>
 *Journal of Insurance Regulation*, 2025, 44(5): 1–43.<br>
-[[{{< iconify academicons ssrn >}} SSRN](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3969335)]
+[[{{< iconify academicons ssrn >}} SSRN](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3969335)] [[{{< iconify academicons doi >}} Published](https://content.naic.org/research/jir/accounting-standards-and-gains-trading)]
 :::
 
 ::: {.pub-entry}
@@ -210,22 +211,3 @@ With Patricia H. Born and Dana Telljohann.
 **Innovation and Cost of Capital: An Examination of the 2010 Affordable Care Act**<br>
 With Anne C. Ehinger.
 :::
-
-## Other
-
-### Selected Invited Talks
-
-- February 2025 — University of Georgia, Athens, GA. *Homeowners Insurance and Housing Prices*.
-- November 2023 — University of North Texas, Denton, TX. *Regulatory Capital and Catastrophe Risk*.
-- January 2022 — Egyptian Online Seminar in Business Accounting and Economics (Virtual). *The Capital Market Consequences Associated with Classifying Unrealized Gains and Losses on AFS Equity Securities in GAAP Net Income*.
-- November 2019 — Wilfrid Laurier University, Waterloo, Canada. *Accounting Discretion and Loss Reserve Discounting: Evidence from the Canadian Property-Casualty Insurance Industry*.
-- September 2018 — Temple University, Philadelphia, PA. *Accounting Discretion and Regulation: Evidence from Health Insurers and the Affordable Care Act*.
-
-### Service & Editorial
-
-- **Associate Editor**, *Risk Management and Insurance Review* (2025–present).
-- **Chair**, ARIA Kulp-Wright Book Award Committee (2026); committee member (2020, 2023, 2025).
-- **Secretary**, Southern Risk and Insurance Association (2025–2026); board member (2019–2021, 2024–2025).
-- Member, ARIA Program Committee (2020, 2023–2026); ARIA Nomination Committee (2022); ARIA Hagen Family Foundation Travel Award Committee (2018, 2020).
-
-Ad-hoc reviewer for *Accounting Forum*, *Applied Economics*, *Geneva Papers on Risk and Insurance—Issues and Practice*, *Journal of Contingencies and Crisis Management*, *Journal of Financial Research*, *Journal of Insurance Issues*, *Journal of Insurance Regulation*, *Journal of Risk and Insurance*, *North American Actuarial Journal*, *Risk Management and Insurance Review*, *Risks*, and *The Financial Review*.

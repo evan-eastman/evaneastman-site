@@ -1,6 +1,6 @@
 # Handoff — evaneastman-site
 
-Last updated: 2026-05-26 (analytics wired in).
+Last updated: 2026-06-05 (added Other page; new published links).
 
 ## Status
 
@@ -26,9 +26,13 @@ clean as of session close.
 machine" below the next time you sit there. This session didn't touch
 the Dropbox copy.
 
-**Content**: all four pages (`index`, `research`, `teaching`, `cv`)
-populated; SSRN links added across working and published papers; bio
-finalized; custom domain shipped.
+**Content**: five pages (`index`, `research`, `teaching`, `cv`,
+`other`) populated; SSRN links added across working and published
+papers; bio finalized; custom domain shipped. The `other.qmd` page
+(new 2026-06-05) holds the department conference link, invited talks,
+and service/editorial roles — the latter two migrated out of
+`research.qmd`. These items now live ONLY on the Other page; don't
+re-add them to Research.
 
 ## What's left to add (next session ideas)
 
@@ -36,10 +40,6 @@ finalized; custom domain shipped.
   from this session's prompt) weren't added because no IDs were
   available at the time. Working papers without links are #2, 5–13 in
   the same list. Easiest workflow: copy IDs off your SSRN author page.
-- **JIR paper** ("Accounting Standards and Gains Trading", JIR 2025)
-  is SSRN-only — you wanted to check on whether the post-publication
-  editorial change left it with a stable journal URL we can add as a
-  `[Published]` link.
 - Photo polish: current is 800×1000 / 92 KB. Replace if you want a
   different shot.
 - Optional: `[Slides]` iconify link on working papers with public
@@ -158,6 +158,25 @@ On the work/school PC where the project still lives in Dropbox:
 
 ## Recent history
 
+- 2026-06-05 — New **Other** navbar page (`other.qmd`) added after CV.
+  Migrated *Selected Invited Talks* and *Service & Editorial* out of
+  `research.qmd` into it; added a *Conferences* section linking the
+  [FSU RMI Research Symposium](https://business.fsu.edu/rmiresearchsymposium).
+  Linked RMIR (Wiley, `onlinelibrary.wiley.com/journal/15406296`) and
+  SRIA (`southernrisk.org`) inline within Service & Editorial rather
+  than as separate highlight sections — avoids duplication, and these
+  items now live ONLY on the Other page. Also added `[Published]`
+  links to three papers: JIR *Accounting Standards and Gains Trading*
+  (NAIC, `content.naic.org/research/jir/accounting-standards-and-gains-trading`)
+  and the two forthcoming NAAJ papers — *Healthy Competition?*
+  (Frederick/Yang, doi 10.1080/10920277.2026.2664596) and *Actuarial
+  Implications of Changes in Financial Reporting* (Yang/Carson, doi
+  10.1080/10920277.2026.2639547). **Caution learned**: the two NAAJ
+  DOIs are easy to swap — `2639547` is the Carson/Yang paper (titled
+  "Actuarial Implications…"), NOT a companion piece to Healthy
+  Competition. Verified author/title via the Crossref API
+  (`api.crossref.org/works/<doi>`) since tandfonline 403s automated
+  fetches.
 - 2026-05-26 — Cloudflare Web Analytics wired in. Beacon snippet added
   to `_quarto.yml` `include-in-header` so it loads on every rendered
   page. Privacy-respecting (no cookies, no consent banner), country-
