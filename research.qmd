@@ -107,7 +107,7 @@ With James M. Carson and David L. Eckles.<br>
 [[{{< iconify academicons doi >}} Published](https://doi.org/10.1111/jori.12179)]
 :::
 
-## Working Papers
+## Papers Under Review
 
 ::: {.pub-entry}
 **Regulatory Capital and Deferred Tax Assets**<br>
@@ -117,7 +117,7 @@ With Anne C. Ehinger and Cathryn M. Meegan.<br>
 
 ::: {.pub-entry}
 **The Capital Market Consequences Associated with Classifying Unrealized Gains and Losses on Available-For-Sale (AFS) Equity Securities in GAAP Net Income**<br>
-With John L. Campbell, James M. Carson, and Dan Yang.<br>
+With John L. Campbell, James M. Carson, Jingshu Luo, and Dan Yang.<br>
 [[{{< iconify academicons ssrn >}} SSRN](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4032821)]
 :::
 
@@ -143,6 +143,13 @@ With David L. Eckles, Martin Halek, and Lawrence S. Powell.
 With Kyeonghee Kim and Tingyu Zhou.<br>
 [[{{< iconify academicons ssrn >}} SSRN](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4852702)]
 :::
+
+::: {.pub-entry}
+**Insurer Investments: Accounting, Regulation, and Empirical Patterns**<br>
+With Dan Yang and James M. Carson.
+:::
+
+## Working Papers
 
 ::: {.pub-entry}
 **The Usefulness of Disaggregated Disclosures for Complex Estimates: Evidence from the Claim Loss Reserve**<br>

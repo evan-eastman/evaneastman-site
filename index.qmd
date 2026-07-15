@@ -10,6 +10,9 @@ about:
     - icon: envelope
       text: Email
       href: "mailto:eeastman@wertheim.fsu.edu"
+    - icon: person-badge
+      text: FSU Profile
+      href: "https://business.fsu.edu/person/evan-eastman"
     - icon: building
       text: FSU RMI Center
       href: "https://insurancecenter.business.fsu.edu/"
@@ -22,6 +25,30 @@ about:
 I am the Independent Life and Accident Insurance Associate Professor and  Research Coordinator for the [Risk Management and Insurance Center](https://insurancecenter.business.fsu.edu/) at Florida State University in the Herbert Wertheim College of Business.  I serve as a faculty member in the Department of Risk Management/Insurance, Real Estate, and Legal Studies in the Dr. William T. Hold/The Alliance's Program in Risk Management and Insurance.
 
 My research focuses on empirical archival insurance economics. Active areas include financial accounting, taxation, corporate risk management, and real estate.
+
+```{=html}
+<!-- Symposium announcement. Rendered in the body, then relocated by the script below
+     into the About left column, under the link buttons. Update the body text once
+     the 2027 call-for-papers details are finalized. -->
+<div id="symposium-box" class="symposium-box">
+  <div class="symposium-box__label">FSU RMI Research Symposium</div>
+  <p class="symposium-box__body">Information on the 2027 meeting is coming soon.</p>
+  <a class="symposium-box__link" href="https://wertheim.fsu.edu/rmiresearchsymposium">Learn more &rarr;</a>
+  <div class="symposium-box__host">Hosted by the <a href="https://insurancecenter.business.fsu.edu/">Risk Management and Insurance Center</a> and the Dr. William T. Hold/The Alliance's Program in Risk Management and Insurance.</div>
+</div>
+<script>
+  (function () {
+    var box = document.getElementById('symposium-box');
+    var entity = document.querySelector('.about-entity');
+    if (box && entity) { entity.appendChild(box); }
+  })();
+</script>
+```
+
+## Education
+
+- **Ph.D.** Risk Management and Insurance, University of Georgia, 2017
+- **B.S.** Economics, The Pennsylvania State University, 2012
 
 ## Contact
 

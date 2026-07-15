@@ -2,6 +2,7 @@
 
 // Base palette — FSU garnet & gold, used sparingly
 $primary:       #782F40;  // FSU garnet
+$gold:          #CEB888;  // FSU gold
 $body-color:    #1f1f1f;
 $link-color:    $primary;
 $link-hover-color: darken($primary, 10%);
@@ -46,4 +47,42 @@ $headings-font-weight: 600;
 // Slightly tighter navbar
 .navbar {
   font-weight: 500;
+}
+
+// Symposium announcement — sits under the link buttons in the About left column,
+// relocated there by a small script in index.qmd. FSU gold tint.
+.symposium-box {
+  margin-top: 1.4rem;
+  padding: 0.9rem 1rem;
+  border: 1px solid $gold;
+  border-left: 4px solid $gold;
+  border-radius: 6px;
+  background: rgba($gold, 0.18);
+  font-size: 0.85rem;
+  line-height: 1.45;
+  text-align: left;
+}
+
+.symposium-box__label {
+  font-weight: 700;
+  color: $primary;
+  margin-bottom: 0.3rem;
+}
+
+.symposium-box__body {
+  margin: 0 0 0.5rem;
+  color: #333;
+}
+
+.symposium-box__link {
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.symposium-box__host {
+  margin-top: 0.6rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid rgba($gold, 0.6);
+  font-size: 0.75rem;
+  color: #666;
 }

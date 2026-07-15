@@ -1,0 +1,261 @@
+---
+title: "Presentations"
+toc: true
+toc-location: right
+toc-title: " "
+---
+
+## Conferences
+
+- **[FSU Risk Management and Insurance Research Symposium](https://wertheim.fsu.edu/rmiresearchsymposium)**, hosted by the [FSU Risk Management and Insurance Center](https://insurancecenter.business.fsu.edu/).
+
+## Invited Talks — Academic
+
+- **February 2025** — *Homeowners Insurance and Housing Prices* (with Kyeonghee Kim and Tingyu Zhou). University of Georgia; Athens, Georgia.
+- **November 2023** — *Regulatory Capital and Catastrophe Risk* (with Kyeonghee Kim). University of North Texas; Denton, Texas.
+- **January 2022** — *The Capital Market Consequences Associated with Classifying Unrealized Gains and Losses on Available-For-Sale (AFS) Equity Securities in GAAP Net Income* (with John L. Campbell, James M. Carson, and Dan Yang). Egyptian Online Seminar in Business Accounting and Economics; Virtual.
+- **November 2019** — *Accounting Discretion and Loss Reserve Discounting: Evidence from the Canadian Property-Casualty Insurance Industry* (with David L. Eckles and Mary Kelly). CPA Ontario Centre for Capital Markets and Behavioural Decision Making, Wilfrid Laurier University; Waterloo, Canada.
+- **September 2018** — *Accounting Discretion and Regulation: Evidence from Health Insurers and the Affordable Care Act* (with David L. Eckles and Andrew Van Buskirk). Robert A. Hedges Research Seminar Series, Temple University; Philadelphia, Pennsylvania.
+- **October 2016** — *Asymmetry in Earnings Management Surrounding Targeted Ratings* (with David L. Eckles and Martin Halek). Florida State University; Tallahassee, Florida.
+- **September 2016** — *Asymmetry in Earnings Management Surrounding Targeted Ratings* (with David L. Eckles and Martin Halek). Chubb Insurance Research Symposium, St. John's University; New York, New York.
+
+## Invited Talks — Professional
+
+- **April 2026** — *The Guaranty System: A Primer — Part 1: The Property & Casualty Safety Net* and *Part 2: The Life & Health Safety Net* (in conjunction with The Institutes Griffith Foundation). National Council of Insurance Legislators Spring National Meeting; Louisville, Kentucky.
+- **October 2024** — *Back to Basics: P&C Guaranty Funds*. The Institutes Griffith Insurance Education Foundation / CIPR; Virtual.
+- **June 2024** — *Back to Basics: Life and Health Guaranty Associations*. The Institutes Griffith Insurance Education Foundation / CIPR; Virtual.
+
+## Conference Presentations
+
+- **October 2026** · Financial Management Association Annual Meeting; Tampa, Florida *(scheduled)*
+    - *A Text-Based Measure of Corporate Risk Management* (with Steve M. Miller and Po-Lin Wang)
+- **October 2026** · NAIC/CIPR Research Symposium; Kansas City, Missouri *(scheduled)*
+    - *Pricing Climate Risk in Commercial Property Insurance* (with Stephen L. Buschbom, Chongyu Wang, and Tingyu Zhou)
+- **September 2026** · Urban Economics Association North American Meeting; Chicago, Illinois *(scheduled)*
+    - *Climate Risk and Commercial Property Insurance* (with Stephen L. Buschbom, Chongyu Wang, and Tingyu Zhou)
+- **August 2026** · American Risk and Insurance Association Annual Meeting; Orlando, Florida *(scheduled)*
+    - *Climate Risk and Commercial Property Insurance* (with Stephen L. Buschbom, Chongyu Wang, and Tingyu Zhou)
+    - *Insurer Innovation: Measurement, Determinants, and Value Implications* (with Po-Lin Wang)
+- **May 2026** · American Real Estate and Urban Economics Association National Conference; Washington, D.C. *(scheduled)*
+    - *Climate Risk and Commercial Property Insurance* (with Stephen L. Buschbom, Chongyu Wang, and Tingyu Zhou)
+- **May 2026** · Western Risk and Insurance Association Annual Meeting; Monterey, California *(scheduled)*
+    - *Climate Risk and Commercial Property Insurance* (with Stephen L. Buschbom, Chongyu Wang, and Tingyu Zhou)
+    - *Homeowners Insurance and Housing Prices* (with Kyeonghee Kim and Tingyu Zhou)
+    - *Managerial Discretion and Ownership Structure: An Examination of Earnings Management in the Insurer Loss Reserve Surrounding the 2017 Tax Cuts and Jobs Act* (with James M. Carson and Anne C. Ehinger)
+- **April 2026** · Risk Theory Society Annual Seminar; Tallahassee, Florida
+    - *Homeowners Insurance and Housing Prices* (with Kyeonghee Kim and Tingyu Zhou)
+- **March 2026** · American Real Estate Society Annual Conference; Sandestin, Florida
+    - *Climate Risk and Commercial Property Insurance* (with Stephen L. Buschbom, Chongyu Wang, and Tingyu Zhou)
+- **November 2025** · Southern Risk and Insurance Association Annual Meeting; Charleston, South Carolina
+    - *Climate Risk and Commercial Property Insurance* (with Stephen L. Buschbom, Chongyu Wang, and Tingyu Zhou)
+    - *Innovation and Value Creation in the Insurance Industry: Evidence from Textual Analysis of 10-K Filings* (with Po-Lin Wang and Dan Yang)
+- **November 2025** · Southern Finance Association Annual Meeting; Orlando, Florida
+    - *Homeowners Insurance and Housing Prices* (with Kyeonghee Kim and Tingyu Zhou)
+- **October 2025** · Urban Economics Association North American Meeting; Montreal, Canada
+    - *Homeowners Insurance and Housing Prices* (with Kyeonghee Kim and Tingyu Zhou)
+- **August 2025** · World Risk and Insurance Economic Congress; Calgary, Canada
+    - *Homeowners Insurance and Housing Prices* (with Kyeonghee Kim and Tingyu Zhou)
+    - *Managerial Discretion and Ownership Structure: An Examination of Earnings Management in the Insurer Loss Reserve Surrounding the 2017 Tax Cuts and Jobs Act* (with James M. Carson and Anne C. Ehinger)
+    - *A Text-Based Measure of Corporate Risk Management* (with Steve M. Miller and Po-Lin Wang)
+    - *Enterprise Risk Management and Employee Safety* (with Yuchen Qi and Jianren Xu)
+- **May 2025** · American Real Estate and Urban Economics Association National Conference; Washington, D.C.
+    - *Homeowners Insurance and Housing Prices* (with Kyeonghee Kim and Tingyu Zhou)
+- **April 2025** · American Real Estate Society Annual Conference; Tucson, Arizona
+    - *Homeowners Insurance and Housing Prices* (with Kyeonghee Kim and Tingyu Zhou)
+- **January 2025** · American Real Estate and Urban Economics Association Annual Meeting; San Francisco, California
+    - *Homeowners Insurance and Housing Prices* (with Kyeonghee Kim and Tingyu Zhou)
+- **November 2024** · Southern Risk and Insurance Association Annual Meeting; San Antonio, Texas
+    - *Homeowners Insurance and Housing Prices* (with Kyeonghee Kim and Tingyu Zhou)
+    - *Insurer Start-Up Survival* (with Dana Telljohann)
+    - *Is There an Optimal Level of Corporate Risk Management?* (with Steve M. Miller and Po-Lin Wang)
+    - *Enterprise Risk Management and Employee Safety* (with Yuchen Qi and Jianren Xu)
+    - *Enterprise Risk Management and Internal Capital Market Efficiency* (with Joshua D. Frederick and Jiyeon Yun)
+    - *Internal Capital Markets and Accounting Quality* (with Joshua D. Frederick)
+    - *Managerial Discretion, Ownership Structure, and Taxes* (with James M. Carson and Anne C. Ehinger)
+- **November 2024** · Southern Finance Association Annual Meeting; Palm Beach, Florida
+    - *Regulatory Capital and Catastrophe Risk* (with Kyeonghee Kim)
+- **August 2024** · American Risk and Insurance Association Annual Meeting; Denver, Colorado
+    - *The Usefulness of Increased Disclosures for Complex Estimates* (with Anne C. Ehinger and Andrea Tillet)
+    - *A Text-Based Measure of Corporate Risk Management* (with Steve M. Miller and Po-Lin Wang)
+    - *Insurer Start-Up Survival* (with Dana Telljohann)
+    - *Financial Reporting and Firm's Investment Strategy: Evidence from the U.S. Insurance Industry* (with James M. Carson and Dan Yang)
+- **April 2024** · Risk Theory Society Annual Seminar; Iowa City, Iowa
+    - *Regulatory Capital and Catastrophe Risk* (with Kyeonghee Kim)
+- **April 2024** · Eastern Finance Association Annual Meeting; St. Petersburg, Florida
+    - *Regulatory Capital and Catastrophe Risk* (with Kyeonghee Kim)
+- **January 2024** · Allied Social Sciences Association Annual Meeting; San Antonio, Texas
+    - *Regulatory Capital and Catastrophe Risk* (with Kyeonghee Kim)
+- **January 2024** · Hawaii Accounting Research Conference Annual Meeting; Honolulu, Hawaii
+    - *The Usefulness of Increased Disclosures for Complex Estimates* (with Anne C. Ehinger and Andrea Tillet)
+- **December 2023** · CEAR/MRIC Behavioral Insurance Workshop; Atlanta, Georgia
+    - *Regulatory Capital and Catastrophe Risk* (with Kyeonghee Kim)
+- **November 2023** · Southern Risk and Insurance Association Annual Meeting; Savannah, Georgia
+    - *The Usefulness of Increased Disclosures for Complex Estimates* (with Anne C. Ehinger and Andrea Tillet)
+    - *Does Regulation Lead to Manipulation? The Impact of Regulation on Property-Casualty Insurer Loss Reserves* (with Dana Telljohann)
+    - *A Text-Based Measure of Corporate Risk Management* (with Steve M. Miller and Po-Lin Wang)
+- **August 2023** · American Risk and Insurance Association Annual Meeting; Washington, D.C.
+    - *Regulatory Capital and Catastrophe Risk* (with Kyeonghee Kim)
+    - *Unemployment Benefits During the Pandemic and Life Insurer Disintermediation* (with James M. Carson, Robert E. Hoyt, and Kyeonghee Kim)
+    - *Fixing Shadow (re)Insurance?* (with Jaewon Choi, Kyeonghee Kim, and Jiyeon Yun)
+    - *Capital Structure, Financial Strength Ratings, and Market Discipline* (with James M. Carson and Dan Yang)
+- **November 2022** · Southern Risk and Insurance Association Annual Meeting; New Orleans, Louisiana
+    - *Regulatory Capital and Catastrophe Risk* (with Kyeonghee Kim)
+    - *Risk Management and Corporate Lifecycles: Evidence from Reinsurance Purchases* (with Cassandra R. Cole)
+    - *Unemployment Benefits During the Pandemic and Life Insurer Disintermediation* (with James M. Carson, Robert E. Hoyt, and Kyeonghee Kim)
+    - *Regulatory Frictions in Insurance Markets: Evidence from Changes to Risk-Based Capital Standards* (with David L. Eckles and Mary Kelly)
+    - *Bad Faith Litigation in the Property-Casualty Insurance Industry* (with Patricia H. Born and Dana Telljohann)
+    - *Capital Structure, Financial Strength Ratings, and Market Discipline* (with James M. Carson and Dan Yang)
+- **November 2022** · Conference on Financial Economics and Accounting Annual Conference; Atlanta, Georgia
+    - *The Capital Market Consequences Associated with Classifying Unrealized Gains and Losses on Available-For-Sale (AFS) Equity Securities in GAAP Net Income* (with John L. Campbell, James M. Carson, and Dan Yang)
+- **August 2022** · American Accounting Association Annual Meeting; San Diego, California
+    - *The Capital Market Consequences Associated with Classifying Unrealized Gains and Losses on Available-For-Sale (AFS) Equity Securities in GAAP Net Income* (with John L. Campbell, James M. Carson, and Dan Yang)
+- **August 2022** · American Risk and Insurance Association Annual Meeting; Long Beach, California
+    - *Risk Management and Corporate Lifecycles: Evidence from Reinsurance Purchases* (with Cassandra R. Cole)
+    - *The Capital Market Consequences Associated with Classifying Unrealized Gains and Losses on Available-For-Sale (AFS) Equity Securities in GAAP Net Income* (with John L. Campbell, James M. Carson, and Dan Yang)
+    - *Capital Structure, Financial Strength Ratings, and Market Discipline* (with James M. Carson and Dan Yang)
+- **January 2022** · Hawaii Accounting Research Conference Annual Meeting; Virtual
+    - *Regulatory Capital Planning and Deferred Tax Assets in a Post-Financial Crisis Environment* (with Anne C. Ehinger and Cathryn M. Meegan)
+- **November 2021** · Southern Risk and Insurance Association Annual Conference; Virtual
+    - *The Capital Market Consequences Associated with Classifying Unrealized Gains and Losses on Available-For-Sale (AFS) Equity Securities in GAAP Net Income* (with John L. Campbell, James M. Carson, and Dan Yang)
+    - *Target Capital Structure and Financial Strength Ratings* (with James M. Carson and Dan Yang)
+- **October 2021** · Financial Management Association Annual Conference; Virtual
+    - *Enterprise Risk Management and Corporate Tax Planning* (with Anne C. Ehinger and Jianren Xu)
+- **August 2021** · American Accounting Association Annual Conference; Virtual
+    - *Enterprise Risk Management and Corporate Tax Avoidance* (with Anne C. Ehinger and Jianren Xu)
+- **August 2021** · American Risk and Insurance Association Annual Conference; Virtual
+    - *Enterprise Risk Management and Corporate Tax Avoidance* (with Anne C. Ehinger and Jianren Xu)
+    - *Does Earnings Reclassification Change Firm's Information Asymmetry? Evidence from Public Banks and Insurers* (with John L. Campbell, James M. Carson, and Dan Yang)
+- **June 2021** · Canadian Academic Accounting Association Annual Conference; Virtual
+    - *Enterprise Risk Management and Corporate Tax Avoidance* (with Anne C. Ehinger and Jianren Xu)
+- **March 2021** · University of North Texas Accounting Research Conference; Virtual
+    - *Enterprise Risk Management and Corporate Tax Avoidance* (with Anne C. Ehinger and Jianren Xu)
+- **January 2021** · Financial Accounting and Reporting Section Midyear Meeting; Virtual
+    - *Enterprise Risk Management and Financial Misconduct* (with Chan Li, Lili Sun, and Jianren Xu)
+- **November 2020** · Southern Risk and Insurance Association Annual Meeting; Virtual
+    - *Regulatory Capital Planning and Deferred Tax Assets in a Post-Financial Crisis Environment* (with Anne C. Ehinger and Cathryn M. Meegan)
+    - *Enterprise Risk Management and Corporate Tax Avoidance* (with Anne C. Ehinger and Jianren Xu)
+    - *The Impact of Earnings Reclassification on the Informativeness of Earnings: Evidence from Public Insurers* (with James M. Carson and Dan Yang)
+    - *Errors in Claim-Level Loss Reserving: Evidence from Medical Malpractice Claims* (with Patricia H. Born and Paul C. Schriefer)
+- **October 2020** · Financial Management Association Annual Meeting; Virtual
+    - *Enterprise Risk Management and Financial Misconduct* (with Chan Li, Lili Sun, and Jianren Xu)
+- **August 2020** · American Accounting Association Annual Meeting; Virtual
+    - *Regulatory Capital Planning and Deferred Tax Assets in a Post-Financial Crisis Environment* (with Anne C. Ehinger and Cathryn M. Meegan)
+- **August 2020** · World Risk and Insurance Economics Congress; Virtual
+    - *Regulatory Capital Planning and Deferred Tax Assets in a Post-Financial Crisis Environment* (with Anne C. Ehinger and Cathryn M. Meegan)
+    - *The Impact of Earnings Reclassification on the Informativeness of Earnings: Evidence from Public Insurers and Banks* (with James M. Carson and Dan Yang)
+    - *Personal Characteristics and Accounting Estimates: Evidence from CEOs, Actuaries, and Reported Loss Reserves* (with Olga Kanj and Mary Kelly)
+    - *Eh-ccruals: Regulatory Impacts on the Reporting of Loss Reserves* (with David L. Eckles, Anne Kleffner, and Mary Kelly)
+    - *Medical Loss Ratio Requirements and Health Insurance Prices* (with Patricia H. Born and Kyeonghee Kim)
+- **February 2020** · American Taxation Association Midyear Meeting; Fort Worth, Texas
+    - *Regulatory Capital Planning and Deferred Tax Assets in a Post-Financial Crisis Environment* (with Anne C. Ehinger and Cathryn M. Meegan)
+- **January 2020** · American Accounting Association Auditing Midyear Meeting; Houston, Texas
+    - *Enterprise Risk Management and Financial Misconduct* (with Chan Li, Lili Sun, and Jianren Xu)
+- **January 2020** · Western Risk and Insurance Association Annual Meeting; Puerto Vallarta, Mexico
+    - *Enterprise Risk Management and Financial Misconduct* (with Chan Li, Lili Sun, and Jianren Xu)
+- **November 2019** · Southern Risk and Insurance Association Annual Meeting; Charleston, South Carolina
+    - *Gains Trading as an Earnings Management Tool: The Case of Property-Casualty Insurers* (with Kyeonghee Kim and Marc A. Ragin)
+    - *Earnings Reclassification and Insurer Cost of Capital* (with James M. Carson and Dan Yang)
+    - *Are There Personal Values in Loss Reserving?* (with Olga Kanj and Mary Kelly)
+    - *Enterprise Risk Management and Financial Misconduct* (with Jianren Xu)
+- **November 2019** · Southern Economic Association Annual Meeting; Fort Lauderdale, Florida
+    - *Tacit Collusion and Contact Across Markets in the Insurance Industry* (with Cameron M. Ellis and Juan Zhang)
+- **October 2019** · Vietnam Symposium in Banking and Finance; Hanoi, Vietnam
+    - *Are Internal Capital Markets Efficient? Evidence of Effective Winner Picking* (with James M. Carson, David L. Eckles, and Joshua D. Frederick)
+- **August 2019** · American Risk and Insurance Association Annual Meeting; San Francisco, California
+    - *Do Winners Keep Winning? Evidence of Efficient "Winner Picking" in the Property-Casualty Insurance Industry* (with James M. Carson, David L. Eckles, and Joshua D. Frederick)
+    - *Enterprise Risk Management and Financial Misconduct* (with Jianren Xu)
+    - *Insurance Solvency Regulation in the Shadows: Evidence and Effects of Informal Regulatory Intervention* (with Michael M. Barth and Robert W. Klein)
+- **January 2019** · Western Risk and Insurance Association Annual Meeting; Monterey, California
+    - *Accounting Discretion and Loss Reserve Discounting: Evidence from Canada* (with David L. Eckles and Mary Kelly)
+- **November 2018** · Southern Risk and Insurance Association Annual Meeting; Orlando, Florida
+    - *Accounting Discretion and Loss Reserve Discounting: Evidence from Canada* (with David L. Eckles and Mary Kelly)
+    - *Accounting Discretion and Rate Regulation: Evidence from Property-Casualty Insurer Rate Filings* (with Courtney Baggett)
+    - *Health Insurer Financing and the Affordable Care Act* (with Courtney Baggett, Joshua D. Frederick, and J. Bradley Karl)
+- **August 2018** · American Risk and Insurance Association Annual Meeting; Chicago, Illinois
+    - *Accounting Discretion and Loss Reserve Discounting: Evidence from Canada* (with David L. Eckles and Mary Kelly)
+- **July 2018** · Asia-Pacific Risk and Insurance Association Annual Meeting; Singapore
+    - *Accounting Discretion and Loss Reserve Discounting: Evidence from Canada* (with David L. Eckles and Mary Kelly)
+- **January 2018** · Western Risk and Insurance Association Annual Meeting; Las Vegas, Nevada
+    - *Accounting Discretion and Regulation: Evidence from Health Insurers and the Affordable Care Act* (with David L. Eckles)
+- **November 2017** · Southern Risk and Insurance Association Annual Meeting; Nashville, Tennessee
+    - *Tacit Collusion and Contact Across Markets in the Insurance Industry* (with Cameron M. Ellis and Juan Zhang)
+- **October 2017** · Financial Management Association Annual Meeting; Boston, Massachusetts
+    - *Medical Loss Ratio Malpractice?* (with David L. Eckles)
+- **August 2017** · American Risk and Insurance Association Annual Meeting; Toronto, Canada
+    - *Healthy Competition: Direct and Indirect Valuation Effects from Health Insurance Mergers* (with Joshua D. Frederick)
+    - *In It to Win It: Evidence of "Winner Picking" in the Property-Casualty Insurance Industry* (with James M. Carson, David L. Eckles, and Joshua D. Frederick)
+- **July 2017** · Asia-Pacific Risk and Insurance Association Annual Conference; Poznan, Poland
+    - *Asymmetry in Earnings Management Surrounding Targeted Ratings* (with David L. Eckles and Martin Halek)
+- **January 2017** · American Real Estate and Urban Economics Association Annual Meeting; Chicago, Illinois
+    - *Liquidity, Capital Constraints, and Rating Migration in Structured Fixed Income* (with Stephen L. Buschbom)
+- **January 2017** · Western Risk and Insurance Association Annual Meeting; Santa Barbara, California
+    - *Market Reactions to Enterprise Risk Management Adoption* (with Jianren Xu)
+    - *Earnings Management, Executive Compensation, and Ownership Structure* (with David L. Eckles, Martin Halek, and Lawrence S. Powell)
+    - *In It to Win It: Evidence of "Winner Picking" in the Property-Casualty Insurance Industry* (with James M. Carson, David L. Eckles, and Joshua D. Frederick)
+    - *The Valuation of Health Insurance Mergers in the Pre- and Post-Affordable Care Act Periods* (with Joshua D. Frederick)
+- **November 2016** · Southern Risk and Insurance Association Annual Meeting; Savannah, Georgia
+    - *Medical Loss Ratio Malpractice?* (with David L. Eckles)
+    - *Accruals Quality and Analyst Forecast Accuracy: Evidence from the Property-Casualty Insurance Industry* (with In Jung (Anna) Song)
+    - *Managerial Style and Accounting Discretion: Evidence from the Property-Casualty Insurance Industry*
+    - *The Valuation of Health Insurance Mergers in the Pre- and Post-Affordable Care Act Periods* (with Joshua D. Frederick)
+- **October 2016** · Financial Management Association Annual Meeting; Las Vegas, Nevada
+    - *Asymmetry in Earnings Management Surrounding Targeted Ratings* (with David L. Eckles and Martin Halek)
+- **September 2016** · European Group of Risk and Insurance Economists Annual Meeting; Limassol, Cyprus
+    - *Asymmetric Earnings Management Responses to Targeted Ratings* (with David L. Eckles and Martin Halek)
+- **August 2016** · American Risk and Insurance Association Annual Meeting; Cambridge, Massachusetts
+    - *Medical Loss Ratio Malpractice?* (with David L. Eckles)
+- **May 2016** · Florida State University / University of Georgia Research Symposium; Tallahassee, Florida
+    - *Target Capital Structure and Financial Strength Ratings*
+    - *The Valuation of Health Insurance Mergers in the Pre- and Post-Affordable Care Act Periods* (with Joshua D. Frederick)
+- **November 2015** · Southern Risk and Insurance Association Annual Meeting; New Orleans, Louisiana
+    - *Market Reactions to Enterprise Risk Management Adoption* (with Jianren Xu)
+    - *Ratings: It's Accrual World* (with James M. Carson and David L. Eckles)
+- **August 2015** · World Risk and Insurance Economics Congress; Munich, Germany
+    - *Target Financial Strength Ratings and Insurer Loss Reserve Errors* (with David L. Eckles and Martin Halek)
+    - *Managerial Overconfidence and Earnings Management* (with Thomas R. Berry-Stölzle and Jianren Xu)
+    - *Ratings: It's Accrual World* (with James M. Carson and David L. Eckles)
+    - *Market Reactions to Enterprise Risk Management Adoption* (with Jianren Xu)
+- **May 2015** · Florida State University / University of Georgia Research Symposium; Athens, Georgia
+    - *Financial Strength Ratings and Loss Reserve Volatility* (with James M. Carson and David L. Eckles)
+- **January 2015** · Western Risk and Insurance Association Annual Meeting; Scottsdale, Arizona
+    - *Managerial Overconfidence and Earnings Management* (with Thomas R. Berry-Stölzle and Jianren Xu)
+    - *Target Financial Strength Ratings and Insurer Loss Reserve Errors* (with David L. Eckles and Martin Halek)
+- **November 2014** · Southern Risk and Insurance Association Annual Meeting; Charleston, South Carolina
+    - *Managerial Overconfidence and Earnings Management* (with Thomas R. Berry-Stölzle and Jianren Xu)
+    - *Target Financial Strength Ratings and Insurer Loss Reserve Errors* — Ph.D. Student Colloquium Presentation (with David L. Eckles and Martin Halek)
+- **August 2014** · American Risk and Insurance Association Annual Meeting; Seattle, Washington
+    - *Managerial Overconfidence and Earnings Management* (with Thomas R. Berry-Stölzle and Jianren Xu)
+    - *Earnings Management, Executive Compensation, and Ownership Structure* (with David L. Eckles, Martin Halek, and Lawrence S. Powell)
+- **August 2014** · 1st Annual S.S. Huebner Foundation Doctoral Colloquium; Seattle, Washington
+    - *Earnings Management, Executive Compensation, and Ownership Structure* (with David L. Eckles, Martin Halek, and Lawrence S. Powell)
+- **November 2013** · Southern Risk and Insurance Association Annual Meeting; Orlando, Florida
+    - *Dynamic Determinants of Corporate Diversification: Property-Liability Insurers' Decision to Enter into a New Line of Business* (with Jennifer R. Atkinson and Thomas R. Berry-Stölzle)
+    - *Executive Compensation and Loss Reserve Management: An Examination of Mutual and Stock Insurers* (with David L. Eckles, Martin Halek, and Lawrence S. Powell)
+
+## Discussant Talks
+
+- **August 2026** · American Risk and Insurance Association Annual Meeting; Orlando, Florida *(scheduled)* — *The Rise in Insurance Costs for Commercial Properties: Causes, Effects on Rents, and the Role of Owners* (Minjoo Kim, Prateek Mahajan, and Zirui Wang).
+- **August 2025** · World Risk and Insurance Economics Congress; Calgary, Canada — *Unrealized Losses Recognition and Interest Rate Risk Hedging for Insurance Firms* (Selim Mankai).
+- **August 2024** · American Risk and Insurance Association Annual Meeting; Denver, Colorado — *Claims Adjudication, Insurance Distribution Channel, and Customer Satisfaction* (Mark J. Browne, Kerry McCabe, David M. Pooser, and Andreas Richter).
+- **April 2024** · Eastern Finance Association Annual Meeting; St. Petersburg, Florida — *Bank Risk Management and Systemic Risk: Global Evidence* (Samuel W. Adams, Larry Fauver, Alvaro G. Taboada, and Lauren Milbach).
+- **August 2023** · American Risk and Insurance Association Annual Meeting; Washington, D.C. — *How Life Insurer Attributes Affect Consumer Purchase Behavior: Experimental Insights on the Role of Financial Strength, Sustainability, Service Quality and Type of Customer Touchpoint* (Moritz Hanika and Nadine Gatzert).
+- **August 2021** · American Risk and Insurance Association Annual Meeting; Virtual — *Contemporaneous versus Traditional Measures of Reserve Errors: The Effect of Monitors on Earnings Management* (Martin F. Grace and J. Tyler Leverty).
+- **June 2021** · Canadian Academic Accounting Association Annual Meeting; Virtual — *Taxes and Corporate Investment Behaviour: Evidence from the Halloween Massacre of 2006* (Matthew Boland and Khin Phyo Hlaing).
+- **November 2020** · Southern Risk and Insurance Association Annual Meeting; Virtual — *Enterprise Risk Management and Mergers and Acquisitions: Evidence from the Insurance Industry* (Yunhe Li, Steve Miller, and Tina Yang).
+- **August 2020** · World Risk and Insurance Economics Congress; Virtual — *Tort Reform and Physician Moral Hazard* (Juan Zhang).
+- **August 2019** · American Risk and Insurance Association Annual Meeting; San Francisco, California — *Conditional Conservatism and Insolvency Risk* (J. David Cummins, Mary A. Weiss, and Juan Zhang).
+- **August 2018** · American Risk and Insurance Association Annual Meeting; Chicago, Illinois — *Improving Performance of Non-Insurance Companies with Insurance Companies* (Jing Rong Goh) and *Underwriting Discipline and Investment Risk Taking in the Property-Liability Insurance Industry* (Anastasia Ivantsova and J. Tyler Leverty).
+- **August 2017** · American Risk and Insurance Association Annual Meeting; Toronto, Ontario — *Modeling the Risk of a Policyholder Run* (Tobias Huber and Johannes G. Jaspersen).
+- **August 2016** · American Risk and Insurance Association Annual Meeting; Cambridge, Massachusetts — *Are Loss Reserves and Internal Capital Markets Substitutes?* (Thomas R. Berry-Stölzle, James M. Carson, and In Jung (Anna) Song).
+- **August 2015** · World Risk and Insurance Economics Congress; Munich, Germany — *Enterprise Risk Management Sophistication and Firm Risk* (James Barrese, Stephen G. Fier, David M. Pooser, and Paul L. Walker).
+- **August 2014** · American Risk and Insurance Association Annual Meeting; Seattle, Washington — *CEO Overconfidence, Litigation Risk, and the Demand for Directors and Officers Insurance* (Jeffrey Boles, Yevgeniy Davydov, and Jacqueline Volkman-Wise).
+
+## Panels
+
+- **February 2026** — *Research Trends*. Ph.D. Student Research Symposium; Athens, Georgia.
+- **February 2025** — *From Assistant to Full Professor*. Ph.D. Student Research Symposium; Athens, Georgia.
+- **February 2023** — *Early Career Advice from Mid-Career Colleagues*. Ph.D. Student Research Symposium; Athens, Georgia.
+- **February 2022** — *A Career in Academia: What to Expect*. Ph.D. Student Research Symposium; Athens, Georgia.
+- **February 2020** — *A Young Person's Guide to the Publication Process*. Ph.D. Student Research Symposium; Athens, Georgia.
+- **January 2019** — *From Ph.D. Program to Faculty Member*. Ph.D. Student Research Symposium; Athens, Georgia.
+- **February 2017** — *Job Market*. Ph.D. Student Research Symposium; Athens, Georgia.
