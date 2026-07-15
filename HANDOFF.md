@@ -1,6 +1,7 @@
 # Handoff — evaneastman-site
 
-Last updated: 2026-06-05 (added Other page; new published links).
+Last updated: 2026-07-15 (nav restructure: Presentations/Service/Awards
+pages; Papers Under Review; symposium box on front page; July 2026 CV sync).
 
 ## Status
 
@@ -26,16 +27,37 @@ clean as of session close.
 machine" below the next time you sit there. This session didn't touch
 the Dropbox copy.
 
-**Content**: five pages (`index`, `research`, `teaching`, `cv`,
-`other`) populated; SSRN links added across working and published
-papers; bio finalized; custom domain shipped. The `other.qmd` page
-(new 2026-06-05) holds the department conference link, invited talks,
-and service/editorial roles — the latter two migrated out of
-`research.qmd`. These items now live ONLY on the Other page; don't
-re-add them to Research.
+**Content**: seven navbar pages — `index` (About), `research`,
+`teaching`, `presentations`, `service`, `awards`, `cv`. SSRN links
+across working/published papers; bio finalized; custom domain shipped.
+
+The old `other.qmd` was split (2026-07-15) into three dedicated pages:
+`presentations.qmd` (Conferences, Invited Talks academic/professional,
+full Conference Presentations, Discussant Talks, Panels — transcribed
+from the CV), `service.qmd` (comprehensive: editorial, reviewing,
+associations, FSU service, doctoral committees, memberships), and
+`awards.qmd` (full Awards & Honors). Service/editorial and talks now
+live ONLY on these pages — don't re-add them to Research.
+
+`research.qmd` now has a **Papers Under Review** section (between
+Publications and Working Papers) in addition to Working Papers.
+
+The front page (`index.qmd`) has an FSU-gold **symposium announcement
+box** that a small inline `<script>` relocates into the About left
+column, under the link buttons (`.about-entity`). It's currently
+generic ("Information on the 2027 meeting is coming soon"); update the
+`symposium-box__body` text when the 5th-symposium CFP/deadline is
+final (Jan 21–23, 2027, Tampa Hilton Downtown; official page
+`wertheim.fsu.edu/rmiresearchsymposium`). Box styling lives in
+`styles.scss` (`.symposium-box`, `$gold: #CEB888`).
 
 ## What's left to add (next session ideas)
 
+- Update the front-page **symposium box** once the 5th-symposium CFP /
+  submission deadline is finalized — edit `symposium-box__body` in
+  `index.qmd` (currently "Information on the 2027 meeting is coming
+  soon"). Official page lists Jan 21–23, 2027 (Tampa) and a Sept 1
+  deadline, but Evan indicated the due date isn't locked yet.
 - More SSRN links — several published papers (#3, 4, 5, 6, 8, 9, 10, 11
   from this session's prompt) weren't added because no IDs were
   available at the time. Working papers without links are #2, 5–13 in
@@ -158,6 +180,24 @@ On the work/school PC where the project still lives in Dropbox:
 
 ## Recent history
 
+- 2026-07-15 — Big content session. (1) Added a **Papers Under Review**
+  section to `research.qmd`, moving six papers up from Working Papers.
+  (2) Front page: added an **FSU Profile** button (`person-badge` icon,
+  `business.fsu.edu/person/evan-eastman`), an **Education** section
+  (Ph.D. UGA 2017, B.S. Penn State 2012), and the **symposium
+  announcement box** (see Content above). (3) Split `other.qmd` into
+  **Presentations / Service / Awards** pages, transcribed from the CV;
+  navbar is now About · Research · Teaching · Presentations · Service ·
+  Awards · CV. (4) Synced the **July 2026 CV**: 2026 Les B. Strickler
+  Innovation in Instruction Award; new 2026 conference talks (Oct FMA
+  Tampa, Oct NAIC/CIPR Kansas City, Sep UEA Chicago) + a second paper
+  on the Aug 2026 ARIA meeting; new Aug 2026 ARIA discussant talk; new
+  "Insurer Investments" paper under review; Jingshu Luo added as
+  coauthor on the AFS "Capital Market Consequences" paper. Committed
+  (`be25f12`), pushed, and published. **Symposium URL note**:
+  `business.fsu.edu/rmiresearchsymposium` 301-redirects to
+  `wertheim.fsu.edu/rmiresearchsymposium` — site now uses the canonical
+  wertheim URL.
 - 2026-06-05 — New **Other** navbar page (`other.qmd`) added after CV.
   Migrated *Selected Invited Talks* and *Service & Editorial* out of
   `research.qmd` into it; added a *Conferences* section linking the
