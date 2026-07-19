@@ -8,6 +8,7 @@ website:
   title: "Evan M. Eastman"
   description: "Evan M. Eastman | Risk Management & Insurance, Florida State University"
   site-url: "https://evaneastman.com"
+  favicon: files/favicon.svg
 
   navbar:
     pinned: true

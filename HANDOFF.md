@@ -1,7 +1,7 @@
 # Handoff — evaneastman-site
 
-Last updated: 2026-07-15 (nav restructure: Presentations/Service/Awards
-pages; Papers Under Review; symposium box on front page; July 2026 CV sync).
+Last updated: 2026-07-19 (favicon added; Wertheim college/building name
+fixes on the front page).
 
 ## Status
 
@@ -180,6 +180,26 @@ On the work/school PC where the project still lives in Dropbox:
 
 ## Recent history
 
+- 2026-07-19 — Added a **favicon** (`files/favicon.svg`, wired via
+  `favicon:` in `_quarto.yml`): garnet `#782F40` rounded square with an
+  "EE" monogram in FSU gold `#CEB888`. The letterforms are eight plain
+  `<rect>` elements, NOT SVG `<text>` — font-based favicons resolve to
+  whatever the OS provides and go blurry at 16px; rectangles stay crisp
+  and deterministic. Gold-on-garnet is 4.8:1 contrast (clears WCAG AA,
+  but roughly half of white-on-garnet's 9.2:1) — if it ever reads too
+  soft in the tab strip, change the `<g fill>` to `#ffffff`, or split
+  the difference with `#E0D0A8` (~6.5:1). SVG favicons cover Chrome,
+  Edge, Firefox, and Safari 17+; no `.png`/`.ico` fallback is in place,
+  so legacy-Safari bookmark bars won't show it. **Chrome caches
+  favicons hard** — Ctrl+Shift+R if the old default icon persists.
+  Also fixed two errors in the `index.qmd` contact block: "Wertheim
+  Center for Business Excellence" → **Herbert** Wertheim Center for
+  Business Excellence, and "Herbert Wertheim College **for** Business"
+  → College **of** Business. The bio paragraph was already correct.
+  Deliberately left `service.qmd` committee names alone — the 2026 item
+  says "Wertheim College" while 2020–2025 items say "College of
+  Business", which is historically accurate given the college's
+  renaming.
 - 2026-07-15 — Big content session. (1) Added a **Papers Under Review**
   section to `research.qmd`, moving six papers up from Working Papers.
   (2) Front page: added an **FSU Profile** button (`person-badge` icon,
