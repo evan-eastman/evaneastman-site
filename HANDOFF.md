@@ -200,6 +200,26 @@ On the work/school PC where the project still lives in Dropbox:
   says "Wertheim College" while 2020–2025 items say "College of
   Business", which is historically accurate given the college's
   renaming.
+- 2026-07-19 — **Analytics granularity: evaluated and declined.** Evan
+  asked whether visitor tracking could show state/city like his old
+  Google Site did. Cloudflare Web Analytics is **country-only with no
+  setting to change it**. Confusing point worth remembering: Cloudflare
+  *the platform* does expose city/region, but only in the proxy/Workers
+  layer — the free WA beacon is a separate, deliberately coarse product.
+  Getting city out of Cloudflare would require flipping DNS from
+  gray-cloud to **Proxied** plus a Worker reading `cf.city` — rejected,
+  because the gray-cloud config is exactly what GitHub Pages needed for
+  cert provisioning, and proxying adds SSL-mode/redirect-loop risk to a
+  working setup. Alternatives priced out: GA4 (free, city-level, but
+  cookies + EU consent-banner obligation the site currently avoids),
+  Plausible (~$9/mo, city drill-down, no banner), Umami (free tier).
+  **Decision: stay on Cloudflare as-is.** Don't re-open unless the
+  requirement changes. Also noted: city-level IP geo is noisy (resolves
+  the network, not the person — university traffic often lands on a
+  campus NOC or VPN exit), and "which institution is reading me" is NOT
+  reliably obtainable from any mainstream tool since GA4 dropped
+  Universal Analytics' Network Domain field. Referrers are the better
+  signal.
 - 2026-07-15 — Big content session. (1) Added a **Papers Under Review**
   section to `research.qmd`, moving six papers up from Working Papers.
   (2) Front page: added an **FSU Profile** button (`person-badge` icon,
