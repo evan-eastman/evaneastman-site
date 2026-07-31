@@ -1,0 +1,1098 @@
+---
+title: "ARIA Academic Family Tree"
+pagetitle: "ARIA Academic Family Tree"
+page-layout: full
+toc: false
+search: false
+format:
+  html:
+    include-in-header:
+      text: |
+        <meta name="robots" content="noindex, nofollow">
+---
+
+::: {style="max-width: 68ch;"}
+Doctoral advising lineages in insurance and risk management —
+288 people descending from 52 root advisors
+across 45 universities. The largest lineages open on load;
+the rest are collapsed and labelled with their size. Click a name to expand or
+collapse, hover to trace a lineage back to its root, or search for a person.
+:::
+
+```{=html}
+<style>
+/* ARIA Academic Family Tree — visualization styles.
+   Everything is namespaced under #aria-tree so this can drop into a Quarto
+   page (Bootstrap/cosmo) without colliding with site styles. */
+
+/* The standalone page has no CSS reset, so state this rather than inherit it:
+   without it the search input's padding is added outside its 100% width and it
+   overlaps the buttons. Bootstrap sets this globally, which is why the bug only
+   showed up outside Quarto. */
+#aria-tree,
+#aria-tree *,
+#aria-tree *::before,
+#aria-tree *::after {
+  box-sizing: border-box;
+}
+
+#aria-tree {
+  --gold: #CEB888;
+  /* Interaction accent: focus ring, button hover, search match. FSU garnet, and
+     deliberately NOT one of the university fills — it marks UI state on text and
+     borders, never node identity, so the categorical separation floor that
+     governs COLORS in tree.js does not apply to it. */
+  --accent: #782F40;
+  --ink: #1f1f1f;
+  --muted: #6b7280;
+  --line: #d7dbe0;
+  --panel: #f8f9fa;
+
+  font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+  color: var(--ink);
+  position: relative;
+}
+
+/* ---------- toolbar ---------- */
+
+#aria-tree .at-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.55rem 0.7rem;
+  padding: 0.7rem 0.8rem;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-bottom: none;
+  border-radius: 8px 8px 0 0;
+}
+
+/* The search field absorbs all the slack; the buttons never give up width, so
+   they keep their labels on one line instead of compressing. */
+#aria-tree .at-search-wrap {
+  position: relative;
+  flex: 1 1 260px;
+  min-width: 180px;
+}
+
+#aria-tree .at-controls {
+  display: flex;
+  flex: 0 0 auto;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 0.4rem;
+  margin-left: auto;
+}
+
+#aria-tree .at-search {
+  width: 100%;
+  padding: 0.38rem 1.9rem 0.38rem 0.65rem;
+  font-size: 0.88rem;
+  font-family: inherit;
+  color: var(--ink);
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 5px;
+}
+
+#aria-tree .at-search:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px rgba(120, 47, 64, 0.14);
+}
+
+#aria-tree .at-search-clear {
+  position: absolute;
+  top: 50%;
+  right: 0.4rem;
+  transform: translateY(-50%);
+  padding: 0 0.25rem;
+  font-size: 1rem;
+  line-height: 1;
+  color: var(--muted);
+  background: none;
+  border: none;
+  cursor: pointer;
+  visibility: hidden;
+}
+
+#aria-tree .at-search-clear.is-visible { visibility: visible; }
+
+#aria-tree .at-btn {
+  flex: 0 0 auto;
+  padding: 0.42rem 0.85rem;
+  font-family: inherit;
+  font-size: 0.83rem;
+  font-weight: 600;
+  line-height: 1.25;
+  color: #374151;
+  white-space: nowrap;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.12s, border-color 0.12s, color 0.12s;
+}
+
+#aria-tree .at-btn:hover {
+  color: var(--accent);
+  background: #fff;
+  border-color: var(--accent);
+}
+
+#aria-tree .at-btn:active { background: #f1f2f4; }
+
+#aria-tree .at-hits {
+  font-size: 0.8rem;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+/* ---------- canvas ---------- */
+
+#aria-tree .at-canvas {
+  position: relative;
+  height: 74vh;
+  min-height: 460px;
+  overflow: hidden;
+  background: #fff;
+  border: 1px solid var(--line);
+}
+
+#aria-tree .at-canvas svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  cursor: grab;
+}
+
+#aria-tree .at-canvas svg:active { cursor: grabbing; }
+
+/* ---------- links ---------- */
+
+#aria-tree .at-link {
+  fill: none;
+  stroke: #c9ced6;
+  stroke-width: 1.4px;
+}
+
+#aria-tree .at-link.is-lineage {
+  stroke: var(--gold);
+  stroke-width: 2.6px;
+}
+
+#aria-tree .at-coadvise {
+  fill: none;
+  stroke: #9aa2ad;
+  stroke-width: 1.4px;
+  stroke-dasharray: 4 3;
+  opacity: 0.85;
+}
+
+#aria-tree .at-coadvise.is-lineage {
+  stroke: var(--gold);
+  opacity: 1;
+}
+
+/* ---------- nodes ---------- */
+
+#aria-tree .at-node { cursor: pointer; }
+
+#aria-tree .at-node-dot {
+  stroke: #fff;
+  stroke-width: 1.5px;
+}
+
+#aria-tree .at-node.has-hidden .at-node-dot {
+  stroke: var(--gold);
+  stroke-width: 2.5px;
+}
+
+#aria-tree .at-label {
+  font-size: 13px;
+  font-weight: 600;
+  fill: var(--ink);
+  dominant-baseline: middle;
+  pointer-events: none;
+}
+
+#aria-tree .at-label .at-meta {
+  font-size: 11px;
+  font-weight: 400;
+  fill: var(--muted);
+}
+
+#aria-tree .at-label .at-count {
+  font-size: 10.5px;
+  font-weight: 600;
+  fill: #8a8f98;
+}
+
+#aria-tree .at-node.is-root .at-label { font-size: 14.5px; }
+
+/* dimmed / matched states used by search */
+#aria-tree .at-node.is-dimmed { opacity: 0.16; }
+#aria-tree .at-link.is-dimmed,
+#aria-tree .at-coadvise.is-dimmed { opacity: 0.1; }
+
+#aria-tree .at-node.is-match .at-label { fill: var(--accent); }
+
+#aria-tree .at-match-halo {
+  fill: none;
+  stroke: var(--gold);
+  stroke-width: 3px;
+}
+
+/* bundle stub ("30 more students") */
+#aria-tree .at-bundle rect {
+  fill: #eef0f3;
+  stroke: #c2c8d0;
+  stroke-width: 1px;
+  rx: 9px;
+}
+
+#aria-tree .at-bundle:hover rect {
+  fill: #e4e7ec;
+  stroke: var(--accent);
+}
+
+#aria-tree .at-bundle text {
+  font-size: 11.5px;
+  font-weight: 600;
+  fill: #4b5563;
+  dominant-baseline: middle;
+  pointer-events: none;
+}
+
+/* ---------- tooltip ---------- */
+
+#aria-tree .at-tooltip {
+  position: absolute;
+  z-index: 20;
+  max-width: 270px;
+  padding: 0.55rem 0.7rem;
+  font-size: 0.8rem;
+  line-height: 1.45;
+  background: rgba(255, 255, 255, 0.985);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.13);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.12s;
+}
+
+#aria-tree .at-tooltip.is-visible { opacity: 1; }
+#aria-tree .at-tt-name { font-weight: 700; }
+
+#aria-tree .at-tt-uni {
+  font-weight: 600;
+  font-size: 0.76rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+#aria-tree .at-tt-row { color: #4b5563; }
+#aria-tree .at-tt-row strong { font-weight: 600; color: var(--ink); }
+
+#aria-tree .at-tt-note {
+  margin-top: 0.35rem;
+  padding-top: 0.3rem;
+  font-size: 0.73rem;
+  color: var(--muted);
+  border-top: 1px solid #eee;
+}
+
+/* ---------- legend / footer ---------- */
+
+#aria-tree .at-legend {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.45rem 1.1rem;
+  padding: 0.55rem 0.7rem;
+  font-size: 0.78rem;
+  color: #4b5563;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-top: none;
+  border-radius: 0 0 8px 8px;
+}
+
+#aria-tree .at-key {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+#aria-tree .at-swatch {
+  display: inline-block;
+  width: 11px;
+  height: 11px;
+  border: 1.5px solid #fff;
+  border-radius: 50%;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.14);
+}
+
+#aria-tree .at-key-line {
+  display: inline-block;
+  width: 22px;
+  border-top: 1.6px dashed #9aa2ad;
+}
+
+#aria-tree .at-key-ring {
+  display: inline-block;
+  width: 11px;
+  height: 11px;
+  background: #9aa2ad;
+  border: 2px solid var(--gold);
+  border-radius: 50%;
+}
+
+#aria-tree .at-stats {
+  margin-left: auto;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+/* ---------- responsive ---------- */
+
+@media (max-width: 640px) {
+  #aria-tree .at-canvas { height: 66vh; min-height: 380px; }
+  #aria-tree .at-toolbar { gap: 0.4rem; }
+  #aria-tree .at-btn { padding: 0.32rem 0.55rem; font-size: 0.76rem; }
+  #aria-tree .at-stats { width: 100%; margin-left: 0; }
+}
+
+</style>
+
+<div id="aria-tree"></div>
+
+<p style="max-width:78ch;margin:0.9rem 0 0;font-size:0.78rem;line-height:1.5;color:#6b7280;">
+Each column is one academic generation. Dashed lines mark co-advising. Corrections
+and additions are welcome. Generated 2026-07-31.
+</p>
+
+<script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"></script>
+<script>window.ARIA_TREE_DATA = {"tree": {"id": "__root__", "children": [{"id": 1, "name": "Lawrence Klein", "university": "", "year": null, "children": [{"id": 2, "name": "J. David Cummins", "university": "University of Pennsylvania", "year": 1972, "children": [{"id": 20, "name": "Adel Rabh", "university": "University of Pennsylvania", "year": 1989}, {"id": 36, "name": "Alice Lee", "university": "University of Pennsylvania", "year": 1995}, {"id": 11, "name": "Andrew Turner", "university": "University of Pennsylvania", "year": 1981}, {"id": 48, "name": "Anita Lo", "university": "University of Pennsylvania", "year": 2006}, {"id": 22, "name": "Anne Carroll", "university": "University of Pennsylvania", "year": 1991}, {"id": 14, "name": "Barry D. Smith", "university": "University of Pennsylvania", "year": 1983}, {"id": 7, "name": "Barry Schweig", "university": "University of Pennsylvania", "year": 1977}, {"id": 51, "name": "Carol Park", "university": "University of Pennsylvania", "year": 2009}, {"id": 19, "name": "Chong Lee", "university": "University of Pennsylvania", "year": 1989, "coAdvisors": [{"id": 54, "name": "Scott Harrington"}]}, {"id": 4, "name": "D. Stuart Bancroft", "university": "University of Pennsylvania", "year": 1973}, {"id": 42, "name": "David L. Eckles", "university": "University of Pennsylvania", "year": 2003, "coAdvisors": [{"id": 100, "name": "Neil Doherty"}], "children": [{"id": 44, "name": "Evan Eastman", "university": "University of Georgia", "year": 2017}, {"id": 45, "name": "Jiyeon Yun", "university": "University of Georgia", "year": 2019}, {"id": 43, "name": "Peihan Chen", "university": "University of Georgia", "year": 2015}, {"id": 287, "name": "Taylor Graciano", "university": "University of Georgia", "year": 2025}]}, {"id": 25, "name": "David Sommer", "university": "University of Pennsylvania", "year": 1994, "children": [{"id": 29, "name": "Andre Liebenberg", "university": "University of Georgia", "year": 2004, "children": [{"id": 288, "name": "Xin Che", "university": "University of Mississippi", "year": 2018}]}, {"id": 26, "name": "Cassandra Cole", "university": "University of Georgia", "year": 2002, "children": [{"id": 27, "name": "J. Bradley Karl", "university": "Florida State University", "year": 2013, "coAdvisors": [{"id": 271, "name": "Patricia Born"}]}]}, {"id": 30, "name": "Enya He", "university": "University of Georgia", "year": 2006}, {"id": 31, "name": "Joe Ruhland", "university": "University of Georgia", "year": 2006}, {"id": 28, "name": "Lars Powell", "university": "University of Georgia", "year": 2002}]}, {"id": 6, "name": "Donald J. Doudna", "university": "University of Pennsylvania", "year": 1976}, {"id": 15, "name": "Elizabeth Grace", "university": "University of Pennsylvania", "year": 1984}, {"id": 50, "name": "Freda Song", "university": "University of Pennsylvania", "year": 2009}, {"id": 41, "name": "Gregory Nini", "university": "University of Pennsylvania", "year": 2002}, {"id": 10, "name": "Henry D. Martin", "university": "University of Pennsylvania", "year": 1981}, {"id": 33, "name": "Hongmin Zi", "university": "University of Pennsylvania", "year": 1994}, {"id": 12, "name": "Jack L. VanDerhei", "university": "University of Pennsylvania", "year": 1982}, {"id": 39, "name": "James Moore", "university": "University of Pennsylvania", "year": 1999}, {"id": 5, "name": "Jerry W. Caswell", "university": "University of Pennsylvania", "year": 1974}, {"id": 23, "name": "Kevin Eastman", "university": "University of Pennsylvania", "year": 1992}, {"id": 40, "name": "Krupa S. Viswanathan", "university": "University of Pennsylvania", "year": 2000}, {"id": 24, "name": "Laureen Regan", "university": "University of Pennsylvania", "year": 1993}, {"id": 13, "name": "Laurel J. Wiltbank", "university": "University of Pennsylvania", "year": 1983}, {"id": 17, "name": "Lawrence A. Berger", "university": "University of Pennsylvania", "year": 1985, "children": [{"id": 18, "name": "Vickie Bajtelsmit", "university": "University of Pennsylvania", "year": 1994}]}, {"id": 16, "name": "Peter Beresford", "university": "University of Pennsylvania", "year": 1984, "coAdvisors": [{"id": 54, "name": "Scott Harrington"}]}, {"id": 34, "name": "Raja Bouzouita", "university": "University of Pennsylvania", "year": 1995}, {"id": 49, "name": "Ran Wei", "university": "University of Pennsylvania", "year": 2006}, {"id": 32, "name": "Richard Phillips", "university": "University of Pennsylvania", "year": 1994}, {"id": 38, "name": "Roberta Schini", "university": "University of Pennsylvania", "year": 1999}, {"id": 37, "name": "Roderick Carr", "university": "University of Pennsylvania", "year": 1997}, {"id": 3, "name": "Steven Weisbart", "university": "University of Pennsylvania", "year": 1973}, {"id": 47, "name": "Suchun Ma", "university": "University of Pennsylvania", "year": 2005}, {"id": 35, "name": "Traci Allotey", "university": "University of Pennsylvania", "year": 1995}, {"id": 21, "name": "Tsai-Jyh Chen", "university": "University of Pennsylvania", "year": 1990}, {"id": 8, "name": "William C. Scheel", "university": "University of Pennsylvania", "year": 1978}, {"id": 46, "name": "Xiaoying Xie", "university": "University of Pennsylvania", "year": 2005}, {"id": 9, "name": "Yves Roy", "university": "University of Pennsylvania", "year": 1980}]}]}, {"id": 202, "name": "Marcel Boyer", "university": "", "year": null, "children": [{"id": 203, "name": "Georges Dionne", "university": "University of Montreal", "year": 1980, "children": [{"id": 225, "name": "Abdelhakim Nouira", "university": "HEC Montreal", "year": 2008}, {"id": 224, "name": "Denitsa Stefanova", "university": "HEC Montreal", "year": 2008}, {"id": 206, "name": "El Bachir A. Belhadji", "university": "University of Montreal", "year": 1994}, {"id": 216, "name": "Florence Giuliano", "university": "Universite de Paris X Nanterre", "year": 2004}, {"id": 209, "name": "Francois Gagnon", "university": "University of Montreal", "year": 1996}, {"id": 221, "name": "Hela Dahen", "university": "HEC Montreal", "year": 2007}, {"id": 228, "name": "Jean-Charles Bouvrette", "university": "HEC Montreal", "year": 2013}, {"id": 212, "name": "Kais Dachraoui", "university": "", "year": 1998}, {"id": 222, "name": "Khemais Hammami", "university": "HEC Montreal", "year": 2007}, {"id": 220, "name": "Maria Pacurar", "university": "HEC Montreal", "year": 2006}, {"id": 213, "name": "Marie-Gloriose Ingabire", "university": "", "year": 1999}, {"id": 214, "name": "Marko Savor", "university": "HEC Montreal", "year": 2002}, {"id": 229, "name": "Mohamed Mnasri", "university": "UQAM", "year": 2014}, {"id": 217, "name": "Nabil Tahani", "university": "HEC Montreal", "year": 2004}, {"id": 218, "name": "Nadia Ouetani", "university": "HEC Montreal", "year": 2005}, {"id": 211, "name": "Nathalie Fombaron", "university": "Universite de Paris X Nanterre", "year": 1997}, {"id": 215, "name": "Olfa Ghali", "university": "Universite de Paris X Nanterre", "year": 2003}, {"id": 226, "name": "Olfa Maalaoui", "university": "HEC Montreal", "year": 2009}, {"id": 223, "name": "Oussama Chakroun", "university": "HEC Montreal", "year": 2008}, {"id": 205, "name": "Pascale Viala", "university": "HEC Paris", "year": 1993}, {"id": 204, "name": "Robert Gagne", "university": "University of Montreal", "year": 1989}, {"id": 227, "name": "Sadok Laajimi", "university": "", "year": 2010}, {"id": 207, "name": "Tahar Mounsif", "university": "University of Montreal", "year": 1994}, {"id": 219, "name": "Thouraya Triki", "university": "HEC Montreal", "year": 2005}, {"id": 208, "name": "Yunxiang Shen", "university": "University of Montreal", "year": 1995}, {"id": 210, "name": "Yves Alarie", "university": "University of Montreal", "year": 1997}]}]}, {"id": 68, "name": "R. Neil Vance", "university": "", "year": null, "children": [{"id": 69, "name": "Robert E. Hoyt", "university": "University of Pennsylvania", "year": 1987, "children": [{"id": 82, "name": "Andrew Kuchar", "university": "University of Georgia", "year": 1999}, {"id": 70, "name": "Ho Kang", "university": "University of Georgia", "year": 1991}, {"id": 71, "name": "James M. Carson", "university": "University of Georgia", "year": 1993, "children": [{"id": 75, "name": "Anna Song", "university": "University of Georgia", "year": 2016}, {"id": 78, "name": "Dan Yang", "university": "University of Georgia", "year": 2022}, {"id": 76, "name": "Josh Frederick", "university": "University of Georgia", "year": 2019}, {"id": 73, "name": "Kevin Gatzlaff", "university": "Florida State University", "year": 2009, "coAdvisors": [{"id": 83, "name": "Kathleen McCullough"}]}, {"id": 77, "name": "Monica Heidesch", "university": "University of Georgia", "year": 2022}, {"id": 74, "name": "Stephen Fier", "university": "Florida State University", "year": 2011, "coAdvisors": [{"id": 83, "name": "Kathleen McCullough"}]}, {"id": 72, "name": "Yuling Wang", "university": "Florida State University", "year": 2009}]}, {"id": 83, "name": "Kathleen McCullough", "university": "University of Georgia", "year": 2000, "children": [{"id": 84, "name": "David Pooser", "university": "Florida State University", "year": 2012}, {"id": 85, "name": "Jill Bisco", "university": "Florida State University", "year": 2014}]}, {"id": 79, "name": "Lee Colquitt", "university": "University of Georgia", "year": 1995}, {"id": 87, "name": "Melvin T. Stith, Jr.", "university": "University of Georgia", "year": 2011}, {"id": 80, "name": "Randy Dumm", "university": "University of Georgia", "year": 1998}, {"id": 86, "name": "Steven Miller", "university": "University of Georgia", "year": 2010}, {"id": 81, "name": "Tim Query", "university": "University of Georgia", "year": 1999}]}]}, {"id": 52, "name": "Robert I. Mehr", "university": "", "year": null, "children": [{"id": 67, "name": "Han Kang", "university": "University of Illinois", "year": 1984}, {"id": 53, "name": "Mark Dorfman", "university": "University of Illinois", "year": 1970}, {"id": 61, "name": "Sandra Gustavson", "university": "University of Illinois", "year": 1979, "children": [{"id": 62, "name": "Robert Puelz", "university": "University of Georgia", "year": 1990}, {"id": 63, "name": "Ryan Lee", "university": "University of Georgia", "year": 2000}]}, {"id": 54, "name": "Scott Harrington", "university": "University of Illinois", "year": 1979, "children": [{"id": 55, "name": "Beom-ha Jee", "university": "University of Pennsylvania", "year": 1987}, {"id": 56, "name": "Jack Nelson", "university": "University of Pennsylvania", "year": 1987}, {"id": 57, "name": "Julie Cagle", "university": "University of South Carolina", "year": 1993}, {"id": 58, "name": "Karen Epermanis", "university": "University of South Carolina", "year": 2000}, {"id": 59, "name": "Tong Yu", "university": "University of South Carolina", "year": 2001}, {"id": 60, "name": "Vladimir Zdorovtsov", "university": "University of South Carolina", "year": 2004}]}, {"id": 64, "name": "Stephen D'Arcy", "university": "University of Illinois", "year": 1982, "children": [{"id": 66, "name": "Kevin Ahlgrim", "university": "", "year": null}, {"id": 65, "name": "Rick Gorvett", "university": "", "year": null}]}]}, {"id": 248, "name": "Sanford Berg", "university": "", "year": null, "children": [{"id": 249, "name": "Martin Grace", "university": "University of Florida", "year": 1986, "children": [{"id": 258, "name": "Fan Liu", "university": "Georgia State University", "year": 2012}, {"id": 252, "name": "Hun Soo Kim", "university": "Georgia State University", "year": 1995}, {"id": 254, "name": "J. Tyler Leverty", "university": "Georgia State University", "year": 2005, "children": [{"id": 255, "name": "Anastasia Ivantsova", "university": "University of Wisconsin", "year": 2018}, {"id": 256, "name": "Junhao Liu", "university": "University of Wisconsin", "year": 2019}]}, {"id": 251, "name": "Jean Kwon", "university": "Georgia State University", "year": 1995}, {"id": 257, "name": "Jian Wen", "university": "Georgia State University", "year": 2010}, {"id": 261, "name": "Jingshu Luo", "university": "Temple University", "year": 2020}, {"id": 262, "name": "Juan Zhang", "university": "Temple University", "year": 2020}, {"id": 250, "name": "Loriliee Medders", "university": "Georgia State University", "year": 1995}, {"id": 253, "name": "Minglai Zhu", "university": "Georgia State University", "year": 2003}, {"id": 259, "name": "Ning Wang", "university": "Georgia State University", "year": 2013}, {"id": 263, "name": "Sabrina Du", "university": "Temple University", "year": 2020}, {"id": 260, "name": "Yiling Deng", "university": "Georgia State University", "year": 2016}]}]}, {"id": 143, "name": "John Long", "university": "", "year": null, "children": [{"id": 144, "name": "Joan Schmit", "university": "University of Indiana", "year": 1984, "children": [{"id": 148, "name": "Dana Kerr", "university": "University of Wisconsin", "year": 2002}, {"id": 153, "name": "Doug Bujakowski", "university": "University of Wisconsin", "year": 2016}, {"id": 145, "name": "Han Duck Lee", "university": "University of Wisconsin", "year": 1992}, {"id": 147, "name": "Jia-Hsing Yeh", "university": "University of Wisconsin", "year": 2000}, {"id": 155, "name": "Kenny Wunder", "university": "University of Wisconsin", "year": 2019, "coAdvisors": [{"id": 254, "name": "J. Tyler Leverty"}]}, {"id": 151, "name": "Kitty Yao", "university": "University of Wisconsin", "year": 2012}, {"id": 154, "name": "Kyeonghee Kim", "university": "University of Wisconsin", "year": 2018, "coAdvisors": [{"id": 254, "name": "J. Tyler Leverty"}]}, {"id": 146, "name": "Linda Leetch", "university": "University of Wisconsin", "year": 1995}, {"id": 152, "name": "Marc Ragin", "university": "University of Wisconsin", "year": 2014}, {"id": 150, "name": "Shinichi Kamiya", "university": "University of Wisconsin", "year": 2010}, {"id": 149, "name": "Yayuan Ren", "university": "University of Wisconsin", "year": 2006}]}]}, {"id": 105, "name": "Patricia Danzon", "university": "University of Chicago", "year": 1973, "children": [{"id": 106, "name": "Helen Doerpinghaus", "university": "University of Pennsylvania", "year": 1989}, {"id": 117, "name": "Jan Ambrose", "university": "University of Pennsylvania", "year": 1994}, {"id": 116, "name": "Jim Ligon", "university": "University of Pennsylvania", "year": 1991}, {"id": 107, "name": "Mark Browne", "university": "University of Pennsylvania", "year": 1989, "children": [{"id": 115, "name": "Chunyan Zhang", "university": "University of Wisconsin", "year": 2014}, {"id": 114, "name": "Cuncun Luan", "university": "University of Wisconsin", "year": 2014}, {"id": 112, "name": "Lan Ju", "university": "University of Wisconsin", "year": 2008}, {"id": 111, "name": "Ping Wang", "university": "University of Wisconsin", "year": 2005}, {"id": 113, "name": "Ray Gilmore", "university": "University of Wisconsin", "year": 2010}, {"id": 109, "name": "Wenjiu (Jerry) Liu", "university": "University of Wisconsin", "year": 2001}, {"id": 110, "name": "Yu Lei", "university": "University of Wisconsin", "year": 2004}, {"id": 108, "name": "Yu-Luen Ma", "university": "University of Wisconsin", "year": 1999}]}]}, {"id": 88, "name": "Bernard L. Webb", "university": "", "year": null, "children": [{"id": 89, "name": "Claude Lilly", "university": "Georgia State University", "year": 1973, "children": [{"id": 90, "name": "John Bratton", "university": "Florida State University", "year": 1994}]}, {"id": 97, "name": "John Thornton", "university": "Georgia State University", "year": 1975}, {"id": 91, "name": "Richard Corbett", "university": "Georgia State University", "year": 1974, "children": [{"id": 95, "name": "Chris Taylor Berry", "university": "Florida State University", "year": 1995}, {"id": 96, "name": "Dave Marlett", "university": "Florida State University", "year": 1997}, {"id": 94, "name": "Emily Norman Zietz", "university": "Florida State University", "year": 1993}, {"id": 92, "name": "Karen Hamilton", "university": "Florida State University", "year": 1991}, {"id": 93, "name": "Stephen Avila", "university": "Florida State University", "year": 1993}]}, {"id": 98, "name": "William Feldhaus", "university": "Georgia State University", "year": 1980, "children": [{"id": 99, "name": "Mike Barth", "university": "Georgia State University", "year": 1993}]}]}, {"id": 162, "name": "Richard Kihlstrom/ Leonard Mirman", "university": "", "year": null, "children": [{"id": 163, "name": "Harris Schlesinger", "university": "University of Illinois", "year": 1980, "children": [{"id": 170, "name": "Amy Gehlken", "university": "University of Alabama", "year": 2003}, {"id": 171, "name": "Bum Kim", "university": "University of Alabama", "year": 2004}, {"id": 165, "name": "Hassan Said", "university": "University of Alabama", "year": 1993}, {"id": 167, "name": "Kiseok Oh", "university": "University of Alabama", "year": 1994}, {"id": 169, "name": "Larry Fogelberg", "university": "University of Alabama", "year": 1996}, {"id": 173, "name": "Qin Lian", "university": "University of Alabama", "year": 2006}, {"id": 164, "name": "Tae-Young Choi", "university": "University of Alabama", "year": 1990}, {"id": 166, "name": "Varun Agarwal", "university": "University of Alabama", "year": 1994}, {"id": 172, "name": "Wenan Fei", "university": "University of Alabama", "year": 2006}, {"id": 168, "name": "Wondon Lee", "university": "University of Alabama", "year": 1994}]}]}, {"id": 118, "name": "Dan McGill", "university": "", "year": null, "children": [{"id": 119, "name": "Al Hofflander", "university": "University of Pennsylvania", "year": 1964}, {"id": 122, "name": "Harold Skipper", "university": "University of Pennsylvania", "year": 1977}, {"id": 120, "name": "Iksander Hamwi", "university": "University of Pennsylvania", "year": 1970}, {"id": 123, "name": "Norma Nielson", "university": "University of Pennsylvania", "year": 1979}, {"id": 121, "name": "Robert Cooper", "university": "University of Pennsylvania", "year": 1972}]}, {"id": 100, "name": "Neil Doherty", "university": "", "year": null, "children": [{"id": 103, "name": "Anne Kleffner", "university": "University of Pennsylvania", "year": 1993}, {"id": 104, "name": "Charles Nyce", "university": "University of Pennsylvania", "year": 1999}, {"id": 101, "name": "James Garven", "university": "University of Illinois", "year": 1984}, {"id": 102, "name": "Lisa Posey", "university": "University of Pennsylvania", "year": 1992}]}, {"id": 127, "name": "Howard Tucker", "university": "", "year": null, "children": [{"id": 128, "name": "Patrick Brockett", "university": "University of California-Irvine", "year": 1975, "children": [{"id": 129, "name": "Jing Ai", "university": "University of Texas-Austin", "year": null}, {"id": 130, "name": "Mulong Wang", "university": "University of Texas-Austin", "year": 2001}]}]}, {"id": 270, "name": "W. Kip Viscusi", "university": "", "year": null, "children": [{"id": 271, "name": "Patricia Born", "university": "Duke University", "year": 1994, "children": [{"id": 273, "name": "Dana Telljohann", "university": "Florida State University", "year": null}, {"id": 272, "name": "E. Tice Sirmans", "university": "Florida State University", "year": 2017}]}]}, {"id": 189, "name": "C. Arthur Williams, Jr.", "university": "", "year": null, "children": [{"id": 190, "name": "Michael Smith", "university": "University of Minnesota", "year": 1974}, {"id": 191, "name": "Peter Young", "university": "", "year": null}]}, {"id": 137, "name": "David Hendry", "university": "", "year": null, "children": [{"id": 138, "name": "James Poterba", "university": "Oxford", "year": 1983, "children": [{"id": 139, "name": "Jeffrey Brown", "university": "MIT", "year": 1999}]}]}, {"id": 174, "name": "Emmett Vaughn", "university": "", "year": null, "children": [{"id": 175, "name": "George Flanigan", "university": "University of Iowa", "year": 1972}, {"id": 176, "name": "Mark Power", "university": "University of Iowa", "year": 1981}]}, {"id": 140, "name": "Gary Griepentrog", "university": "", "year": null, "children": [{"id": 141, "name": "Larry Cox", "university": "University of South Carolina", "year": 1984, "children": [{"id": 142, "name": "Bill Ferguson", "university": "University of Georgia", "year": 1995}]}]}, {"id": 156, "name": "Gerard Dickinson", "university": "", "year": null, "children": [{"id": 157, "name": "Stephen Diacon", "university": "University of Nottingham", "year": 1980, "children": [{"id": 158, "name": "Simon Ashby", "university": "University of Nottingham", "year": 1997}]}]}, {"id": 131, "name": "Harry Loman", "university": "", "year": null, "children": [{"id": 132, "name": "George Rejda", "university": "University of Pennsylvania", "year": 1961, "children": [{"id": 133, "name": "Joseph Haley", "university": "University of Nebraska", "year": 1990}]}]}, {"id": 134, "name": "Joseph Belth", "university": "", "year": null, "children": [{"id": 135, "name": "Travis Pritchett", "university": "University of Indiana", "year": 1969, "children": [{"id": 136, "name": "Nicos Scordis", "university": "University of South Carolina", "year": 1994}]}]}, {"id": 159, "name": "Peter Kempthorne/ John Pratt/ Howard Raiffa", "university": "", "year": null, "children": [{"id": 160, "name": "Michael Powers", "university": "Harvard", "year": 1987, "children": [{"id": 161, "name": "Larry Tzeng", "university": "Temple University", "year": 1996}]}]}, {"id": 124, "name": "Richard Heins", "university": "", "year": null, "children": [{"id": 125, "name": "Dan Anderson", "university": "University of Wisconsin", "year": 1970, "children": [{"id": 126, "name": "Nat Pope", "university": "University of Wisconsin", "year": 1999}]}]}, {"id": 276, "name": "Alan Kraus", "university": "", "year": null, "children": [{"id": 277, "name": "Mary Kelly", "university": "University of British Columbia", "year": 1998}]}, {"id": 266, "name": "Arthur Denzau", "university": "", "year": null, "children": [{"id": 267, "name": "Mary Ann Boose", "university": "Washington University", "year": 1988}]}, {"id": 238, "name": "Bob Hedges/ Wayne Snider", "university": "", "year": null, "children": [{"id": 239, "name": "Moshe Porat", "university": "Temple University", "year": 1982}]}, {"id": 284, "name": "Damian Ward / Hafiz Mirza", "university": "", "year": null, "children": [{"id": 285, "name": "Stephanie Hussels", "university": "Bradford", "year": 2004}]}, {"id": 268, "name": "Dennis Officer / Chuck Haywood", "university": "", "year": null, "children": [{"id": 269, "name": "Roger Shelorr", "university": "University of Kentucky", "year": 1989}]}, {"id": 274, "name": "Eliezer Priezman / Thomas Salisbury", "university": "", "year": null, "children": [{"id": 275, "name": "Moshe Milevsky", "university": "York University", "year": 1996}]}, {"id": 194, "name": "Howard Winklevoss", "university": "", "year": null, "children": [{"id": 195, "name": "Arnold Shapiro", "university": "University of Pennsylvania", "year": 1975}]}, {"id": 181, "name": "Irv Pfieffer", "university": "", "year": null, "children": [{"id": 182, "name": "Joseph Launie", "university": "UCLA", "year": 1968}]}, {"id": 242, "name": "J.J. Rosa", "university": "", "year": null, "children": [{"id": 243, "name": "J. Francois Outreville", "university": "University of Orleans", "year": null}]}, {"id": 244, "name": "Jack VanDerhei", "university": "", "year": null, "children": [{"id": 245, "name": "Terri Vaughn", "university": "University of Pennsylvania", "year": 1985}]}, {"id": 183, "name": "James Graaskamp", "university": "", "year": null, "children": [{"id": 184, "name": "Jerry Todd", "university": "University of Wisconsin", "year": 1968}]}, {"id": 200, "name": "James Heckman", "university": "", "year": null, "children": [{"id": 201, "name": "Richard Butler", "university": "University of Chicago", "year": 1979}]}, {"id": 246, "name": "John Glascock", "university": "", "year": null, "children": [{"id": 247, "name": "David Wood", "university": "Louisiana Tech", "year": 1985}]}, {"id": 234, "name": "Joseph Seneca", "university": "", "year": null, "children": [{"id": 235, "name": "James Barrese", "university": "Rutgers", "year": 1982}]}, {"id": 264, "name": "Len Berekson", "university": "", "year": null, "children": [{"id": 265, "name": "Michael McNamara", "university": "University of Nebraska", "year": 1988}]}, {"id": 230, "name": "Mark Greene", "university": "", "year": null, "children": [{"id": 231, "name": "Saul Adelman", "university": "University of Georgia", "year": 1980}]}, {"id": 187, "name": "Marshall Sarnat/ Tzvi Ophir", "university": "", "year": null, "children": [{"id": 188, "name": "Yehuda Kahane", "university": "Hebrew University", "year": 1972}]}, {"id": 282, "name": "Mary Weiss", "university": "", "year": null, "children": [{"id": 283, "name": "B. Paul Choi", "university": "Temple University", "year": 2002}]}, {"id": 232, "name": "Milton Harris", "university": "", "year": null, "children": [{"id": 233, "name": "Keith Crocker", "university": "Carnegie-Mellon University", "year": 1981}]}, {"id": 196, "name": "Morris Karson", "university": "", "year": null, "children": [{"id": 197, "name": "E.G. Miller", "university": "University of Alabama", "year": 1976}]}, {"id": 240, "name": "Myron Gordon", "university": "", "year": null, "children": [{"id": 241, "name": "Gilles Bernier", "university": "University of Toronto", "year": 1984}]}, {"id": 236, "name": "Robert Hershbarger", "university": "", "year": null, "children": [{"id": 237, "name": "Ronald Miller", "university": "University of Missouri", "year": 1982}]}, {"id": 179, "name": "Robert Pendleton", "university": "", "year": null, "children": [{"id": 180, "name": "Sam Cox", "university": "Louisiana State", "year": 1968}]}, {"id": 280, "name": "Robert Serfling", "university": "", "year": null, "children": [{"id": 281, "name": "Vytraras Brazauskas", "university": "University of Texas-Dallas", "year": 1999}]}, {"id": 198, "name": "Robert Zelten", "university": "", "year": null, "children": [{"id": 199, "name": "Terrie Troxel", "university": "University of Pennsylvania", "year": 1977}]}, {"id": 278, "name": "Walter Karten", "university": "", "year": null, "children": [{"id": 279, "name": "Andreas Richter", "university": "University of Hamburg", "year": 1998}]}, {"id": 192, "name": "William Sudderth", "university": "", "year": null, "children": [{"id": 193, "name": "Stuart Klugman", "university": "University of Minnesota", "year": 1975}]}, {"id": 177, "name": "Wright Hoffman", "university": "", "year": null, "children": [{"id": 178, "name": "Ken Black", "university": "University of Pennsylvania", "year": 1953}]}, {"id": 185, "name": "Yugi Ito", "university": "", "year": null, "children": [{"id": 186, "name": "Richard Derrig", "university": "Brown", "year": 1970}]}, {"id": 286, "name": "George Zanjani", "university": "University of Chicago", "year": 2000}]}, "coAdvisorEdges": [{"advisor": 54, "student": 16}, {"advisor": 54, "student": 19}, {"advisor": 271, "student": 27}, {"advisor": 100, "student": 42}, {"advisor": 83, "student": 73}, {"advisor": 83, "student": 74}, {"advisor": 254, "student": 154}, {"advisor": 254, "student": 155}], "stats": {"people": 288, "advisors": 81, "universities": 45, "roots": 52}, "generated": "2026-07-31"};</script>
+<script>
+/* ARIA Academic Family Tree — collapsible left-to-right dendrogram.
+ *
+ * Why left-to-right: the tree is wide and shallow (61 people, 4 generations,
+ * with 33 of them hanging directly off one advisor). A top-down layout puts
+ * those 33 in a single row ~6,000px across, which is unreadable at any zoom.
+ * Rotating 90 degrees turns that fan into a vertical stack: names read
+ * horizontally at full size and the overflow becomes ordinary scrolling.
+ *
+ * Expects window.ARIA_TREE_DATA (written by build_tree.py) and d3 v7.
+ */
+(function () {
+  'use strict';
+
+  var DATA = window.ARIA_TREE_DATA;
+  var mount = document.getElementById('aria-tree');
+  if (!mount) { return; }
+  if (!DATA || !DATA.tree) {
+    mount.innerHTML = '<p style="padding:1rem;color:#b00">Family tree data failed to load.</p>';
+    return;
+  }
+
+  var CFG = {
+    duration: 450,
+    bundleThreshold: 10, // bundle a node's childless children past this many kids
+    bundleMin: 4,        // ...but only if there are at least this many to bundle
+    fitPadding: 46,
+    minScale: 0.5,       // never shrink past legibility; pan instead
+    openRowBudget: 92    // rows allowed open on first paint
+  };
+
+  // Narrow viewports get tighter columns. Shrinking to fit a phone screen would
+  // put the tree at ~0.3 scale, where no name is readable, so the tree stays
+  // legible and the user pans.
+  function metrics() {
+    var narrow = canvas.clientWidth < 700;
+    return { row: narrow ? 26 : 28, col: narrow ? 198 : 268 };
+  }
+
+  // Colour highlights the four largest programmes and greys the other 40-odd.
+  // A tree is an all-pairs case — any two nodes can end up side by side — so
+  // every pair including the grey was measured in CIEDE2000 under normal
+  // vision and simulated deuteranopia, protanopia and tritanopia. Floor is
+  // ΔE 15; the worst pair here is 18.0.
+  //
+  // The grey is what constrains the palette. Under red-green deficiency greens
+  // and reds desaturate toward neutral, so anything in those families collides
+  // with it: Okabe-Ito's bluish green measures ΔE 3.7 against this grey to a
+  // deuteranope, purple 3.9, teal 7.1, magenta 8.6. Only the blue-yellow axis
+  // survives, which is why Wisconsin is azure and not Badger red — and Badger
+  // red would have collided with Georgia regardless (ΔE 5.3).
+  //
+  // Penn and Georgia moved toward their official values rather than away
+  // (Penn navy #011F5B, Georgia red #BA0C2F); FSU gold is unchanged. Gold and
+  // azure sit under 3:1 contrast on white, which the university name printed
+  // on every node covers. Adding a dark theme means re-measuring all of it.
+  var COLORS = {
+    'University of Pennsylvania': '#2f6495',
+    'University of Georgia': '#d13233',
+    'Florida State University': '#ea9f0b',
+    'University of Wisconsin': '#0094e9'
+  };
+  var SHORT = {
+    'University of Pennsylvania': 'Penn',
+    'University of Georgia': 'Georgia',
+    'Florida State University': 'FSU',
+    'Georgia State University': 'Georgia State',
+    'University of Wisconsin': 'Wisconsin',
+    'University of Alabama': 'Alabama',
+    'University of South Carolina': 'South Carolina',
+    'University of Illinois': 'Illinois',
+    'University of Montreal': 'Montreal',
+    'University of Pennsylvania ': 'Penn'
+  };
+  var FALLBACK_COLOR = '#898781';
+
+  var color = function (uni) { return COLORS[uni] || FALLBACK_COLOR; };
+  var shortUni = function (uni) {
+    if (!uni) { return ''; }
+    if (SHORT[uni]) { return SHORT[uni]; }
+    return uni.replace(/^(The )?University of /, '').replace(/ University$/, '');
+  };
+
+  // ---------------------------------------------------------------- data prep
+
+  // Flat index of the source tree, plus parent pointers, so search can walk up.
+  var byId = {};
+  var parentOf = {};
+  var people = [];
+
+  (function indexTree(node, parentId) {
+    byId[node.id] = node;
+    parentOf[node.id] = parentId;
+    if (node.id !== '__root__') { people.push(node); }
+    (node.children || []).forEach(function (kid) { indexTree(kid, node.id); });
+  })(DATA.tree, null);
+
+  var childCount = function (node) { return (node.children || []).length; };
+
+  // Per-node view state. `collapsed` hides all children; `bundleOpen` reveals
+  // the childless children that got tucked behind a "N more students" stub.
+  var view = {};
+  function st(id) {
+    if (!view[id]) { view[id] = { collapsed: false, bundleOpen: false }; }
+    return view[id];
+  }
+
+  // A node qualifies for bundling when it has many children and enough of them
+  // are themselves leaves. That is what keeps the 33-wide fan from dominating
+  // the first paint without hiding anyone who has students of their own.
+  function bundleSplit(node) {
+    // The synthetic root holds every root advisor; that list is the index, not
+    // a fan to be tidied away.
+    if (node.id === '__root__') { return null; }
+    if (childCount(node) <= CFG.bundleThreshold) { return null; }
+    var withKids = [];
+    var leaves = [];
+    node.children.forEach(function (kid) {
+      (childCount(kid) ? withKids : leaves).push(kid);
+    });
+    if (leaves.length < CFG.bundleMin) { return null; }
+    return { withKids: withKids, leaves: leaves };
+  }
+
+  // ------------------------------------------------------------------ scaffold
+
+  mount.innerHTML = '';
+
+  var toolbar = el('div', 'at-toolbar');
+  var searchWrap = el('div', 'at-search-wrap');
+  var search = document.createElement('input');
+  // type=text, not type=search: Chrome renders its own clear button on search
+  // inputs, which would sit next to ours.
+  search.type = 'text';
+  search.className = 'at-search';
+  search.placeholder = 'Search by name, university, or year…';
+  search.setAttribute('aria-label', 'Search the family tree');
+  var searchClear = document.createElement('button');
+  searchClear.className = 'at-search-clear';
+  searchClear.type = 'button';
+  searchClear.innerHTML = '&times;';
+  searchClear.setAttribute('aria-label', 'Clear search');
+  searchWrap.appendChild(search);
+  searchWrap.appendChild(searchClear);
+
+  var hits = el('span', 'at-hits');
+  var btnExpand = button('Expand all');
+  var btnCollapse = button('Collapse all');
+  var btnFit = button('Fit');
+  var btnReset = button('Reset');
+
+  var controls = el('div', 'at-controls');
+  controls.appendChild(btnExpand);
+  controls.appendChild(btnCollapse);
+  controls.appendChild(btnFit);
+  controls.appendChild(btnReset);
+
+  toolbar.appendChild(searchWrap);
+  toolbar.appendChild(hits);
+  toolbar.appendChild(controls);
+
+  var canvas = el('div', 'at-canvas');
+  var tooltip = el('div', 'at-tooltip');
+  canvas.appendChild(tooltip);
+
+  var legend = el('div', 'at-legend');
+  legend.innerHTML =
+    key('University of Pennsylvania') +
+    key('University of Georgia') +
+    key('Florida State University') +
+    key('University of Wisconsin') +
+    '<span class="at-key"><span class="at-swatch" style="background:' + FALLBACK_COLOR +
+      '"></span> other</span>' +
+    '<span class="at-key"><span class="at-key-ring"></span> collapsed (click to expand)</span>' +
+    '<span class="at-key"><span class="at-key-line"></span> co-advised</span>' +
+    '<span class="at-stats">' + DATA.stats.people + ' people · ' +
+      DATA.stats.advisors + ' advisors · ' + DATA.stats.universities + ' universities</span>';
+
+  mount.appendChild(toolbar);
+  mount.appendChild(canvas);
+  mount.appendChild(legend);
+
+  function el(tag, cls) { var n = document.createElement(tag); n.className = cls; return n; }
+  function button(label) {
+    var b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'at-btn';
+    b.textContent = label;
+    return b;
+  }
+  function key(uni) {
+    return '<span class="at-key"><span class="at-swatch" style="background:' +
+      color(uni) + '"></span> ' + shortUni(uni) + '</span>';
+  }
+
+  // --------------------------------------------------------------------- svg
+
+  var svg = d3.select(canvas).append('svg');
+  var zoomLayer = svg.append('g');
+  var gCoadvise = zoomLayer.append('g').attr('class', 'at-coadvise-layer');
+  var gLinks = zoomLayer.append('g').attr('class', 'at-link-layer');
+  var gNodes = zoomLayer.append('g').attr('class', 'at-node-layer');
+
+  var zoom = d3.zoom().scaleExtent([0.2, 2.5]).on('zoom', function (event) {
+    zoomLayer.attr('transform', event.transform);
+  });
+  svg.call(zoom).on('dblclick.zoom', null);
+
+  var layout = d3.tree();
+  var linkPath = d3.linkHorizontal().x(function (d) { return d.y; }).y(function (d) { return d.x; });
+
+  var lastPos = {};       // id -> {x, y}, so entering nodes animate from their parent
+  var matchIds = null;    // matches plus their ancestors — everything left undimmed
+  var exactIds = null;    // only the true search hits — what gets a halo
+  var lineageIds = null;  // hover highlight
+
+  // ----------------------------------------------------------- display tree
+
+  // Rebuilt from the source data on every render, honouring the view state.
+  // The tree is small enough (a few hundred nodes) that this is free, and it keeps the
+  // bundle stub from distorting geometry: when a bundle opens, its members
+  // return to their true generation column instead of sitting one to the right.
+  function buildDisplay(node) {
+    var out = {
+      id: node.id,
+      name: node.name,
+      university: node.university,
+      year: node.year,
+      coAdvisors: node.coAdvisors,
+      totalChildren: childCount(node),
+      children: null,
+      hiddenCount: 0
+    };
+    if (!childCount(node)) { return out; }
+
+    var state = st(node.id);
+    if (state.collapsed) {
+      out.hiddenCount = descendantCount(node);
+      out.collapsedCount = out.hiddenCount;
+      return out;
+    }
+
+    var split = state.bundleOpen ? null : bundleSplit(node);
+    if (split) {
+      out.children = split.withKids.map(buildDisplay);
+      out.children.push({
+        id: 'bundle:' + node.id,
+        isBundle: true,
+        bundleParent: node.id,
+        count: split.leaves.length,
+        children: null
+      });
+      out.hiddenCount = split.leaves.length;
+    } else {
+      out.children = node.children.map(buildDisplay);
+    }
+    return out;
+  }
+
+  function descendantCount(node) {
+    return (node.children || []).reduce(function (n, kid) {
+      return n + 1 + descendantCount(kid);
+    }, 0);
+  }
+
+  // --------------------------------------------------------------- rendering
+
+  function render(animate) {
+    var duration = animate === false ? 0 : CFG.duration;
+    var m = metrics();
+    layout.nodeSize([m.row, m.col]);
+    var root = d3.hierarchy(buildDisplay(DATA.tree));
+    layout(root);
+
+    // The synthetic __root__ exists only to hold the two real roots (Cummins
+    // and Hoyt) under one hierarchy. It is never drawn, and shifting left by
+    // one column puts the real roots flush against the left edge.
+    var nodes = root.descendants().filter(function (d) { return d.data.id !== '__root__'; });
+    var links = root.links().filter(function (d) { return d.source.data.id !== '__root__'; });
+    nodes.forEach(function (d) { d.y -= m.col; });
+
+    var visible = {};
+    nodes.forEach(function (d) { visible[d.data.id] = d; });
+
+    // --- links -------------------------------------------------------------
+    var link = gLinks.selectAll('path.at-link').data(links, function (d) { return d.target.data.id; });
+
+    link.exit().transition().duration(duration).attr('opacity', 0).remove();
+
+    link.enter().append('path')
+      .attr('class', 'at-link')
+      .attr('opacity', 0)
+      .attr('d', function (d) {
+        var o = lastPos[d.source.data.id] || { x: d.source.x, y: d.source.y };
+        return linkPath({ source: o, target: o });
+      })
+      .merge(link)
+      .transition().duration(duration)
+      .attr('opacity', 1)
+      .attr('d', linkPath);
+
+    // --- co-advisor links --------------------------------------------------
+    var coEdges = DATA.coAdvisorEdges.filter(function (e) {
+      return visible[e.advisor] && visible[e.student];
+    });
+
+    var co = gCoadvise.selectAll('path.at-coadvise').data(coEdges, function (d) {
+      return d.advisor + '->' + d.student;
+    });
+
+    co.exit().remove();
+
+    co.enter().append('path')
+      .attr('class', 'at-coadvise')
+      .merge(co)
+      .transition().duration(duration)
+      .attr('d', function (d) { return coadvisePath(visible[d.advisor], visible[d.student]); });
+
+    // --- nodes -------------------------------------------------------------
+    var node = gNodes.selectAll('g.at-node').data(nodes, function (d) { return d.data.id; });
+
+    node.exit().transition().duration(duration).attr('opacity', 0).remove();
+
+    var enter = node.enter().append('g')
+      .attr('class', 'at-node')
+      .attr('opacity', 0)
+      .attr('transform', function (d) {
+        var o = lastPos[d.parent && d.parent.data.id] || { x: d.x, y: d.y };
+        return 'translate(' + o.y + ',' + o.x + ')';
+      })
+      .on('click', onNodeClick)
+      .on('mouseenter', onNodeEnter)
+      .on('mousemove', onNodeMove)
+      .on('mouseleave', onNodeLeave);
+
+    enter.each(function (d) {
+      var g = d3.select(this);
+      if (d.data.isBundle) {
+        var w = 158;
+        g.attr('class', 'at-node at-bundle');
+        g.append('rect').attr('x', 0).attr('y', -10).attr('width', w).attr('height', 20);
+        g.append('text').attr('x', 10).attr('y', 1);
+      } else {
+        g.append('circle').attr('class', 'at-match-halo').attr('r', 9).attr('opacity', 0);
+        g.append('circle').attr('class', 'at-node-dot');
+        g.append('text').attr('class', 'at-label').attr('x', 12).attr('y', 1);
+      }
+    });
+
+    var merged = enter.merge(node);
+
+    merged
+      .classed('is-root', function (d) { return d.depth === 1; })
+      .classed('has-hidden', function (d) { return d.data.hiddenCount > 0; });
+
+    merged.select('circle.at-node-dot')
+      .attr('r', function (d) { return d.depth === 1 ? 7 : (d.data.totalChildren ? 6 : 4.5); })
+      .attr('fill', function (d) { return color(d.data.university); });
+
+    merged.select('text.at-label').each(function (d) {
+      var t = d3.select(this);
+      t.text(null);
+      t.append('tspan').text(d.data.name);
+      var meta = shortUni(d.data.university) + (d.data.year ? ' ' + d.data.year : '');
+      if (meta) { t.append('tspan').attr('class', 'at-meta').text('  ' + meta); }
+      // A collapsed branch says how much is behind it, so the index of root
+      // advisors reads as "how big is this lineage" at a glance.
+      if (d.data.collapsedCount) {
+        t.append('tspan').attr('class', 'at-count')
+          .text('  ' + d.data.collapsedCount + (d.data.collapsedCount === 1 ? ' descendant' : ' descendants'));
+      }
+    });
+
+    merged.filter(function (d) { return d.data.isBundle; })
+      .select('text')
+      .text(function (d) { return '+ ' + d.data.count + ' more students'; });
+
+    merged.transition().duration(duration)
+      .attr('opacity', 1)
+      .attr('transform', function (d) { return 'translate(' + d.y + ',' + d.x + ')'; });
+
+    lastPos = {};
+    nodes.forEach(function (d) { lastPos[d.data.id] = { x: d.x, y: d.y }; });
+
+    currentNodes = nodes;
+    applyHighlight();
+  }
+
+  var currentNodes = [];
+
+  // Search dimming and hover lineage are pure class changes, so they are applied
+  // to the existing selections rather than by re-rendering. Re-rendering on
+  // hover shifts nodes under the pointer, which fires mouseleave and cancels
+  // the very highlight that was being drawn.
+  function applyHighlight() {
+    var dimming = !!matchIds;
+    var isLit = function (id) { return !lineageIds || lineageIds[id]; };
+    var dimmed = function (id) { return (dimming && !matchIds[id]) || !isLit(id); };
+
+    gNodes.selectAll('g.at-node')
+      .classed('is-match', function (d) { return dimming && !!exactIds[d.data.id]; })
+      .classed('is-dimmed', function (d) { return dimmed(d.data.id); })
+      .select('circle.at-match-halo')
+      .attr('opacity', function (d) { return dimming && exactIds[d.data.id] ? 1 : 0; });
+
+    gLinks.selectAll('path.at-link')
+      .classed('is-lineage', function (d) { return !!lineageIds && !!lineageIds[d.target.data.id]; })
+      .classed('is-dimmed', function (d) { return dimmed(d.target.data.id); });
+
+    gCoadvise.selectAll('path.at-coadvise')
+      .classed('is-lineage', function (d) {
+        return !!lineageIds && !!lineageIds[d.student] && !!lineageIds[d.advisor];
+      })
+      .classed('is-dimmed', function (d) { return dimmed(d.student); });
+  }
+
+  // A co-advisor edge usually spans several columns, so bow it well clear of
+  // the primary links rather than cutting straight through the tree.
+  function coadvisePath(a, b) {
+    var midY = (a.y + b.y) / 2;
+    var bow = Math.min(70, Math.abs(b.x - a.x) * 0.32 + 18);
+    var dir = b.x >= a.x ? 1 : -1;
+    return 'M' + a.y + ',' + a.x +
+           'C' + (midY) + ',' + (a.x + bow * dir) +
+           ' ' + (midY) + ',' + (b.x - bow * dir) +
+           ' ' + b.y + ',' + b.x;
+  }
+
+  // ---------------------------------------------------------- interactions
+
+  function onNodeClick(event, d) {
+    event.stopPropagation();
+    if (d.data.isBundle) {
+      st(d.data.bundleParent).bundleOpen = true;
+      render();
+      return;
+    }
+    if (!d.data.totalChildren) { return; }
+    var state = st(d.data.id);
+    if (state.collapsed) {
+      state.collapsed = false;
+    } else if (d.data.hiddenCount > 0 && !state.bundleOpen) {
+      state.bundleOpen = true;   // first click opens the bundle...
+    } else {
+      state.collapsed = true;    // ...second collapses the whole branch
+      state.bundleOpen = false;
+    }
+    render();
+  }
+
+  function onNodeEnter(event, d) {
+    if (d.data.isBundle) { return; }
+    lineageIds = {};
+    var walk = d;
+    while (walk && walk.data.id !== '__root__') {
+      lineageIds[walk.data.id] = true;
+      walk = walk.parent;
+    }
+    (d.data.coAdvisors || []).forEach(function (c) { lineageIds[c.id] = true; });
+    applyHighlight();
+    showTooltip(event, d);
+  }
+
+  function onNodeMove(event) { positionTooltip(event); }
+
+  function onNodeLeave() {
+    lineageIds = null;
+    applyHighlight();
+    tooltip.classList.remove('is-visible');
+  }
+
+  function showTooltip(event, d) {
+    var advisorId = parentOf[d.data.id];
+    var advisor = advisorId && advisorId !== '__root__' ? byId[advisorId] : null;
+    var kids = childCount(byId[d.data.id] || {});
+    var html = '<div class="at-tt-name">' + esc(d.data.name) + '</div>' +
+      '<div class="at-tt-uni" style="color:' + color(d.data.university) + '">' +
+      esc(d.data.university || 'Unknown') + (d.data.year ? ' · ' + d.data.year : '') + '</div>';
+    if (advisor) {
+      html += '<div class="at-tt-row"><strong>Advisor:</strong> ' + esc(advisor.name) + '</div>';
+    } else {
+      html += '<div class="at-tt-row"><strong>Root of this lineage</strong></div>';
+    }
+    if (d.data.coAdvisors && d.data.coAdvisors.length) {
+      html += '<div class="at-tt-row"><strong>Co-advisor' +
+        (d.data.coAdvisors.length > 1 ? 's' : '') + ':</strong> ' +
+        d.data.coAdvisors.map(function (c) { return esc(c.name); }).join(', ') + '</div>';
+    }
+    if (kids) {
+      html += '<div class="at-tt-row"><strong>Students:</strong> ' + kids + '</div>';
+    }
+    tooltip.innerHTML = html;
+    tooltip.classList.add('is-visible');
+    positionTooltip(event);
+  }
+
+  function positionTooltip(event) {
+    var box = canvas.getBoundingClientRect();
+    var x = event.clientX - box.left + 16;
+    var y = event.clientY - box.top + 14;
+    if (x + 280 > box.width) { x = Math.max(6, x - 300); }
+    if (y + 130 > box.height) { y = Math.max(6, y - 150); }
+    tooltip.style.left = x + 'px';
+    tooltip.style.top = y + 'px';
+  }
+
+  function esc(s) {
+    return String(s == null ? '' : s).replace(/[&<>"]/g, function (c) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c];
+    });
+  }
+
+  // -------------------------------------------------------------- search
+
+  function runSearch() {
+    var q = search.value.trim().toLowerCase();
+    searchClear.classList.toggle('is-visible', q.length > 0);
+
+    if (!q) {
+      matchIds = null;
+      exactIds = null;
+      hits.textContent = '';
+      render();
+      return;
+    }
+
+    var found = people.filter(function (p) {
+      return (p.name || '').toLowerCase().indexOf(q) !== -1 ||
+             (p.university || '').toLowerCase().indexOf(q) !== -1 ||
+             shortUni(p.university).toLowerCase().indexOf(q) !== -1 ||
+             String(p.year || '').indexOf(q) !== -1;
+    });
+
+    matchIds = {};
+    exactIds = {};
+    found.forEach(function (p) {
+      matchIds[p.id] = true;
+      exactIds[p.id] = true;
+      revealPathTo(p.id);
+      // Reveal co-advisors too. A co-advising edge is only drawn when both ends
+      // are on screen, so without this the second advisor of someone like Karl
+      // stays hidden in a collapsed lineage and the relationship is invisible.
+      (byId[p.id].coAdvisors || []).forEach(function (c) {
+        matchIds[c.id] = true;
+        revealPathTo(c.id);
+      });
+    });
+
+    hits.textContent = found.length === 0 ? 'no matches'
+      : found.length + (found.length === 1 ? ' match' : ' matches');
+
+    render();
+    if (found.length) { centerOn(found[0].id); }
+  }
+
+  // Open every ancestor of `id` so it is actually on screen, including the
+  // bundle stub it may be hiding inside, and keep the chain undimmed.
+  function revealPathTo(id) {
+    var childId = id;
+    var pid = parentOf[id];
+    while (pid && pid !== '__root__') {
+      var state = st(pid);
+      state.collapsed = false;
+      if (!childCount(byId[childId])) { state.bundleOpen = true; }
+      matchIds[pid] = true;
+      childId = pid;
+      pid = parentOf[pid];
+    }
+  }
+
+  function centerOn(id) {
+    var target = currentNodes.filter(function (d) { return d.data.id === id; })[0];
+    if (!target) { return; }
+    var box = canvas.getBoundingClientRect();
+    var t = d3.zoomTransform(svg.node());
+    svg.transition().duration(500).call(
+      zoom.transform,
+      d3.zoomIdentity.translate(box.width / 2 - target.y * t.k, box.height / 2 - target.x * t.k).scale(t.k)
+    );
+  }
+
+  // ------------------------------------------------------------- controls
+
+  function setAll(collapsed) {
+    people.forEach(function (p) {
+      if (childCount(p)) {
+        view[p.id] = { collapsed: collapsed, bundleOpen: !collapsed };
+      }
+    });
+    render();
+    // Anchor top-left at readable scale rather than fitting: fitting 52 collapsed
+    // lineages into one screen lands on the minimum scale, where nothing is
+    // legible, and centres a single column in a wide canvas. Fit stays on the
+    // button, for when the user asks for it.
+    window.setTimeout(resetPan, CFG.duration + 30);
+  }
+
+  function fit() {
+    var bounds = zoomLayer.node().getBBox();
+    if (!bounds.width || !bounds.height) { return; }
+    var box = canvas.getBoundingClientRect();
+    var scale = Math.min(
+      (box.width - CFG.fitPadding * 2) / bounds.width,
+      (box.height - CFG.fitPadding * 2) / bounds.height,
+      1.35
+    );
+    scale = Math.max(scale, CFG.minScale);
+    var tx = box.width / 2 - scale * (bounds.x + bounds.width / 2);
+    var ty = box.height / 2 - scale * (bounds.y + bounds.height / 2);
+    svg.transition().duration(500).call(zoom.transform, d3.zoomIdentity.translate(tx, ty).scale(scale));
+  }
+
+  // With ~50 root advisors, opening everything is a wall of 280 names. Start
+  // from collapsed — which makes the first screen an index of the discipline,
+  // each lineage labelled with its size — then open the largest lineages, in
+  // order, for as long as the row budget holds. Everything below stays a
+  // one-click summary.
+  function initialExpansion() {
+    view = {};
+    people.forEach(function (p) {
+      if (childCount(p)) { view[p.id] = { collapsed: true, bundleOpen: false }; }
+    });
+
+    var roots = DATA.tree.children || [];
+    for (var i = 0; i < roots.length; i++) {
+      if (!childCount(roots[i])) { continue; }
+      var saved = snapshot(roots[i]);
+      openSubtree(roots[i]);
+      if (visibleRowCount() > CFG.openRowBudget) {
+        restore(saved);
+        break;
+      }
+    }
+  }
+
+  function subtreeIds(node, acc) {
+    acc.push(node.id);
+    (node.children || []).forEach(function (k) { subtreeIds(k, acc); });
+    return acc;
+  }
+
+  function snapshot(node) {
+    var out = {};
+    subtreeIds(node, []).forEach(function (id) {
+      if (view[id]) { out[id] = { collapsed: view[id].collapsed, bundleOpen: view[id].bundleOpen }; }
+    });
+    return out;
+  }
+
+  function restore(saved) {
+    Object.keys(saved).forEach(function (id) { view[id] = saved[id]; });
+  }
+
+  function openSubtree(node) {
+    if (!childCount(node)) { return; }
+    st(node.id).collapsed = false;
+    st(node.id).bundleOpen = false;   // big leaf fans stay behind their stub
+    var split = bundleSplit(node);
+    (split ? split.withKids : node.children).forEach(openSubtree);
+  }
+
+  // Rows are leaves: d3.tree centres an internal node on its children rather
+  // than giving it a row of its own.
+  function visibleRowCount() {
+    return d3.hierarchy(buildDisplay(DATA.tree)).leaves().length;
+  }
+
+  function initialView() {
+    initialExpansion();
+    matchIds = null;
+    exactIds = null;
+    lineageIds = null;
+    search.value = '';
+    searchClear.classList.remove('is-visible');
+    hits.textContent = '';
+    render(false);
+    // One tick, so entering nodes have landed before getBBox measures them.
+    window.setTimeout(resetPan, 30);
+  }
+
+  // Open anchored to the top-left rather than fit-to-screen. Full zoom keeps
+  // the labels legible, and the roots are where the eye starts reading.
+  // Scale down only if the tree is wider than the canvas.
+  function resetPan() {
+    var bounds = zoomLayer.node().getBBox();
+    if (!bounds.width || !bounds.height) { return; }
+    var box = canvas.getBoundingClientRect();
+    var scale = Math.max(CFG.minScale, Math.min(1, (box.width - 70) / bounds.width));
+    svg.call(
+      zoom.transform,
+      d3.zoomIdentity.translate(34 - bounds.x * scale, 24 - bounds.y * scale).scale(scale)
+    );
+  }
+
+  search.addEventListener('input', debounce(runSearch, 180));
+  searchClear.addEventListener('click', function () { search.value = ''; runSearch(); search.focus(); });
+  btnExpand.addEventListener('click', function () { setAll(false); });
+  btnCollapse.addEventListener('click', function () { setAll(true); });
+  btnFit.addEventListener('click', fit);
+  btnReset.addEventListener('click', initialView);
+
+  function debounce(fn, ms) {
+    var t;
+    return function () {
+      var args = arguments, self = this;
+      window.clearTimeout(t);
+      t = window.setTimeout(function () { fn.apply(self, args); }, ms);
+    };
+  }
+
+  var resizeTimer;
+  window.addEventListener('resize', function () {
+    window.clearTimeout(resizeTimer);
+    resizeTimer = window.setTimeout(function () { render(false); }, 150);
+  });
+
+  initialView();
+})();
+
+</script>
+```
