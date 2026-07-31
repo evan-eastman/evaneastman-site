@@ -3,6 +3,10 @@ project:
   output-dir: _site
   render:
     - "*.qmd"
+  # Quarto puts every rendered page in sitemap.xml with no per-page opt-out,
+  # which works against any page marked noindex. This strips those entries.
+  post-render:
+    - py -3 tools/unlist-noindex-from-sitemap.py
 
 website:
   title: "Evan M. Eastman"
