@@ -17,6 +17,12 @@ Doctoral advising lineages in insurance and risk management —
 across 45 universities. The largest lineages open on load;
 the rest are collapsed and labelled with their size. Click a name to expand or
 collapse, hover to trace a lineage back to its root, or search for a person.
+
+**The ARIA Family Tree is James M. Carson's.** He built it from dissertation
+chairs and presented it as the "Six Degrees of Solomon Huebner" in his ARIA
+presidential address, calling it a work in progress he hoped to post on the ARIA
+website. This page carries on that work; the lineages he sampled, Robert I.
+Mehr's among them, are still here.
 :::
 
 ```{=html}
@@ -370,7 +376,11 @@ collapse, hover to trace a lineage back to its root, or search for a person.
 
 <p style="max-width:78ch;margin:0.9rem 0 0;font-size:0.78rem;line-height:1.5;color:#6b7280;">
 Each column is one academic generation. Dashed lines mark co-advising. Corrections
-and additions are welcome. Generated 2026-07-31.
+and additions are welcome.<br>
+Original work: James M. Carson, &ldquo;The ARIA Loop,&rdquo; <em>Risk Management and Insurance
+Review</em>, 2005, Vol. 8, No. 1, pp. 1&ndash;8 &mdash; presidential address delivered at the
+2004 ARIA meeting, Chicago.<br>
+Generated 2026-07-31.
 </p>
 
 <script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"></script>
