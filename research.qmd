@@ -139,17 +139,17 @@ With David L. Eckles, Martin Halek, and Lawrence S. Powell.
 :::
 
 ::: {.pub-entry}
-**Homeowners Insurance and Housing Prices**<br>
-With Kyeonghee Kim and Tingyu Zhou.<br>
-[[{{< iconify academicons ssrn >}} SSRN](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4852702)]
-:::
-
-::: {.pub-entry}
 **Insurer Investments: Accounting, Regulation, and Empirical Patterns**<br>
 With Dan Yang and James M. Carson.
 :::
 
 ## Working Papers
+
+::: {.pub-entry}
+**Homeowners Insurance and Housing Prices**<br>
+With Kyeonghee Kim and Tingyu Zhou.<br>
+[[{{< iconify academicons ssrn >}} SSRN](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4852702)]
+:::
 
 ::: {.pub-entry}
 **The Usefulness of Disaggregated Disclosures for Complex Estimates: Evidence from the Claim Loss Reserve**<br>
