@@ -1,7 +1,8 @@
 # Handoff — evaneastman-site
 
-Last updated: 2026-07-19 (favicon added; Wertheim college/building name
-fixes on the front page).
+Last updated: 2026-08-06 (JRI Senior Editor added; one paper moved to
+Working Papers; backfills the 2026-07-31 session — unlisted ARIA family
+tree page, sitemap noindex hook, Carson credit).
 
 ## Status
 
@@ -30,6 +31,15 @@ the Dropbox copy.
 **Content**: seven navbar pages — `index` (About), `research`,
 `teaching`, `presentations`, `service`, `awards`, `cv`. SSRN links
 across working/published papers; bio finalized; custom domain shipped.
+
+There is also one **unlisted** page, `family-tree.qmd` (the ARIA
+academic family tree), live at
+`https://evaneastman.com/family-tree.html`. It is not in the navbar and
+nothing on the site links to it, so it is reachable only by direct URL.
+It carries `<meta name="robots" content="noindex, nofollow">` and
+`search: false`, and a post-render hook keeps it out of `sitemap.xml`
+(see Known quirks). Unlisted is not private — the repo is public and
+the page is served to anyone with the URL.
 
 The old `other.qmd` was split (2026-07-15) into three dedicated pages:
 `presentations.qmd` (Conferences, Invited Talks academic/professional,
@@ -173,6 +183,19 @@ On the work/school PC where the project still lives in Dropbox:
   to be authored by you (paste via the `!`-prefixed PowerShell
   here-string in this session's history, or edit by hand), not by
   Claude on your behalf.
+- **Every render runs a Python post-render hook.** `_quarto.yml` has
+  `post-render: py -3 tools/unlist-noindex-from-sitemap.py`, which
+  drops noindex pages from `_site/sitemap.xml`. Quarto writes every
+  rendered page into the sitemap whenever `site-url` is set and offers
+  no per-page opt-out, so without this the sitemap advertises the URL
+  of a page whose own meta tag asks crawlers to ignore it. The script
+  keys off the rendered HTML's `robots` meta tag, not a filename —
+  marking a future page noindex needs no change to it. **Any machine
+  that renders this site needs Python on PATH via the `py` launcher**
+  (a stock python.org install provides it). Without it `quarto render`
+  fails at the post-render step. The script itself no-ops harmlessly if
+  `sitemap.xml` is missing, and takes an optional path argument so you
+  can run it against a fixture instead of a real build.
 - **`.claude/settings.local.json` is gitignored and machine-local.**
   The publish-workflow permission rules don't sync across machines.
   When you bring up the school PC, recreate the same file there using
@@ -180,6 +203,67 @@ On the work/school PC where the project still lives in Dropbox:
 
 ## Recent history
 
+- 2026-08-06 — **Senior Editor, *Journal of Risk and Insurance*
+  (2026–present)** added to `service.qmd` Editorial, above the RMIR
+  Associate Editor line. Journal link is
+  `onlinelibrary.wiley.com/journal/15396975` — Wiley 403s automated
+  fetches, so the ISSN (1539-6975 → *Journal of Risk & Insurance*,
+  Wiley) was confirmed via the Crossref API instead, same trick used
+  for the NAAJ DOIs in the 2026-06-05 entry. Also moved **Homeowners
+  Insurance and Housing Prices** (Kim, Zhou) out of Papers Under Review
+  into Working Papers in `research.qmd`, SSRN link intact. **`files/cv.pdf`
+  is a static export and still reflects neither change** — re-export it
+  when the next batch of CV edits is ready.
+- 2026-07-31 — Added the **ARIA Academic Family Tree** as an unlisted
+  page (`family-tree.qmd`, ~1,100 lines), live at
+  `https://evaneastman.com/family-tree.html`. Interactive d3 tree of
+  doctoral advising lineages in insurance and risk management: 288
+  people, 81 advisors, 45 universities, 52 root advisors, plus eight
+  co-advising edges drawn as dashed lines. Click to expand or collapse,
+  hover to trace a lineage back to its root, search by name. The page
+  is self-contained by design — the data is an inline
+  `window.ARIA_TREE_DATA` JSON blob, the CSS is an inline `<style>`
+  block namespaced under `#aria-tree` so it can't collide with the
+  site's Bootstrap/cosmo theme, and the only external dependency is
+  d3 v7 from the jsDelivr CDN. There is no separate data file and no
+  build step: **to correct or add a person, edit the JSON on line 387
+  of `family-tree.qmd` directly.** The `stats` object and the
+  "Generated" date in the footer are hand-maintained alongside it, so
+  update them in the same edit.
+  - Unlisted means: no navbar entry, no inbound link from any page,
+    `search: false`, and `<meta name="robots" content="noindex,
+    nofollow">` via `include-in-header`. It is *not* private.
+  - The `#aria-tree *` `box-sizing: border-box` reset at the top of the
+    style block is load-bearing. Bootstrap sets that globally, so the
+    bug it fixes (the search field's padding pushing it out past 100%
+    width and overlapping the toolbar buttons) only appears outside
+    Quarto. Don't drop it as redundant — it's what lets the block work
+    standalone.
+- 2026-07-31 — **Sitemap now excludes noindex pages.** New post-render
+  hook `tools/unlist-noindex-from-sitemap.py`, wired via `post-render:`
+  in `_quarto.yml`. Quarto puts every rendered page in `sitemap.xml`
+  when `site-url` is set, with no per-page opt-out, which defeats the
+  point of an unlisted page: the meta tag asks crawlers not to index it
+  while the sitemap points them straight at it. Robots honour noindex
+  over a sitemap entry, so nothing was actually leaking — but
+  advertising the URL is the opposite of what unlisted is for. The
+  script parses each `<loc>`, maps it back to the file Quarto wrote,
+  and removes the entry if that HTML carries a noindex `robots` meta
+  tag. Keying off the page's own declaration rather than a hardcoded
+  filename means future unlisted pages need no change here. Verified:
+  local and published `sitemap.xml` both carry seven URLs and no
+  `family-tree` entry. Adds a Python dependency to `quarto render` —
+  see Known quirks.
+- 2026-07-31 — **Credited James M. Carson as the tree's originator.**
+  Carson assembled the tree from dissertation chairs and presented it
+  as the "Six Degrees of Solomon Huebner" in his ARIA presidential
+  address, describing it as a work in progress he hoped to post on the
+  ARIA website. Citation, now in the page footer: James M. Carson,
+  "The ARIA Loop," *Risk Management and Insurance Review*, 2005, Vol.
+  8, No. 1, pp. 1–8 — presidential address delivered at the 2004 ARIA
+  meeting, Chicago. A bold credit line sits above the tree as well, so
+  the page reads as a continuation of his work rather than a
+  replacement. Keep both if the page is ever restructured.
 - 2026-07-19 — Added a **favicon** (`files/favicon.svg`, wired via
   `favicon:` in `_quarto.yml`): garnet `#782F40` rounded square with an
   "EE" monogram in FSU gold `#CEB888`. The letterforms are eight plain

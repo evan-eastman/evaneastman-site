@@ -49,3 +49,63 @@ needed for cert provisioning. **Decision: stay on Cloudflare as-is.**
 4. Optional: photo polish, `[Slides]` links on working papers, mobile and
    cross-browser visual QA.
 **Blocked:** None
+
+---
+
+## Session: 2026-07-31 11:45
+**Project:** evaneastman-site (Quarto personal website)
+**Objective:** Publish the ARIA academic family tree as an unlisted page on
+the site, and keep it out of search indexes.
+**Completed:**
+- Added `family-tree.qmd`: interactive d3 tree of doctoral advising lineages
+  in insurance and risk management (288 people, 81 advisors, 45 universities,
+  52 roots, 8 co-advising edges). Self-contained — inline data, inline CSS
+  namespaced under `#aria-tree`, d3 v7 from CDN. No navbar entry, no inbound
+  links, `search: false`, `robots: noindex, nofollow`. Live at
+  `evaneastman.com/family-tree.html`.
+- Added `tools/unlist-noindex-from-sitemap.py` and wired it as a Quarto
+  `post-render` step. Quarto has no per-page sitemap opt-out, so the sitemap
+  was advertising the URL of a page whose meta tag asks crawlers to skip it.
+  The script keys off the rendered HTML's robots tag, not a filename.
+- Credited James M. Carson as the tree's originator (in-page line plus full
+  citation in the footer): "The ARIA Loop," *RMIR* 2005, 8(1), 1–8,
+  presidential address, 2004 ARIA meeting.
+- Committed (`51b169c`, `99a21bd`, `bc187e6`), pushed, published.
+**Output:** `family-tree.qmd` (new), `tools/unlist-noindex-from-sitemap.py`
+(new), `_quarto.yml`
+**Finding:** Robots honour noindex over a sitemap entry, so nothing was
+leaking before the hook — but listing an unlisted page's URL in the sitemap
+works against the point of it. Note the site now needs Python on PATH via the
+`py` launcher for `quarto render` to complete.
+**Next:**
+1. Same queue as the 2026-07-19 entry (symposium box, SSRN backfill, school
+   PC setup, optional polish) — none of it was touched this session.
+2. Family tree: corrections and additions go straight into the inline JSON in
+   `family-tree.qmd`; update the `stats` object and the footer "Generated"
+   date in the same edit.
+**Blocked:** None
+
+---
+
+## Session: 2026-08-06
+**Project:** evaneastman-site (Quarto personal website)
+**Objective:** Backfill documentation for the 2026-07-31 session, which
+shipped and pushed but was never written up; then two content updates.
+**Completed:**
+- Wrote the 2026-07-31 entry above; added the family tree to `HANDOFF.md`
+  Status, three entries to Recent history, and a Known quirks entry for the
+  Python post-render dependency.
+- `service.qmd`: added **Senior Editor**, *Journal of Risk and Insurance*
+  (2026–present) above the RMIR Associate Editor line.
+- `research.qmd`: moved **Homeowners Insurance and Housing Prices** (Kim,
+  Zhou) from Papers Under Review to Working Papers.
+- Rendered, committed, pushed, published.
+**Output:** `HANDOFF.md`, `Work/session_progress.md`, `service.qmd`,
+`research.qmd`
+**Finding:** None.
+**Next:**
+1. **Re-export `files/cv.pdf`** — Evan has further CV edits coming within a
+   day or so and wants them pushed as one batch. The PDF currently reflects
+   neither the JRI Senior Editor role nor the paper's move to Working Papers.
+2. Otherwise unchanged from the 2026-07-31 entry.
+**Blocked:** None
