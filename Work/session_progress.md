@@ -109,3 +109,51 @@ shipped and pushed but was never written up; then two content updates.
    neither the JRI Senior Editor role nor the paper's move to Working Papers.
 2. Otherwise unchanged from the 2026-07-31 entry.
 **Blocked:** None
+
+
+---
+
+## Session: 2026-08-07 11:30
+**Project:** evaneastman-site (Quarto personal website)
+**Objective:** Find out why yesterday's two content edits were not visible on
+the live site, after Evan's PC lost power mid-session.
+**Completed:**
+- Confirmed nothing was lost to the power failure. `origin/main` was at
+  `a3b8df7`, identical to local (0 ahead / 0 behind), and the rendered site
+  had reached `origin/gh-pages` as `501623b` at 2026-08-06 12:12 with both
+  edits present in the built HTML.
+- Diagnosed the real cause: the GitHub Pages build for `501623b` hung. It sat
+  in `building` for ~20 hours with `duration: 0`, no error, and `updated_at`
+  frozen equal to `created_at`. The live site kept serving `f29bb9a` from
+  2026-07-31, which predates both edits.
+- Requested a fresh build with
+  `gh api -X POST repos/evan-eastman/evaneastman-site/pages/builds`. It
+  completed in 21 seconds.
+- Verified live with `curl` (browser and WebFetch caches both mask the
+  result): `service.html` carries the Senior Editor line, `research.html`
+  places Homeowners Insurance and Housing Prices under Working Papers.
+- Added a Known-quirks entry to `HANDOFF.md` with the symptom, the
+  `gh api .../builds/latest` check, and the rebuild command. Corrected the
+  TLS cert expiry there from 2026-08-23 to 2026-10-22 — GitHub renewed it
+  automatically, state `approved`, covering apex and `www`.
+- Committed and pushed as `ae6c120`.
+**Output:** `HANDOFF.md`, `Work/session_progress.md`
+**Finding:** `quarto publish` reporting success does not mean the site went
+live — it confirms only that the render reached `gh-pages`. The Pages build
+is a separate step that can hang silently, and a hung build is invisible from
+the repo side. Check `gh api repos/.../pages/builds/latest --jq '.status'`
+after any publish; a healthy build reports `built` in about 20 seconds.
+**Next:**
+1. **Several content updates are coming, including the re-exported
+   `files/cv.pdf`.** Evan is stepping away and will return with them. The PDF
+   on the site is still the 2026-07-15 export, so it reflects neither the JRI
+   Senior Editor role nor the paper's move to Working Papers. Push the batch
+   together.
+2. After that publish, confirm the Pages build actually completed before
+   calling the work done — see the new Known quirks entry in `HANDOFF.md`.
+3. Otherwise unchanged from the 2026-07-31 entry: symposium box in
+   `index.qmd` (awaiting the final 5th-symposium CFP deadline, Jan 21-23
+   2027, Tampa Hilton Downtown); SSRN backfill for published papers
+   #3, 4, 5, 6, 8, 9, 10, 11 and working papers #2, 5-13; school PC setup;
+   optional photo/`[Slides]`/mobile QA polish.
+**Blocked:** None
