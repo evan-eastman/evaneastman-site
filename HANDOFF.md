@@ -10,8 +10,9 @@ tree page, sitemap noindex hook, Carson credit).
 committed on `main`; Quarto copies it into `_site/` on each render so
 it lands in the `gh-pages` branch on publish. GitHub Pages auto-detects
 the domain and re-issues the Let's Encrypt cert as needed (current cert
-covers both apex and `www.evaneastman.com`, expires 2026-08-23,
-GitHub auto-renews ~30 days before).
+covers both apex and `www.evaneastman.com`, expires 2026-10-22,
+GitHub auto-renews ~30 days before — the 2026-08-23 cert renewed on
+schedule without intervention).
 
 **Analytics**: Cloudflare Web Analytics wired in via `_quarto.yml`
 `include-in-header`. Token is bound to `evaneastman.com` in the
@@ -124,6 +125,27 @@ On the work/school PC where the project still lives in Dropbox:
 
 ## Known quirks
 
+- **A GitHub Pages build can hang, leaving the live site stale after a
+  successful publish.** Happened 2026-08-06: `quarto publish` pushed the
+  rendered site to `gh-pages` (`501623b`) and returned success, but the
+  Pages builder stuck in `building` for ~20 hours with `duration: 0` and
+  no error, so evaneastman.com kept serving the previous build. Publish
+  success does not confirm the site went live. Check the build state:
+
+  ```powershell
+  gh api repos/evan-eastman/evaneastman-site/pages/builds/latest --jq '.status, .commit, .duration'
+  ```
+
+  A healthy build reports `built` in about 20 seconds. If it reads
+  `building` with `duration: 0` and an `updated_at` equal to
+  `created_at`, it is hung. Request a fresh build:
+
+  ```powershell
+  gh api -X POST repos/evan-eastman/evaneastman-site/pages/builds
+  ```
+
+  Verify the live page with `curl`, not a browser — browser and
+  WebFetch caches both mask the result.
 - **Never put this project back inside Dropbox.** `quarto render` will
   fail on cleanup with `os error 32`. See the bottom of README.md for
   the full story.
