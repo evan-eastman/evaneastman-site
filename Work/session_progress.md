@@ -229,3 +229,93 @@ mentioned.
    published papers #3, 4, 5, 6, 8, 9, 10, 11 and working papers #2,
    5-13; school PC setup; optional photo/`[Slides]`/mobile QA polish.
 **Blocked:** None
+
+
+---
+
+## Session: 2026-08-14 18:03
+**Project:** evaneastman-site (Quarto personal website)
+**Objective:** Turn the Risk Theory Society publication-tracking
+spreadsheet Evan dropped in `files/` into something the website can put
+forward. This is the "RTS History" item deferred from the earlier
+session, arriving with its own source data rather than as a blank scope
+question.
+**Completed:**
+- **Read the data before proposing anything.** 292 papers across 31
+  meetings (1984, then 1994-2024) with up to six author/affiliation
+  pairs each, and 37 meetings (1991-2027) with president, host,
+  location, and the society's member and attendee counts. Journal
+  strings are clean - 68 distinct, no typo variants.
+- **The findings that made it worth a page.** About 70% of papers
+  through 2019 reach print; median lag from meeting to publication is
+  three years (mean 3.5, range -1 to 17), which is what explains the
+  recent cohorts rather than any decline. Placement is broad, not
+  parochial: JRI leads at 43 but the tail runs through JFE (8), ReStat
+  (6), MS (5), JPubE (5), AER (4), Econometrica (3), RAND (2).
+  Membership roughly doubled, 59 in 1993 to 107 in 2022.
+- **`rts.qmd`, unlisted** (commits `47ce4b1`, `11414e1`, `742c093`).
+  Four headline tiles, three hand-rolled SVG
+  charts (papers and outcome by year with a censoring band, top
+  journals, members vs attendance with real gaps drawn as gaps), a
+  searchable and sortable table of all 292 papers with 185 linked
+  titles, and the 37-meeting history. Built like `family-tree.qmd`:
+  `noindex`, `search: false`, and the existing post-render hook drops
+  it from `sitemap.xml` with no change needed to that script.
+- **`tools/build-rts-data.py`** extracts the workbook into a marked
+  block in the page. Every displayed number - tiles, chart labels, note
+  text, and the two figures quoted in the intro prose - is computed
+  from that blob at load time, so the page cannot drift from the
+  workbook as it gains a meeting a year.
+- **`tools/Update-RTS.ps1`** collapses refresh to one command after
+  Evan said editing JSON would be worse than Excel. It rebuilds the
+  data block and renders. He edits the workbook and nothing else.
+- **Verified in the browser, not just rendered.** Search across titles,
+  authors, affiliations, and journals; sorting on three columns;
+  year filter; published-only toggle; empty state; no page-level
+  horizontal overflow at 360px with both tables scrolling internally.
+  Console clean (the only errors are the Zotero extension).
+- **Two bugs caught by looking at the page.** The 2025 meeting was
+  tagged "Upcoming" because I derived that from the last year with
+  *papers* (2024) - the meeting happened, its program just is not
+  entered yet; it now keys off the last meeting with recorded counts.
+  And a 2024 paper published in 2024 read "0 yrs after," now "same
+  year."
+- **Reversed my own gitignore call.** I first kept the workbook out of
+  git to keep raw data off a public repo, then Evan named it his
+  standing source of truth. Since `rts.qmd` carries the same 292 rows
+  as JSON and is committed, the rule bought almost nothing while
+  leaving his canonical file with no history, no backup, and no path to
+  the school PC. Now tracked.
+**Output:** `rts.qmd`, `tools/build-rts-data.py`, `tools/Update-RTS.ps1`,
+`.gitignore`, `HANDOFF.md`, `Work/session_progress.md`
+**Finding:** A blank journal is a gap in the record, not a verdict on
+the paper - 105 of 292 rows have no publication recorded, and the page
+says so in the intro, the cell tooltip, and the notes, because it makes
+public claims about named scholars' work. Separately: `files/` is safer
+than it looks. Quarto copies only the files a page actually links to,
+so `_site/files/` holds four of the six files in `files/` - the
+workbook and `profile-original.jpg` never ship. That is why tracking the
+workbook does not publish it, and why adding a download link to it later
+would be a decision rather than a formatting change.
+**Next:**
+1. **Evan must run `git add files/RTSPublicationTracking_2025.xlsx`
+   himself** - staging it was blocked by the permission classifier
+   twice, so the workbook is still untracked. Everything else is
+   committed.
+2. **Decide whether the RTS page goes public.** It is unlisted so Evan
+   can send the URL to RTS leadership first. Note that `git push` alone
+   exposes the data: the repo is public and `rts.qmd` carries all 292
+   rows. Nothing is pushed yet. To list it: add a navbar entry in
+   `_quarto.yml`, drop the `robots` meta and `search: false`.
+3. **Workbook gaps**, in rough order of value: the 2025 papers (the
+   meeting is recorded with 10 papers but no program - Evan finished
+   collection before the 2026 meeting), 1985-1993 (no papers at all),
+   the 105 rows with no publication outcome. Also retype the 2021
+   `date` cell as text (`April 9-11`); Excel stored it as a real date so
+   the build script drops it and warns.
+4. Unchanged from the earlier 2026-08-14 entry: symposium box flips from
+   CFP to program details after Sept 15 2026; the Aug 2026 ARIA
+   Strickler demonstration is on neither CV nor site; Insurance Tycoon
+   points at a Railway URL; SSRN backfill; school PC setup.
+**Blocked:** Staging the `.xlsx` is blocked by the permission
+classifier - needs one command from Evan (see Next #1).
