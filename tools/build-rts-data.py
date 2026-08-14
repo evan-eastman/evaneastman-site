@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 """Extract the Risk Theory Society tracking workbook into rts.qmd.
 
-The source of truth is a spreadsheet Evan maintains:
+The source of truth is a spreadsheet Evan maintains and edits in place:
 
-    files/RTSPublicationTracking_2025.xlsx
+    files/RTSPublicationTracking_*.xlsx    (newest by filename wins)
 
 It has two sheets. `Papers` is one row per paper presented at an RTS meeting,
 with up to six author/affiliation pairs and, where the paper reached print, a
@@ -42,8 +42,22 @@ from pathlib import Path
 import openpyxl
 
 ROOT = Path(__file__).resolve().parent.parent
-WORKBOOK = ROOT / "files" / "RTSPublicationTracking_2025.xlsx"
+WORKBOOK_GLOB = "RTSPublicationTracking_*.xlsx"
 PAGE = ROOT / "rts.qmd"
+
+
+def find_workbook():
+    """Pick the newest tracking workbook in files/.
+
+    The filename carries a year, so a refresh may arrive as a new file rather
+    than an edit to the old one. Sorting by name puts the highest year last;
+    ignoring Excel's `~$` lock files keeps an open workbook from being chosen.
+    """
+    candidates = sorted(
+        path for path in (ROOT / "files").glob(WORKBOOK_GLOB)
+        if not path.name.startswith("~$")
+    )
+    return candidates[-1] if candidates else None
 
 BEGIN = "<!-- BEGIN GENERATED DATA -->"
 END = "<!-- END GENERATED DATA -->"
@@ -138,7 +152,7 @@ def read_meetings(sheet):
         if isinstance(row[5], (datetime, date)):
             warn(
                 f"Meetings row {index} ({year}): date cell is a real date "
-                f"({row[5]:%Y-%m-%d}), not text — Excel coerced a range like "
+                f"({row[5]:%Y-%m-%d}), not text - Excel coerced a range like "
                 f"'April 9-11'. Emitted blank; fix as text in the workbook."
             )
         meetings.append([
@@ -157,19 +171,24 @@ def read_meetings(sheet):
 
 
 def main():
-    if not WORKBOOK.exists():
-        print(f"build-rts-data: workbook not found at {WORKBOOK}", file=sys.stderr)
+    workbook = find_workbook()
+    if workbook is None:
+        print(
+            f"build-rts-data: no {WORKBOOK_GLOB} in {ROOT / 'files'}",
+            file=sys.stderr,
+        )
         return 1
     if not PAGE.exists():
         print(f"build-rts-data: page not found at {PAGE}", file=sys.stderr)
         return 1
 
-    book = openpyxl.load_workbook(WORKBOOK, data_only=True)
+    print(f"build-rts-data: reading {workbook.name}")
+    book = openpyxl.load_workbook(workbook, data_only=True)
     papers = read_papers(book["Papers"])
     meetings = read_meetings(book["Meetings"])
 
     payload = {
-        "source": WORKBOOK.name,
+        "source": workbook.name,
         "papers": papers,
         "meetings": meetings,
     }
