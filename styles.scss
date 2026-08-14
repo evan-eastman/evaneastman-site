@@ -33,6 +33,18 @@ $headings-font-weight: 600;
   padding-left: 1em;
 }
 
+// Featured item in the main content column — same gold accent family as the
+// symposium box, sized for full width rather than the narrow About sidebar.
+.feature-entry {
+  margin: 1.1rem 0 1.6rem;
+  padding: 1rem 1.15rem;
+  border: 1px solid $gold;
+  border-left: 4px solid $gold;
+  border-radius: 6px;
+  background: rgba($gold, 0.14);
+  line-height: 1.5;
+}
+
 // Course listings get the same treatment
 .course-entry {
   padding: 0.75em 0;
