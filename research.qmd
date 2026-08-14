@@ -143,6 +143,12 @@ With David L. Eckles, Martin Halek, and Lawrence S. Powell.
 With Dan Yang and James M. Carson.
 :::
 
+::: {.pub-entry}
+**Climate Risk and the Cost of Commercial Property Insurance**<br>
+With Stephen L. Buschbom, Chongyu Wang, and Tingyu Zhou.<br>
+[[{{< iconify academicons ssrn >}} SSRN](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5841862)]
+:::
+
 ## Working Papers
 
 ::: {.pub-entry}
@@ -167,12 +173,6 @@ With David L. Eckles and Mary Kelly.<br>
 **A Text-Based Measure of Corporate Risk Management**<br>
 With Steve M. Miller and Po-Lin Wang.<br>
 [[{{< iconify academicons ssrn >}} SSRN](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5624330)]
-:::
-
-::: {.pub-entry}
-**Climate Risk and Commercial Property Insurance**<br>
-With Stephen L. Buschbom, Chongyu Wang, and Tingyu Zhou.<br>
-[[{{< iconify academicons ssrn >}} SSRN](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5841862)]
 :::
 
 ::: {.pub-entry}

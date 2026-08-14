@@ -33,12 +33,12 @@ toc-title: " "
     - *Pricing Climate Risk in Commercial Property Insurance* (with Stephen L. Buschbom, Chongyu Wang, and Tingyu Zhou)
 - **September 2026** · Urban Economics Association North American Meeting; Chicago, Illinois *(scheduled)*
     - *Climate Risk and Commercial Property Insurance* (with Stephen L. Buschbom, Chongyu Wang, and Tingyu Zhou)
-- **August 2026** · American Risk and Insurance Association Annual Meeting; Orlando, Florida *(scheduled)*
+- **August 2026** · American Risk and Insurance Association Annual Meeting; Orlando, Florida
     - *Climate Risk and Commercial Property Insurance* (with Stephen L. Buschbom, Chongyu Wang, and Tingyu Zhou)
     - *Insurer Innovation: Measurement, Determinants, and Value Implications* (with Po-Lin Wang)
-- **May 2026** · American Real Estate and Urban Economics Association National Conference; Washington, D.C. *(scheduled)*
+- **May 2026** · American Real Estate and Urban Economics Association National Conference; Washington, D.C.
     - *Climate Risk and Commercial Property Insurance* (with Stephen L. Buschbom, Chongyu Wang, and Tingyu Zhou)
-- **May 2026** · Western Risk and Insurance Association Annual Meeting; Monterey, California *(scheduled)*
+- **May 2026** · Western Risk and Insurance Association Annual Meeting; Monterey, California
     - *Climate Risk and Commercial Property Insurance* (with Stephen L. Buschbom, Chongyu Wang, and Tingyu Zhou)
     - *Homeowners Insurance and Housing Prices* (with Kyeonghee Kim and Tingyu Zhou)
     - *Managerial Discretion and Ownership Structure: An Examination of Earnings Management in the Insurer Loss Reserve Surrounding the 2017 Tax Cuts and Jobs Act* (with James M. Carson and Anne C. Ehinger)
@@ -234,7 +234,7 @@ toc-title: " "
 
 ## Discussant Talks
 
-- **August 2026** · American Risk and Insurance Association Annual Meeting; Orlando, Florida *(scheduled)* — *The Rise in Insurance Costs for Commercial Properties: Causes, Effects on Rents, and the Role of Owners* (Minjoo Kim, Prateek Mahajan, and Zirui Wang).
+- **August 2026** · American Risk and Insurance Association Annual Meeting; Orlando, Florida — *The Rise in Insurance Costs for Commercial Properties: Causes, Effects on Rents, and the Role of Owners* (Minjoo Kim, Prateek Mahajan, and Zirui Wang).
 - **August 2025** · World Risk and Insurance Economics Congress; Calgary, Canada — *Unrealized Losses Recognition and Interest Rate Risk Hedging for Insurance Firms* (Selim Mankai).
 - **August 2024** · American Risk and Insurance Association Annual Meeting; Denver, Colorado — *Claims Adjudication, Insurance Distribution Channel, and Customer Satisfaction* (Mark J. Browne, Kerry McCabe, David M. Pooser, and Andreas Richter).
 - **April 2024** · Eastern Finance Association Annual Meeting; St. Petersburg, Florida — *Bank Risk Management and Systemic Risk: Global Evidence* (Samuel W. Adams, Larry Fauver, Alvaro G. Taboada, and Lauren Milbach).

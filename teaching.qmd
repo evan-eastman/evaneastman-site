@@ -41,6 +41,18 @@ Review of the theoretical foundations of risk and insurance: the concept of risk
 [[Catalog](https://m.fsu.edu/default/course_catalog/detail?area=RMI&course=RMI+6395&term=all)]
 :::
 
+::: {.course-entry}
+**GEB 6931 — Doctoral Issues in Professional Development**<br>
+Ph.D.<br>
+Professional development seminar for doctoral students, covering the research process, teaching, and the academic career.
+:::
+
+::: {.course-entry}
+**RMI 6980 — Graduate Dissertation**<br>
+Ph.D.<br>
+Dissertation research and supervision for doctoral candidates in risk management and insurance.
+:::
+
 ## University of Georgia
 
 ::: {.course-entry}
@@ -50,6 +62,10 @@ Risk identification, risk evaluation, and risk treatment methods, with emphasis 
 :::
 
 ## Doctoral Mentoring
+
+**Dissertation chair, Florida State University:**
+
+- Adam Al-Rubaee (Risk Management and Insurance).
 
 **Committee member, Florida State University:**
 
