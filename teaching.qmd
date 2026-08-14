@@ -8,9 +8,7 @@ I teach risk management and insurance courses across the undergraduate, master's
 
 ::: {.feature-entry}
 **Insurance Tycoon — a homeowners underwriting simulation**<br>
-With Cassandra R. Cole and Kyeonghee Kim.<br>
 A browser-based simulation in which students price and underwrite a book of homeowners business against a live market. It runs solo for individual practice, or as an instructor-led multiplayer session in which a class competes on the same market.<br>
-Recipient of the 2026 [Les B. Strickler Innovation in Instruction Award](awards.qmd), American Risk and Insurance Association; demonstrated at the 2026 ARIA Annual Meeting in Orlando.<br>
 [[Launch the simulation](https://insurance-tycoon-production.up.railway.app/)]
 :::
 
