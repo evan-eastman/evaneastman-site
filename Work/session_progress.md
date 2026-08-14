@@ -157,3 +157,75 @@ after any publish; a healthy build reports `built` in about 20 seconds.
    #3, 4, 5, 6, 8, 9, 10, 11 and working papers #2, 5-13; school PC setup;
    optional photo/`[Slides]`/mobile QA polish.
 **Blocked:** None
+
+
+---
+
+## Session: 2026-08-14 11:09
+**Project:** evaneastman-site (Quarto personal website)
+**Objective:** Push the new CV export and bring every site page into
+agreement with it; then publish the 2027 RMI Symposium call for papers;
+then add a link to the Insurance Tycoon teaching simulation.
+**Completed:**
+- **CV batch (`6ea3a04`).** Read all 19 pages of the new export and
+  diffed it against every page. Five site changes followed: `index`
+  title is now **Director of Research**, RMI Center (was Research
+  Coordinator); "Climate Risk and the Cost of Commercial Property
+  Insurance" moved from Working Papers to Papers Under Review under its
+  current title; Adam Al-Rubaee added as dissertation **chair** in
+  `service` and `teaching`; GEB 6931 and RMI 6980 added to `teaching`;
+  stale `(scheduled)` tags dropped from Aug 2026 ARIA and both May 2026
+  meetings. Evan chose to leave the CAR conditional acceptance and the
+  CV's Works in Progress section off the site.
+- **Symposium CFP (`99cda60`).** Front-page box moved from placeholder
+  to the real announcement — dates, the September 15 2026 deadline in
+  garnet bold, what accepted papers get, links to the CFP PDF and the
+  symposium page, and the submission address. `presentations`
+  Conferences section expanded to the full call. Added
+  `.symposium-box__deadline` and `.symposium-box__links` to
+  `styles.scss`. Renamed the PDF Evan dropped in `files/` from
+  `call_for_papers_RMIResearchSymposium2027_v08_10_26.pdf` to
+  `rmi-research-symposium-2027-cfp.pdf` for a clean public URL.
+- **Insurance Tycoon (`61d5c98`, corrected by `4ad6ee7` and `e8987f8`).**
+  New Teaching Innovation section on `teaching.qmd` in a gold
+  `.feature-entry` box (new in `styles.scss`, full-width sibling of
+  `.symposium-box`). First pass also put the sim on `awards` and
+  `presentations` and tied it to the Strickler award; Evan corrected
+  that — the award was shared with Cassandra R. Cole and Kyeonghee Kim
+  for a joint session in which each presenter showed their own work, and
+  the simulation is Evan's alone. Final state: sim link on `teaching`
+  only, with no award mention; `awards` carries the award with the
+  coauthors in parentheses and no sim reference; Aug 2026 ARIA on
+  `presentations` is back to the two papers, matching the CV.
+- Every change rendered, committed, pushed, published, and verified
+  live with `curl`. Pages build confirmed `built` after each publish.
+**Output:** `files/cv.pdf`, `files/rmi-research-symposium-2027-cfp.pdf`,
+`index.qmd`, `research.qmd`, `teaching.qmd`, `presentations.qmd`,
+`service.qmd`, `awards.qmd`, `styles.scss`, `HANDOFF.md`,
+`Work/session_progress.md`
+**Finding:** A CV refresh carries more site-relevant change than the
+"what's new" conversation surfaces. Five of this session's edits came
+from diffing the PDF against the pages, not from anything Evan
+mentioned — a job title change, a new dissertation chair, two courses,
+a paper's status change, and stale scheduling tags. Diff the whole CV
+against every page on each new export; don't act only on what gets
+mentioned.
+**Next:**
+1. **RTS History** — the remaining item from this session's list of
+   three. Evan expects it to be more involved and wants it started in a
+   fresh session, so nothing has been scoped yet. Ask what form it
+   should take (a page? a section of `presentations.qmd`? a table of
+   past meetings?) before building anything.
+2. The August 2026 ARIA Strickler award demonstration is on neither the
+   CV nor the site. Worth adding to the CV on the next pass — flagged to
+   Evan, his call.
+3. The symposium box on `index.qmd` should switch from call-for-papers
+   to program details after **September 15, 2026**. A comment in the
+   file marks the spot.
+4. The Insurance Tycoon link points at a Railway deployment URL
+   (`insurance-tycoon-production.up.railway.app`). If the sim moves to a
+   custom domain, `teaching.qmd` needs updating.
+5. Otherwise unchanged from the 2026-08-07 entry: SSRN backfill for
+   published papers #3, 4, 5, 6, 8, 9, 10, 11 and working papers #2,
+   5-13; school PC setup; optional photo/`[Slides]`/mobile QA polish.
+**Blocked:** None

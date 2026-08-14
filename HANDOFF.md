@@ -1,8 +1,8 @@
 # Handoff — evaneastman-site
 
-Last updated: 2026-08-06 (JRI Senior Editor added; one paper moved to
-Working Papers; backfills the 2026-07-31 session — unlisted ARIA family
-tree page, sitemap noindex hook, Carson credit).
+Last updated: 2026-08-14 (new CV export and five site edits that
+followed from diffing it; 2027 symposium call for papers published;
+Insurance Tycoon simulation linked from Teaching).
 
 ## Status
 
@@ -55,20 +55,37 @@ Publications and Working Papers) in addition to Working Papers.
 
 The front page (`index.qmd`) has an FSU-gold **symposium announcement
 box** that a small inline `<script>` relocates into the About left
-column, under the link buttons (`.about-entity`). It's currently
-generic ("Information on the 2027 meeting is coming soon"); update the
-`symposium-box__body` text when the 5th-symposium CFP/deadline is
-final (Jan 21–23, 2027, Tampa Hilton Downtown; official page
-`wertheim.fsu.edu/rmiresearchsymposium`). Box styling lives in
-`styles.scss` (`.symposium-box`, `$gold: #CEB888`).
+column, under the link buttons (`.about-entity`). As of 2026-08-14 it
+carries the live 5th-symposium call for papers: Jan 21–23, 2027 at the
+Tampa Hilton Downtown, submissions due **September 15, 2026**, links to
+the CFP PDF (`files/rmi-research-symposium-2027-cfp.pdf`) and the
+official page, and the submission address. **After September 15, 2026**
+switch the box from call-for-papers to program details — a comment in
+`index.qmd` marks the spot. Box styling lives in `styles.scss`
+(`.symposium-box`, `$gold: #CEB888`); `.feature-entry` is its
+full-width sibling for callouts in the main content column.
+
+`teaching.qmd` opens with a **Teaching Innovation** section linking
+**Insurance Tycoon**, Evan's homeowners underwriting simulation, at
+`https://insurance-tycoon-production.up.railway.app/`. That is a
+Railway deployment URL — if the app moves to a custom domain, the link
+needs updating. The simulation is Evan's own work and deliberately
+carries **no** award mention: the 2026 Les B. Strickler Innovation in
+Instruction Award was shared with Cassandra R. Cole and Kyeonghee Kim
+for a joint ARIA session in which each presenter showed their own work.
+Keep the award on `awards.qmd` and the simulation on `teaching.qmd`;
+don't re-link them.
 
 ## What's left to add (next session ideas)
 
-- Update the front-page **symposium box** once the 5th-symposium CFP /
-  submission deadline is finalized — edit `symposium-box__body` in
-  `index.qmd` (currently "Information on the 2027 meeting is coming
-  soon"). Official page lists Jan 21–23, 2027 (Tampa) and a Sept 1
-  deadline, but Evan indicated the due date isn't locked yet.
+- **RTS History** — raised 2026-08-14 and deferred to a fresh session
+  because it may be more involved. Nothing scoped yet; ask what form it
+  should take before building.
+- Swap the front-page **symposium box** from call-for-papers to program
+  details after the **September 15, 2026** submission deadline passes.
+- The August 2026 ARIA **Strickler award demonstration** is on neither
+  the CV nor the site. Worth adding to the CV on the next pass — Evan's
+  call.
 - More SSRN links — several published papers (#3, 4, 5, 6, 8, 9, 10, 11
   from this session's prompt) weren't added because no IDs were
   available at the time. Working papers without links are #2, 5–13 in
@@ -225,6 +242,41 @@ On the work/school PC where the project still lives in Dropbox:
 
 ## Recent history
 
+- 2026-08-14 — **Insurance Tycoon** linked from a new Teaching
+  Innovation section at the top of `teaching.qmd`, in a gold
+  `.feature-entry` box (new in `styles.scss`, the full-width sibling of
+  `.symposium-box`). First pass also put the sim on `awards.qmd` and
+  `presentations.qmd` and framed it as the thing that won the Strickler
+  award; that was wrong and got reverted. **Lesson**: an award and a
+  linked artifact are separate facts — the Strickler was shared with
+  Cassandra R. Cole and Kyeonghee Kim for a session in which each
+  presenter showed their own work, so binding the two implied both
+  joint authorship of the simulation and a narrower award than the one
+  actually given. Ask who owns what before co-locating them.
+- 2026-08-14 — **2027 RMI Symposium call for papers** published. The
+  front-page box moved from placeholder to the live call, and the
+  `presentations.qmd` Conferences section expanded from a one-line
+  pointer to the full CFP (deadline, October 15 notification, PDF-to-
+  email submission with subject line, invitation-only note). The CFP
+  PDF was renamed on the way in — Evan dropped
+  `call_for_papers_RMIResearchSymposium2027_v08_10_26.pdf` into
+  `files/` and it now serves as `rmi-research-symposium-2027-cfp.pdf`,
+  keeping the internal version stamp out of the public URL. Convention:
+  rename anything with a version suffix before it gets a public link.
+- 2026-08-14 — **New CV export**, and five site edits that came from
+  diffing all 19 pages against the site rather than from anything
+  mentioned in conversation: `index` job title → **Director of
+  Research**, RMI Center; "Climate Risk and the Cost of Commercial
+  Property Insurance" → Papers Under Review under its current title;
+  **Adam Al-Rubaee** added as dissertation chair (`service`,
+  `teaching`); **GEB 6931** and **RMI 6980** added to `teaching` with
+  no catalog links (GEB 6931 is a special-topics shell number whose
+  catalog title doesn't match, and the FSU catalog is JS-rendered so
+  links can't be verified with `curl`); stale `(scheduled)` tags
+  dropped from Aug 2026 ARIA and both May 2026 meetings. Left off the
+  site by Evan's choice: the *Contemporary Accounting Research*
+  conditional acceptance, and the CV's Works in Progress section.
+  **Lesson**: diff the whole CV against every page on each new export.
 - 2026-08-06 — **Senior Editor, *Journal of Risk and Insurance*
   (2026–present)** added to `service.qmd` Editorial, above the RMIR
   Associate Editor line. Journal link is
