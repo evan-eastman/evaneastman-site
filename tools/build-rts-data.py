@@ -16,12 +16,13 @@ the marked block inside `rts.qmd`. The page computes every displayed statistic
 from that blob at load time, so no number on the page can drift from the
 workbook.
 
-The workbook itself is deliberately NOT committed. `files/` is copied to the
-published site, so a tracked .xlsx would sit at a guessable public URL while the
-page carrying it is unlisted. Keep the workbook local; commit only what this
-script emits.
+The workbook is committed. Quarto copies only the files in `files/` that a page
+actually links to, so it is versioned and synced without ever reaching the
+published site — as long as nothing links to it. Don't add a download link
+without deciding to publish the raw data.
 
-Refresh after editing the workbook:
+Refresh after editing the workbook (or run tools/Update-RTS.ps1, which does
+this and renders):
 
     py -3 tools/build-rts-data.py
 

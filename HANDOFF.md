@@ -49,20 +49,32 @@ served to anyone with the URL.
 (1984, then 1994–2024) and 37 meetings (1991–2027). The page carries
 headline figures, three SVG charts (papers and publication outcome by
 year, top journals, membership and attendance), a searchable table of
-every paper, and the meeting history. `tools/build-rts-data.py` reads
-the workbook and rewrites the block between
-`<!-- BEGIN GENERATED DATA -->` and `<!-- END GENERATED DATA -->` in
-`rts.qmd`; the page computes every displayed number from that blob at
-load time, so nothing on it can drift from the workbook. Refresh with
-`py -3 tools/build-rts-data.py`, then render.
+every paper, and the meeting history.
 
-Two rules for that page. **The workbook is gitignored on purpose** —
-committing it to a public repo publishes the raw data, which is the
-thing the unlisted page is trying to stage. Keep it on disk and in
-Dropbox. And **a blank journal means "not recorded," never
-"unpublished"** — 105 of the 292 papers have no publication recorded,
-and the page says so in three places because it is making public
-statements about named scholars' work. Don't relabel those cells.
+**The workbook is the only file anyone edits.** `tools/build-rts-
+data.py` reads it and rewrites the block between
+`<!-- BEGIN GENERATED DATA -->` and `<!-- END GENERATED DATA -->` in
+`rts.qmd`. That block is generated output, like `_site/` — never edit
+it by hand. The page computes every displayed number from it at load
+time, including the two figures quoted in the intro prose, so nothing
+on the page can drift from the workbook as it gains a meeting a year.
+The whole refresh is one command:
+
+```powershell
+.\tools\Update-RTS.ps1        # rebuilds the data block, then renders
+```
+
+The workbook is committed. Quarto copies only the files in `files/`
+that a page links to (see Known quirks), so it is versioned, backed up,
+and on both machines without ever reaching evaneastman.com. **Adding a
+download link to it would publish the raw data** — that is a decision,
+not a formatting change.
+
+One rule for the page itself: **a blank journal means "not recorded,"
+never "unpublished."** 105 of the 292 papers have no publication
+recorded, and the page says so in the intro, the cell tooltip, and the
+notes, because it is making public statements about named scholars'
+work. Don't relabel those cells.
 
 The old `other.qmd` was split (2026-07-15) into three dedicated pages:
 `presentations.qmd` (Conferences, Invited Talks academic/professional,
