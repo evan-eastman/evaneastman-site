@@ -15,4 +15,10 @@ Thumbs.db
 # Logs
 *.log
 
+# Source workbook for rts.qmd. Everything in files/ is copied to the published
+# site, so a tracked .xlsx would sit at a guessable public URL. tools/build-rts-
+# data.py reads it locally and writes what the page needs into rts.qmd; keep the
+# workbook itself on disk (and in Dropbox), not in the repo.
+files/RTSPublicationTracking_*.xlsx
+
 **/*.quarto_ipynb

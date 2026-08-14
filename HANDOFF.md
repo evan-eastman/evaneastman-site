@@ -1,7 +1,9 @@
 # Handoff — evaneastman-site
 
-Last updated: 2026-08-14 (new CV export and five site edits that
-followed from diffing it; 2027 symposium call for papers published;
+Last updated: 2026-08-14 (Risk Theory Society page built from Evan's
+tracking workbook and left unlisted, pending his call on publishing;
+earlier the same day: new CV export and the five site edits that
+followed from diffing it, 2027 symposium call for papers published,
 Insurance Tycoon simulation linked from Teaching).
 
 ## Status
@@ -33,14 +35,34 @@ the Dropbox copy.
 `teaching`, `presentations`, `service`, `awards`, `cv`. SSRN links
 across working/published papers; bio finalized; custom domain shipped.
 
-There is also one **unlisted** page, `family-tree.qmd` (the ARIA
-academic family tree), live at
-`https://evaneastman.com/family-tree.html`. It is not in the navbar and
-nothing on the site links to it, so it is reachable only by direct URL.
-It carries `<meta name="robots" content="noindex, nofollow">` and
-`search: false`, and a post-render hook keeps it out of `sitemap.xml`
-(see Known quirks). Unlisted is not private — the repo is public and
-the page is served to anyone with the URL.
+There are two **unlisted** pages, `family-tree.qmd` (the ARIA academic
+family tree) and `rts.qmd` (the Risk Theory Society publication
+record). Neither is in the navbar and nothing on the site links to
+them, so they are reachable only by direct URL. Each carries
+`<meta name="robots" content="noindex, nofollow">` and `search: false`,
+and a post-render hook keeps them out of `sitemap.xml` (see Known
+quirks). Unlisted is not private — the repo is public and the page is
+served to anyone with the URL.
+
+`rts.qmd` is built from a spreadsheet Evan maintains,
+`files/RTSPublicationTracking_2025.xlsx`: 292 papers across 31 meetings
+(1984, then 1994–2024) and 37 meetings (1991–2027). The page carries
+headline figures, three SVG charts (papers and publication outcome by
+year, top journals, membership and attendance), a searchable table of
+every paper, and the meeting history. `tools/build-rts-data.py` reads
+the workbook and rewrites the block between
+`<!-- BEGIN GENERATED DATA -->` and `<!-- END GENERATED DATA -->` in
+`rts.qmd`; the page computes every displayed number from that blob at
+load time, so nothing on it can drift from the workbook. Refresh with
+`py -3 tools/build-rts-data.py`, then render.
+
+Two rules for that page. **The workbook is gitignored on purpose** —
+committing it to a public repo publishes the raw data, which is the
+thing the unlisted page is trying to stage. Keep it on disk and in
+Dropbox. And **a blank journal means "not recorded," never
+"unpublished"** — 105 of the 292 papers have no publication recorded,
+and the page says so in three places because it is making public
+statements about named scholars' work. Don't relabel those cells.
 
 The old `other.qmd` was split (2026-07-15) into three dedicated pages:
 `presentations.qmd` (Conferences, Invited Talks academic/professional,
@@ -78,9 +100,16 @@ don't re-link them.
 
 ## What's left to add (next session ideas)
 
-- **RTS History** — raised 2026-08-14 and deferred to a fresh session
-  because it may be more involved. Nothing scoped yet; ask what form it
-  should take before building.
+- **RTS page — decide whether it goes public.** Built 2026-08-14 as an
+  unlisted page so Evan can send the URL to RTS leadership first. If
+  they are comfortable, add a navbar entry in `_quarto.yml` and drop
+  the `robots` meta and `search: false` from `rts.qmd`.
+- **RTS data gaps** worth filling in the workbook, in rough order of
+  value: the 2025 papers (the meeting is recorded with 10 papers but no
+  program), 1985–1993 (no papers recorded at all), and the 105 papers
+  with no publication outcome recorded. The 2021 `date` cell parsed as
+  a real date rather than text, so the build script drops it — retype
+  it as text (e.g. `April 9-11`) and it will appear.
 - Swap the front-page **symposium box** from call-for-papers to program
   details after the **September 15, 2026** submission deadline passes.
 - The August 2026 ARIA **Strickler award demonstration** is on neither
@@ -239,9 +268,32 @@ On the work/school PC where the project still lives in Dropbox:
   The publish-workflow permission rules don't sync across machines.
   When you bring up the school PC, recreate the same file there using
   the same JSON — see the 2026-05-26 history entry below for content.
+- **Quarto copies only the files in `files/` that a page actually
+  links to.** Verified 2026-08-14: `_site/files/` holds four files, not
+  six — `profile-original.jpg` and the RTS workbook are both in
+  `files/` and neither is copied, because nothing references them. So
+  an unreferenced file in `files/` does not reach the published site.
+  Don't lean on that alone for anything sensitive: add a link and it
+  ships on the next render, which is why the RTS workbook is
+  gitignored as well.
+- **`rts.qmd` holds ~83 KB of generated JSON.** Don't hand-edit the
+  block between the `BEGIN/END GENERATED DATA` markers — edit the
+  workbook and re-run `py -3 tools/build-rts-data.py`, which rewrites
+  the block in place. The script prints coverage counts and warns about
+  malformed cells; read that output, it is how the 2021 date coercion
+  and the empty-marker convention (`.`, not blank) surfaced.
 
 ## Recent history
 
+- 2026-08-14 — **Risk Theory Society page** (`rts.qmd`) built from
+  Evan's tracking workbook, unlisted like `family-tree.qmd`. Four
+  headline figures, three hand-rolled SVG charts, a searchable table of
+  all 292 papers, and the 37-meeting history.
+  `tools/build-rts-data.py` extracts the workbook into the page. No R
+  engine, no CDN charting library, no separate data file — the page is
+  self-contained, so there is no public JSON endpoint sitting next to
+  an unlisted page. The workbook is gitignored. Not yet published;
+  waiting on Evan's call about whether RTS should see it first.
 - 2026-08-14 — **Insurance Tycoon** linked from a new Teaching
   Innovation section at the top of `teaching.qmd`, in a gold
   `.feature-entry` box (new in `styles.scss`, the full-width sibling of

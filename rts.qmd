@@ -1,0 +1,1059 @@
+---
+title: "Risk Theory Society: Papers and Publication Outcomes"
+pagetitle: "Risk Theory Society: Papers and Publication Outcomes"
+page-layout: full
+toc: false
+search: false
+format:
+  html:
+    include-in-header:
+      text: |
+        <meta name="robots" content="noindex, nofollow">
+---
+
+::: {style="max-width: 68ch;"}
+The Risk Theory Society meets once a year. Ten papers are selected, each is
+discussed for a full hour, and everyone in the room has read everything. This
+page tracks what became of those papers — which reached print, where, and how
+long it took.
+
+The record here covers
+[31 meetings between 1984 and 2024]{#rts-intro-coverage}, along with the meeting
+history itself: who presided, who hosted, and how the society grew.
+
+**A blank journal means we have no publication recorded, not that a paper was
+never published.** Tracking is more complete for some years than others, and
+recent cohorts are still working through review — the median paper takes
+[three years]{#rts-intro-lag} from the meeting to print. Read the last few
+years accordingly.
+:::
+
+```{=html}
+<style>
+/* Risk Theory Society page. Everything is namespaced under #rts so it can sit
+   inside Quarto's cosmo theme without reaching into site styles. */
+
+#rts {
+  --rts-garnet: #782F40;
+  --rts-gold: #CEB888;
+  --rts-muted: #6b6b6b;
+  --rts-rule: #e3e3e3;
+  max-width: 1180px;
+  margin: 1.5rem 0 0;
+  font-size: 0.95rem;
+}
+
+#rts h2 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin: 2.4rem 0 0.35rem;
+  padding-bottom: 0.3rem;
+  border-bottom: 2px solid var(--rts-gold);
+}
+
+#rts .rts-sub {
+  margin: 0 0 1rem;
+  color: var(--rts-muted);
+  font-size: 0.85rem;
+  max-width: 78ch;
+}
+
+/* --- Headline figures ------------------------------------------------- */
+
+#rts .rts-tiles {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 0.75rem;
+  margin: 1.5rem 0 0.5rem;
+}
+
+#rts .rts-tile {
+  padding: 0.85rem 0.95rem;
+  border: 1px solid var(--rts-rule);
+  border-top: 3px solid var(--rts-gold);
+  border-radius: 5px;
+  background: #fcfbf9;
+}
+
+#rts .rts-tile__value {
+  font-size: 1.9rem;
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--rts-garnet);
+}
+
+#rts .rts-tile__label {
+  margin-top: 0.3rem;
+  font-size: 0.78rem;
+  line-height: 1.35;
+  color: #444;
+}
+
+/* --- Charts ----------------------------------------------------------- */
+
+#rts .rts-chart {
+  margin: 0.5rem 0 0.25rem;
+}
+
+#rts .rts-chart svg {
+  width: 100%;
+  height: auto;
+  display: block;
+  overflow: visible;
+}
+
+#rts .rts-axis {
+  font-size: 10px;
+  fill: var(--rts-muted);
+}
+
+#rts .rts-gridline {
+  stroke: #ececec;
+  stroke-width: 1;
+}
+
+#rts .rts-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.1rem;
+  margin: 0.35rem 0 0;
+  font-size: 0.78rem;
+  color: #444;
+}
+
+#rts .rts-legend span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+#rts .rts-swatch {
+  width: 11px;
+  height: 11px;
+  border-radius: 2px;
+  display: inline-block;
+}
+
+/* --- Controls --------------------------------------------------------- */
+
+#rts .rts-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.6rem;
+  margin: 0.75rem 0;
+}
+
+#rts .rts-controls input[type="search"] {
+  flex: 1 1 260px;
+  min-width: 0;
+  padding: 0.45rem 0.6rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font: inherit;
+  font-size: 0.9rem;
+}
+
+#rts .rts-controls input[type="search"]:focus,
+#rts .rts-controls select:focus {
+  outline: 2px solid var(--rts-gold);
+  outline-offset: 1px;
+  border-color: var(--rts-gold);
+}
+
+#rts .rts-controls select {
+  padding: 0.45rem 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font: inherit;
+  font-size: 0.9rem;
+  background: #fff;
+}
+
+#rts .rts-check {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.85rem;
+  color: #444;
+  white-space: nowrap;
+}
+
+#rts .rts-count {
+  font-size: 0.82rem;
+  color: var(--rts-muted);
+  margin: 0 0 0.5rem;
+}
+
+/* --- Tables ----------------------------------------------------------- */
+
+#rts .rts-table-wrap {
+  overflow-x: auto;
+  border-top: 1px solid var(--rts-rule);
+}
+
+#rts table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+}
+
+#rts th {
+  text-align: left;
+  vertical-align: bottom;
+  padding: 0.5rem 0.6rem 0.5rem 0;
+  border-bottom: 1px solid #bbb;
+  font-weight: 600;
+  font-size: 0.78rem;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: #444;
+  white-space: nowrap;
+  background: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+#rts th.rts-sortable {
+  cursor: pointer;
+  user-select: none;
+}
+
+#rts th.rts-sortable:hover {
+  color: var(--rts-garnet);
+}
+
+#rts th.rts-sortable::after {
+  content: "\2195";
+  margin-left: 0.3rem;
+  opacity: 0.3;
+  font-size: 0.9em;
+}
+
+#rts th.rts-sorted-asc::after { content: "\2191"; opacity: 1; }
+#rts th.rts-sorted-desc::after { content: "\2193"; opacity: 1; }
+
+#rts td {
+  padding: 0.55rem 0.6rem 0.55rem 0;
+  border-bottom: 1px solid #f0f0f0;
+  vertical-align: top;
+}
+
+#rts tbody tr:hover { background: #faf8f5; }
+
+/* Fixed layout on the paper table. Left to itself the browser gives the title
+   column most of the width and squeezes authors into a column narrow enough
+   that every affiliation wraps, which triples the height of the table. */
+/* min-width keeps the columns legible on a phone; the wrapper scrolls
+   horizontally rather than crushing four columns into 360px. */
+#rts #rts-papers { table-layout: fixed; min-width: 640px; }
+#rts #rts-meetings { min-width: 820px; }
+#rts #rts-papers th:nth-child(1) { width: 5rem; }
+#rts #rts-papers th:nth-child(2) { width: 36%; }
+#rts #rts-papers th:nth-child(3) { width: 34%; }
+#rts #rts-papers th:nth-child(4) { width: 21%; }
+#rts #rts-papers td { overflow-wrap: break-word; }
+
+#rts .rts-table-wrap { min-width: 0; }
+
+#rts .rts-year { white-space: nowrap; color: var(--rts-muted); font-variant-numeric: tabular-nums; }
+#rts .rts-title { font-weight: 600; }
+#rts .rts-title a { color: var(--rts-garnet); text-decoration: none; }
+#rts .rts-title a:hover { text-decoration: underline; }
+#rts .rts-authors { color: #333; font-size: 0.95em; }
+#rts .rts-affil { color: var(--rts-muted); font-size: 0.88em; }
+#rts .rts-journal { font-size: 0.95em; }
+#rts .rts-pubyear { color: var(--rts-muted); font-size: 0.88em; white-space: nowrap; }
+#rts .rts-none { color: #999; font-style: italic; font-size: 0.9em; }
+#rts .rts-empty { padding: 1.5rem 0; color: var(--rts-muted); }
+
+#rts tr.rts-upcoming { background: rgba(206, 184, 136, 0.16); }
+#rts .rts-tag {
+  display: inline-block;
+  margin-left: 0.4rem;
+  padding: 0.05rem 0.35rem;
+  border-radius: 3px;
+  background: var(--rts-gold);
+  color: #4a3a12;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  vertical-align: 1px;
+}
+
+#rts .rts-notes {
+  margin: 2.5rem 0 1rem;
+  padding: 1rem 1.15rem;
+  border: 1px solid var(--rts-rule);
+  border-left: 4px solid var(--rts-gold);
+  border-radius: 5px;
+  background: #fcfbf9;
+  font-size: 0.82rem;
+  line-height: 1.55;
+  color: #444;
+  max-width: 82ch;
+}
+
+#rts .rts-notes h3 {
+  margin: 0 0 0.5rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: var(--rts-garnet);
+}
+
+#rts .rts-notes ul { margin: 0; padding-left: 1.1rem; }
+#rts .rts-notes li { margin-bottom: 0.4rem; }
+#rts .rts-notes li:last-child { margin-bottom: 0; }
+
+@media (max-width: 700px) {
+  #rts .rts-tile__value { font-size: 1.5rem; }
+  #rts table { font-size: 0.8rem; }
+  #rts th { position: static; }
+}
+</style>
+
+<div id="rts">
+
+  <div class="rts-tiles" id="rts-tiles"></div>
+
+  <h2>Papers presented, and papers that reached print</h2>
+  <p class="rts-sub" id="rts-year-sub"></p>
+  <div class="rts-chart" id="rts-chart-years"></div>
+  <div class="rts-legend">
+    <span><i class="rts-swatch" style="background:#782F40"></i> Publication recorded</span>
+    <span><i class="rts-swatch" style="background:#e0dcd4"></i> No publication recorded</span>
+    <span><i class="rts-swatch" style="background:rgba(206,184,136,0.35)"></i> Cohorts still in review</span>
+  </div>
+
+  <h2>Where the papers landed</h2>
+  <p class="rts-sub" id="rts-journal-sub"></p>
+  <div class="rts-chart" id="rts-chart-journals"></div>
+
+  <h2>Members and attendance</h2>
+  <p class="rts-sub" id="rts-growth-sub"></p>
+  <div class="rts-chart" id="rts-chart-growth"></div>
+  <div class="rts-legend">
+    <span><i class="rts-swatch" style="background:#782F40"></i> Members</span>
+    <span><i class="rts-swatch" style="background:#CEB888"></i> Attendees</span>
+  </div>
+
+  <h2>Every paper</h2>
+  <p class="rts-sub">Search titles, authors, affiliations, and journals. Click a
+  column heading to sort. Titles link to the published version where one is
+  recorded.</p>
+
+  <div class="rts-controls">
+    <input type="search" id="rts-search" placeholder="Search papers, authors, affiliations, journals&hellip;" aria-label="Search papers">
+    <select id="rts-year-filter" aria-label="Filter by meeting year"></select>
+    <label class="rts-check">
+      <input type="checkbox" id="rts-placed-only"> Published only
+    </label>
+  </div>
+  <p class="rts-count" id="rts-count"></p>
+
+  <div class="rts-table-wrap">
+    <table id="rts-papers">
+      <thead>
+        <tr>
+          <th class="rts-sortable" data-key="year" style="width:4.5rem">Meeting</th>
+          <th class="rts-sortable" data-key="title">Paper</th>
+          <th>Authors</th>
+          <th class="rts-sortable" data-key="journal">Published in</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </div>
+
+  <h2>The meetings</h2>
+  <p class="rts-sub" id="rts-meetings-sub"></p>
+  <div class="rts-table-wrap">
+    <table id="rts-meetings">
+      <thead>
+        <tr>
+          <th style="width:4.5rem">Year</th>
+          <th>President</th>
+          <th>Host</th>
+          <th>Location</th>
+          <th>Dates</th>
+          <th style="text-align:right">Papers</th>
+          <th style="text-align:right">Members</th>
+          <th style="text-align:right">Attendees</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </div>
+
+  <div class="rts-notes">
+    <h3>About this record</h3>
+    <ul>
+      <li id="rts-note-coverage"></li>
+      <li><strong>A blank journal is a gap in the record, not a verdict on the
+        paper.</strong> Publication outcomes were compiled after the fact, and
+        the further back the meeting, the more likely an outcome went
+        unrecorded.</li>
+      <li id="rts-note-lag"></li>
+      <li>Journals appear under the name they carried at the time. The Geneva
+        titles are one lineage renamed twice — <em>Geneva Papers on Risk and
+        Insurance</em>, then <em>&hellip;Theory</em>, then <em>Geneva Risk and
+        Insurance Review</em> — and are counted separately here. <em>Geneva
+        Papers on Risk and Insurance&mdash;Issues and Practice</em> is a
+        different journal.</li>
+      <li id="rts-note-meetings"></li>
+    </ul>
+  </div>
+
+</div>
+
+<!-- BEGIN GENERATED DATA -->
+<script id="rts-data" type="application/json">
+{"source":"RTSPublicationTracking_2025.xlsx","papers":[[1984,"A Financial Theory of the Insurance Firm",[["Richard D. MacMinn","University of Texas-Austin"],["Robert Witt","University of Texas-Austin"]],"Geneva Papers on Risk and Insurance",1987,"https://www.jstor.org/stable/41950701?casa_token=fenYcoeCJ-0AAAAA%3AphSNc1pj8c2aQUkpTfGbnkB7D4iZe1JaN4TdLiEzsmSnPy0D5yc7m7ar5NM6xYpBIbzloT0jR3by2LT5MpNHXtztU0y1VBN9nwD_yzKlGeMmYGTqPuQ&seq=1"],[1984,"A Random Coefficients Model of Interstate Differences in the Impact of Rate Regulation on Auto Insurance Prices",[["Scott Harrington","University of Pennsylvania"]],"Review of Economics and Statistics",1987,"https://www.jstor.org/stable/1937917?seq=1"],[1984,"Economic Theories of Regulation Applied to the Property/Liability Insurance Industry",[["Stephen P. D'Arcy","University of Illinois at Urbana-Champaign"]],"Journal of Insurance Regulation",1988,"https://research.ebsco.com/c/oavkja/search/details/rg3642yxbb"],[1984,"Estimation of Classification Factor Relatives: A Modelling Approach",[["Leonard R. Freifelder","Baruch College"]],"Journal of Risk and Insurance",1986,"https://www.jstor.org/stable/252271?casa_token=FX1enR_UecgAAAAA%3ANDfhEBz05GwT9ATQIVLMY8vy4-Fqfa0RD3OcEdz6PcDLhQMhaNt9aqizzwIJuEZCALbUdOs_rT95FVLdjjlG6mVU0NhdI-Wqh_LskngGkuZYLIcCuv8"],[1984,"Life Insurance, Price Regulation and the Theory of Contestable Markets",[["Barbara Beliveau","University of Connecticut"]],"Journal of Insurance Issues and Practices",1985,"https://www.jstor.org/stable/41943170?casa_token=y5Ca0X1RVDgAAAAA%3ApHexNpYsWrYq5MUF20l85drA5YQ315yJoL_pjhwNXDAEdK35aCE_DCIbnmKxJMwOUxlqgav7IDtRToqFf56SM8azlHkSQFDXkAxZW9NhYAInYA8vRjo&seq=1"],[1984,"Market Insurance and Loss Prevention by Insurers",[["Harris Schlesinger","Vanderbilt University"],["Emilio Venezian","Venezian Associates"]],"RAND Journal of Economics",1986,"https://www.jstor.org/stable/2555386?casa_token=G8Upi57BFJYAAAAA%3AZotbkDnQ3jluOfA6LBcG-DeDOaXrPTj6IBv8W1qktkeAnM36Qxoks9vP0hyDFNhBZamBWgoOmfNa3GKuD0ERnvWE8R6KdPiCG0w5ILH_Px2f4vqIvEc&seq=1"],[1984,"Optimal Funding and Investment Policy for Defined Benefit Pension Plans",[["Terence C. Langetieg","University of Southern California"]],"",null,""],[1984,"Optimal Insurance and Mean-Variance Efficient Portfolios",[["Stephen A. Buser","The Ohio State University"],["Michael Smith","The Ohio State University"]],"Journal of Risk and Insurance",1987,"https://www.jstor.org/stable/252855?casa_token=CABMs7j-ec0AAAAA%3AtfBWcGCP8XiUl7zMbY3Wb9mrLg4bSqtT3212nHgdtAHMG3gM8Rjd1PQu0UtAjOa6dkT4Yqs9NERAj50wqi7pM8AgIbnehtTq2M7j05nbYP1-yT37xwU&seq=1"],[1984,"Some Perspectives on Pension Variation and Funding: Financial Management Considerations",[["A. Frank Thompson","University of Cincinnati"],["Anju Ramjee","University of Cincinnati"],["B. Ramjee","University of Cincinnati"]],"",null,""],[1984,"Taxation, the Law of One Price and Captive Insurance Companies",[["Neil Doherty","University of Illinois at Urbana-Champaign"],["Jim Garven","University of Illinois at Urbana-Champaign"]],"",null,""],[1994,"Accounting Estimation Errors and Firm Valuation",[["Kathy Petroni","Michigan State University"],["Joseph H. Anthony","Michigan State University"]],"Journal of Accounting, Auditing & Finance",1997,"https://journals.sagepub.com/doi/abs/10.1177/0148558x9701200305?casa_token=i0YBeFEIbaAAAAAA:3lkBPH_eY1n31ARAFyJK2vDBM4R8pjxTBinNMHN5_JDplvRdBJV89Y5R50iu7WKWG2lDfOuhsffB"],[1994,"Hardball and the Soft Touch: The Economics of Optimal Insurance Contracts with Costly State Verification and Endogenous Monitoring Costs",[["Keith J. Crocker","The Pennsylvania State University"],["Eric W. Bond","The Pennsylvania State University"]],"Journal of Public Economics",1997,"https://www.sciencedirect.com/science/article/abs/pii/S0047272796015940"],[1994,"Joint Use of Liability and Regulation-Workers' Compensation and OSHA Regulations for Occupational Disability",[["D. Han Chang","The Pennsylvania State University"]],"",null,""],[1994,"Life Insurance in a Contingent Claim Framework: Pricing and Regulatory Implications",[["Eric Briys","HEC Paris"]],"Geneva Papers on Risk and Insurance Theory",1994,"https://link.springer.com/article/10.1007/BF01112014"],[1994,"On the Implications of the `Information Superhighway' for Risk and Insurance Research",[["Jim Garven","University of Texas-Austin"]],"",null,""],[1994,"Post-Assessment Guaranty Funds and Risk-Taking Behavior: Evidence from the Property-Casualty Insurance Industry",[["Soon-Jae Lee","Gardner-Webb University"],["David Mayers","The Ohio State University"],["Clifford W. Smith","University of Rochester"]],"Journal of Financial Economics",1997,"https://www.sciencedirect.com/science/article/pii/S0304405X96000074"],[1994,"The Effect of Costly Risk Bearing on Insurers' Supply Decisions",[["Neil Doherty","University of Pennsylvania"],["Anne Kleffner","University of Calgary"]],"Journal of Risk and Insurance",1996,"https://www.jstor.org/stable/253476"],[1994,"The Effect of Noise in the Loss Distribution on Optimal Insurance Coverage",[["Harris Schlesinger","University of Alabama"],["Christian Gollier","University of Toulouse"]],"",null,""],[1994,"Theory of Triage and Insurance Maximums",[["John M. Marshall","University of California, Santa Barbara"],["Rod Garatt","University of California, Santa Barbara"]],"Journal of Risk and Insurance",1996,"https://www.jstor.org/stable/253742?casa_token=jWkoc20cOZsAAAAA%3A_yjdkmIv4gSqMRX_3AGDbX4YN4DcONcIYGZ0g6DkkCCd2vfAEnWqDdH-e6C-eW1IUqALwUcPGPokRNzoQaSH9fii6mppB2SkuQLNzAww_jXmKlnSRg8&seq=1"],[1995,"Collusion, Costs or Capacity? Evaluating Theories of Insurance Cycles",[["Anne Gron","Northwestern University"]],"",null,""],[1995,"Debt, Moral Hazard and Airline Safety: an Empirical Evidence",[["Georges Dionne","University of Montreal"],["Robert Gagne","HEC Montreal"],["Francois Gagnon","University of Montreal"],["Charles Vanasse","University of Montreal"]],"Journal of Econometrics",1997,"https://www.sciencedirect.com/science/article/pii/S0304407697829892"],[1995,"Determinants of Corporate Hedging Behavior: Evidence from the Life Insurance Industry",[["L. Lee Colquitt","University of Georgia"],["Robert E. Hoyt","University of Georgia"]],"Journal of Risk and Insurance",1997,"https://www.jstor.org/stable/253890?seq=1"],[1995,"Equilibria in a Mixed financial-Reinsurance Market with Constrained Trading Possibilities",[["Anja De Waegenaere","Tilburg University"]],"Insurance: Mathematics and Economics",1994,"https://www.sciencedirect.com/science/article/abs/pii/0167668794907781"],[1995,"Mitigating Correlated Risks: Are Two Markets Better than One?",[["Neil Doherty","University of Pennsylvania"],["Harris Schlesinger","University of Alabama"]],"",null,""],[1995,"Taxation, Regulation, and the Organizational Structure of Property-Casualty Insurers",[["Kathy Petroni","Michigan State University"],["Douglas A. Shackelford","University of North Carolina-Chapel Hill"]],"Journal of Accounting and Economics",1995,"https://www.sciencedirect.com/science/article/pii/0165410195004025"],[1995,"The Coexistence of Alternative Product Distribution Systems: The Case of Property-Liability Insurance",[["Allen N. Berger","Federal Reserve Board of Governors"],["J. David Cummins","University of Pennsylvania"],["Mary A. Weiss","Temple University"]],"Journal of Business",1997,"https://www.jstor.org/stable/10.1086/209730?seq=1"],[1995,"The Interaction Between the Demand for Insurance and Insurable Assets",[["Louis Eeckhoudt","Catholic Faculties of Mons"],["Jack Meyer","Michigan State University"],["Michael B. Ormiston","Arizona State University"]],"Journal of Risk and Uncertainty",1997,"https://link.springer.com/article/10.1023/A:1007717719423"],[1995,"Welfare Dependence in Workers Compensation: Do Past Claims Cause Future Claims?",[["Richard J. Butler","University of Minnesota"],["Harold Gardner","Options & Choices Inc."],["Delworth Gardner","Brigham Young University"]],"Journal of Financial Risk Management",2012,"https://www.scirp.org/html/23182.html"],[1996,"Ambiguity-Aversion and Economics of Insurance",[["Shaun Wang","University of Waterloo"]],"",null,""],[1996,"Contracting with Costly State Falsification: Theory and Empirical Results from Automobile Insurance",[["Keith J. Crocker","University of Michigan"],["Sharon Tennyson","University of Pennsylvania"]],"Book Chapter",1999,"https://link.springer.com/chapter/10.1007/978-1-4615-4058-8_6"],[1996,"Incentives for Accounting Information Production: Property-Casualty Insurance Stock-Charter Conversions",[["David Mayers","University of California, Riverside"],["Clifford W. Smith","University of Rochester"]],"Journal of Risk and Insurance",2004,"https://onlinelibrary.wiley.com/doi/full/10.1111/j.0022-4367.2004.00087.x"],[1996,"Measuring the Relative Efficiency of the Production of Regulation by the States: An Examination of the US Insurance Regulatory System",[["Martin F. Grace","Georgia State University"],["Richard D. Phillips","Georgia State University"]],"Journal of Risk and Insurance",2007,"https://onlinelibrary.wiley.com/doi/full/10.1111/j.1539-6975.2007.00208.x"],[1996,"Optimal Incentive Contracting with Ex-ante and Ex-post Moral Hazards",[["Robert Puelz","Southern Methodist University"],["Arthur Snow","University of Georgia"]],"Journal of Risk and Uncertainty",1997,"https://link.springer.com/article/10.1023/A:1007769210613"],[1996,"Optimal Pooling Insurance and Adverse Selection",[["Mark Browne","University of Wisconsin-Madison"],["Virginia Young","University of Wisconsin-Madison"]],"Geneva Papers on Risk and Insurance Theory",1997,"https://link.springer.com/article/10.1023/A:1008616117296"],[1996,"Property-Liability Insurance Pricing Models: A Comparison",[["Stephen P. D'Arcy","University of Illinois at Urbana-Champaign"],["Richard Gorvett","University of Illinois at Urbana-Champaign"]],"",null,""],[1996,"Race and Availability/Affordability Problems in Urban Automobile Insurance Markets",[["Scott Harrington","University of South Carolina"],["Greg Niehaus","University of South Carolina"]],"Journal of Business",1998,"https://www.jstor.org/stable/10.1086/209751?seq=1"],[1996,"The NAIC Model Investment Law: Implications for Optimal Capital Allocation Decisions",[["Joan Lamm-Tennant","Villanova University"]],"Assurances",1997,"https://www.erudit.org/en/journals/assurances/1997-v64-n4-assurances08650/1105115ar/"],[1997,"Changes in Background Risk and the Demand for Insurance",[["Donald J. Meyer","Western Michigan University"],["Jack Meyer","Michigan State University"]],"Geneva Papers on Risk and Insurance Theory",1998,"https://link.springer.com/article/10.1023/A:1008625829817"],[1997,"Commitment and the Design of Optimal Agreements: Evidence from Employment-Based Health Insurance Contracts",[["John Moran","The Pennsylvania State University"],["Keith J. Crocker","University of Michigan"]],"RAND Journal of Economics",2003,"https://www.jstor.org/stable/1593784"],[1997,"Comparative Statics Under Uncertainty",[["Jorge Ibarra-Salazar","Instituto Tecnologico y de Estudios Superiores de Monterrey"],["Laura Razzolini","University of Mississippi"]],"",null,""],[1997,"Exclusive v. Independent Agents: A Separating Equilibrium Approach",[["Itzhak Venezia","The Hebrew University of Jerusalem"],["Dan Galai","The Hebrew University of Jerusalem"],["Zur Shapira","New York University"]],"Journal of Economic Behavior & Organization",1999,"https://www.sciencedirect.com/science/article/pii/S0167268199000645?casa_token=MgdwDyqXPq8AAAAA:Y6cPvvLprrj8Vcvq8Nf2w6M9wZFK0Mu2-b1IVPyEwsfNUtrIZFksoWiIu9UAWh2dnewH8SWfYA"],[1997,"Implicit Client Sorting and Bonus Malus Contracts",[["Francisco J. Vazques","Universidad Autonoma de Madrid"],["Richard Watt","Universidad Autonoma de Madrid"]],"",null,""],[1997,"Interest Group Pressure and the Regulatory Outcome in Automobile Insurance",[["J. David Cummins","University of Pennsylvania"],["Richard D. Phillips","Georgia State University"],["Sharon Tennyson","University of Pennsylvania"]],"Journal of Insurance Regulation",2001,"https://naic.soutronglobal.net/Portal/Public/en-US/DownloadImageFile.ashx?objectId=4340&ownerType=0&ownerId=6782"],[1997,"Liability Insurance Crisis",[["Richard D. MacMinn","University of Texas-Austin"],["Gene Lai","University of Rhode Island"],["Robert Witt","University of Texas-Austin"],["Hung-Gay Fung","University of Baltimore"]],"Journal of Risk and Insurance",2000,"https://www.jstor.org/stable/253853?casa_token=Py0RMBnwFOsAAAAA%3ASRU6XOwgTODSY8jTVMQRrR434xLEP8SzDhc9OnCX8UxqVBsQdznFyp3GBIHmXEupIAnGUCwOkEbKty6J2zA07KDvNUG2S2ECHvQby1bScZBSspGlyeQ&seq=1"],[1997,"The Capital Structure of Insurers: Theory and Evidence",[["Dajiang Guo","Centre Reinsurance Companies"],["Ralph Winter","University of Toronto"]],"",null,""],[1997,"The Role of Memory and Saving in Long-Term Contracting: Empirical Evidence in Automobile Insurance",[["Georges Dionne","University of Montreal"],["Charles Vanasse","University of Montreal"]],"",null,""],[1998,"A Longitudinal Data Analysis Interpretation of Credibility Models",[["Edward W. Frees","University of Wisconsin-Madison"],["Virginia Young","University of Wisconsin-Madison"],["Yu Luo","University of Wisconsin-Madison"]],"Insurance: Mathematics and Economics",1999,"https://www.sciencedirect.com/science/article/pii/S0167668798000559?casa_token=OqFRfayQ7wkAAAAA:U46hF59fk-ZmORxMD5Ey9IhcRt6ZFVF9YSW2mLPKn2CGq-cB_pNeHBcYVVKAO5ZRXLsjOr1dXg"],[1998,"An Empirical Test of Distribution System and Ownership Form Choice for Property-Liability Insurance Firms",[["Laureen Regan","Temple University"],["Larry Y. Tzeng","National Taiwan University"]],"Journal of Risk and Insurance",1999,"https://www.jstor.org/stable/253612?casa_token=-gUafiCVJwYAAAAA%3AB1mF75SmMzufi4wrsfKVwD6UkgR_l_spY_97s50a8GyDimF9j6-YO8S_XddkLjx7XEGwWAl_bGtt5DYS4_FSznMmM_QnjYtyQDL-dQNP6h5zGzQJSqA&seq=1"],[1998,"Approximating Long-Term Yield Rates for Actuarial Valuations",[["Jacques F. Carriere","University of Alberta"]],"North American Actuarial Journal",1999,"https://www.tandfonline.com/doi/abs/10.1080/10920277.1999.10595819?casa_token=4s63fqAzmoUAAAAA:AzMewuuN8HaB0gaSH_jFyQBIBxko8jQn9rqZuWsz19OFG3Exf0MXmBC5qOQbi2Yu_klwlp0YKHH-bA"],[1998,"Efficiency, Scale Economies, and Consolidation in the U.S. Life Insurance Industry",[["J. David Cummins","University of Pennsylvania"],["Sharon Tennyson","University of Pennsylvania"],["Mary A. Weiss","Temple University"]],"Journal of Banking and Finance",1999,"https://www.sciencedirect.com/science/article/pii/S0378426698000892"],[1998,"Life Risk-Based Capital Reviewed Through the Lens of Transaction-Cost Economics: Should There be Equal Treatment for Different Specialities?",[["Etti Baranoff","Virginia Commonwealth University"],["Thomas W. Sager","University of Texas-Austin"]],"",null,""],[1998,"Open Competition, Workers' Compensation Costs, and Injury Rates",[["Anthony J. Barkume","U.S. Bureau of Labor Statistics"],["John W. Ruser","U.S. Bureau of Labor Statistics"]],"Journal of Law and Economics",2001,"https://www.jstor.org/stable/10.1086/320272?sid=primo&saml_data=eyJlbWFpbCI6ImVtZWFzdG1hbkBmc3UuZWR1IiwiaW5zdGl0dXRpb25JZHMiOlsiMzljYmQzMzQtOTdiNy00OThjLWJkNGMtM2FhMmRmODhiY2IwIl0sInNhbWxUb2tlbiI6Ijg2OWZmMTdlLWVmZWUtNGEwZS1iYjM1LWEzMjhlNzk1NTUyOSJ9&seq=1"],[1998,"Ownership Structure and Executive Compensation as Strategic Complements",[["Leslie M. Marx","University of Rochester"],["David Mayers","University of California, Riverside"],["Clifford W. Smith","University of Rochester"]],"Journal of Risk and Insurance",2001,"https://www.jstor.org/stable/2678118?casa_token=Bfn2ah5D7J4AAAAA%3ALI4JJHm_4XCp9Woghr-Oe4zjB9lXtAD2mb3AhNbRKFtmuOdcoCdakGBZOkiOW3tJzHVZLXpqj-TM21PdrPRlhXP5EqaVPKQjdUIFJ3x6RsTYn1IPEyg&seq=1"],[1998,"Punitive Damages and Bounded Rationality: Product Liability and the Duty to Warn",[["Neil Doherty","University of Pennsylvania"]],"",null,""],[1998,"The Non-Optimality of Deductible Contracts Against Fraudulent Claims: Empirical Evidence in Automobile Insurance",[["Georges Dionne","HEC Montreal"],["Robert Gagne","HEC Montreal"]],"",null,""],[1999,"Demand for Property Insurance: Exclusions and Other Gaps",[["John M. Marshall","University of California, Santa Barbara"],["Rod Garatt","University of California, Santa Barbara"]],"Geneva Papers on Risk and Insurance Theory",2000,"https://link.springer.com/article/10.1023/A:1008710311509"],[1999,"Evidence of Risk Aversion in the Health and Retirement Study",[["Vickie L. Bajtelsmit","Colorado State University"]],"",null,""],[1999,"Managing Annual Accounting Reports to Avoid State Taxes: An Analysis of Property-Casualty Insurers",[["Kathy Petroni","Michigan State University"],["Douglas A. Shackelford","University of North Carolina-Chapel Hill"]],"The Accounting Review",1999,"https://publications.aaahq.org/accounting-review/article-abstract/74/3/371/2552/Managing-Annual-Accounting-Reports-to-Avoid-State"],[1999,"Planned Fraud: Empirical Evidence from the Automobile Insurance Market",[["Georges Dionne","HEC Montreal"],["Robert Gagne","HEC Montreal"]],"Journal of Risk and Uncertainty",2002,"https://link.springer.com/article/10.1023/A:1015683401986"],[1999,"Prohibitions on Health Insurance Underwriting: A Means of Making Health Insurance Available and Affordable or a Cause of Market Failure?",[["Mark Browne","University of Wisconsin-Madison"],["Edward W. Frees","University of Wisconsin-Madison"]],"",null,""],[1999,"Reinstatement or Insurance Payment in Corporate Fire Insurance",[["Jean-Marc Bourgeon","University of Paris X"],["Pierre Picard","University of Paris X"]],"Journal of Risk and Insurance",2000,"https://www.jstor.org/stable/253848?casa_token=M2BKuKUsvwMAAAAA%3ALC6-pDHd8dGiJnvbqCXGIX6WkpJXtbYO3HLYsDAaSOOQhQjqh6WxPKdnv8mm8Gd3oI7RSv7JcDqixsrjei44fkazRNFY5SiLP1vWsMqJNVYbYKYNUYg&seq=1"],[1999,"Screening Equilibria in Experimental Insurance Markets",[["Lisa L. Posey","The Pennsylvania State University"],["Abdullah Yavas","The Pennsylvania State University"]],"Geneva Risk and Insurance Review",2007,"https://link.springer.com/article/10.1007/s10713-007-0007-z"],[1999,"The Directors' and Officers' Insurance Premium: An Outside Assessment of the Cost of Weak Corporate Governance",[["John E. Core","University of Pennsylvania"]],"Journal of Law, Economics, and Organization",2000,"https://academic.oup.com/jleo/article-abstract/16/2/449/981933"],[1999,"Which Shape For The Cost Curve of Risk?",[["Louis Eeckhoudt","Catholic Faculties of Mons"],["Christian Gollier","University of Toulouse"]],"Journal of Risk and Insurance",2001,"https://www.jstor.org/stable/2678115?casa_token=ic3dBNizYbkAAAAA%3ACBsyf-f2J1U8xH6j9ffeBdF-BhVnOZ9oQoxEBfgWfsE29Q9mYH1s5w6xu6LHwT0i2Cyq9TGo6Al_hNQIcxzO6u8ym9koNUu-ikylP22ReEA0vLHbj8A"],[2000,"Evaluating the Effectiveness of Index-Based Insurance Derivatives in Hedging Property/Casualty Insurance Transactions",[["Glenn Myers","Insurance Services Office"],["Susan Witcraft","Milliman and Robertson"]],"",null,""],[2000,"Experience Rating Schemes for Fleets of Vehicles",[["Denise Desjardins","University of Montreal"],["Georges Dionne","University of Montreal"],["Jean Pinquet","University of Paris X"]],"ASTIN Bulletin",2001,"https://www.cambridge.org/core/journals/astin-bulletin-journal-of-the-iaa/article/experience-rating-schemes-for-fleets-of-vehicles/1F2DC29E8C1EC063F28B4BE686779FA2"],[2000,"On the Tax Costs of Equity Finance: The Strange Case of Catastrophe Insurance",[["Scott Harrington","University of South Carolina"],["Greg Niehaus","University of South Carolina"]],"Journal of Financial Intermediation",2003,"https://www.sciencedirect.com/science/article/abs/pii/S104295730300055X"],[2000,"Private Pensions, Mortality Risk, and the Decision to Annuitize",[["Jeffrey R. Brown","Harvard University"]],"Journal of Public Economics",2001,"https://www.sciencedirect.com/science/article/pii/S0047272700001523?casa_token=duiMqj_26_AAAAAA:yKjc2Kn_0-9IOTaHJfXFXtGQCCmsYSuiK6JBNAj3JCZb1IeAkUraKIVcKp4RM3NvzoYPm6DEpQ"],[2000,"Public Income Transfers and the Market for Private Insurance Against Environmental Disasters",[["Lanny Arvan","University of Illinois at Urbana-Champaign"],["David Nickerson","American University"]],"",null,""],[2000,"Risk Overhang and Market Behavior",[["Anne Gron","Northwestern University"],["Andrew Winton","University of Minnesota"]],"Journal of Business",2001,"https://www.jstor.org/stable/10.1086/321939?casa_token=ujqyCA0djHgAAAAA%3AXWMoO4nmMddtnCB1HCqVYr6gsEL01wDly7m5trWRa3JCDVQ8jh2WKT7OmyvBovFjrpD1KpUPLREwFzXzxp7irSBKOMocH0ST45_3qKIzaQX0ydUjAno&seq=1"],[2000,"Support Contingent Insurance",[["Richard Watt","Universidad Autonoma de Madrid"],["Francisco J. Vazques","Universidad Autonoma de Madrid"]],"",null,""],[2000,"The Effect of Seat Belt Usage Rates on the Number of Motor Vehicle-Related Fatalities",[["Richard A. Derrig","Automobile Insurers Bureau of Massachusetts"],["Maria Segui-Gomez","Injury Control Research Center"],["Ali Abtahi","Harvard School of Public Health"]],"",null,""],[2000,"The Supply and Demand of Catastrophe Insurance",[["Martin F. Grace","Georgia State University"],["Robert W. Klein","Georgia State University"],["Paul R. Kleindorfer","University of Pennsylvania"]],"Book Chapter",2003,""],[2001,"An Empirical Investigation of Insurer Auditing Strategies",[["Pau Salsas-Forn","University of Barcelona"],["Sharon Tennyson","Cornell University"]],"Journal of Risk and Insurance",2002,"https://onlinelibrary.wiley.com/doi/abs/10.1111/1539-6975.00024?casa_token=BTe3KA4Hi0IAAAAA:CrQ2gzq3FiLVmbZUVqziDvctgo_j5BgWFRgC6BGvRKwIxeizdYH3a33aZ0U5uOyBFHyG2Q8Xrjrg0J8"],[2001,"Efficiency and Existence of Nash Equilibria with Multidimensional Screening",[["Keith J. Crocker","University of Michigan"],["Arthur Snow","University of Georgia"]],"",null,""],[2001,"Information and Dynamic Adjustment in Life Insurance Markets",[["Michael Hoy","University of Guelph"],["Mattias K. Polborn","University of Guelph"],["Asha Sadanand","University of Guelph"]],"Economic Journal",2006,"https://onlinelibrary.wiley.com/doi/10.1111/j.1468-0297.2006.01059.x\\"],[2001,"Market Discipline in Property-Liability Insurance",[["Karen Epermanis","University of Hartford"],["Scott Harrington","University of South Carolina"]],"Journal of Money, Credit and Banking",2006,"https://www.jstor.org/stable/3839112?casa_token=HkLJ3yp9kXsAAAAA%3AO-p4TdMnpMf4d1zvaAMHTw263wb_LMwv-DkEx8X8HNzQLpAAdYCvzd8OGqVQ5i7TkPB4dUNb3C23FkugbQ73vpY5IGBEcrWNrX8G_tfLBLU5nHG1Tog"],[2001,"Mickey Mouse and Moral Hazard: Uninformative but Correlated Triggers",[["Neil Doherty","University of Pennsylvania"],["Olivier Mahul","INRA"]],"",null,""],[2001,"Optimal Capital Utilization by Financial Firms: Evidence from the Property-Liability Insurance Industry",[["J. David Cummins","University of Pennsylvania"],["Gregory Nini","University of Pennsylvania"]],"Journal of Financial Services Research",2002,"https://link.springer.com/article/10.1023/A:1014369617192"],[2001,"Optimal Consumption and the Timing of the Resolution of Uncertainty",[["Louis Eeckhoudt","Catholic Faculties of Mons"],["Christian Gollier","University of Toulouse"],["Nicolas Treich","University of Toulouse"]],"European Economic Review",2005,"https://www.sciencedirect.com/science/article/pii/S0014292103000692?casa_token=GmsiO6vtdqoAAAAA:_Al8XgS1tM3sKCWzA3fPI7qnmon8Cb8yhSpZEfBc5GJantHmlieLZgJkh7WEw-m7M_U45tKW4w"],[2001,"Preponderance of the Evidence: Tort Rules and the Efficient Standard of Proof",[["Dominique Demougin","Otto-von-Guericke University"],["Claude Fluet","University of Quebec at Montreal"]],"European Economic Review",2006,"https://www.sciencedirect.com/science/article/abs/pii/S0014292105000036"],[2001,"Pricing and Capital Allocation in Catastrophe Insurance",[["George Zanjani","Federal Reserve Bank of New York"]],"Journal of Financial Economics",2002,"https://www.sciencedirect.com/science/article/pii/S0304405X02001411?casa_token=0W1YrxFiFh8AAAAA:ykz3FjJ8ZQLZHPw-LFNy8zb8JuH-AeGVbFV39-hSI0o76ElLFE62FbOMFx10H4f_O_SSAljPhw"],[2001,"Testing Contract Theory: a Survey of Some Recent Work",[["P.A. Chiappori","University of Chicago"],["Bernard Salanie","INSEE"]],"Book Chapter",2003,""],[2002,"Asymmetric Information and Learning in the Automobile Insurance Market",[["Alma Cohen","Harvard University"]],"Review of Economics and Statistics",2005,"https://direct.mit.edu/rest/article-abstract/87/2/197/57545/Asymmetric-Information-and-Learning-Evidence-from?redirectedFrom=PDF"],[2002,"Asymmetric Information and Price Adjustment in the Long-Term Care Insurance Market",[["Yanling Ge","University of Mississippi"],["Larry A. Cox","University of Mississippi"]],"Journal of Risk and Insurance",2004,"https://onlinelibrary.wiley.com/doi/abs/10.1111/j.0022-4367.2004.00108.x?casa_token=SzoJuF5q2RYAAAAA:64XFD_4DGboCb6k9Tvhwr4Tt0C8-Fcza5YWQgXYrkMl6-nPIi6p_2bJGwnhDxBoO0rSvealyPHuVNIM"],[2002,"Implications of Corporate Diversification and Focus Strategies",[["Kathleen A. McCullough","Florida State University"],["Robert E. Hoyt","University of Georgia"]],"",null,""],[2002,"Market Discipline and Government Guarantees in Life Insurance",[["George Zanjani","Federal Reserve Bank of New York"]],"",null,""],[2002,"Multiplicative Background Risk",[["Gunter Franke","University of Konstanz"],["Harris Schlesinger","University of Alabama"],["Richard C. Stapleton","University of Strathclyde"]],"Management Science",2006,"https://pubsonline.informs.org/doi/abs/10.1287/mnsc.1050.0450?casa_token=U0VTJRJHv-sAAAAA:59NIqOhRPJz3A-BCoqPjT9OeuducscIN6tnUh-5Vi1AvqDUCWu9sQuzB7Vu5723cEeEyg_O0iD8"],[2002,"Optimal Accident Compensation Schemes",[["Richard Watt","Universidad Autonoma de Madrid"],["Francisco J. Vazques","Universidad Autonoma de Madrid"]],"Spanish Economic Review",2009,"https://link.springer.com/article/10.1007/s10108-008-9047-5"],[2002,"Risk Management Determinants Affecting Firms' Values in the Gold Mining Industry: New Empirical Results",[["Georges Dionne","HEC Montreal"],["Martin Garant","HEC Montreal"]],"Economics Letters",2003,"https://www.sciencedirect.com/science/article/pii/S0165176502002860?casa_token=SNCqu3ANdygAAAAA:-mjkbbnqBc0fLAfPaXuyWDnIRy07v1qa8wPPdt49iETmgi3tIR9G7RNWSCAD4TE2n7ftfZj-RQ"],[2002,"The Basis Risk of Catastrophic-Loss Index Securities",[["J. David Cummins","University of Pennsylvania"],["David Lalonde","Applied Insurance Research"],["Richard D. Phillips","Georgia State University"]],"Journal of Financial Economics",2004,"https://www.sciencedirect.com/science/article/pii/S0304405X03001727?casa_token=1qMhxzfLh2YAAAAA:qykK8ibpExdo8ak5Jvs94WA8b-rK6X9xU670F-TFWP5E0ahRITDzesJrLX_ckJmVJyQTE57MbQ"],[2002,"Viability of the Mutual Organizational Form",[["Barbara Remmers","Virginia Tech"]],"",null,""],[2003,"Asymmetric Information, Transaction Cost, and Externalities in Competitive Insurance Markets",[["Wenjiu Liu","University of Notre Dame"],["Mark Browne","University of Wisconsin-Madison"]],"Journal of Risk and Insurance",2007,"https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1539-6975.2007.00232.x"],[2003,"Deterring Fraud: The Role of General Damage Awards in Automobile Insurance Settlements",[["David Loughran","RAND"]],"Journal of Risk and Insurance",2005,"https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1539-6975.2005.00138.x?casa_token=BIbxTLag9vgAAAAA:vbJAAuZyr4jNme2r3DNR_BTEbZk8MpvlcM6o30SH1idUYK5KZWsyY3kXhyYp-Zm0PfFGkMNeRmlpWZE"],[2003,"Equilibrium Portfolios with Heterogeneous Consumption Externalities",[["Christian Gollier","University of Toulouse"]],"International Economic Review",2004,"https://onlinelibrary.wiley.com/doi/epdf/10.1111/j.0020-6598.2004.00301.x"],[2003,"Insurance Self-Protection and the Economics of Terrorism",[["Darius Lakdawalla","RAND"],["George Zanjani","Federal Reserve Bank of New York"]],"Journal of Public Economics",2005,"https://www.sciencedirect.com/science/article/pii/S0047272704001392?casa_token=meVr_ILvfD4AAAAA:x-MK3mYzjT3iGUmMbDdM1rYV0MnHNY_NrymE2QsPbaF7bo6lCqRPo61HNqhfeF25VKLVGHvRGg"],[2003,"Internal versus External Capital Markets in the Insurance Industry: The Role of Reinsurance",[["Lawrence Powell","University of Arkansas-Little Rock"],["David Sommer","University of Georgia"]],"Journal of Financial Services Research",2007,"https://link.springer.com/article/10.1007/s10693-007-0007-2"],[2003,"Legal Systems and Deterrence",[["Michael Smith","The Ohio State University"]],"American Law and Economics Review",2005,"https://academic.oup.com/aler/article-abstract/7/2/350/154596"],[2003,"Optimal Auditing for Insurance Fraud",[["Georges Dionne","HEC Montreal"],["Florence Giuliano","University of Paris X"],["Pierre Picard","University of Paris X"]],"Management Science",2009,"https://pubsonline.informs.org/doi/abs/10.1287/mnsc.1080.0905"],[2003,"Punitive Damage Effects on Post-Loss Bargaining and Settlement",[["Neil Doherty","University of Pennsylvania"],["David Eckles","University of Pennsylvania"]],"Assurances",2010,"https://www.erudit.org/en/journals/agr/2010-v78-n1-2-agr08770/1106239ar/abstract/"],[2003,"The Effect of Automobile Insurance and Accident Liability Laws on Traffic Fatalities",[["Alma Cohen","NBER"],["Rajeev Dehejia","Columbia University"]],"Journal of Law and Economics",2004,"https://www.journals.uchicago.edu/doi/abs/10.1086/422978?casa_token=XyOd2UjubQ0AAAAA:CccDJdY9X52wIZbGnZ8j_hJSf1kT5G6U_pZH1aorO9EDHEvq4fI6a-Db6RgyElnU8lUaZHzVXys&casa_token=vVdsRWB3EGoAAAAA:j3963bw_85pLMRn8eoZIcoOgClxZtjDpLvfGxJ4nWk75mQt_1GYIm9ClV0_9nlnZjOSjU6bN6zQ"],[2003,"Why Is the Market for Private Long-Term Care Insurance so Small?",[["Jeffrey R. Brown","University of Illinois at Urbana-Champaign"],["Amy Finkelstein","Harvard University"]],"Journal of Public Economics",2007,"https://www.sciencedirect.com/science/article/abs/pii/S0047272707000321"],[2004,"Attorneys, fraud, and claims abuse: improving contracts by manipulating the threat points",[["John M. Marshall","University of California, Santa Barbara"]],"",null,""],[2004,"How many balance functions does it take to determine a utility function?",[["John W. Pratt","Harvard University"]],"Journal of Risk and Uncertainty",2005,"https://link.springer.com/article/10.1007/s11166-005-3551-x"],[2004,"Insurance company failures: why do they cost so much?",[["Martin F. Grace","Georgia State University"],["Robert W. Klein","Georgia State University"],["Richard D. Phillips","Georgia State University"]],"",null,""],[2004,"Managing capital structure: The case of life insurance – A semiparametric simultaneous equations approach",[["Etti Baranoff","Virginia Commonwealth University"],["Thomas W. Sager","University of Texas-Austin"],["Thomas S. Shively","University of Texas-Austin"]],"",null,""],[2004,"On the demand for budget constrained insurance",[["Henri Louberge","University of Geneva"],["Richard Watt","Universidad Autonoma de Madrid"]],"",null,""],[2004,"Putting Risk in its proper place",[["Louis Eeckhoudt","Catholic Faculties of Mons"],["Harris Schlesinger","University of Alabama"]],"American Economic Review",2006,"https://www.aeaweb.org/articles?id=10.1257/000282806776157777"],[2004,"The effectiveness of statutory legislation in mitigating moral hazard: Evidence from automobile insurance",[["Robert E. Hoyt","University of Georgia"],["David B. Mustard","University of Georgia"],["Lawrence Powell","University of Arkansas-Little Rock"]],"Journal of Law and Economics",2006,"https://www.journals.uchicago.edu/doi/abs/10.1086/501092?casa_token=pJyV3T-LTSwAAAAA:A70Xb28oEMqmzuLBdEOpKaKc2hkG9MHWrAD9DIvnuVIVdtzpbR25gi9UdV7W1rFJ_Ib2KrevvG8"],[2004,"The settlement negotiation process for automobile bodily injury liability claims in the presence of suspicion of fraud and build-up",[["Richard A. Derrig","OPAL Consulting"]],"",null,""],[2004,"Value of information and prevention in insurance markets",[["Marie-Cecile Fagart","LEI/CREST"],["Nathalie Fombaron","University of Paris X"]],"",null,""],[2004,"Vehicle and fleet random effects in a Bayesian approach to insurance rating",[["Jean-Francois Angers","University of Montreal"],["Denise Desjardins","University of Montreal"],["Georges Dionne","HEC Montreal"],["Francois Guertin","University of Montreal"]],"ASTIN Bulletin",2006,"https://www.cambridge.org/core/journals/astin-bulletin-journal-of-the-iaa/article/vehicle-and-fleet-random-effects-in-a-model-of-insurance-rating-for-fleets-of-vehicles/FE03F551B7878814675F2F80F8003CD8"],[2005,"A Portfolio Characterization of the Model of Insurance Demand",[["Donald J. Meyer","Western Michigan University"],["Jack Meyer","Michigan State University"]],"",null,""],[2005,"Brokers and the Insurance of Non-Verifiable Losses",[["Neil Doherty","University of Pennsylvania"],["Alexander Muermann","University of Pennsylvania"]],"Brookings-Wharton Papers on Financial Services",2004,"https://muse.jhu.edu/article/171562"],[2005,"Economics of Capital Allocation",[["Glen Meyers","Insurance Services Office"]],"",null,""],[2005,"Experience Rating and Ex-Post Behavior in Insurance Markets",[["Gregory Nini","Federal Reserve Board of Governors"]],"",null,""],[2005,"Has the Malpractice Crisis in Florida Really Affected Access to Care?",[["David Dranove","Northwestern University"],["Anne Gron","Northwestern University"]],"Health Affairs",2005,"https://www.healthaffairs.org/doi/epdf/10.1377/hlthaff.24.3.802"],[2005,"Health Insurance Theory: The Case of the Missing Welfare Gain",[["John Nyman","University of Minnesota"]],"European Journal of Health Economics",2008,"https://link.springer.com/article/10.1007/s10198-007-0084-z"],[2005,"Marine Insurance in Britain and America 1720-1844: A Comparative Institutional Analysis",[["Christopher Kingston","Amherst College"]],"Journal of Economic History",2007,"https://www.cambridge.org/core/journals/journal-of-economic-history/article/abs/marine-insurance-in-britain-and-america-17201844-a-comparative-institutional-analysis/6DB90860C10823421409C0A4700B20A0"],[2005,"Resistance (to Fraud) is Futile",[["Martin Boyer","HEC Montreal"]],"Journal of Risk and Insurance",2007,"https://onlinelibrary.wiley.com/doi/full/10.1111/j.1539-6975.2007.00221.x?casa_token=ZU8ry_z1NLgAAAAA%3AJpTiIXRenEpY4ieIkgULLDJlUv_vcIXr7XNMVKEoRv2lUYs84P1vTP44vE0V94_o0m6ak03HoHtQw20"],[2005,"Separating Moral Hazard from Adverse Selection in Automobile Insurance Longitudinal Evidence from France",[["Georges Dionne","HEC Montreal"],["Pierre-Carl Michaud","Tilburg University"],["Maki Dahchour","Aviva Insurance Company"]],"Journal of the European Economic Association",2013,"https://academic.oup.com/jeea/article-abstract/11/4/897/2300968"],[2005,"The Incidence of the Healthcare Costs of Obesity",[["Jay Bhattacharya","Stanford University"],["Kate Bundhof","Stanford University"]],"Journal of Health Economics",2009,"https://www.sciencedirect.com/science/article/pii/S0167629609000113?casa_token=Ezu9IcX9VEoAAAAA:jaOKWTIYKDDttWDDmf_5WWnVyGQA5dXhwAtK7sgerawOE-hjYGx42fodpdfM4k_qVZ1bNMwwjw"],[2006,"Actuarial Geometry",[["Stephen J. Mildenhall","Aon RE"]],"Risks",2017,"https://www.mdpi.com/2227-9091/5/2/31"],[2006,"Catastrophe Bonds, Reinsurance, and the Optimal Collateralization of Risk Transfer",[["Darius Lakdawalla","RAND"],["George Zanjani","Federal Reserve Bank of New York"]],"Journal of Risk and Insurance",2012,"https://onlinelibrary.wiley.com/doi/full/10.1111/j.1539-6975.2011.01425.x?casa_token=Qv5LCVQpnHYAAAAA%3AiyP07VMMqS_l8PBTdJlhFPQF8hkhdgwYOYcUWYkjyCcS0gw5JKvn7UY6oEfV7J7K2FjmLQYk2lmu2cc"],[2006,"Distinguishing the Forest from the Trees: A Comparison of the Tree Based Data Mining Methods",[["Richard A. Derrig","OPAL Consulting"],["Louise Francis","Francis Analytics and Data Mining"]],"",null,""],[2006,"Effects of Disability-Based Underwriting Prohibitions on the Labor Market",[["Ping Wang","St. John's University"]],"Asia-Pacific Journal of Risk and Insurance",2009,"https://www.degruyterbrill.com/document/doi/10.2202/2153-3792.1049/html"],[2006,"Health Care Costs of Medicaid Disenrollment",[["Richard J. Butler","Brigham Young University"],["William G. Johnson","Arizona State University"],["Mary Rimsza","Arizona State University"]],"Pediatrics",2007,"https://publications.aap.org/pediatrics/article-abstract/119/5/e1026/70223/Impact-of-Medicaid-Disenrollment-on-Health-Care"],[2006,"Incorporation Behavioral Effects in the Valuation of Medical Research and Improvements to Public Safety",[["Michael Hoy","University of Guelph"],["Mattias K. Polborn","University of Illinois at Urbana-Champaign"]],"",null,""],[2006,"Optimal Expectations under Anticipated Regret",[["Christian Gollier","University of Toulouse"],["Alexander Muermann","University of Pennsylvania"]],"Management Science",2010,"https://pubsonline.informs.org/doi/abs/10.1287/mnsc.1100.1185"],[2006,"Property-Liability Insurer Reserves Error-Motive, Manipulation, or Mistake",[["Martin F. Grace","Georgia State University"],["J. Tyler Leverty","University of Iowa"]],"Journal of Risk and Insurance",2012,"https://onlinelibrary.wiley.com/doi/full/10.1111/j.1539-6975.2011.01434.x?casa_token=cxrUGw5aKz4AAAAA%3Ay0SqFVsRigpypuupw7x3G6FoDcjfS_QuytZAVSwl20wPm_byTz9mx3Dw1bUQGPxkR4Pd-wwOB-9BAVU"],[2006,"Redistribution by Insurance Market Regulation: The Effect of Banning Gender-Based Retirement Annuities",[["Amy Finkelstein","MIT"],["Jim Poterba","MIT"],["Casey Rothschild","MIT"]],"Journal of Financial Economics",2009,"https://www.sciencedirect.com/science/article/abs/pii/S0304405X08001530"],[2006,"The Value of Real and Financial Risk Management",[["Marcel Boyer","University of Montreal"],["Martin Boyer","HEC Montreal"],["Rene Garcia","University of Montreal"]],"Quarterly Journal of Finance",2013,"https://www.worldscientific.com/doi/abs/10.1142/S2010139213500092"],[2007,"Benefits of Multi-Jurisdictional Regulation of the Life Insurance Industry: Fact or Fiction?",[["Michael McShane","University of Mississippi"],["Larry A. Cox","University of Mississippi"]],"Journal of Banking and Finance",2010,"https://www.sciencedirect.com/science/article/pii/S037842660900209X?casa_token=hvtsBfqnQC8AAAAA:Cc1b6ZgdsqskIi1S32yQmaogkzK7B6itqc6RUAeNBZJ0IGVWQeJ1G_OjkWXIYW-Qkcwo4WwFbg"],[2007,"Competitive Screening in Insurance Markets with Endogenous Labor Supply",[["Nick Netzer","University of Konstanz"],["Florian Scheuer","MIT"]],"Economic Theory",2010,"https://link.springer.com/article/10.1007/s00199-009-0481-x"],[2007,"Exiting the Health Insurance Market as a Rational Choice: Demand for Health Insurance in a Learning Model",[["Rahul Jain","University of Maryland"]],"",null,""],[2007,"Hidden Regret and Advantageous Selection in Insurance Markets",[["Rachel J. Huang","Ming Chuan University"],["Alexander Muermann","University of Pennsylvania"],["Larry Y. Tzeng","National Taiwan University"]],"Journal of Risk and Insurance",2016,"https://onlinelibrary.wiley.com/doi/full/10.1111/jori.12096?casa_token=FeKdjiymXT4AAAAA%3AIOk8q0zZARQHPV9LX0PNKfzFeQ8Xe3LO8ASBV-3whE6vFC-RmVOyv6Oojp9XgfH5WiC2fuYS0hyeDK4"],[2007,"Individual vs. Aggregate Preferences: The Case of a Small Fish in a Big Pond",[["Douglas Blackburn","Indiana University"],["Audrey D. Ukhov","Indiana University"]],"Management Science",2013,"https://pubsonline.informs.org/doi/abs/10.1287/mnsc.1120.1608?casa_token=8-lnqi-_eqwAAAAA:qZVcYDguWTcGKIugJZ8WpOBKM6ep6u2aiFcPbCUwuY7k7xZouRgAkmp4J_7yqoN6Xca4eqaMAz8"],[2007,"Mandated Health Insurance Benefits and the Utilization and Outcomes of Infertility Treatments",[["M. Kate Bundorf","Stanford University"],["Melinda Henne","Stanford University"],["Laurence Baker","Stanford University"]],"",null,""],[2007,"Negligence, Ignorance, and the Demand for Liability Insurance",[["Vickie L. Bajtelsmit","Colorado State University"],["Paul Thistle","University of Nevada Las Vegas"]],"Geneva Risk and Insurance Review",2009,"https://link.springer.com/article/10.1057/grir.2009.4"],[2007,"Noise Hedging and Executive Compensation",[["Neil Doherty","University of Pennsylvania"],["Jim Garven","Baylor University"],["Sven H. Sinclair","Congressional Budget Office"]],"",null,""],[2007,"Providers' Affiliation, Insurance and Collusion",[["Jean-Marc Bourgeon","Ecole Polytechnique"],["Pierre Picard","HEC Paris"],["Jerome Pouyet","Ecole Polytechnique"]],"Journal of Banking and Finance",2008,"https://www.sciencedirect.com/science/article/pii/S037842660700266X?casa_token=TxL6fKBDjeUAAAAA:VI4lBxvVRIrbD7D5HGbPq203GJ-mbBcU60_uC3IEkeDBVnWmO-XUiwcTKjzrCPbv9BwL-e_Puw"],[2007,"Transferring the Sticky: Individual Annuity Demand and Demographic Risk",[["Roman N. Schulze","Humboldt-Universitat zu Berlin"],["Thomas Post","University of Illinois at Urbana-Champaign"]],"Journal of Risk and Insurance",2010,"https://onlinelibrary.wiley.com/doi/full/10.1111/j.1539-6975.2009.01340.x"],[2008,"Actuarial Applications of a Hierarchical Insurance Claims Model",[["Edward W. Frees","University of Wisconsin-Madison"],["Peng Shi","University of Wisconsin-Madison"],["Emiliano A. Valdez","University of Connecticut"]],"ASTIN Bulletin",2009,"https://www.cambridge.org/core/journals/astin-bulletin-journal-of-the-iaa/article/abs/actuarial-applications-of-a-hierarchical-insurance-claims-model/171ADF9FFC5FB71B1F029D5318D4EA08"],[2008,"Catastrophe Insurance and Optimal Investment",[["Sheen Liu","Washington State University, Vancouver"],["Gene Lai","Washington State University, Pullman"]],"",null,""],[2008,"Competition among rating agencies and information disclosure",[["Neil Doherty","University of Pennsylvania"],["Anastasia Kartasheva","University of Pennsylvania"],["Richard D. Phillips","Georgia State University"]],"Journal of Financial Economics",2012,"https://www.sciencedirect.com/science/article/abs/pii/S0304405X12000943"],[2008,"Costly External Financing and the Capital Shock Theory of the Insurance Cycle",[["S. Hun Seog","KAIST"],["Sunae Lee","KAIST"]],"",null,""],[2008,"Crowding Out under Medicaid’s Presumptive Eligibility",[["Richard J. Butler","Brigham Young University"],["William G. Johnson","Arizona State University"]],"",null,""],[2008,"Financial Integration and Scope Efficiency post Gramm-Leach-Bliley",[["Yuan Yuan","University of Wisconsin-Whitewater"],["Richard D. Phillips","Georgia State University"]],"",null,""],[2008,"Legal Errors and Liability Insurance",[["Vickie L. Bajtelsmit","Colorado State University"],["Paul Thistle","University of Nevada Las Vegas"]],"",null,""],[2008,"Optimal Capital Allocation",[["George Zanjani","Federal Reserve Bank of New York"]],"Journal of Risk and Insurance",2010,"https://onlinelibrary.wiley.com/doi/full/10.1111/j.1539-6975.2010.01354.x"],[2008,"Optimal Sharing of Labor Productivity Risks and Mix of Pay-As-You-Go and Savings",[["Debora Kusmerski","University of Amsterdam"]],"",null,""],[2008,"The Impact of Individual Investment Behavior for Retirement Welfare: Evidence from the U.S. and Germany",[["Thomas Post","Humboldt-Universitat zu Berlin"],["Helmut Grundl","Humboldt-Universitat zu Berlin"],["Joan T. Schmit","University of Wisconsin-Madison"],["Anja Zimmer","Humboldt-Universitat zu Berlin"]],"Economica",2014,"https://onlinelibrary.wiley.com/doi/full/10.1111/ecca.12036?casa_token=-CjBVBRPEIgAAAAA%3A0swO8aAWw2tsvf1V0Q-JHsakfFrevzDMpO2tvaz03L6-Bjci6-XcGLe_fXm0I1EHLb6ZyX7fvG9Pl-Y"],[2009,"Adverse Selection, Linear Pricing and Front-Loading in Annuity Markets",[["Casey Rothschild","Middlebury College"]],"Journal of Risk and Insurance",2015,"https://onlinelibrary.wiley.com/doi/full/10.1111/jori.12019"],[2009,"Bequest Motives and the Annuity Puzzle",[["Lee M. Lockwood","University of Chicago"]],"Review of Economic Dynamics",2012,"https://www.sciencedirect.com/science/article/abs/pii/S1094202511000135"],[2009,"Can Purchasing Records Predict Risk?",[["Larry Y. Tzeng","National Taiwan University"],["Kili C. Wang","TamKang University"]],"",null,""],[2009,"Catastrophes and Performance in Property Insurance Markets: A Comparison of Personal and Commercial Lines",[["Patricia Born","Florida State University"],["Barbara Klimaszewski-Blettner","LMU Munich"]],"Journal of Risk and Insurance",2013,"https://onlinelibrary.wiley.com/doi/full/10.1111/j.1539-6975.2012.01477.x"],[2009,"Creditor Mandated Purchases of Corporate Insurance",[["Brian Cheyne","University of Pennsylvania"],["Gregory Nini","University of Pennsylvania"]],"Journal of Risk and Insurance",2020,"https://onlinelibrary.wiley.com/doi/full/10.1111/jori.12263"],[2009,"Does Team Management Reduce Operational Risk: Evidence from the Financial Services Industry",[["Michaela Bar","University of Cologne"],["Conrad Ciccotello","Georgia State University"],["Stefan Ruenzi","University of Texas-Austin"]],"Journal of Risk Management in Financial Institutions",2010,"https://www.ingentaconnect.com/content/hsp/jrmfi/2010/00000004/00000001/art00008"],[2009,"Matching and Risk Classification in Insurance Markets with Intermediation",[["Jorg Schiller","University of Hohenheim"]],"",null,""],[2009,"Moral Hazard and Health Insurance when Treatment is Preventive",[["S. Hun Seog","KAIST"]],"Journal of Risk and Insurance",2012,"https://onlinelibrary.wiley.com/doi/full/10.1111/j.1539-6975.2011.01459.x?casa_token=UpZfnfnDofUAAAAA%3AwE_xl-a0AvIdtRibVUKLcjVvDf9f7ReXVbJPOxvL-HeSsKEgcuLqsccT7hEBvGvj3CxpD-jR-e5CNtk"],[2009,"Optimal Portfolio Selection when Constrained by Investment in a Mandatory Social Security Asset",[["Kim B. Staking","Colorado State University"]],"",null,""],[2009,"Point Record Incentives, Asymmetric Information and Dynamic Data",[["Georges Dionne","HEC Montreal"],["Jean Pinquet","University of Paris X"],["Mathieu Maurice","HEC Montreal"],["Charles Vanasse","TD Asset Management"]],"Review of Economics and Statistics",2011,"https://direct.mit.edu/rest/article-abstract/93/1/218/57892/Incentive-Mechanisms-for-Safe-Driving-A"],[2010,"A Dynamic Analysis of the Demand for Life Insurance",[["Andre P. Liebenberg","University of Mississippi"],["James M. Carson","Florida State University"],["Randy E. Dumm","Florida State University"]],"Journal of Risk and Insurance",2012,"https://onlinelibrary.wiley.com/doi/full/10.1111/j.1539-6975.2011.01454.x?casa_token=yD9hgYv3L2gAAAAA%3ANk1qDAy5aBHTZ95F4qN1Gu9Q4jCTSZ7juOHm-eFoP2zDwgNrKB_9tbkirMt2lcNQrpQmnXYxjzg9puM"],[2010,"A Theory of the Demand for Underwriting",[["Mark Browne","University of Wisconsin-Madison"],["Shinichi Kamiya","University of Wisconsin-Madison"]],"Journal of Risk and Insurance",2012,"https://onlinelibrary.wiley.com/doi/full/10.1111/j.1539-6975.2011.01436.x?casa_token=AGQcGSojuCMAAAAA%3AbMgInNNUIEI2duBxIFsJt7SjXpRIW93OnxlHkHWlWBDI9iTbyozyvMt7Me-D3GMvcityFYCzwc2i9PI"],[2010,"Behavior Towards Endogenous Risk in the Laboratory",[["Glenn W. Harrison","Georgia State University"],["E. Elisabet Rutstrom","University of Central Florida"],["Shabori Sen","University of Central Florida"]],"",null,""],[2010,"Capital Market Development, Competition, Property Rights, and the Value of Insurer Product-Line Diversification: A Cross-Country Analysis",[["Thomas R. Berry-Stolzle","University of Georgia"],["Robert E. Hoyt","University of Georgia"],["Sabine Wende","University of Cologne"]],"Journal of Risk and Insurance",2013,"https://onlinelibrary.wiley.com/doi/full/10.1111/j.1539-6975.2012.01470.x?casa_token=T44SwOZ7iWEAAAAA%3ATwGsvcUrBLipyLUH5dJi4hh9xoUbtG2wUSIEEYb5QfDo8jt2IvxgXQCXmjsAqhrsIsWVrbESQP7HoKg"],[2010,"Changes in the Human Capital Risk-Return Menu",[["Daniel Barth","Johns Hopkins University"],["Shane T. Jensen","University of Pennsylvania"],["Stephen H. Shore","Johns Hopkins University"]],"Quantitative Economics",2017,"https://onlinelibrary.wiley.com/doi/abs/10.3982/QE424"],[2010,"Participating Insurance Contracts and the Rothschild-Stiglitz Equilibrium Puzzle",[["Pierre Picard","Ecole Polytechnique"]],"Geneva Risk and Insurance Review",2014,"https://link.springer.com/article/10.1057/grir.2014.9"],[2010,"The Effect of Contracting Incentives on Productivity and Compensation of Insurance Salespersons",[["Thomas R. Berry-Stolzle","University of Georgia"],["David Eckles","University of Georgia"]],"Geneva Papers on Risk and Insurance-Issues and Practice",2019,"https://link.springer.com/article/10.1057/s41288-019-00136-8"],[2010,"The Role of Contingent Commissions in Property-Liability Insurer Underwriting Performance",[["Laureen Regan","Temple University"],["Anne Kleffner","University of Calgary"]],"",null,""],[2011,"A Theoretical Extension of the Consumption-based CAPM Model",[["Jingyuan Li","Huazhong University of Science and Technology"],["Georges Dionne","HEC Montreal"]],"Geneva Risk and Insurance Review",2024,"https://link.springer.com/article/10.1057/s10713-023-00085-2"],[2011,"Asymmetric Information in Automobile Insurance: New Evidence from Telematics Data",[["Alexander Muermann","WU Vienna"],["Daniela Straka","WU Vienna"]],"",null,""],[2011,"CDS as Insurance: Leaky Lifeboats in Stormy Seas",[["Eric Stephens","University of Alberta"],["James R. Thompson","University of Waterloo"]],"Journal of Financial Intermediation",2014,"https://www.sciencedirect.com/science/article/pii/S1042957314000151?casa_token=o7Me1IhGtDoAAAAA:phXOWXaX4elJt4SwIUK7gg7-WtEX5u7fppNKi2LYjhPKd9-mO8YO358cNNFGmYG69P5qT42RGw"],[2011,"How Do Insurers Manage Credit Risk Exposure of Corporate Bond Portfolios? An Analysis Based on Background Risk",[["Xuanjuan Chen","Kansas State University"],["Tong Yao","University of Iowa"],["Tong Yu","University of Rhode Island"]],"",null,""],[2011,"On the Economics of Life Settlements",[["Nan Zhu","Georgia State University"],["Daniel Bauer","Georgia State University"]],"",null,""],[2011,"Optimal Insurance with Counterparty Default Risk",[["Enrico Biffis","Imperial College London"],["Pietro Millossovich","University of Trieste"]],"",null,""],[2011,"Real Effects of Changing Rating Standards for Catastrophic Risks",[["Anastasia Kartasheva","University of Pennsylvania"],["Sojung (Carol) Park","California State University, Fullerton"]],"",null,""],[2011,"Reexamining the Accident Externality from Driving Using Individual Data",[["Rachel J. Huang","National Taiwan University"],["Larry Y. Tzeng","National Taiwan University"],["Kili C. Wang","TamKang University"]],"Journal of Risk and Insurance",2014,"https://onlinelibrary.wiley.com/doi/full/10.1111/j.1539-6975.2013.01517.x?casa_token=tepBQHjSyusAAAAA%3AUUN5oC8PENFB-eKBoVNo8-Y7BG2391nwp43IMBI-3bMFrH5ALAHWzVhOZw4JLTl6RQ62ANTLkUjHejw"],[2011,"The Importance of Bequest Motives: Evidence from Long-term Care Insurance and the Pattern of Saving",[["Lee M. Lockwood","NBER"]],"American Economic Review",2018,"https://www.aeaweb.org/articles?id=10.1257/aer.20141651"],[2011,"Yes, No, Perhaps? Explaining the Demand for Risk Classification Insurance with Fuzzy Private Information",[["Richard Peter","LMU Munich"],["Andreas Richter","LMU Munich"],["Petra Steinorth","LMU Munich"]],"Journal of Risk and Insurance",2016,"https://onlinelibrary.wiley.com/doi/full/10.1111/jori.12064"],[2012,"Asset Integration and Attitudes to Risk: Theory and Evidence",[["Steffen Andersen","Copenhagen Business School"],["James C. Cox","Georgia State University"],["Glenn W. Harrison","Georgia State University"],["Morten Lau","Copenhagen Business School"],["E. Elisabet Rutstrom","Georgia State University"],["Vjollca Sadiraj","Georgia State University"]],"Review of Economics and Statistics",2018,"https://direct.mit.edu/rest/article-abstract/100/5/816/58484/Asset-Integration-and-Attitudes-toward-Risk-Theory?redirectedFrom=fulltext"],[2012,"Directors' and Officers' Liability Insurance, Corporate Risk and Risk Taking: New Panel Data Evidence on the Role of Directors' and Officers' Liability Insurance",[["Martin Boyer","HEC Montreal"],["Sharon Tennyson","Cornell University"]],"Journal of Risk and Insurance",2015,"https://onlinelibrary.wiley.com/doi/full/10.1111/jori.12107"],[2012,"External Financing in the Life Insurance Industry: Evidence from the Financial Crisis",[["Thomas R. Berry-Stolzle","University of Georgia"],["Gregory Nini","University of Pennsylvania"],["Sabine Wende","University of Cologne"]],"Journal of Risk and Insurance",2014,"https://onlinelibrary.wiley.com/doi/full/10.1111/jori.12042?casa_token=StpwOk7IFsQAAAAA%3Anm9sW7aO3pygHm02dnxqxHSeL5qI6KHh4tZ7mdSus98d-WylnCUkeI13O4bxxQPXW4TRJEC8S7bARcw"],[2012,"Fraudulent Claims and Nitpicky Insurers",[["Jean-Marc Bourgeon","Ecole Polytechnique"],["Pierre Picard","University of Paris X"]],"American Economic Review",2014,"https://www.aeaweb.org/articles?id=10.1257/aer.104.9.2900"],[2012,"On the Sensitivity of Corporate Cash Holdings and Hedging to Cash Flows",[["Monica Marin","HEC Montreal"],["Greg Niehaus","University of South Carolina"]],"",null,""],[2012,"One-Sided Commitment in Dynamic Insurance Contracts: Evidence from Private Health Insurance in Germany",[["Annette Hoffmann","University of Hamburg"],["Mark Browne","University of Wisconsin-Madison"]],"Journal of Risk and Uncertainty",2013,"https://link.springer.com/article/10.1007/s11166-012-9160-6"],[2012,"Profitable contract menus in competitive insurance markets with adverse selection",[["Wanda Mimra","ETH Zurich"],["Achim Wambach","University of Cologne"]],"",null,""],[2012,"Prospect Theory and the Demand for Insurance",[["David Eckles","University of Georgia"],["Jacqueline Volkman Wise","Temple University"]],"",null,""],[2012,"The Impact of Safety Expenditures on Moral Hazard",[["Chip Wade","Mississippi State University"],["Andre P. Liebenberg","University of Mississippi"]],"",null,""],[2012,"Yaari's LifeCycle Model in the 21st Century: Consumption Under a Stochastic Force of Mortality",[["Huaxiong Huang","York University"],["Moshe A. Milevsky","York University"],["Thomas S. Salisbury","York University"]],"Insurance: Mathematics and Economics",2012,"https://www.sciencedirect.com/science/article/pii/S0167668712000480?casa_token=2wsHxkeXnCMAAAAA:qNN7EnHa9Zv2UVoam4rRqunZi4t5K12JIVCsGinoQYUl-LItewkaVcixiNzusknlPJzjzi9HMA"],[2013,"Belief Heterogeneity In The Arrow-Borch-Raviv Insurance Model",[["Mario Ghossoub","University of Montreal"]],"Risks",2016,"https://www.mdpi.com/2227-9091/4/3/29"],[2013,"Burning Down the House: Moral Hazard and House Prices",[["Michael D. Eriksen","University of Georgia"],["James M. Carson","University of Georgia"]],"Journal of Risk and Insurance",2017,"https://onlinelibrary.wiley.com/doi/full/10.1111/jori.12089"],[2013,"Competitive Insurance Contracting with Ambiguity and Asymmetric Information",[["Rachel J. Huang","National Taiwan University"],["Arthur Snow","University of Georgia"],["Larry Y. Tzeng","National Taiwan University"]],"",null,""],[2013,"Endogenous Information and Adverse Selection under Loss Prevention",[["Richard Peter","LMU Munich"],["Andreas Richter","LMU Munich"],["Paul Thistle","University of Nevada Las Vegas"]],"Journal of Health Economics",2017,"https://www.sciencedirect.com/science/article/pii/S016762961630248X"],[2013,"Explaining the Rate Spreads of Life Settlements",[["Ming-Hua Hsieh","National Chengchi University"]],"",null,""],[2013,"External Monitor Quality and Managerial Discretion",[["Martin F. Grace","Georgia State University"],["J. Tyler Leverty","University of Iowa"]],"",null,""],[2013,"Narrow Framing and Life Insurance",[["Daniel Gottlieb","University of Pennsylvania"],["Kent Smetters","University of Pennsylvania"]],"American Economic Review",2021,"https://www.aeaweb.org/articles?id=10.1257/aer.20160868"],[2013,"Optimal Collateralization with Bilateral Default Risk",[["Daniel Bauer","Georgia State University"],["Enrico Biffs","Imperial College London"],["Luz Rocio Sotomayor","Georgia State University"]],"",null,""],[2013,"The Relationship between the Markets for Health Insurance and Medical Malpractice Insurance",[["J. Bradley Karl","Florida State University"],["Patricia Born","Florida State University"],["W. Kip Viscusi","Vanderbilt University"]],"Applied Economics",2016,"https://www.tandfonline.com/doi/full/10.1080/00036846.2016.1176119"],[2013,"Underwriting Apophenia and Cryptids: Are Cycles Statistical Figments of our Imagination?",[["Martin Boyer","HEC Montreal"]],"Geneva Papers on Risk and Insurance-Issues and Practice",2014,"https://link.springer.com/article/10.1057/gpp.2014.12"],[2014,"An Insurance Mechanism for Public Goods Under Uncertainty",[["Stephen Aultman","USAA Insurance, Inc."],["Jay S. Coggins","University of Minnesota"],["Terrance M. Hurley","University of Minnesota"]],"",null,""],[2014,"Changes in Risk and Kinked Payoffs: The Case of Initial Public Offerings With Bankruptcy Risk",[["Paul Thistle","University of Nevada Las Vegas"]],"",null,""],[2014,"Convergence of Capital and Insurance Markets: Consistent Pricing of Index-Linked Catastrophic Loss Instruments",[["Nadine Gatzert","Friedrich-Alexander University"],["Sebastian Pokutta","Georgia Institute of Technology"],["Nikolai Vogl","Friedrich-Alexander University"]],"Journal of Risk and Insurance",2019,"https://onlinelibrary.wiley.com/doi/abs/10.1111/jori.12191?casa_token=1QhmQssIR2sAAAAA%3AXQhTxLFJShMy1PcU5Ny6DO77TGEwnX2sLRE6QRSBFqAQ_ihpOXpxvQ1eeyf3eGYpyYiAzIhJBR7iqaA"],[2014,"Do Elections Delay Regulatory Action?",[["J. Tyler Leverty","University of Iowa"],["Martin F. Grace","Georgia State University"]],"Journal of Financial Economics",2018,"https://www.sciencedirect.com/science/article/pii/S0304405X18301594?casa_token=ISXQ3zwWUCcAAAAA:MuIAWWRp_GzQSmIsaPt8S0jVdWq27Zo7s624cilbSfzqhRIwiqyb8zBW0QvzalbDGNd-tMEtpQ"],[2014,"Has The Financial System Become Safer After The Crisis? The Changing Nature of Financial Institution Risk",[["Paul Calluzzo","Rutgers University"],["G. Nathan Dong","Columbia University"]],"Journal of Banking and Finance",2015,"https://www.sciencedirect.com/science/article/pii/S0378426614003409?casa_token=FGhUsPO2xuwAAAAA:4Wn0XLRIZsvw1UHNmt7wk3yO79KP6HSBaoah1sJmfTHWc2suaQAPFV-0ti2wL1pocQkGlxrY0w"],[2014,"Natural Disasters: Exposure and Underinsurance",[["Celine Grislain-Letremy","Paris-Dauphine University"]],"Annals of Economics and Statistics",2018,"https://www.jstor.org/stable/10.15609/annaeconstat2009.129.0053?seq=1"],[2014,"Prudence, Temperance (and Other Virtues): The Dual Story",[["Louis Eeckhoudt","Catholic University of Lille"],["Roger J. A. Laeven","University of Amsterdam"]],"Journal of Economic Theory",2020,"https://www.sciencedirect.com/science/article/abs/pii/S0022053119301218"],[2014,"The Effect of Banking Crises: Evidence from Non-life Insurance Consumption",[["Shinichi Kamiya","Nanyang Technological University"],["George Zanjani","Georgia State University"],["Jackie Li","Nanyang Technological University"]],"",null,""],[2014,"The Influence of Premium Subsidies on Moral Hazard in Insurance Contracts",[["Johannes G. Jaspersen","LMU Munich"],["Andreas Richter","LMU Munich"]],"European Economic Review",2015,"https://www.sciencedirect.com/science/article/pii/S0014292115000434#ack0005"],[2014,"The Value of Informativeness for Contracting",[["Pierre Chaigneau","HEC Montreal"],["Alex Edmans","London Business School"],["Daniel Gottlieb","University of Pennsylvania"]],"Journal of Financial Economics",2018,"https://www.sciencedirect.com/science/article/abs/pii/S0304405X18301260"],[2015,"Ambiguity aversion and ambiguity seeking",[["Martin G. Kocher","LMU Munich"],["Amrei Lahno","LMU Munich"],["Stefan T. Trautmann","University of Heidelberg"]],"European Economic Review",2018,"https://www.sciencedirect.com/science/article/pii/S001429211730185X?casa_token=0PVe1oLyWu4AAAAA:GqbjgS4ZZyWvVMrAdP2v_qJVIsUnqzcqH6G-qN_842rMg8bsA8sTjk32riidYVzL8Jxg1JKodg"],[2015,"Capital, Systemic Risk, Insurance Prices and Regulation",[["Ajay Subramanian","Georgia State University"],["Jinjing Wang","Georgia State University"]],"Insurance: Mathematics and Economics",2021,"https://www.sciencedirect.com/science/article/abs/pii/S016766872100086X"],[2015,"Lemons and Proud of It: Information Asymmetry and Risk Transfer Markets",[["Eric Stephens","Carleton University"],["James R. Thompson","University of Waterloo"]],"Journal of Financial Intermediation",2017,"https://www.sciencedirect.com/science/article/pii/S1042957317300360?casa_token=YsA_CTGG4LoAAAAA:sCeE5OEB9-CzSJoj8MW98x5JUNAB-KQn6j-vjJvVLfFs5DKdiqdAOkHXNE5K8vVNId9n6LmzUQ"],[2015,"Managing Capital via Internal Capital Market Transactions: The Case of Life Insurers",[["Greg Niehaus","University of South Carolina"]],"Journal of Risk and Insurance",2018,"https://onlinelibrary.wiley.com/doi/full/10.1111/jori.12143?casa_token=erODFJA6Cx8AAAAA%3AZUCE5pPNhY_CnVQUVR80DVaLOA3DdYY5Jpa1Y59CXzRo7Sbnfz-qcsElu-LuoIRFlwkTetC-PzeodNI"],[2015,"Perfect Competition in Markets with Adverse Selection",[["Eduardo M. Azevedo","University of Pennsylvania"],["Daniel Gottlieb","University of Pennsylvania"]],"Econometrica",2017,"https://onlinelibrary.wiley.com/doi/abs/10.3982/ECTA13434?sid=vendor%3Adatabase"],[2015,"Precautionary Motives Under Multiple Instruments",[["Christoph Heinzel","INRA"],["Richard Peter","LMU Munich"]],"Journal of Economic Behavior & Organization",2023,"https://www.sciencedirect.com/science/article/abs/pii/S0167268123000069"],[2015,"Regulation of insurance with adverse selection and switching costs: Evidence from Medicare Part D",[["Maria Polyakova","Stanford University"]],"American Economic Journal: Applied Economics",2016,"https://www.aeaweb.org/articles?id=10.1257/app.20150004"],[2015,"Social Risk and the Dimensionality of Intentions",[["Jeffrey V. Buttler","University of Nevada Las Vegas"],["Joshua B. Miller","Bocconi University"]],"Management Science",2018,"https://pubsonline.informs.org/doi/abs/10.1287/mnsc.2016.2694?casa_token=ej2miiAOZ2sAAAAA:kf3rOqDs8_Y9WfV0I8qfHK5ArX5bav4VE356sC4BSmN2NHHDPijbVEvJfx803evU3lvE7YtFOzw"],[2015,"The Marginal Cost of Risk and Capital Allocation in a Multi-Period Model",[["Daniel Bauer","Georgia State University"],["George Zanjani","Georgia State University"]],"Journal of Banking and Finance",2021,"https://www.sciencedirect.com/science/article/abs/pii/S0378426621000297"],[2015,"The Microstructure of the Reinsurance Network among US Property-Casualty Insurers and Its Effect on Insurers’ Performance",[["Hua Chen","Temple University"],["J. David Cummins","Temple University"],["Tao Sun","Temple University"],["Mary A. Weiss","Temple University"]],"Journal of Risk and Insurance",2020,"https://onlinelibrary.wiley.com/doi/full/10.1111/jori.12269"],[2016,"Aversion to risk of regret and preference for positively skewed risks",[["Christian Gollier","University of Toulouse"]],"Economic Theory",2020,"https://link.springer.com/article/10.1007/s00199-018-1154-4"],[2016,"Consumption Smoothing and Precautionary Savings Under Recursive Preferences",[["AJ A. Bostian","University of Tampere"],["Christoph Heinzel","INRA"]],"Journal of Economic Behavior & Organization",2024,"https://www.sciencedirect.com/science/article/pii/S0167268124003846?via%3Dihub"],[2016,"How Do Consumers Respond To Transitory Income Shocks? Reconciling Longitudinal Studies and Natural Experiments",[["Jeanne Commault","Ecole Polytechnique"]],"American Economic Journal: Macroeconomics",2022,"https://www.aeaweb.org/articles?id=10.1257/mac.20190296"],[2016,"Market discipline and government guarantees: Evidence from the insurance industry",[["Yiling Deng","Georgia State University"],["J. Tyler Leverty","University of Wisconsin-Madison"],["George Zanjani","Georgia State University"]],"Journal of Risk and Insurance",2025,"https://onlinelibrary.wiley.com/doi/full/10.1111/jori.12493"],[2016,"Negotiated red zones around hazardous plants",[["Celine Grislain-Letremy","Paris-Dauphine University"],["Bertrand Villeneuve","Paris-Dauphine University"]],"Journal of Economic Behavior & Organization",2020,"https://www.sciencedirect.com/science/article/pii/S0167268119303658"],[2016,"On the design of optimal health insurance contracts under ex post moral hazard",[["Pierre Martinon","Ecole Polytechnique"],["Pierre Picard","Ecole Polytechnique"],["Anasuya Raj","Ecole Polytechnique"]],"Geneva Risk and Insurance Review",2018,"https://link.springer.com/article/10.1057/s10713-018-0034-y?wt_mc=Internal.Event.1.SEM.ArticleAuthorOnlineFirst&utm_source=ArticleAuthorOnlineFirst&utm_medium=email&utm_content=AA_en_06082018&ArticleAuthorOnlineFirst_20180719#Ack1"],[2016,"Recovering Subjective Probability Distributions",[["Glenn W. Harrison","Georgia State University"],["Eric R. Ulm","Georgia State University"]],"",null,""],[2016,"Risk Preference Inconsistencies across Low and High Stakes: Evidence from the Field",[["Benjamin Collier","University of Pennsylvania"],["Daniel Schwartz","University of Chile"],["Howard C. Kunreuther","University of Pennsylvania"],["Erwann O. Michel-Kerjan","University of Pennsylvania"]],"Journal of Risk and Insurance",2022,"https://onlinelibrary.wiley.com/doi/full/10.1111/jori.12363"],[2016,"The welfare effects of supply-side regulations in Medicare Part D",[["Francesco Decarolis","Boston University"],["Maria Polyakova","Stanford University"],["Stephen P. Ryan","University of Texas-Austin"]],"Journal of Political Economy",2020,"https://www.journals.uchicago.edu/doi/full/10.1086/705550?casa_token=b0C8xefRN0wAAAAA%3A6cr32w6QYowAeWPEx7pZwq9Y5L46Mcp3SEfjABRrKNuuyGRhmDq3O2KiCbvftDXboijy779TT8mn#d14993647e3743"],[2016,"Will they take the money and work? People's willingness to delay claiming Social Security Benefits for a lump sum",[["Raimond Maurer","Goethe University Frankfurt"],["Olivia S. Mitchell","University of Pennsylvania"],["Ralph Rogalla","St. John's University"],["Tatjana Schimetschek","Goethe University Frankfurt"]],"Journal of Risk and Insurance",2018,"https://onlinelibrary.wiley.com/doi/full/10.1111/jori.12173"],[2017,"(Non) exclusive Contracting under Adverse Selection: An Experiment",[["Wanda Mimra","ETH Zurich"],["Christian Waibel","ETH Zurich"]],"American Economic Journal: Microeconomics",2025,"https://www.aeaweb.org/articles?id=10.1257%2Fmic.20170293"],[2017,"A Model of Underwriting and Post-Loss Test without Commitment in Competitive Insurance Market",[["Yu Huang","Shanghai Jiao Tong University"],["Shinichi Kamiya","National Taiwan University"],["Joan T. Schmit","University of Wisconsin-Madison"]],"",null,""],[2017,"Adverse Selection in Low-Income Health Insurance Markets: Evidence from a large-scale RCT in Pakistan",[["Torben Fischer","University of Mannheim"],["Markus Frölich","University of Mannheim"],["Andreas Landmann","Paris School of Economics"]],"American Economic Journal: Applied Economics",2023,"https://www.aeaweb.org/articles?id=10.1257/app.20200639"],[2017,"Genetic Testing and Genetic Discrimination: Public Policy When Insurance Becomes \"Too Expensive\"",[["Lisa L. Posey","The Pennsylvania State University"],["Paul Thistle","University of Nevada Las Vegas"]],"Journal of Health Economics",2021,"https://www.sciencedirect.com/science/article/abs/pii/S0167629621000266"],[2017,"How Do Hurricanes Affect Life Insurance Premiums? The Effects of Financial Constraints on Pricing",[["Shan Ge","The Ohio State University"]],"Journal of Finance",2022,"https://onlinelibrary.wiley.com/doi/abs/10.1111/jofi.13093?casa_token=PQqvejooXfsAAAAA:nA5JJuZN3JAaKOo6XdNvxAHd5xwZQV3G6xGdMZe7m0L-DE4BqDfmcfYUDxQu6siMXq8cB27kc87GXDQ"],[2017,"Insurance in Extended Family Networks",[["Orazio Attanasio","University College London"],["Costas Meghir","Yale University"],["Corina Mommaerts","Yale University"]],"",null,""],[2017,"Insurer Commitment and Dynamic Pricing Pattern: Theory and Evidence",[["Ruo Jia","Peking University"],["Zenan Wu","Peking University"]],"Geneva Risk and Insurance Review",2019,"https://link.springer.com/article/10.1057/s10713-018-0036-9"],[2017,"Simplifying Health Insurance Choice with Consequence Graphs",[["Anya Samek","University of Southern California"],["Justin Sydnor","University of Wisconsin-Madison"]],"Review of Economics and Statistics",2025,"https://direct.mit.edu/rest/article-abstract/doi/10.1162/rest_a_01572/128257/The-Impact-of-Consequence-Information-on-Insurance?redirectedFrom=fulltext"],[2017,"The Impact of Price Discrimination in Markets with Adverse Selection",[["Andrè Veiga","University of Oxford"]],"Review of Economics and Statistics",2025,"https://direct.mit.edu/rest/article-abstract/107/5/1327/115635/Price-Discrimination-in-Selection-Markets"],[2017,"Transparency Aversion and Insurance Market Equilibria",[["Irina Gemmo","Goethe University Frankfurt"],["Mark Browne","St. John's University"],["Helmut Grundl","Goethe University Frankfurt"]],"Canadian Journal of Economics",2025,"https://onlinelibrary.wiley.com/doi/abs/10.1111/caje.70004?casa_token=XUNC2sQH5T0AAAAA%3AK4wvtCAqYmr6FcO9mIH-3DDGCs9NS1e8mw80g5TZLuk6uJCuWyizdSgH8lcMUKwUL6iNKE8VxoEJpVU"],[2018,"Consumption Does Not Evolve As a Random Walk Around Small Income Shocks in Life-Cycle Models",[["Jeanne Commault","European University Institute"]],"American Economic Journal: Macroeconomics",2022,"https://www.aeaweb.org/articles?id=10.1257/mac.20190296"],[2018,"Information and Risk Preferences: The Case of Insurance Choice",[["Amit Gandhi","University of Pennsylvania"],["Anya Samek","University of Southern California"],["Ricardo Serrano-Padial","Drexel University"]],"",null,""],[2018,"Insurers as Asset Managers and Systemic Risk",[["Andrew Ellul","Indiana University"],["Chotibhak Jotikasthira","Southern Methodist University"],["Anastasia Kartasheva","Bank for International Settlements"],["Christian T. Lundblad","University of North Carolina-Chapel Hill"],["Wolf Wagner","Rotterdam School of Management"]],"Review of Financial Studies",2022,"https://academic.oup.com/rfs/article-abstract/35/12/5483/6671240"],[2018,"It’s All About Speed and Costs: The Impact of Digital Technology on the Insurance Market Structure",[["Martin Eling","University of St. Gallen"],["Ruo Jia","Peking University"],["Casey Rothschild","Wellesley College"]],"Journal of Risk and Insurance",2022,"https://onlinelibrary.wiley.com/doi/full/10.1111/jori.12369"],[2018,"Mortality Risk, Insurance, and the Value of Life",[["Daniel Bauer","University of Alabama"],["Darius Lakdawalla","University of Southern California"],["Julian Reif","University of Illinois at Urbana-Champaign"]],"Journal of Public Economics",2025,"https://www.sciencedirect.com/science/article/pii/S0047272725000441?dgcid=coauthor"],[2018,"Responses to Saving Commitments: Evidence from Mortgage Run-offs",[["Steffen Andersen","Copenhagen Business School"],["Phillipe d'Astous","HEC Montreal"],["Jimmy Martinez-Correa","Copenhagen Business School"],["Stephen H. Shore","Georgia State University"]],"Journal of Money, Credit and Banking",2022,"https://onlinelibrary.wiley.com/doi/10.1111/jmcb.12879"],[2018,"The Dark Side of Liquid Bonds in Fire Sales",[["Maria Chaderina","WU Vienna"],["Alexander Muermann","WU Vienna"],["Christoph Scheuch","WU Vienna"]],"",null,""],[2018,"The Efficiency of Voluntary Risk Classification in Insurance Markets",[["Keith J. Crocker","The Pennsylvania State University"],["Nan Zhu","The Pennsylvania State University"]],"Journal of Risk and Insurance",2021,"https://onlinelibrary.wiley.com/doi/full/10.1111/jori.12326?casa_token=xxRYySJdrHAAAAAA%3AjQOgaQU2Yq9hMUyOnHDD5BAd8441rOdedGSHX0oJJ66wwvBQQFyBXfEbmi2QI5O0Qoige918q4EVyhQ"],[2018,"The Lifetime Costs of Bad Health",[["Mariacristina De Nardi","University College London"],["Svetlana Pashchenko","University of Georgia"],["Ponpoje Porapakkarm","National Graduate Institute for Policy Studies"]],"Review of Economic Studies",2025,"https://academic.oup.com/restud/article/92/3/1987/7730359#517518977"],[2018,"The Moral Hazard of Lifesaving Innovations: Naloxone Access, Opioid Abuse, and Crime",[["Jennifer Doleac","University of Virginia"],["Anita Mukherjee","University of Wisconsin-Madison"]],"Journal of Law and Economics",2022,"https://www-journals-uchicago-edu.eu1.proxy.openathens.net/doi/full/10.1086/719588"],[2019,"An Integrated Approach to Measuring Assets and Liability Risks in Financial Institutions",[["Daniel Bauer","University of Wisconsin-Madison"],["George Zanjani","University of Alabama"]],"",null,""],[2019,"Competition, Asymmetric Information, and the Annuity Puzzle: Evidence from a Government-run Exchange in Chile",[["Gaston Illanes","Northwestern University"],["Manisha Padi","University of Chicago"]],"",null,""],[2019,"Financial Literacy and Precautionary Insurance",[["Annette Hoffmann","St. John's University"],["Christian Kubitza","University of Bonn"],["Petra Steinorth","University of Hamburg"]],"",null,""],[2019,"Insurance in the age of wisdom and foolishness: A tale of healthy city",[["Martin Boyer","HEC Montreal"],["Richard Peter","University of Iowa"]],"",null,""],[2019,"Marijuana De-regulation and Automobile Accidents: Evidence from Auto Insurance",[["Cameron M. Ellis","Temple University"],["Martin F. Grace","Temple University"],["Rhet Smith","University of Arkansas-Little Rock"],["Juan Zhang","Temple University"]],"Health Economics",2022,"https://onlinelibrary.wiley.com/doi/full/10.1002/hec.4553"],[2019,"Medicaid Expansion, Crowd-Out, and Emergency Department Utilization: Evidence from California’s Bridge to Reform Medicaid",[["Cameron M. Ellis","Temple University"],["Meghan I. Esson","Bently University"]],"Journal of Health Economics",2021,"https://www.sciencedirect.com/science/article/abs/pii/S0167629621001272?via%3Dihub"],[2019,"Optimal Endowment Investing",[["Alexander Muermann","WU Vienna"],["Kent Smetters","University of Pennsylvania"]],"",null,""],[2019,"Should we do more when we know less? Optimal risk reduction under technological uncertainty",[["Lu Li","LMU Munich"],["Richard Peter","University of Iowa"]],"Journal of Risk and Insurance",2021,"https://onlinelibrary.wiley.com/doi/epdf/10.1111/jori.12339"],[2019,"Systematic Risk between Insurers and Banks: A Generalized Event Study (GES) Approach",[["Richard J. Butler","Brigham Young University"],["Craig Merrill","Brigham Young University"],["Gene Lai","University of North Carolina-Charlotte"]],"Geneva Papers on Risk and Insurance-Issues and Practice",2024,"https://link.springer.com/article/10.1057/s41288-023-00307-8"],[2019,"Time Lotteries and Stochastic Impatience",[["Patrick DeJarnette","National Taiwan University"],["David Dillinger","University of Pennsylvania"],["Daniel Gottlieb","Washington University in St. Louis"],["Pietro Ortoleva","Princeton University"]],"Econometrica",2020,"https://onlinelibrary.wiley.com/doi/full/10.3982/ECTA16427"],[2021,"Efficient competition in markets with adverse selection",[["Anastasios Dosis","ESSEC Business School"]],"",null,""],[2021,"Human capital risk and portfolio choices: Evidence from university admission discontinuities",[["Phillipe d'Astous","HEC Montreal"],["Stephen H. Shore","Georgia State University"]],"Journal of Financial Economics",2024,"https://www.sciencedirect.com/science/article/pii/S0304405X24000163"],[2021,"Life insurance and annuity pricing during the financial crisis, revisited",[["George Zanjani","University of Alabama"],["Daniel Bauer","University of Wisconsin-Madison"],["Lawrence Powell","University of Alabama"],["Boheng Su","University of Alabama"]],"",null,""],[2021,"Skewness preferences in choice under risk",[["Sebastian Ebert","Frankfurt School of Finance and Management"],["Paul Karehnke","ESCP Business School"]],"",null,""],[2021,"Sorting on plan design: Theory and evidence from the ACA",[["Chenyuan Liu","Tsinghua University"]],"",null,""],[2022,"Disagreement Aversion",[["Antoine Bommier","ETH Zurich"],["Adrien Fabre","ETH Zurich"],["Arnaud Goussebaïle","ETH Zurich"],["Daniel Heyen","University of Kaiserslautern"]],"",null,""],[2022,"Homo Economicus is Stochastically Patient",[["Eric R. Ulm","Victoria University of Wellington"],["Daniel Bauer","University of Wisconsin-Madison"],["Justin Sydnor","University of Wisconsin-Madison"]],"",null,""],[2022,"How does multiplicative background risk affect risk taking? Theoretical predictions and experimental evidence",[["Sebastian Hinck","University of Hamburg"],["Richard Peter","University of Iowa"],["Petra Steinorth","University of Hamburg"]],"",null,""],[2022,"How Risky is Distracted Driving?",[["J. Bradley Karl","Florida State University"],["Charles Nyce","Florida State University"],["Lawrence Powell","University of Alabama"],["Boyi Zhuang","University of Alabama"]],"Journal of Risk and Uncertainty",2023,"https://link.springer.com/article/10.1007/s11166-023-09405-3"],[2022,"Mismeasuring Risk: The Welfare Effects of Flood Risk Information",[["Philip Mulder","US Treasury"]],"",null,""],[2022,"Saving Lives with Pre-Financed Rules-Based Disaster Aid: Evidence from Mexico",[["Alejandro del Valle","Georgia State University"]],"American Economic Journal: Economic Policy",2024,"https://www.aeaweb.org/articles?id=10.1257/pol.20220066&&from=f"],[2022,"The Cost of Consumer Collateral: Evidence from Bunching",[["Benjamin Collier","Temple University"],["Cameron M. Ellis","University of Iowa"],["Benjamin Keys","University of Pennsylvania"]],"Econometrica",2025,"https://onlinelibrary.wiley.com/doi/10.3982/ECTA22303?af=R"],[2022,"What You Don't Know Can Hurt You: Exploiting Asymmetric Information in Insurer Financing Decisions",[["Jim Garven","Baylor University"],["James Hilliard","Temple University"]],"",null,""],[2023,"Credit when you need it",[["Benjamin Collier","Temple University"],["Daniel A. Hartley","Federal Reserve Bank of Chicago"],["Benjamin Keys","University of Pennsylvania"],["Xian Ng","University of Pennsylvania"]],"",null,""],[2023,"Economic Activity (Mis)Reporting around Disasters: On the Role of Foreign Aid and Insurance",[["Martin Boyer","HEC Montreal"],["J. Bradley Karl","Florida State University"],["Charles Nyce","Florida State University"]],"",null,""],[2023,"Financing Constraints and Risk Management: Evidence From Micro-Level Insurance Data",[["Emil Bustos","Research Institute of Industrial Economics"],["Oliver Engist","Nepa Stockholm"],["Gustav Martinsson","Stockholm University"],["Christian Thomann","Royal Institute of Technology"]],"",null,""],[2023,"Imperfect Competition in Markets with Adverse or Advantageous Selection",[["Markus Palasca","WU Vienna"]],"",null,""],[2023,"Insurer Capital and Organizational Forms in Market Equilibrium",[["Ajay Subramanian","Georgia State University"],["Jingjing Wang","University of Akron"]],"",null,""],[2023,"Moral Hazard Induced Unraveling",[["Cameron M. Ellis","University of Iowa"],["Meghan I. Esson","University of Iowa"],["Eli Liebman","University of Georgia"]],"",null,""],[2023,"Optimal Contract Regulation in Selection Markets",[["Yehuda John Levy","University of Glasgow"],["André Veiga","Imperial College Business School"]],"American Economic Journal: Microeconomics",2025,"https://www.aeaweb.org/articles?id=10.1257/mic.20230164"],[2023,"State-dependent background risk and optimal prevention in a two-period model",[["Tkakashi Nishiwaki","Waseda University"],["Yusuke Osaki","Waseda University"]],"",null,""],[2023,"The Global Impacts of Climate Change on Risk Preferences",[["Wesley Howden","University of Arizona"],["Remy Levin","University of Connecticut"]],"",null,""],[2023,"The many faces of multivariate risk-taking: Risk apportionment for desirable and undesirable attributes",[["Richard Peter","University of Iowa"],["Béatrice Rey","University of Lyon"]],"",null,""],[2024,"Changes in Risk-based Capital and Reaching for Yield",[["Florian Weinlich","Vienna Graduate School of Finance"]],"",null,""],[2024,"Classification risk in health insurance: The interaction of genetics, prevention, and insurance",[["Julia Holzapfel","LMU Munich"]],"",null,""],[2024,"Investment Policies and Risk Sharing by Corporate Pensions",[["Wei Li","University of Iowa"],["Tong Yao","University of Iowa"],["Jie Ying","Southern Illinois University at Edwardsville"]],"Journal of Economic Dynamics and Control",2024,"https://www.sciencedirect.com/science/article/abs/pii/S0165188924000836"],[2024,"Managing Behavioral Hazard: Value-Based Insurance Design and Inertia",[["Lynn Hua","Harvard University"]],"",null,""],[2024,"Optimal Insurance Scope: Theory and Evidence from US Crop Insurance",[["Sylvia Klosin","MIT"],["Adam Solomon","MIT"]],"",null,""],[2024,"Regulatory Capital and Catastrophe Risk",[["Evan M. Eastman","Florida State University"],["Kyeonghee Kim","Florida State University"]],"",null,""],[2024,"The Consumption Smoothing Effects of Health Insurance",[["Anita Mukherjee","University of Wisconsin-Madison"],["Daniel W. Sacks","University of Wisconsin-Madison"],["Hoyoung Yoo","University of Wisconsin-Madison"]],"",null,""],[2024,"The Optimality of Debt",[["Pierre Chaigneau","Queen's University"],["Alex Edmans","London Business School"],["Daniel Gottlieb","London School of Economics"]],"",null,""],[2024,"The Value of Health and Longevity with Stochastic Health Risk and Partial Annuitization",[["Univa Song","University of Wisconsin-Madison"],["Daniel Bauer","University of Wisconsin-Madison"],["Darius Lakdawalla","University of Southern California"],["Julian Reif","University of Illinois at Urbana-Champaign"]],"",null,""]],"meetings":[[1991,"John D. Worrall","","","","",null,null,null],[1992,"Scott E. Harrington","","","","",null,null,null],[1993,"Joan Schmit","University of Wisconsin-Madison","University of Pennsylvania","Philadelphia, Pennsylvania","April 30-May 2",9,59,41],[1994,"Clifford W. Smith","University of Rochester","University of Texas-Austin","Austin, Texas","April 29-May 1",9,65,40],[1995,"James R. Garven","University of Texas--Austin","Georgia State University","Atlanta, Georgia","April 28-30",9,57,null],[1996,"Christian Gollier","University of Toulouse","University of Wisconsin-Madison","Madison, Wisconsin","April 26-28",9,59,null],[1997,"Martin F. Grace","Georgia State University","University of Alabama","Tuscaloosa, Alabama","April 25-27",9,null,null],[1998,"Mark J. Browne","University of Wisconsin-Madison","University of Georgia","Athens, Georgia","April 17-19",9,null,null],[1999,"Richard J. Butler","University of Minnesota","University of Michigan","Ann Arbor, Michigan","April 16-18",9,72,null],[2000,"Robert E. Hoyt","University of Georgia","University of Minnesota","Minneapolis, Minnesota","April 14-16",9,73,null],[2001,"Keith J. Crocker","University of Michigan","HEC Montreal","Montreal, Canada","April 20-22",10,71,null],[2002,"George Dionne","HEC Montreal","University of Illinois at Urbana-Champaign","Urbana-Champaign, Illinois","April 5-7",9,65,40],[2003,"Sharon Tennyson","Cornell University","Georgia State University","Atlanta, Georgia","May 2-4",10,66,37],[2004,"Arthur Snow","University of Georgia","St. John's University","New York, New York","April 16-18",10,68,null],[2005,"Pierre Picard","Paris X – Nanterre University","University of Mississippi","Oxford, Mississippi","May 6-8",10,67,33],[2006,"Richard D. Phillips","Georgia State University","Virginia Commonwealth University","Richmond, Virginia","April 21-23",10,66,39],[2007,"Anne Gron","NERA Economic Consulting","The Pennsylvania State University","State College, Pennsylvania","April 20-22",10,70,51],[2008,"Larry Cox","University of Mississippi","Colorado State University","Fort Collins, Colorado","April 24-26",10,74,42],[2009,"Jack Marshall","University of California, Santa Barbara","University of Texas-Austin","Austin, Texas","April 24-26",10,71,41],[2010,"Vickey Bajtelsmit","Colorado State University","University of Georgia","Athens, Georgia","April 16-18",8,73,43],[2011,"Michael Hoy","University of Guelph","University of Arkansas-Little Rock","Little Rock, Arkansas","April 15-17",10,83,54],[2012,"George Zanjani","Georgia State University","Florida State University","Tallahassee, Florida","March 30-April 1",10,90,52],[2013,"Mary A. Weiss","Temple University","Temple University","Philadelphia, Pennsylvania","April 5-7",10,92,68],[2014,"Lars Powell","University of Arkansas-Little Rock","LMU Munich","Munich, Germany","May 16-18",10,98,58],[2015,"Paul Thistle","University of Nevada Las Vegas","Cornell University","Ithica, New York","May 1-3",10,99,58],[2016,"Alex Muermann","WU Vienna","St. John's University","New York, New York","April 1-3",10,101,62],[2017,"Greg Niehaus","University of South Carolina","University of Wisconsin-Madison","Madison, Wisconsin","May 5-7",10,106,56],[2018,"Patty Born","Florida State University","Georgia State University","Atlanta, Georgia","April 20-22",10,104,63],[2019,"Ty Leverty","University of Wisconsin-Madison","University of Alabama","Tuscaloosa, Alabama","April 6-8",10,103,64],[2020,"Casey Rothschild","Wellesley College","","","",null,103,null],[2021,"Casey Rothschild","Wellesley College","Virtual","Virtual","",5,106,77],[2022,"David Eckles","University of Georgia","Baylor University","Waco, Texas","May 20-22",8,107,38],[2023,"Stephen H. Shore","Georgia State University","Temple University","Philadelphia, Pennsylvania","April 28-30",10,99,63],[2024,"Petra Steinorth","University of Hamburg","University of Iowa","Iowa City, Iowa","April 19-21",9,105,55],[2025,"Thomas Berry-Stölzle","University of Iowa","HEC Montreal","Montreal, Canada","May 2-4",10,97,55],[2026,"Richard Peter","University of Iowa","Florida State University","Tallahassee, Florida","April 24-26",null,null,null],[2027,"Rachel Huang","National Central University","LMU Munich","Munich, Germany","",null,null,null]]}
+</script>
+<!-- END GENERATED DATA -->
+
+<script>
+(function () {
+  "use strict";
+
+  var GARNET = "#782F40";
+  var GOLD = "#CEB888";
+  var BLANK = "#e0dcd4";
+  var SVGNS = "http://www.w3.org/2000/svg";
+
+  // A paper is treated as still working through review if its meeting is within
+  // MATURITY years of the most recent one tracked. Placement rates are quoted
+  // only over the cohorts past that line, so the recent years — which look bad
+  // purely because of publication lag — do not drag the headline number down.
+  var MATURITY = 5;
+
+  var raw = JSON.parse(document.getElementById("rts-data").textContent);
+
+  var papers = raw.papers.map(function (row) {
+    return {
+      year: row[0],
+      title: row[1],
+      authors: row[2].map(function (a) { return { name: a[0], affil: a[1] }; }),
+      journal: row[3] || "",
+      published: row[4],
+      link: row[5] || ""
+    };
+  });
+
+  var meetings = raw.meetings.map(function (row) {
+    return {
+      year: row[0], president: row[1], presidentAffil: row[2], host: row[3],
+      location: row[4], date: row[5], paperCount: row[6],
+      members: row[7], attendees: row[8]
+    };
+  });
+
+  if (!papers.length) { return; }
+
+  // ---- Derived quantities ------------------------------------------------
+
+  var paperYears = papers.map(function (p) { return p.year; })
+    .filter(function (y, i, a) { return a.indexOf(y) === i; })
+    .sort(function (a, b) { return a - b; });
+
+  var latestYear = paperYears[paperYears.length - 1];
+  var matureCutoff = latestYear - MATURITY;
+  var mature = papers.filter(function (p) { return p.year <= matureCutoff; });
+  var maturePlaced = mature.filter(function (p) { return p.journal; });
+  var placementRate = Math.round(100 * maturePlaced.length / mature.length);
+
+  var lags = papers
+    .filter(function (p) { return p.published != null; })
+    .map(function (p) { return p.published - p.year; })
+    .sort(function (a, b) { return a - b; });
+  var medianLag = lags.length
+    ? (lags.length % 2
+        ? lags[(lags.length - 1) / 2]
+        : (lags[lags.length / 2 - 1] + lags[lags.length / 2]) / 2)
+    : null;
+
+  var journalCounts = {};
+  papers.forEach(function (p) {
+    if (p.journal) { journalCounts[p.journal] = (journalCounts[p.journal] || 0) + 1; }
+  });
+  var journals = Object.keys(journalCounts).map(function (name) {
+    return { name: name, count: journalCounts[name] };
+  }).sort(function (a, b) {
+    return b.count - a.count || a.name.localeCompare(b.name);
+  });
+
+  var people = {};
+  papers.forEach(function (p) {
+    p.authors.forEach(function (a) { people[a.name] = true; });
+  });
+  var authorCount = Object.keys(people).length;
+
+  // ---- Small helpers -----------------------------------------------------
+
+  function svgEl(name, attrs, text) {
+    var node = document.createElementNS(SVGNS, name);
+    for (var key in attrs) {
+      if (Object.prototype.hasOwnProperty.call(attrs, key)) {
+        node.setAttribute(key, attrs[key]);
+      }
+    }
+    if (text != null) { node.textContent = text; }
+    return node;
+  }
+
+  function svgRoot(mount, width, height) {
+    mount.textContent = "";
+    var svg = svgEl("svg", {
+      viewBox: "0 0 " + width + " " + height,
+      preserveAspectRatio: "xMidYMid meet",
+      role: "img"
+    });
+    mount.appendChild(svg);
+    return svg;
+  }
+
+  function escapeHtml(value) {
+    return String(value)
+      .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;");
+  }
+
+  function plural(n, one, many) { return n === 1 ? one : (many || one + "s"); }
+
+  // House style: spell out one through nine in prose, numerals from 10 up.
+  // The headline tiles are exempt — those are figures, not sentences.
+  var WORDS = ["zero", "one", "two", "three", "four", "five", "six", "seven",
+    "eight", "nine"];
+  function spell(n) {
+    return (Number.isInteger(n) && n >= 0 && n < 10) ? WORDS[n] : String(n);
+  }
+
+  function joinList(items) {
+    if (items.length <= 1) { return items.join(""); }
+    if (items.length === 2) { return items[0] + " and " + items[1]; }
+    return items.slice(0, -1).join(", ") + ", and " + items[items.length - 1];
+  }
+
+  // ---- Intro prose -------------------------------------------------------
+
+  // The two figures quoted in the standing intro are filled from the data
+  // rather than written into the page. The workbook is the source of truth and
+  // gains a meeting a year; prose that hardcodes the range goes stale on the
+  // first refresh, and stale framing above a live table is worse than none.
+  // Stating the span and letting the notes enumerate the gaps beats stitching
+  // the present years into runs. The workbook records a president for 2020 but
+  // no host, dates, or papers — the same shape as 1991 and 1992, which were
+  // held but went undocumented. Nothing in the data separates "no meeting" from
+  // "meeting, no record", so the prose does not guess.
+  function renderIntro() {
+    var intro = document.getElementById("rts-intro-coverage");
+    if (intro) {
+      intro.textContent = paperYears.length + " meetings between " +
+        paperYears[0] + " and " + latestYear;
+    }
+
+    var lag = document.getElementById("rts-intro-lag");
+    if (lag && medianLag != null) {
+      lag.textContent = spell(medianLag) + " " + plural(medianLag, "year");
+    }
+  }
+
+  // ---- Headline figures --------------------------------------------------
+
+  function renderTiles() {
+    var tiles = [
+      [paperYears.length, "meetings with a program recorded, " +
+        paperYears[0] + "&ndash;" + latestYear],
+      [papers.length, "papers presented, by " + authorCount + " authors"],
+      [placementRate + "%", "of papers through " + matureCutoff +
+        " reached print"],
+      [medianLag + " " + plural(medianLag, "year"),
+        "median time from the meeting to publication"]
+    ];
+    document.getElementById("rts-tiles").innerHTML = tiles.map(function (t) {
+      return '<div class="rts-tile"><div class="rts-tile__value">' + t[0] +
+        '</div><div class="rts-tile__label">' + t[1] + "</div></div>";
+    }).join("");
+  }
+
+  // ---- Chart: papers per year, split by outcome --------------------------
+
+  function renderYearChart() {
+    // Drawn over the continuous run only. Isolated early years are reported in
+    // the notes instead of stretching the axis across a decade-wide gap.
+    var runStart = latestYear;
+    for (var i = paperYears.length - 1; i > 0; i--) {
+      if (paperYears[i] - paperYears[i - 1] > 3) { break; }
+      runStart = paperYears[i - 1];
+    }
+
+    var years = [];
+    for (var y = runStart; y <= latestYear; y++) { years.push(y); }
+
+    var stats = years.map(function (year) {
+      var group = papers.filter(function (p) { return p.year === year; });
+      return {
+        year: year,
+        total: group.length,
+        placed: group.filter(function (p) { return p.journal; }).length
+      };
+    });
+
+    var W = 820, H = 270, L = 30, R = 8, T = 14, B = 34;
+    var max = Math.max.apply(null, stats.map(function (s) { return s.total; }));
+    max = Math.ceil(max / 2) * 2;
+    var plotW = W - L - R, plotH = H - T - B;
+    var step = plotW / years.length;
+    var barW = Math.min(step - 4, 26);
+
+    var svg = svgRoot(document.getElementById("rts-chart-years"), W, H);
+    svg.appendChild(svgEl("title", {}, "Papers presented at each meeting, " +
+      runStart + " to " + latestYear + ", split by whether a publication is recorded"));
+
+    var yScale = function (v) { return T + plotH - (v / max) * plotH; };
+
+    // Censoring band behind the bars.
+    var bandStart = matureCutoff + 1;
+    if (bandStart <= latestYear) {
+      var bandX = L + years.indexOf(bandStart) * step;
+      svg.appendChild(svgEl("rect", {
+        x: bandX, y: T, width: L + plotW - bandX, height: plotH,
+        fill: "rgba(206,184,136,0.35)"
+      }));
+      svg.appendChild(svgEl("text", {
+        x: bandX + 5, y: T + 12, class: "rts-axis", "font-style": "italic"
+      }, "still in review"));
+    }
+
+    for (var g = 0; g <= max; g += 2) {
+      svg.appendChild(svgEl("line", {
+        x1: L, x2: W - R, y1: yScale(g), y2: yScale(g), class: "rts-gridline"
+      }));
+      svg.appendChild(svgEl("text", {
+        x: L - 6, y: yScale(g) + 3, class: "rts-axis", "text-anchor": "end"
+      }, g));
+    }
+
+    stats.forEach(function (s, index) {
+      var x = L + index * step + (step - barW) / 2;
+      if (s.total === 0) {
+        svg.appendChild(svgEl("text", {
+          x: x + barW / 2, y: yScale(0) - 4, class: "rts-axis",
+          "text-anchor": "middle"
+        }, "—"));
+      } else {
+        var unplaced = s.total - s.placed;
+        if (unplaced > 0) {
+          svg.appendChild(svgEl("rect", {
+            x: x, y: yScale(s.total), width: barW,
+            height: yScale(s.placed) - yScale(s.total), fill: BLANK
+          }));
+        }
+        if (s.placed > 0) {
+          svg.appendChild(svgEl("rect", {
+            x: x, y: yScale(s.placed), width: barW,
+            height: yScale(0) - yScale(s.placed), fill: GARNET
+          }));
+        }
+        var label = svgEl("title", {}, s.year + ": " + s.total + " " +
+          plural(s.total, "paper") + ", " + s.placed + " with a publication recorded");
+        svg.appendChild(label);
+      }
+
+      if (s.year % 5 === 0 || index === 0 || index === stats.length - 1) {
+        svg.appendChild(svgEl("text", {
+          x: x + barW / 2, y: H - B + 16, class: "rts-axis",
+          "text-anchor": "middle"
+        }, s.year));
+      }
+    });
+
+    svg.appendChild(svgEl("line", {
+      x1: L, x2: W - R, y1: yScale(0), y2: yScale(0),
+      stroke: "#999", "stroke-width": 1
+    }));
+
+    document.getElementById("rts-year-sub").innerHTML =
+      "Each meeting selects about ten papers. The garnet portion is the share " +
+      "with a publication recorded; through " + matureCutoff + " that is " +
+      placementRate + "% of all papers presented. The shaded years are too " +
+      "recent to judge &mdash; at a median lag of " + spell(medianLag) + " " +
+      plural(medianLag, "year") + ", most of those papers are still in review.";
+  }
+
+  // ---- Chart: journals ---------------------------------------------------
+
+  function renderJournalChart() {
+    var top = journals.slice(0, 14);
+    var rowH = 22, W = 820, L = 300, R = 40, T = 6;
+    var H = T + top.length * rowH + 6;
+    var max = top[0].count;
+    var plotW = W - L - R;
+
+    var svg = svgRoot(document.getElementById("rts-chart-journals"), W, H);
+    svg.appendChild(svgEl("title", {}, "Journals publishing the most Risk Theory Society papers"));
+
+    top.forEach(function (journal, index) {
+      var y = T + index * rowH;
+      var width = Math.max(2, (journal.count / max) * plotW);
+      svg.appendChild(svgEl("text", {
+        x: L - 8, y: y + rowH / 2 + 4, class: "rts-axis",
+        "text-anchor": "end", "font-size": "11"
+      }, journal.name));
+      svg.appendChild(svgEl("rect", {
+        x: L, y: y + 3, width: width, height: rowH - 8, fill: GARNET,
+        rx: 2, opacity: index === 0 ? 1 : 0.82
+      }));
+      svg.appendChild(svgEl("text", {
+        x: L + width + 6, y: y + rowH / 2 + 4, class: "rts-axis",
+        "font-size": "11"
+      }, journal.count));
+    });
+
+    var placed = papers.filter(function (p) { return p.journal; }).length;
+    document.getElementById("rts-journal-sub").innerHTML =
+      "The " + placed + " papers with a publication recorded are spread across " +
+      journals.length + " journals. The <em>Journal of Risk and Insurance</em> " +
+      "takes the largest single share, but most placements are outside it.";
+  }
+
+  // ---- Chart: members and attendees --------------------------------------
+
+  function renderGrowthChart() {
+    var series = meetings.filter(function (m) {
+      return m.members != null || m.attendees != null;
+    });
+    if (series.length < 2) { return; }
+
+    var W = 820, H = 240, L = 30, R = 40, T = 14, B = 30;
+    var plotW = W - L - R, plotH = H - T - B;
+    var minYear = series[0].year, maxYear = series[series.length - 1].year;
+    var values = [];
+    series.forEach(function (m) {
+      if (m.members != null) { values.push(m.members); }
+      if (m.attendees != null) { values.push(m.attendees); }
+    });
+    var max = Math.ceil(Math.max.apply(null, values) / 20) * 20;
+
+    var xScale = function (year) {
+      return L + ((year - minYear) / (maxYear - minYear)) * plotW;
+    };
+    var yScale = function (value) { return T + plotH - (value / max) * plotH; };
+
+    var svg = svgRoot(document.getElementById("rts-chart-growth"), W, H);
+    svg.appendChild(svgEl("title", {},
+      "Risk Theory Society membership and meeting attendance, " +
+      minYear + " to " + maxYear));
+
+    for (var g = 0; g <= max; g += 20) {
+      svg.appendChild(svgEl("line", {
+        x1: L, x2: W - R, y1: yScale(g), y2: yScale(g), class: "rts-gridline"
+      }));
+      svg.appendChild(svgEl("text", {
+        x: L - 6, y: yScale(g) + 3, class: "rts-axis", "text-anchor": "end"
+      }, g));
+    }
+
+    [["members", GARNET], ["attendees", GOLD]].forEach(function (spec) {
+      var key = spec[0], color = spec[1];
+      var points = series.filter(function (m) { return m[key] != null; });
+      // Breaks in the record are drawn as breaks in the line rather than
+      // interpolated across, so a missing year never reads as a real trend.
+      var runs = [], current = [];
+      points.forEach(function (m, index) {
+        if (index > 0 && m.year - points[index - 1].year > 3) {
+          runs.push(current); current = [];
+        }
+        current.push(m);
+      });
+      runs.push(current);
+
+      runs.forEach(function (run) {
+        if (run.length > 1) {
+          svg.appendChild(svgEl("polyline", {
+            points: run.map(function (m) {
+              return xScale(m.year) + "," + yScale(m[key]);
+            }).join(" "),
+            fill: "none", stroke: color, "stroke-width": 2,
+            "stroke-linejoin": "round"
+          }));
+        }
+      });
+
+      points.forEach(function (m) {
+        var dot = svgEl("circle", {
+          cx: xScale(m.year), cy: yScale(m[key]), r: 2.6, fill: color
+        });
+        dot.appendChild(svgEl("title", {}, m.year + ": " + m[key] + " " + key));
+        svg.appendChild(dot);
+      });
+
+      var last = points[points.length - 1];
+      svg.appendChild(svgEl("text", {
+        x: xScale(last.year) + 7, y: yScale(last[key]) + 4,
+        class: "rts-axis", "font-size": "11", fill: color,
+        "font-weight": "700"
+      }, last[key]));
+    });
+
+    for (var year = Math.ceil(minYear / 5) * 5; year <= maxYear; year += 5) {
+      svg.appendChild(svgEl("text", {
+        x: xScale(year), y: H - B + 16, class: "rts-axis",
+        "text-anchor": "middle"
+      }, year));
+    }
+
+    var first = series[0], recent = series[series.length - 1];
+    document.getElementById("rts-growth-sub").innerHTML =
+      "Membership ran " + first.members + " in " + first.year + " and " +
+      recent.members + " in " + recent.year + ". Attendance has tracked " +
+      "roughly half to two-thirds of the roll.";
+  }
+
+  // ---- Papers table ------------------------------------------------------
+
+  var sortKey = "year", sortDir = -1;
+  var searchBox = document.getElementById("rts-search");
+  var yearFilter = document.getElementById("rts-year-filter");
+  var placedOnly = document.getElementById("rts-placed-only");
+  var tbody = document.querySelector("#rts-papers tbody");
+
+  papers.forEach(function (p) {
+    p.haystack = [
+      p.title,
+      p.journal,
+      p.authors.map(function (a) { return a.name + " " + a.affil; }).join(" ")
+    ].join(" ").toLowerCase();
+  });
+
+  function authorsHtml(paper) {
+    return paper.authors.map(function (a) {
+      var name = '<span class="rts-authors">' + escapeHtml(a.name) + "</span>";
+      return a.affil
+        ? name + ' <span class="rts-affil">(' + escapeHtml(a.affil) + ")</span>"
+        : name;
+    }).join("<br>");
+  }
+
+  function outcomeHtml(paper) {
+    if (!paper.journal && paper.published == null) {
+      return '<span class="rts-none" title="No publication recorded. This does ' +
+        'not mean the paper was never published.">Not recorded</span>';
+    }
+    var html = '<span class="rts-journal">' + escapeHtml(paper.journal) + "</span>";
+    if (paper.published != null) {
+      // A handful of papers carry a publication year at or before the meeting
+      // year — an accepted paper presented on its way to print. "0 yrs after"
+      // and "-1 yrs after" are not sentences, so those cases get their own.
+      var lag = paper.published - paper.year;
+      var gap = lag > 0
+        ? lag + " " + plural(lag, "yr") + " after"
+        : (lag === 0 ? "same year" : -lag + " " + plural(-lag, "yr") + " earlier");
+      html += '<br><span class="rts-pubyear">' + paper.published +
+        " &middot; " + gap + "</span>";
+    }
+    return html;
+  }
+
+  function render() {
+    var query = searchBox.value.trim().toLowerCase();
+    var year = yearFilter.value;
+    var rows = papers.filter(function (p) {
+      if (year !== "all" && p.year !== Number(year)) { return false; }
+      if (placedOnly.checked && !p.journal) { return false; }
+      return !query || p.haystack.indexOf(query) !== -1;
+    });
+
+    rows.sort(function (a, b) {
+      var result;
+      if (sortKey === "year") {
+        result = a.year - b.year || a.title.localeCompare(b.title);
+      } else if (sortKey === "journal") {
+        // Unrecorded outcomes sort last in either direction; they carry no
+        // ordering information and should not fill the top of the table.
+        if (!a.journal && !b.journal) { return a.year - b.year; }
+        if (!a.journal) { return 1; }
+        if (!b.journal) { return -1; }
+        result = a.journal.localeCompare(b.journal) || a.year - b.year;
+      } else {
+        result = a.title.localeCompare(b.title);
+      }
+      return result * sortDir;
+    });
+
+    tbody.innerHTML = rows.map(function (p) {
+      var title = p.link
+        ? '<a href="' + escapeHtml(p.link) + '" target="_blank" rel="noopener">' +
+          escapeHtml(p.title) + "</a>"
+        : escapeHtml(p.title);
+      return "<tr>" +
+        '<td class="rts-year">' + p.year + "</td>" +
+        '<td class="rts-title">' + title + "</td>" +
+        "<td>" + authorsHtml(p) + "</td>" +
+        "<td>" + outcomeHtml(p) + "</td>" +
+        "</tr>";
+    }).join("");
+
+    if (!rows.length) {
+      tbody.innerHTML = '<tr><td colspan="4" class="rts-empty">' +
+        "No papers match that search.</td></tr>";
+    }
+
+    document.getElementById("rts-count").textContent =
+      "Showing " + rows.length + " of " + papers.length + " papers";
+  }
+
+  function setupTable() {
+    yearFilter.innerHTML = '<option value="all">All meetings</option>' +
+      paperYears.slice().reverse().map(function (y) {
+        return '<option value="' + y + '">' + y + "</option>";
+      }).join("");
+
+    searchBox.addEventListener("input", render);
+    yearFilter.addEventListener("change", render);
+    placedOnly.addEventListener("change", render);
+
+    var headers = document.querySelectorAll("#rts-papers th.rts-sortable");
+    Array.prototype.forEach.call(headers, function (th) {
+      th.setAttribute("tabindex", "0");
+      function activate() {
+        var key = th.getAttribute("data-key");
+        if (key === sortKey) {
+          sortDir = -sortDir;
+        } else {
+          sortKey = key;
+          sortDir = key === "year" ? -1 : 1;
+        }
+        Array.prototype.forEach.call(headers, function (other) {
+          other.classList.remove("rts-sorted-asc", "rts-sorted-desc");
+        });
+        th.classList.add(sortDir === 1 ? "rts-sorted-asc" : "rts-sorted-desc");
+        render();
+      }
+      th.addEventListener("click", activate);
+      th.addEventListener("keydown", function (event) {
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          activate();
+        }
+      });
+    });
+
+    document.querySelector('#rts-papers th[data-key="year"]')
+      .classList.add("rts-sorted-desc");
+    render();
+  }
+
+  // ---- Meetings table ----------------------------------------------------
+
+  function renderMeetings() {
+    var body = document.querySelector("#rts-meetings tbody");
+
+    // A meeting is upcoming if it falls after the last one the society has
+    // recorded any counts for. Keying off the last year with papers instead
+    // would label a meeting that has already happened as upcoming whenever its
+    // program has yet to be entered, which is exactly the state the workbook
+    // is usually in.
+    var held = meetings.filter(function (m) {
+      return m.paperCount != null || m.members != null || m.attendees != null;
+    });
+    var upcoming = (held.length ? held[held.length - 1].year : latestYear) + 1;
+
+    body.innerHTML = meetings.slice().reverse().map(function (m) {
+      function cell(value, extra) {
+        return value
+          ? "<td" + (extra || "") + ">" + escapeHtml(value) + "</td>"
+          : "<td" + (extra || "") + '><span class="rts-none">&mdash;</span></td>';
+      }
+      function number(value) {
+        return value == null
+          ? '<td style="text-align:right"><span class="rts-none">&mdash;</span></td>'
+          : '<td style="text-align:right">' + value + "</td>";
+      }
+      var president = m.president
+        ? escapeHtml(m.president) + (m.presidentAffil
+            ? '<br><span class="rts-affil">' + escapeHtml(m.presidentAffil) + "</span>"
+            : "")
+        : '<span class="rts-none">&mdash;</span>';
+      var tag = m.year >= upcoming ? '<span class="rts-tag">Upcoming</span>' : "";
+
+      return '<tr class="' + (m.year >= upcoming ? "rts-upcoming" : "") + '">' +
+        '<td class="rts-year">' + m.year + tag + "</td>" +
+        "<td>" + president + "</td>" +
+        cell(m.host) + cell(m.location) + cell(m.date) +
+        number(m.paperCount) + number(m.members) + number(m.attendees) +
+        "</tr>";
+    }).join("");
+
+    var text = "Presidents and hosts from " + meetings[0].year + " through " +
+      meetings[meetings.length - 1].year + ".";
+
+    var noHost = meetings.filter(function (m) {
+      return m.year < upcoming && m.president && !m.host;
+    }).map(function (m) { return m.year; });
+    if (noHost.length) {
+      text += " No host or location is recorded for " +
+        joinList(noHost.map(String)) + ".";
+    }
+
+    var ahead = meetings.filter(function (m) { return m.year >= upcoming && m.host; });
+    if (ahead.length) {
+      text += " Coming up: " + ahead.map(function (m) {
+        return escapeHtml(m.host) + " (" + m.year + ")";
+      }).join(", then ") + ".";
+    }
+    document.getElementById("rts-meetings-sub").innerHTML = text;
+  }
+
+  // ---- Notes -------------------------------------------------------------
+
+  function renderNotes() {
+    var gaps = [];
+    for (var y = paperYears[0]; y < latestYear; y++) {
+      if (paperYears.indexOf(y) === -1) { gaps.push(y); }
+    }
+    var spans = [];
+    gaps.forEach(function (year) {
+      var last = spans[spans.length - 1];
+      if (last && year === last[1] + 1) { last[1] = year; } else { spans.push([year, year]); }
+    });
+    var gapText = joinList(spans.map(function (s) {
+      return s[0] === s[1] ? String(s[0]) : s[0] + "&ndash;" + s[1];
+    }));
+
+    document.getElementById("rts-note-coverage").innerHTML =
+      "Programs are recorded for " + paperYears.length + " meetings between " +
+      paperYears[0] + " and " + latestYear + "." +
+      (gapText ? " No papers are recorded for " + gapText + "." : "");
+
+    var counts = {};
+    lags.forEach(function (l) { counts[l] = (counts[l] || 0) + 1; });
+    var quick = lags.filter(function (l) { return l <= 2; }).length;
+    document.getElementById("rts-note-lag").innerHTML =
+      "Of the " + lags.length + " papers with a publication year, " + quick +
+      " appeared within two years of the meeting and the slowest took " +
+      lags[lags.length - 1] + " years. The median is " + spell(medianLag) +
+      " " + plural(medianLag, "year") + ".";
+
+    var noCounts = meetings.filter(function (m) { return m.members == null; });
+    document.getElementById("rts-note-meetings").innerHTML =
+      "Member and attendee counts come from the society's own records and are " +
+      "missing for " + noCounts.length + " of the " + meetings.length +
+      " meetings listed.";
+  }
+
+  renderIntro();
+  renderTiles();
+  renderYearChart();
+  renderJournalChart();
+  renderGrowthChart();
+  setupTable();
+  renderMeetings();
+  renderNotes();
+})();
+</script>
+```
