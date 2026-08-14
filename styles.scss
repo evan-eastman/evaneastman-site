@@ -74,6 +74,18 @@ $headings-font-weight: 600;
   color: #333;
 }
 
+.symposium-box__deadline {
+  margin: 0 0 0.5rem;
+  font-weight: 700;
+  color: $primary;
+}
+
+.symposium-box__links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
 .symposium-box__link {
   font-weight: 600;
   text-decoration: none;

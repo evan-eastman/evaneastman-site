@@ -28,13 +28,18 @@ My research focuses on empirical archival insurance economics. Active areas incl
 
 ```{=html}
 <!-- Symposium announcement. Rendered in the body, then relocated by the script below
-     into the About left column, under the link buttons. Update the body text once
-     the 2027 call-for-papers details are finalized. -->
+     into the About left column, under the link buttons. After the September 15, 2026
+     submission deadline passes, replace the call-for-papers block with program details. -->
 <div id="symposium-box" class="symposium-box">
-  <div class="symposium-box__label">FSU RMI Research Symposium</div>
-  <p class="symposium-box__body">Information on the 2027 meeting is coming soon.</p>
-  <a class="symposium-box__link" href="https://wertheim.fsu.edu/rmiresearchsymposium">Learn more &rarr;</a>
-  <div class="symposium-box__host">Hosted by the <a href="https://insurancecenter.business.fsu.edu/">Risk Management and Insurance Center</a> and the Dr. William T. Hold/The Alliance's Program in Risk Management and Insurance.</div>
+  <div class="symposium-box__label">5th Annual FSU RMI Research Symposium</div>
+  <p class="symposium-box__body">January 21&ndash;23, 2027 &middot; Tampa Hilton Downtown, Tampa, Florida.</p>
+  <p class="symposium-box__deadline">Call for papers open &mdash; submissions due September 15, 2026.</p>
+  <p class="symposium-box__body">Papers on any risk management and insurance topic, works in progress included. Each accepted paper gets an hour-long slot and an assigned discussant, plus hotel accommodation for one author.</p>
+  <div class="symposium-box__links">
+    <a class="symposium-box__link" href="files/rmi-research-symposium-2027-cfp.pdf">Call for papers (PDF) &rarr;</a>
+    <a class="symposium-box__link" href="https://wertheim.fsu.edu/rmiresearchsymposium">Symposium page &rarr;</a>
+  </div>
+  <div class="symposium-box__host">Hosted by the <a href="https://insurancecenter.business.fsu.edu/">Risk Management and Insurance Center</a> and the Dr. William T. Hold/The Alliance's Program in Risk Management and Insurance. Submissions and questions: <a href="mailto:RMI-ResearchSymposium@wertheim.fsu.edu">RMI-ResearchSymposium@wertheim.fsu.edu</a>.</div>
 </div>
 <script>
   (function () {
