@@ -15,13 +15,13 @@ A browser-based simulation in which students price and underwrite a book of home
 ## The Field
 
 ::: {.course-entry}
-**ARIA Academic Family Tree**<br>
+**ARIA Academic Family Tree** · *Work in progress*<br>
 Doctoral advising lineages in insurance and risk management, traced from dissertation chairs back to their root advisors. Expand a lineage, trace a name back to its root, or search for a person. The tree is James M. Carson's: he built it and presented it as the "Six Degrees of Solomon Huebner" in his ARIA presidential address. This page carries on that work.<br>
 [[Explore the tree](family-tree.qmd)]
 :::
 
 ::: {.course-entry}
-**Risk Theory Society: Papers and Publication Outcomes**<br>
+**Risk Theory Society: Papers and Publication Outcomes** · *Work in progress*<br>
 What became of the papers selected for the Risk Theory Society's annual seminar: which reached print, where, and how long it took. It also covers the meeting history, including who presided, who hosted, and how the society grew. A blank journal means no publication has been recorded, not that the paper was never published.<br>
 [[View the record](rts.qmd)]
 :::
