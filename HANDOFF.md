@@ -89,13 +89,14 @@ Publications and Working Papers) in addition to Working Papers.
 
 The front page (`index.qmd`) has an FSU-gold **symposium announcement
 box** that a small inline `<script>` relocates into the About left
-column, under the link buttons (`.about-entity`). As of 2026-08-14 it
-carries the live 5th-symposium call for papers: Jan 21–23, 2027 at the
-Tampa Hilton Downtown, submissions due **September 15, 2026**, links to
-the CFP PDF (`files/rmi-research-symposium-2027-cfp.pdf`) and the
-official page, and the submission address. **After September 15, 2026**
-switch the box from call-for-papers to program details — a comment in
-`index.qmd` marks the spot. Box styling lives in `styles.scss`
+column, under the link buttons (`.about-entity`). As of 2026-09-22 it
+says the 5th-symposium call for papers has closed: Jan 21–23, 2027 at
+the Tampa Hilton Downtown, submissions closed **September 15, 2026**,
+authors notified on or soon after October 15, with a link to the
+official page and the questions address. The CFP PDF link came off the
+box but stays in `presentations.qmd`. **Once the program is set**, swap
+the status lines for program details — a comment in `index.qmd` marks
+the spot. Box styling lives in `styles.scss`
 (`.symposium-box`, `$gold: #CEB888`); `.feature-entry` is its
 full-width sibling for callouts in the main content column.
 
@@ -122,8 +123,10 @@ don't re-link them.
   with no publication outcome recorded. The 2021 `date` cell parsed as
   a real date rather than text, so the build script drops it — retype
   it as text (e.g. `April 9-11`) and it will appear.
-- Swap the front-page **symposium box** from call-for-papers to program
-  details after the **September 15, 2026** submission deadline passes.
+- Swap the front-page **symposium box** (and the `presentations.qmd`
+  Conferences paragraph) from "submissions closed" to program details
+  once the 5th-symposium program is set (after the ~October 15
+  notifications).
 - The August 2026 ARIA **Strickler award demonstration** is on neither
   the CV nor the site. Worth adding to the CV on the next pass — Evan's
   call.
