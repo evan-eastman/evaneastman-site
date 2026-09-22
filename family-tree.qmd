@@ -23,6 +23,10 @@ chairs and presented it as the "Six Degrees of Solomon Huebner" in his ARIA
 presidential address, calling it a work in progress he hoped to post on the ARIA
 website. This page carries on that work; the lineages he sampled, Robert I.
 Mehr's among them, are still here.
+
+The tree is a work in progress. Additions and corrections are welcome. Please
+email Evan Eastman at
+[eeastman@wertheim.fsu.edu](mailto:eeastman@wertheim.fsu.edu?subject=ARIA%20Family%20Tree).
 :::
 
 ```{=html}
@@ -376,7 +380,8 @@ Mehr's among them, are still here.
 
 <p style="max-width:78ch;margin:0.9rem 0 0;font-size:0.78rem;line-height:1.5;color:#6b7280;">
 Each column is one academic generation. Dashed lines mark co-advising. Corrections
-and additions are welcome.<br>
+and additions are welcome at
+<a href="mailto:eeastman@wertheim.fsu.edu?subject=ARIA%20Family%20Tree">eeastman@wertheim.fsu.edu</a>.<br>
 Original work: James M. Carson, &ldquo;The ARIA Loop,&rdquo; <em>Risk Management and Insurance
 Review</em>, 2005, Vol. 8, No. 1, pp. 1&ndash;8 &mdash; presidential address delivered at the
 2004 ARIA meeting, Chicago.<br>
