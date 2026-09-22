@@ -375,10 +375,15 @@ On the work/school PC where the project still lives in Dropbox:
   block namespaced under `#aria-tree` so it can't collide with the
   site's Bootstrap/cosmo theme, and the only external dependency is
   d3 v7 from the jsDelivr CDN. There is no separate data file and no
-  build step: **to correct or add a person, edit the JSON on line 387
-  of `family-tree.qmd` directly.** The `stats` object and the
-  "Generated" date in the footer are hand-maintained alongside it, so
-  update them in the same edit.
+  build step: **to correct or add a person, edit the
+  `window.ARIA_TREE_DATA` JSON line in `family-tree.qmd` directly.**
+  The `stats` object, the people count in the intro, and the
+  "Generated … updated" date in the footer are hand-maintained
+  alongside it, so update them in the same edit. Children sit in
+  alphabetical order by first name; new ids continue from the current
+  max. `stats.advisors` counts anyone with a child or a co-advising
+  edge. 2026-09-22: added six Georgia State students under Richard
+  Phillips (294 people, 82 advisors).
   - Unlisted means: no navbar entry, no inbound link from any page,
     `search: false`, and `<meta name="robots" content="noindex,
     nofollow">` via `include-in-header`. It is *not* private.
