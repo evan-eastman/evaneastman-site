@@ -186,7 +186,7 @@ email Evan Eastman at
   stroke-width: 1.4px;
 }
 
-/* link to a co-advisee's echo under the co-advisor */
+/* link to a co-advised student, under each of their advisors */
 #aria-tree .at-link.is-co {
   stroke: #9aa2ad;
   stroke-dasharray: 4 3;
@@ -195,19 +195,6 @@ email Evan Eastman at
 #aria-tree .at-link.is-lineage {
   stroke: var(--gold);
   stroke-width: 2.6px;
-}
-
-#aria-tree .at-coadvise {
-  fill: none;
-  stroke: #9aa2ad;
-  stroke-width: 1.4px;
-  stroke-dasharray: 4 3;
-  opacity: 0.85;
-}
-
-#aria-tree .at-coadvise.is-lineage {
-  stroke: var(--gold);
-  opacity: 1;
 }
 
 /* ---------- nodes ---------- */
@@ -246,14 +233,23 @@ email Evan Eastman at
 
 #aria-tree .at-node.is-root .at-label { font-size: 14.5px; }
 
-/* a co-advisee echoed under the co-advisor: hollow dot, italic name */
-#aria-tree .at-node.is-echo .at-node-dot { stroke-width: 2px; }
-#aria-tree .at-node.is-echo .at-label { font-style: italic; font-weight: 400; }
+/* ⇄ after a co-advised student's name: jumps to their entry under the
+   other advisor. Unlike the label it takes clicks, and gets a wide hit area. */
+#aria-tree .at-jump {
+  font-size: 13px;
+  font-weight: 700;
+  fill: var(--accent);
+  dominant-baseline: middle;
+  stroke: transparent;
+  stroke-width: 12px;
+  paint-order: stroke;
+}
+
+#aria-tree .at-jump:hover { fill: var(--ink); }
 
 /* dimmed / matched states used by search */
 #aria-tree .at-node.is-dimmed { opacity: 0.16; }
-#aria-tree .at-link.is-dimmed,
-#aria-tree .at-coadvise.is-dimmed { opacity: 0.1; }
+#aria-tree .at-link.is-dimmed { opacity: 0.1; }
 
 #aria-tree .at-node.is-match .at-label { fill: var(--accent); }
 
@@ -390,8 +386,7 @@ email Evan Eastman at
 
 <p style="max-width:78ch;margin:0.9rem 0 0;font-size:0.78rem;line-height:1.5;color:#6b7280;">
 Each column is one academic generation. Dashed lines mark co-advising: a co-advised
-student is listed under their primary advisor and appears again, in italics, under
-each co-advisor. Corrections
+student appears under each advisor, and &#8644; jumps between them. Corrections
 and additions are welcome at
 <a href="mailto:eeastman@wertheim.fsu.edu?subject=ARIA%20Family%20Tree">eeastman@wertheim.fsu.edu</a>.<br>
 Original work: James M. Carson, &ldquo;The ARIA Loop,&rdquo; <em>Risk Management and Insurance
@@ -501,16 +496,30 @@ Generated 2026-07-31; updated 2026-09-22.
 
   var childCount = function (node) { return (node.children || []).length; };
 
-  // Co-advisees, keyed by co-advisor. Each student sits in the data once, under
-  // their primary advisor; buildDisplay echoes them under each co-advisor too,
-  // so opening a co-advisor shows everyone they advised.
+  // Co-advising. A tree gives each person one parent, so a co-advised student
+  // sits in the data under one advisor, and a coAdvisorEdges entry names the
+  // other. Neither is primary on the page: buildDisplay draws the student under
+  // every advisor, each appearance alike, and ⇄ jumps between them. Only a
+  // student's own students are drawn once, under the data parent.
   var coStudentsOf = {};
+  var coAdvisorsOf = {};
   DATA.coAdvisorEdges.forEach(function (e) {
     if (!byId[e.advisor] || !byId[e.student]) { return; }
     (coStudentsOf[e.advisor] = coStudentsOf[e.advisor] || []).push(byId[e.student]);
+    (coAdvisorsOf[e.student] = coAdvisorsOf[e.student] || []).push(e.advisor);
   });
   var coCount = function (node) { return (coStudentsOf[node.id] || []).length; };
   var kidCount = function (node) { return childCount(node) + coCount(node); };
+
+  // Every place a person is drawn, in advisor order: under the data parent,
+  // then under each co-advisor.
+  function appearances(personId) {
+    var out = [{ id: personId, advisorId: parentOf[personId] }];
+    (coAdvisorsOf[personId] || []).forEach(function (a) {
+      out.push({ id: 'co:' + a + ':' + personId, advisorId: a });
+    });
+    return out;
+  }
 
   // Per-node view state. `collapsed` hides all children; `bundleOpen` reveals
   // the childless children that got tucked behind a "N more students" stub.
@@ -531,7 +540,7 @@ Generated 2026-07-31; updated 2026-09-22.
     var withKids = [];
     var leaves = [];
     node.children.forEach(function (kid) {
-      (childCount(kid) ? withKids : leaves).push(kid);
+      (kidCount(kid) ? withKids : leaves).push(kid);
     });
     if (leaves.length < CFG.bundleMin) { return null; }
     return { withKids: withKids, leaves: leaves };
@@ -587,7 +596,7 @@ Generated 2026-07-31; updated 2026-09-22.
     '<span class="at-key"><span class="at-swatch" style="background:' + FALLBACK_COLOR +
       '"></span> other</span>' +
     '<span class="at-key"><span class="at-key-ring"></span> collapsed (click to expand)</span>' +
-    '<span class="at-key"><span class="at-key-line"></span> co-advised</span>' +
+    '<span class="at-key"><span class="at-key-line"></span> co-advised · ⇄ jumps to the other advisor</span>' +
     '<span class="at-stats">' + DATA.stats.people + ' people · ' +
       DATA.stats.advisors + ' advisors · ' + DATA.stats.universities + ' universities</span>';
 
@@ -612,7 +621,6 @@ Generated 2026-07-31; updated 2026-09-22.
 
   var svg = d3.select(canvas).append('svg');
   var zoomLayer = svg.append('g');
-  var gCoadvise = zoomLayer.append('g').attr('class', 'at-coadvise-layer');
   var gLinks = zoomLayer.append('g').attr('class', 'at-link-layer');
   var gNodes = zoomLayer.append('g').attr('class', 'at-node-layer');
 
@@ -638,10 +646,11 @@ Generated 2026-07-31; updated 2026-09-22.
   function buildDisplay(node) {
     var out = {
       id: node.id,
+      person: node.id,
       name: node.name,
       university: node.university,
       year: node.year,
-      coAdvisors: node.coAdvisors,
+      coAdvised: !!(node.coAdvisors && node.coAdvisors.length),
       totalChildren: kidCount(node),
       children: null,
       hiddenCount: 0
@@ -655,10 +664,18 @@ Generated 2026-07-31; updated 2026-09-22.
       return out;
     }
 
+    // Co-advised students join the advisor's own students in name order, so
+    // nothing marks which advisor holds them in the data. (Only then: the
+    // root advisors are ordered by lineage size, not name.)
     var split = state.bundleOpen ? null : bundleSplit(node);
+    var shown = (split ? split.withKids : node.children || []).map(buildDisplay);
+    if (coStudentsOf[node.id]) {
+      shown = shown
+        .concat(coStudentsOf[node.id].map(function (s) { return coEntry(node, s); }))
+        .sort(function (a, b) { return a.name.localeCompare(b.name); });
+    }
     if (split) {
-      out.children = split.withKids.map(buildDisplay);
-      out.children.push({
+      shown.push({
         id: 'bundle:' + node.id,
         isBundle: true,
         bundleParent: node.id,
@@ -666,35 +683,35 @@ Generated 2026-07-31; updated 2026-09-22.
         children: null
       });
       out.hiddenCount = split.leaves.length;
-    } else {
-      out.children = (node.children || []).map(buildDisplay);
     }
-    (coStudentsOf[node.id] || []).forEach(function (s) { out.children.push(echo(node, s)); });
+    out.children = shown;
     return out;
   }
 
-  // A co-advisee drawn a second time, under the co-advisor. It is a leaf and a
-  // pointer: clicking it jumps to the student's own entry.
-  function echo(advisor, student) {
+  // A co-advised student as drawn under the advisor who doesn't hold them in
+  // the data. It looks like any other entry but has no branch of its own: a
+  // student with students of their own shows the count, and ⇄ leads to it.
+  function coEntry(advisor, student) {
+    var below = descendantCount(student);
     return {
       id: 'co:' + advisor.id + ':' + student.id,
-      isEcho: true,
-      echoOf: student.id,
+      person: student.id,
       name: student.name,
       university: student.university,
       year: student.year,
+      coAdvised: true,
       totalChildren: 0,
+      collapsedCount: below || undefined,
       children: null,
       hiddenCount: 0
     };
   }
 
-  // Co-advisees count toward a co-advisor's lineage, so a student with two
-  // advisors counts in both.
+  // A co-advised student counts in each advisor's lineage, along with
+  // everyone below them.
   function descendantCount(node) {
-    return (node.children || []).reduce(function (n, kid) {
-      return n + 1 + descendantCount(kid);
-    }, coCount(node));
+    var kids = (node.children || []).concat(coStudentsOf[node.id] || []);
+    return kids.reduce(function (n, kid) { return n + 1 + descendantCount(kid); }, 0);
   }
 
   // --------------------------------------------------------------- rendering
@@ -713,9 +730,6 @@ Generated 2026-07-31; updated 2026-09-22.
     var links = root.links().filter(function (d) { return d.source.data.id !== '__root__'; });
     nodes.forEach(function (d) { d.y -= m.col; });
 
-    var visible = {};
-    nodes.forEach(function (d) { visible[d.data.id] = d; });
-
     // --- links -------------------------------------------------------------
     var link = gLinks.selectAll('path.at-link').data(links, function (d) { return d.target.data.id; });
 
@@ -729,30 +743,10 @@ Generated 2026-07-31; updated 2026-09-22.
         return linkPath({ source: o, target: o });
       })
       .merge(link)
-      .classed('is-co', function (d) { return !!d.target.data.isEcho; })
+      .classed('is-co', function (d) { return !!d.target.data.coAdvised; })
       .transition().duration(duration)
       .attr('opacity', 1)
       .attr('d', linkPath);
-
-    // --- co-advisor links --------------------------------------------------
-    // Drawn only while the co-advisor is collapsed; once it is open, the echo
-    // under it carries the relationship.
-    var coEdges = DATA.coAdvisorEdges.filter(function (e) {
-      return visible[e.advisor] && visible[e.student] &&
-        !visible['co:' + e.advisor + ':' + e.student];
-    });
-
-    var co = gCoadvise.selectAll('path.at-coadvise').data(coEdges, function (d) {
-      return d.advisor + '->' + d.student;
-    });
-
-    co.exit().remove();
-
-    co.enter().append('path')
-      .attr('class', 'at-coadvise')
-      .merge(co)
-      .transition().duration(duration)
-      .attr('d', function (d) { return coadvisePath(visible[d.advisor], visible[d.student]); });
 
     // --- nodes -------------------------------------------------------------
     var node = gNodes.selectAll('g.at-node').data(nodes, function (d) { return d.data.id; });
@@ -789,13 +783,11 @@ Generated 2026-07-31; updated 2026-09-22.
 
     merged
       .classed('is-root', function (d) { return d.depth === 1; })
-      .classed('has-hidden', function (d) { return d.data.hiddenCount > 0; })
-      .classed('is-echo', function (d) { return !!d.data.isEcho; });
+      .classed('has-hidden', function (d) { return d.data.hiddenCount > 0; });
 
     merged.select('circle.at-node-dot')
       .attr('r', function (d) { return d.depth === 1 ? 7 : (d.data.totalChildren ? 6 : 4.5); })
-      .attr('fill', function (d) { return d.data.isEcho ? '#fff' : color(d.data.university); })
-      .style('stroke', function (d) { return d.data.isEcho ? color(d.data.university) : null; });
+      .attr('fill', function (d) { return color(d.data.university); });
 
     merged.select('text.at-label').each(function (d) {
       var t = d3.select(this);
@@ -809,6 +801,17 @@ Generated 2026-07-31; updated 2026-09-22.
         t.append('tspan').attr('class', 'at-count')
           .text('  ' + d.data.collapsedCount + (d.data.collapsedCount === 1 ? ' descendant' : ' descendants'));
       }
+    });
+
+    // ⇄ sits just past the label, so it is placed after the label is measured.
+    merged.each(function (d) {
+      var g = d3.select(this);
+      g.select('text.at-jump').remove();
+      if (d.data.isBundle || appearances(d.data.person).length < 2) { return; }
+      var label = g.select('text.at-label').node();
+      g.append('text').attr('class', 'at-jump')
+        .attr('x', 12 + label.getComputedTextLength() + 7).attr('y', 1)
+        .text('⇄');
     });
 
     merged.filter(function (d) { return d.data.isBundle; })
@@ -835,40 +838,57 @@ Generated 2026-07-31; updated 2026-09-22.
   function applyHighlight() {
     var dimming = !!matchIds;
     var isLit = function (id) { return !lineageIds || lineageIds[id]; };
-    // Search matches people, so an echo follows the student it stands for;
-    // hover lineage follows the drawn node, so an echo lights on its own path.
+    // Search matches people, so every appearance of a match lights; hover
+    // lineage follows drawn nodes, so each appearance lights on its own path.
     var dimmed = function (searchId, lineId) {
       return (dimming && !matchIds[searchId]) || !isLit(lineId);
     };
-    var person = function (d) { return d.data.echoOf || d.data.id; };
+    var person = function (d) { return d.data.person != null ? d.data.person : d.data.id; };
+    var halo = function (d) {
+      return (dimming && exactIds[person(d)]) || d.data.id === flashId;
+    };
 
     gNodes.selectAll('g.at-node')
       .classed('is-match', function (d) { return dimming && !!exactIds[person(d)]; })
       .classed('is-dimmed', function (d) { return dimmed(person(d), d.data.id); })
       .select('circle.at-match-halo')
-      .attr('opacity', function (d) { return dimming && exactIds[person(d)] ? 1 : 0; });
+      .attr('opacity', function (d) { return halo(d) ? 1 : 0; });
 
     gLinks.selectAll('path.at-link')
       .classed('is-lineage', function (d) { return !!lineageIds && !!lineageIds[d.target.data.id]; })
       .classed('is-dimmed', function (d) { return dimmed(person(d.target), d.target.data.id); });
-
-    gCoadvise.selectAll('path.at-coadvise')
-      .classed('is-lineage', function (d) {
-        return !!lineageIds && !!lineageIds[d.student] && !!lineageIds[d.advisor];
-      })
-      .classed('is-dimmed', function (d) { return dimmed(d.student, d.student); });
   }
 
-  // A co-advisor edge usually spans several columns, so bow it well clear of
-  // the primary links rather than cutting straight through the tree.
-  function coadvisePath(a, b) {
-    var midY = (a.y + b.y) / 2;
-    var bow = Math.min(70, Math.abs(b.x - a.x) * 0.32 + 18);
-    var dir = b.x >= a.x ? 1 : -1;
-    return 'M' + a.y + ',' + a.x +
-           'C' + (midY) + ',' + (a.x + bow * dir) +
-           ' ' + (midY) + ',' + (b.x - bow * dir) +
-           ' ' + b.y + ',' + b.x;
+  // After a ⇄ jump, ring the landing spot briefly so the eye can find it.
+  var flashId = null;
+  var flashTimer;
+  function flash(id) {
+    flashId = id;
+    applyHighlight();
+    window.clearTimeout(flashTimer);
+    flashTimer = window.setTimeout(function () { flashId = null; applyHighlight(); }, 1600);
+  }
+
+  // Open the tree far enough that one appearance of a person is drawn.
+  function reveal(a) {
+    if (String(a.id).indexOf('co:') === 0) {
+      revealPathTo(a.advisorId);
+      st(a.advisorId).collapsed = false;
+      if (matchIds) { matchIds[a.advisorId] = true; }
+    } else {
+      revealPathTo(a.id);
+    }
+  }
+
+  // Move from one appearance of a co-advised student to the next.
+  function jumpFrom(d) {
+    var list = appearances(d.data.person);
+    var i = list.map(function (a) { return a.id; }).indexOf(d.data.id);
+    var next = list[(i + 1) % list.length];
+    reveal(next);
+    render();
+    centerOn(next.id);
+    flash(next.id);
   }
 
   // ---------------------------------------------------------- interactions
@@ -880,10 +900,11 @@ Generated 2026-07-31; updated 2026-09-22.
       render();
       return;
     }
-    if (d.data.isEcho) {
-      revealPathTo(d.data.echoOf);
-      render();
-      centerOn(d.data.echoOf);
+    // ⇄ always jumps. So does the rest of a co-advised entry with nothing
+    // below it to expand; one with students of its own still expands.
+    var onJump = event.target.classList && event.target.classList.contains('at-jump');
+    if (appearances(d.data.person).length > 1 && (onJump || !d.data.totalChildren)) {
+      jumpFrom(d);
       return;
     }
     if (!d.data.totalChildren) { return; }
@@ -907,12 +928,10 @@ Generated 2026-07-31; updated 2026-09-22.
       lineageIds[walk.data.id] = true;
       walk = walk.parent;
     }
-    // An echo also lights the student's own entry and the path above it.
-    for (var s = d.data.echoOf; s && s !== '__root__'; s = parentOf[s]) { lineageIds[s] = true; }
-    (d.data.coAdvisors || []).forEach(function (c) {
-      if (c.id == null) { return; }   // co-advisor named but not in the tree
-      lineageIds[c.id] = true;
-      lineageIds['co:' + c.id + ':' + d.data.id] = true;
+    // A co-advised student lights up under every advisor at once.
+    appearances(d.data.person).forEach(function (a) {
+      lineageIds[a.id] = true;
+      for (var s = a.advisorId; s && s !== '__root__'; s = parentOf[s]) { lineageIds[s] = true; }
     });
     applyHighlight();
     showTooltip(event, d);
@@ -927,31 +946,38 @@ Generated 2026-07-31; updated 2026-09-22.
   }
 
   function showTooltip(event, d) {
-    var src = byId[d.data.echoOf || d.data.id] || {};
-    var advisorId = parentOf[src.id];
-    var advisor = advisorId && advisorId !== '__root__' ? byId[advisorId] : null;
-    var kids = childCount(src);
-    var co = coCount(src);
+    var src = byId[d.data.person] || {};
+    var list = appearances(src.id);
+    // Advisors are listed together, with no primary: everyone the student
+    // appears under, then any co-advisor named but not in the tree.
+    var advisors = list
+      .filter(function (a) { return a.advisorId && a.advisorId !== '__root__'; })
+      .map(function (a) { return byId[a.advisorId].name; })
+      .concat((src.coAdvisors || [])
+        .filter(function (c) { return c.id == null; })
+        .map(function (c) { return c.name; }));
+    var students = kidCount(src);
+    var coStudents = coCount(src) + (src.children || []).filter(function (k) {
+      return k.coAdvisors && k.coAdvisors.length;
+    }).length;
     var html = '<div class="at-tt-name">' + esc(d.data.name) + '</div>' +
       '<div class="at-tt-uni" style="color:' + color(d.data.university) + '">' +
       esc(d.data.university || 'Unknown') + (d.data.year ? ' · ' + d.data.year : '') + '</div>';
-    if (advisor) {
-      html += '<div class="at-tt-row"><strong>Advisor:</strong> ' + esc(advisor.name) + '</div>';
+    if (advisors.length) {
+      html += '<div class="at-tt-row"><strong>Advisor' + (advisors.length > 1 ? 's' : '') +
+        ':</strong> ' + advisors.map(esc).join(', ') + '</div>';
     } else {
       html += '<div class="at-tt-row"><strong>Root of this lineage</strong></div>';
     }
-    if (src.coAdvisors && src.coAdvisors.length) {
-      html += '<div class="at-tt-row"><strong>Co-advisor' +
-        (src.coAdvisors.length > 1 ? 's' : '') + ':</strong> ' +
-        src.coAdvisors.map(function (c) { return esc(c.name); }).join(', ') + '</div>';
+    if (students) {
+      html += '<div class="at-tt-row"><strong>Students:</strong> ' + students +
+        (coStudents ? ' (' + coStudents + ' co-advised)' : '') + '</div>';
     }
-    if (kids || co) {
-      html += '<div class="at-tt-row"><strong>Students:</strong> ' + kids +
-        (co ? ' + ' + co + ' co-advised' : '') + '</div>';
-    }
-    if (d.data.isEcho && advisor) {
-      html += '<div class="at-tt-row"><em>Click to go to their entry under ' +
-        esc(advisor.name) + '.</em></div>';
+    if (list.length > 1) {
+      var i = list.map(function (a) { return a.id; }).indexOf(d.data.id);
+      var next = byId[list[(i + 1) % list.length].advisorId];
+      html += '<div class="at-tt-row"><em>' + (d.data.totalChildren ? 'Click ⇄' : 'Click') +
+        ' to jump to their entry under ' + esc(next.name) + '.</em></div>';
     }
     tooltip.innerHTML = html;
     tooltip.classList.add('is-visible');
@@ -1000,15 +1026,8 @@ Generated 2026-07-31; updated 2026-09-22.
     found.forEach(function (p) {
       matchIds[p.id] = true;
       exactIds[p.id] = true;
-      revealPathTo(p.id);
-      // Reveal co-advisors too. A co-advising edge is only drawn when both ends
-      // are on screen, so without this the second advisor of someone like Karl
-      // stays hidden in a collapsed lineage and the relationship is invisible.
-      (byId[p.id].coAdvisors || []).forEach(function (c) {
-        if (c.id == null) { return; }
-        matchIds[c.id] = true;
-        revealPathTo(c.id);
-      });
+      // Open every advisor a match appears under, not just one.
+      appearances(p.id).forEach(reveal);
     });
 
     hits.textContent = found.length === 0 ? 'no matches'
@@ -1026,8 +1045,8 @@ Generated 2026-07-31; updated 2026-09-22.
     while (pid && pid !== '__root__') {
       var state = st(pid);
       state.collapsed = false;
-      if (!childCount(byId[childId])) { state.bundleOpen = true; }
-      if (matchIds) { matchIds[pid] = true; }   // null outside a search (echo clicks)
+      if (!kidCount(byId[childId])) { state.bundleOpen = true; }
+      if (matchIds) { matchIds[pid] = true; }   // null outside a search (⇄ jumps)
       childId = pid;
       pid = parentOf[pid];
     }

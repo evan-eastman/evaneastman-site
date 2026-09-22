@@ -384,15 +384,22 @@ On the work/school PC where the project still lives in Dropbox:
   max. `stats.advisors` counts anyone with a child or a co-advising
   edge. 2026-09-22: added six Georgia State students under Richard
   Phillips and Tyler Welch under Leverty (295 people, 82 advisors).
-  **Co-advising**: a student sits in the JSON once, under the primary
-  advisor, with `coAdvisors: [{id, name}]` and a matching
-  `coAdvisorEdges` entry. The page then draws an italic "echo" of the
-  student under each co-advisor (dashed link, hollow dot; clicking it
-  jumps to the real entry), and counts them in the co-advisor's
-  "Students: N + M co-advised" and collapsed descendant totals. A
-  co-advisor who isn't in the tree goes in `coAdvisors` as
-  `{name}` only, with no edge (Welch's co-chair Justin Sydnor) — the
-  tooltip names them and nothing is drawn.
+  **Co-advising — no primary advisor (Evan's call, 2026-09-22).** The
+  JSON is a tree, so a co-advised student sits under one advisor, with
+  `coAdvisors: [{id, name}]` and a matching `coAdvisorEdges` entry for
+  the other. Which one holds them is a storage detail only: the page
+  draws the student under every advisor, alike (dashed link, ⇄ after
+  the name, sorted in with that advisor's students), lists "Advisors:
+  A, B" in the tooltip, and counts them in both advisors' student and
+  descendant totals. ⇄ (or a click on a leaf entry) jumps to the next
+  appearance, centres it, and rings it briefly. The one asymmetry: a
+  co-advised student's own students are drawn once, under the advisor
+  who holds them in the JSON; the other appearance shows "N
+  descendants" and ⇄ leads there (David Eckles is the live case). A
+  co-advisor who isn't in the tree goes in `coAdvisors` as `{name}`
+  only, with no edge (Welch's co-chair Justin Sydnor): named in the
+  tooltip, one appearance, no ⇄. The old bowed cross-tree co-advising
+  curves are gone.
   - Unlisted means: no navbar entry, no inbound link from any page,
     `search: false`, and `<meta name="robots" content="noindex,
     nofollow">` via `include-in-header`. It is *not* private.
