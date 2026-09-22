@@ -123,6 +123,10 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Awards</span></a>
   </li>  
   <li class="nav-item">
+    <a class="nav-link" href="./resources.html"> 
+<span class="menu-text">Resources</span></a>
+  </li>  
+  <li class="nav-item">
     <a class="nav-link" href="./cv.html"> 
 <span class="menu-text">CV</span></a>
   </li>  
@@ -161,8 +165,9 @@ ul.task-list li input[type="checkbox"] {
 
 
 <div style="max-width: 68ch;">
-<p>Doctoral advising lineages in insurance and risk management — 288 people descending from 52 root advisors across 45 universities. The largest lineages open on load; the rest are collapsed and labelled with their size. Click a name to expand or collapse, hover to trace a lineage back to its root, or search for a person.</p>
+<p>Doctoral advising lineages in insurance and risk management — 295 people descending from 52 root advisors across 45 universities. The largest lineages open on load; the rest are collapsed and labelled with their size. Click a name to expand or collapse, hover to trace a lineage back to its root, or search for a person.</p>
 <p><strong>The ARIA Family Tree is James M. Carson’s.</strong> He built it from dissertation chairs and presented it as the “Six Degrees of Solomon Huebner” in his ARIA presidential address, calling it a work in progress he hoped to post on the ARIA website. This page carries on that work; the lineages he sampled, Robert I. Mehr’s among them, are still here.</p>
+<p>The tree is a work in progress. Additions and corrections are welcome. Please email Evan Eastman at <a href="mailto:eeastman@wertheim.fsu.edu?subject=ARIA%20Family%20Tree">eeastman@wertheim.fsu.edu</a>.</p>
 </div>
 <style>
 /* ARIA Academic Family Tree — visualization styles.
@@ -320,22 +325,15 @@ ul.task-list li input[type="checkbox"] {
   stroke-width: 1.4px;
 }
 
+/* link to a co-advised student, under each of their advisors */
+#aria-tree .at-link.is-co {
+  stroke: #9aa2ad;
+  stroke-dasharray: 4 3;
+}
+
 #aria-tree .at-link.is-lineage {
   stroke: var(--gold);
   stroke-width: 2.6px;
-}
-
-#aria-tree .at-coadvise {
-  fill: none;
-  stroke: #9aa2ad;
-  stroke-width: 1.4px;
-  stroke-dasharray: 4 3;
-  opacity: 0.85;
-}
-
-#aria-tree .at-coadvise.is-lineage {
-  stroke: var(--gold);
-  opacity: 1;
 }
 
 /* ---------- nodes ---------- */
@@ -374,10 +372,23 @@ ul.task-list li input[type="checkbox"] {
 
 #aria-tree .at-node.is-root .at-label { font-size: 14.5px; }
 
+/* ⇄ after a co-advised student's name: jumps to their entry under the
+   other advisor. Unlike the label it takes clicks, and gets a wide hit area. */
+#aria-tree .at-jump {
+  font-size: 13px;
+  font-weight: 700;
+  fill: var(--accent);
+  dominant-baseline: middle;
+  stroke: transparent;
+  stroke-width: 12px;
+  paint-order: stroke;
+}
+
+#aria-tree .at-jump:hover { fill: var(--ink); }
+
 /* dimmed / matched states used by search */
 #aria-tree .at-node.is-dimmed { opacity: 0.16; }
-#aria-tree .at-link.is-dimmed,
-#aria-tree .at-coadvise.is-dimmed { opacity: 0.1; }
+#aria-tree .at-link.is-dimmed { opacity: 0.1; }
 
 #aria-tree .at-node.is-match .at-label { fill: var(--accent); }
 
@@ -513,16 +524,18 @@ ul.task-list li input[type="checkbox"] {
 <div id="aria-tree"></div>
 
 <p style="max-width:78ch;margin:0.9rem 0 0;font-size:0.78rem;line-height:1.5;color:#6b7280;">
-Each column is one academic generation. Dashed lines mark co-advising. Corrections
-and additions are welcome.<br>
+Each column is one academic generation. Dashed lines mark co-advising: a co-advised
+student appears under each advisor, and ⇄ jumps between them. Corrections
+and additions are welcome at
+<a href="mailto:eeastman@wertheim.fsu.edu?subject=ARIA%20Family%20Tree">eeastman@wertheim.fsu.edu</a>.<br>
 Original work: James M. Carson, “The ARIA Loop,” <em>Risk Management and Insurance
 Review</em>, 2005, Vol. 8, No. 1, pp. 1–8 — presidential address delivered at the
 2004 ARIA meeting, Chicago.<br>
-Generated 2026-07-31.
+Generated 2026-07-31; updated 2026-09-22.
 </p>
 
 <script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"></script>
-<script>window.ARIA_TREE_DATA = {"tree": {"id": "__root__", "children": [{"id": 1, "name": "Lawrence Klein", "university": "", "year": null, "children": [{"id": 2, "name": "J. David Cummins", "university": "University of Pennsylvania", "year": 1972, "children": [{"id": 20, "name": "Adel Rabh", "university": "University of Pennsylvania", "year": 1989}, {"id": 36, "name": "Alice Lee", "university": "University of Pennsylvania", "year": 1995}, {"id": 11, "name": "Andrew Turner", "university": "University of Pennsylvania", "year": 1981}, {"id": 48, "name": "Anita Lo", "university": "University of Pennsylvania", "year": 2006}, {"id": 22, "name": "Anne Carroll", "university": "University of Pennsylvania", "year": 1991}, {"id": 14, "name": "Barry D. Smith", "university": "University of Pennsylvania", "year": 1983}, {"id": 7, "name": "Barry Schweig", "university": "University of Pennsylvania", "year": 1977}, {"id": 51, "name": "Carol Park", "university": "University of Pennsylvania", "year": 2009}, {"id": 19, "name": "Chong Lee", "university": "University of Pennsylvania", "year": 1989, "coAdvisors": [{"id": 54, "name": "Scott Harrington"}]}, {"id": 4, "name": "D. Stuart Bancroft", "university": "University of Pennsylvania", "year": 1973}, {"id": 42, "name": "David L. Eckles", "university": "University of Pennsylvania", "year": 2003, "coAdvisors": [{"id": 100, "name": "Neil Doherty"}], "children": [{"id": 44, "name": "Evan Eastman", "university": "University of Georgia", "year": 2017}, {"id": 45, "name": "Jiyeon Yun", "university": "University of Georgia", "year": 2019}, {"id": 43, "name": "Peihan Chen", "university": "University of Georgia", "year": 2015}, {"id": 287, "name": "Taylor Graciano", "university": "University of Georgia", "year": 2025}]}, {"id": 25, "name": "David Sommer", "university": "University of Pennsylvania", "year": 1994, "children": [{"id": 29, "name": "Andre Liebenberg", "university": "University of Georgia", "year": 2004, "children": [{"id": 288, "name": "Xin Che", "university": "University of Mississippi", "year": 2018}]}, {"id": 26, "name": "Cassandra Cole", "university": "University of Georgia", "year": 2002, "children": [{"id": 27, "name": "J. Bradley Karl", "university": "Florida State University", "year": 2013, "coAdvisors": [{"id": 271, "name": "Patricia Born"}]}]}, {"id": 30, "name": "Enya He", "university": "University of Georgia", "year": 2006}, {"id": 31, "name": "Joe Ruhland", "university": "University of Georgia", "year": 2006}, {"id": 28, "name": "Lars Powell", "university": "University of Georgia", "year": 2002}]}, {"id": 6, "name": "Donald J. Doudna", "university": "University of Pennsylvania", "year": 1976}, {"id": 15, "name": "Elizabeth Grace", "university": "University of Pennsylvania", "year": 1984}, {"id": 50, "name": "Freda Song", "university": "University of Pennsylvania", "year": 2009}, {"id": 41, "name": "Gregory Nini", "university": "University of Pennsylvania", "year": 2002}, {"id": 10, "name": "Henry D. Martin", "university": "University of Pennsylvania", "year": 1981}, {"id": 33, "name": "Hongmin Zi", "university": "University of Pennsylvania", "year": 1994}, {"id": 12, "name": "Jack L. VanDerhei", "university": "University of Pennsylvania", "year": 1982}, {"id": 39, "name": "James Moore", "university": "University of Pennsylvania", "year": 1999}, {"id": 5, "name": "Jerry W. Caswell", "university": "University of Pennsylvania", "year": 1974}, {"id": 23, "name": "Kevin Eastman", "university": "University of Pennsylvania", "year": 1992}, {"id": 40, "name": "Krupa S. Viswanathan", "university": "University of Pennsylvania", "year": 2000}, {"id": 24, "name": "Laureen Regan", "university": "University of Pennsylvania", "year": 1993}, {"id": 13, "name": "Laurel J. Wiltbank", "university": "University of Pennsylvania", "year": 1983}, {"id": 17, "name": "Lawrence A. Berger", "university": "University of Pennsylvania", "year": 1985, "children": [{"id": 18, "name": "Vickie Bajtelsmit", "university": "University of Pennsylvania", "year": 1994}]}, {"id": 16, "name": "Peter Beresford", "university": "University of Pennsylvania", "year": 1984, "coAdvisors": [{"id": 54, "name": "Scott Harrington"}]}, {"id": 34, "name": "Raja Bouzouita", "university": "University of Pennsylvania", "year": 1995}, {"id": 49, "name": "Ran Wei", "university": "University of Pennsylvania", "year": 2006}, {"id": 32, "name": "Richard Phillips", "university": "University of Pennsylvania", "year": 1994}, {"id": 38, "name": "Roberta Schini", "university": "University of Pennsylvania", "year": 1999}, {"id": 37, "name": "Roderick Carr", "university": "University of Pennsylvania", "year": 1997}, {"id": 3, "name": "Steven Weisbart", "university": "University of Pennsylvania", "year": 1973}, {"id": 47, "name": "Suchun Ma", "university": "University of Pennsylvania", "year": 2005}, {"id": 35, "name": "Traci Allotey", "university": "University of Pennsylvania", "year": 1995}, {"id": 21, "name": "Tsai-Jyh Chen", "university": "University of Pennsylvania", "year": 1990}, {"id": 8, "name": "William C. Scheel", "university": "University of Pennsylvania", "year": 1978}, {"id": 46, "name": "Xiaoying Xie", "university": "University of Pennsylvania", "year": 2005}, {"id": 9, "name": "Yves Roy", "university": "University of Pennsylvania", "year": 1980}]}]}, {"id": 202, "name": "Marcel Boyer", "university": "", "year": null, "children": [{"id": 203, "name": "Georges Dionne", "university": "University of Montreal", "year": 1980, "children": [{"id": 225, "name": "Abdelhakim Nouira", "university": "HEC Montreal", "year": 2008}, {"id": 224, "name": "Denitsa Stefanova", "university": "HEC Montreal", "year": 2008}, {"id": 206, "name": "El Bachir A. Belhadji", "university": "University of Montreal", "year": 1994}, {"id": 216, "name": "Florence Giuliano", "university": "Universite de Paris X Nanterre", "year": 2004}, {"id": 209, "name": "Francois Gagnon", "university": "University of Montreal", "year": 1996}, {"id": 221, "name": "Hela Dahen", "university": "HEC Montreal", "year": 2007}, {"id": 228, "name": "Jean-Charles Bouvrette", "university": "HEC Montreal", "year": 2013}, {"id": 212, "name": "Kais Dachraoui", "university": "", "year": 1998}, {"id": 222, "name": "Khemais Hammami", "university": "HEC Montreal", "year": 2007}, {"id": 220, "name": "Maria Pacurar", "university": "HEC Montreal", "year": 2006}, {"id": 213, "name": "Marie-Gloriose Ingabire", "university": "", "year": 1999}, {"id": 214, "name": "Marko Savor", "university": "HEC Montreal", "year": 2002}, {"id": 229, "name": "Mohamed Mnasri", "university": "UQAM", "year": 2014}, {"id": 217, "name": "Nabil Tahani", "university": "HEC Montreal", "year": 2004}, {"id": 218, "name": "Nadia Ouetani", "university": "HEC Montreal", "year": 2005}, {"id": 211, "name": "Nathalie Fombaron", "university": "Universite de Paris X Nanterre", "year": 1997}, {"id": 215, "name": "Olfa Ghali", "university": "Universite de Paris X Nanterre", "year": 2003}, {"id": 226, "name": "Olfa Maalaoui", "university": "HEC Montreal", "year": 2009}, {"id": 223, "name": "Oussama Chakroun", "university": "HEC Montreal", "year": 2008}, {"id": 205, "name": "Pascale Viala", "university": "HEC Paris", "year": 1993}, {"id": 204, "name": "Robert Gagne", "university": "University of Montreal", "year": 1989}, {"id": 227, "name": "Sadok Laajimi", "university": "", "year": 2010}, {"id": 207, "name": "Tahar Mounsif", "university": "University of Montreal", "year": 1994}, {"id": 219, "name": "Thouraya Triki", "university": "HEC Montreal", "year": 2005}, {"id": 208, "name": "Yunxiang Shen", "university": "University of Montreal", "year": 1995}, {"id": 210, "name": "Yves Alarie", "university": "University of Montreal", "year": 1997}]}]}, {"id": 68, "name": "R. Neil Vance", "university": "", "year": null, "children": [{"id": 69, "name": "Robert E. Hoyt", "university": "University of Pennsylvania", "year": 1987, "children": [{"id": 82, "name": "Andrew Kuchar", "university": "University of Georgia", "year": 1999}, {"id": 70, "name": "Ho Kang", "university": "University of Georgia", "year": 1991}, {"id": 71, "name": "James M. Carson", "university": "University of Georgia", "year": 1993, "children": [{"id": 75, "name": "Anna Song", "university": "University of Georgia", "year": 2016}, {"id": 78, "name": "Dan Yang", "university": "University of Georgia", "year": 2022}, {"id": 76, "name": "Josh Frederick", "university": "University of Georgia", "year": 2019}, {"id": 73, "name": "Kevin Gatzlaff", "university": "Florida State University", "year": 2009, "coAdvisors": [{"id": 83, "name": "Kathleen McCullough"}]}, {"id": 77, "name": "Monica Heidesch", "university": "University of Georgia", "year": 2022}, {"id": 74, "name": "Stephen Fier", "university": "Florida State University", "year": 2011, "coAdvisors": [{"id": 83, "name": "Kathleen McCullough"}]}, {"id": 72, "name": "Yuling Wang", "university": "Florida State University", "year": 2009}]}, {"id": 83, "name": "Kathleen McCullough", "university": "University of Georgia", "year": 2000, "children": [{"id": 84, "name": "David Pooser", "university": "Florida State University", "year": 2012}, {"id": 85, "name": "Jill Bisco", "university": "Florida State University", "year": 2014}]}, {"id": 79, "name": "Lee Colquitt", "university": "University of Georgia", "year": 1995}, {"id": 87, "name": "Melvin T. Stith, Jr.", "university": "University of Georgia", "year": 2011}, {"id": 80, "name": "Randy Dumm", "university": "University of Georgia", "year": 1998}, {"id": 86, "name": "Steven Miller", "university": "University of Georgia", "year": 2010}, {"id": 81, "name": "Tim Query", "university": "University of Georgia", "year": 1999}]}]}, {"id": 52, "name": "Robert I. Mehr", "university": "", "year": null, "children": [{"id": 67, "name": "Han Kang", "university": "University of Illinois", "year": 1984}, {"id": 53, "name": "Mark Dorfman", "university": "University of Illinois", "year": 1970}, {"id": 61, "name": "Sandra Gustavson", "university": "University of Illinois", "year": 1979, "children": [{"id": 62, "name": "Robert Puelz", "university": "University of Georgia", "year": 1990}, {"id": 63, "name": "Ryan Lee", "university": "University of Georgia", "year": 2000}]}, {"id": 54, "name": "Scott Harrington", "university": "University of Illinois", "year": 1979, "children": [{"id": 55, "name": "Beom-ha Jee", "university": "University of Pennsylvania", "year": 1987}, {"id": 56, "name": "Jack Nelson", "university": "University of Pennsylvania", "year": 1987}, {"id": 57, "name": "Julie Cagle", "university": "University of South Carolina", "year": 1993}, {"id": 58, "name": "Karen Epermanis", "university": "University of South Carolina", "year": 2000}, {"id": 59, "name": "Tong Yu", "university": "University of South Carolina", "year": 2001}, {"id": 60, "name": "Vladimir Zdorovtsov", "university": "University of South Carolina", "year": 2004}]}, {"id": 64, "name": "Stephen D'Arcy", "university": "University of Illinois", "year": 1982, "children": [{"id": 66, "name": "Kevin Ahlgrim", "university": "", "year": null}, {"id": 65, "name": "Rick Gorvett", "university": "", "year": null}]}]}, {"id": 248, "name": "Sanford Berg", "university": "", "year": null, "children": [{"id": 249, "name": "Martin Grace", "university": "University of Florida", "year": 1986, "children": [{"id": 258, "name": "Fan Liu", "university": "Georgia State University", "year": 2012}, {"id": 252, "name": "Hun Soo Kim", "university": "Georgia State University", "year": 1995}, {"id": 254, "name": "J. Tyler Leverty", "university": "Georgia State University", "year": 2005, "children": [{"id": 255, "name": "Anastasia Ivantsova", "university": "University of Wisconsin", "year": 2018}, {"id": 256, "name": "Junhao Liu", "university": "University of Wisconsin", "year": 2019}]}, {"id": 251, "name": "Jean Kwon", "university": "Georgia State University", "year": 1995}, {"id": 257, "name": "Jian Wen", "university": "Georgia State University", "year": 2010}, {"id": 261, "name": "Jingshu Luo", "university": "Temple University", "year": 2020}, {"id": 262, "name": "Juan Zhang", "university": "Temple University", "year": 2020}, {"id": 250, "name": "Loriliee Medders", "university": "Georgia State University", "year": 1995}, {"id": 253, "name": "Minglai Zhu", "university": "Georgia State University", "year": 2003}, {"id": 259, "name": "Ning Wang", "university": "Georgia State University", "year": 2013}, {"id": 263, "name": "Sabrina Du", "university": "Temple University", "year": 2020}, {"id": 260, "name": "Yiling Deng", "university": "Georgia State University", "year": 2016}]}]}, {"id": 143, "name": "John Long", "university": "", "year": null, "children": [{"id": 144, "name": "Joan Schmit", "university": "University of Indiana", "year": 1984, "children": [{"id": 148, "name": "Dana Kerr", "university": "University of Wisconsin", "year": 2002}, {"id": 153, "name": "Doug Bujakowski", "university": "University of Wisconsin", "year": 2016}, {"id": 145, "name": "Han Duck Lee", "university": "University of Wisconsin", "year": 1992}, {"id": 147, "name": "Jia-Hsing Yeh", "university": "University of Wisconsin", "year": 2000}, {"id": 155, "name": "Kenny Wunder", "university": "University of Wisconsin", "year": 2019, "coAdvisors": [{"id": 254, "name": "J. Tyler Leverty"}]}, {"id": 151, "name": "Kitty Yao", "university": "University of Wisconsin", "year": 2012}, {"id": 154, "name": "Kyeonghee Kim", "university": "University of Wisconsin", "year": 2018, "coAdvisors": [{"id": 254, "name": "J. Tyler Leverty"}]}, {"id": 146, "name": "Linda Leetch", "university": "University of Wisconsin", "year": 1995}, {"id": 152, "name": "Marc Ragin", "university": "University of Wisconsin", "year": 2014}, {"id": 150, "name": "Shinichi Kamiya", "university": "University of Wisconsin", "year": 2010}, {"id": 149, "name": "Yayuan Ren", "university": "University of Wisconsin", "year": 2006}]}]}, {"id": 105, "name": "Patricia Danzon", "university": "University of Chicago", "year": 1973, "children": [{"id": 106, "name": "Helen Doerpinghaus", "university": "University of Pennsylvania", "year": 1989}, {"id": 117, "name": "Jan Ambrose", "university": "University of Pennsylvania", "year": 1994}, {"id": 116, "name": "Jim Ligon", "university": "University of Pennsylvania", "year": 1991}, {"id": 107, "name": "Mark Browne", "university": "University of Pennsylvania", "year": 1989, "children": [{"id": 115, "name": "Chunyan Zhang", "university": "University of Wisconsin", "year": 2014}, {"id": 114, "name": "Cuncun Luan", "university": "University of Wisconsin", "year": 2014}, {"id": 112, "name": "Lan Ju", "university": "University of Wisconsin", "year": 2008}, {"id": 111, "name": "Ping Wang", "university": "University of Wisconsin", "year": 2005}, {"id": 113, "name": "Ray Gilmore", "university": "University of Wisconsin", "year": 2010}, {"id": 109, "name": "Wenjiu (Jerry) Liu", "university": "University of Wisconsin", "year": 2001}, {"id": 110, "name": "Yu Lei", "university": "University of Wisconsin", "year": 2004}, {"id": 108, "name": "Yu-Luen Ma", "university": "University of Wisconsin", "year": 1999}]}]}, {"id": 88, "name": "Bernard L. Webb", "university": "", "year": null, "children": [{"id": 89, "name": "Claude Lilly", "university": "Georgia State University", "year": 1973, "children": [{"id": 90, "name": "John Bratton", "university": "Florida State University", "year": 1994}]}, {"id": 97, "name": "John Thornton", "university": "Georgia State University", "year": 1975}, {"id": 91, "name": "Richard Corbett", "university": "Georgia State University", "year": 1974, "children": [{"id": 95, "name": "Chris Taylor Berry", "university": "Florida State University", "year": 1995}, {"id": 96, "name": "Dave Marlett", "university": "Florida State University", "year": 1997}, {"id": 94, "name": "Emily Norman Zietz", "university": "Florida State University", "year": 1993}, {"id": 92, "name": "Karen Hamilton", "university": "Florida State University", "year": 1991}, {"id": 93, "name": "Stephen Avila", "university": "Florida State University", "year": 1993}]}, {"id": 98, "name": "William Feldhaus", "university": "Georgia State University", "year": 1980, "children": [{"id": 99, "name": "Mike Barth", "university": "Georgia State University", "year": 1993}]}]}, {"id": 162, "name": "Richard Kihlstrom/ Leonard Mirman", "university": "", "year": null, "children": [{"id": 163, "name": "Harris Schlesinger", "university": "University of Illinois", "year": 1980, "children": [{"id": 170, "name": "Amy Gehlken", "university": "University of Alabama", "year": 2003}, {"id": 171, "name": "Bum Kim", "university": "University of Alabama", "year": 2004}, {"id": 165, "name": "Hassan Said", "university": "University of Alabama", "year": 1993}, {"id": 167, "name": "Kiseok Oh", "university": "University of Alabama", "year": 1994}, {"id": 169, "name": "Larry Fogelberg", "university": "University of Alabama", "year": 1996}, {"id": 173, "name": "Qin Lian", "university": "University of Alabama", "year": 2006}, {"id": 164, "name": "Tae-Young Choi", "university": "University of Alabama", "year": 1990}, {"id": 166, "name": "Varun Agarwal", "university": "University of Alabama", "year": 1994}, {"id": 172, "name": "Wenan Fei", "university": "University of Alabama", "year": 2006}, {"id": 168, "name": "Wondon Lee", "university": "University of Alabama", "year": 1994}]}]}, {"id": 118, "name": "Dan McGill", "university": "", "year": null, "children": [{"id": 119, "name": "Al Hofflander", "university": "University of Pennsylvania", "year": 1964}, {"id": 122, "name": "Harold Skipper", "university": "University of Pennsylvania", "year": 1977}, {"id": 120, "name": "Iksander Hamwi", "university": "University of Pennsylvania", "year": 1970}, {"id": 123, "name": "Norma Nielson", "university": "University of Pennsylvania", "year": 1979}, {"id": 121, "name": "Robert Cooper", "university": "University of Pennsylvania", "year": 1972}]}, {"id": 100, "name": "Neil Doherty", "university": "", "year": null, "children": [{"id": 103, "name": "Anne Kleffner", "university": "University of Pennsylvania", "year": 1993}, {"id": 104, "name": "Charles Nyce", "university": "University of Pennsylvania", "year": 1999}, {"id": 101, "name": "James Garven", "university": "University of Illinois", "year": 1984}, {"id": 102, "name": "Lisa Posey", "university": "University of Pennsylvania", "year": 1992}]}, {"id": 127, "name": "Howard Tucker", "university": "", "year": null, "children": [{"id": 128, "name": "Patrick Brockett", "university": "University of California-Irvine", "year": 1975, "children": [{"id": 129, "name": "Jing Ai", "university": "University of Texas-Austin", "year": null}, {"id": 130, "name": "Mulong Wang", "university": "University of Texas-Austin", "year": 2001}]}]}, {"id": 270, "name": "W. Kip Viscusi", "university": "", "year": null, "children": [{"id": 271, "name": "Patricia Born", "university": "Duke University", "year": 1994, "children": [{"id": 273, "name": "Dana Telljohann", "university": "Florida State University", "year": null}, {"id": 272, "name": "E. Tice Sirmans", "university": "Florida State University", "year": 2017}]}]}, {"id": 189, "name": "C. Arthur Williams, Jr.", "university": "", "year": null, "children": [{"id": 190, "name": "Michael Smith", "university": "University of Minnesota", "year": 1974}, {"id": 191, "name": "Peter Young", "university": "", "year": null}]}, {"id": 137, "name": "David Hendry", "university": "", "year": null, "children": [{"id": 138, "name": "James Poterba", "university": "Oxford", "year": 1983, "children": [{"id": 139, "name": "Jeffrey Brown", "university": "MIT", "year": 1999}]}]}, {"id": 174, "name": "Emmett Vaughn", "university": "", "year": null, "children": [{"id": 175, "name": "George Flanigan", "university": "University of Iowa", "year": 1972}, {"id": 176, "name": "Mark Power", "university": "University of Iowa", "year": 1981}]}, {"id": 140, "name": "Gary Griepentrog", "university": "", "year": null, "children": [{"id": 141, "name": "Larry Cox", "university": "University of South Carolina", "year": 1984, "children": [{"id": 142, "name": "Bill Ferguson", "university": "University of Georgia", "year": 1995}]}]}, {"id": 156, "name": "Gerard Dickinson", "university": "", "year": null, "children": [{"id": 157, "name": "Stephen Diacon", "university": "University of Nottingham", "year": 1980, "children": [{"id": 158, "name": "Simon Ashby", "university": "University of Nottingham", "year": 1997}]}]}, {"id": 131, "name": "Harry Loman", "university": "", "year": null, "children": [{"id": 132, "name": "George Rejda", "university": "University of Pennsylvania", "year": 1961, "children": [{"id": 133, "name": "Joseph Haley", "university": "University of Nebraska", "year": 1990}]}]}, {"id": 134, "name": "Joseph Belth", "university": "", "year": null, "children": [{"id": 135, "name": "Travis Pritchett", "university": "University of Indiana", "year": 1969, "children": [{"id": 136, "name": "Nicos Scordis", "university": "University of South Carolina", "year": 1994}]}]}, {"id": 159, "name": "Peter Kempthorne/ John Pratt/ Howard Raiffa", "university": "", "year": null, "children": [{"id": 160, "name": "Michael Powers", "university": "Harvard", "year": 1987, "children": [{"id": 161, "name": "Larry Tzeng", "university": "Temple University", "year": 1996}]}]}, {"id": 124, "name": "Richard Heins", "university": "", "year": null, "children": [{"id": 125, "name": "Dan Anderson", "university": "University of Wisconsin", "year": 1970, "children": [{"id": 126, "name": "Nat Pope", "university": "University of Wisconsin", "year": 1999}]}]}, {"id": 276, "name": "Alan Kraus", "university": "", "year": null, "children": [{"id": 277, "name": "Mary Kelly", "university": "University of British Columbia", "year": 1998}]}, {"id": 266, "name": "Arthur Denzau", "university": "", "year": null, "children": [{"id": 267, "name": "Mary Ann Boose", "university": "Washington University", "year": 1988}]}, {"id": 238, "name": "Bob Hedges/ Wayne Snider", "university": "", "year": null, "children": [{"id": 239, "name": "Moshe Porat", "university": "Temple University", "year": 1982}]}, {"id": 284, "name": "Damian Ward / Hafiz Mirza", "university": "", "year": null, "children": [{"id": 285, "name": "Stephanie Hussels", "university": "Bradford", "year": 2004}]}, {"id": 268, "name": "Dennis Officer / Chuck Haywood", "university": "", "year": null, "children": [{"id": 269, "name": "Roger Shelorr", "university": "University of Kentucky", "year": 1989}]}, {"id": 274, "name": "Eliezer Priezman / Thomas Salisbury", "university": "", "year": null, "children": [{"id": 275, "name": "Moshe Milevsky", "university": "York University", "year": 1996}]}, {"id": 194, "name": "Howard Winklevoss", "university": "", "year": null, "children": [{"id": 195, "name": "Arnold Shapiro", "university": "University of Pennsylvania", "year": 1975}]}, {"id": 181, "name": "Irv Pfieffer", "university": "", "year": null, "children": [{"id": 182, "name": "Joseph Launie", "university": "UCLA", "year": 1968}]}, {"id": 242, "name": "J.J. Rosa", "university": "", "year": null, "children": [{"id": 243, "name": "J. Francois Outreville", "university": "University of Orleans", "year": null}]}, {"id": 244, "name": "Jack VanDerhei", "university": "", "year": null, "children": [{"id": 245, "name": "Terri Vaughn", "university": "University of Pennsylvania", "year": 1985}]}, {"id": 183, "name": "James Graaskamp", "university": "", "year": null, "children": [{"id": 184, "name": "Jerry Todd", "university": "University of Wisconsin", "year": 1968}]}, {"id": 200, "name": "James Heckman", "university": "", "year": null, "children": [{"id": 201, "name": "Richard Butler", "university": "University of Chicago", "year": 1979}]}, {"id": 246, "name": "John Glascock", "university": "", "year": null, "children": [{"id": 247, "name": "David Wood", "university": "Louisiana Tech", "year": 1985}]}, {"id": 234, "name": "Joseph Seneca", "university": "", "year": null, "children": [{"id": 235, "name": "James Barrese", "university": "Rutgers", "year": 1982}]}, {"id": 264, "name": "Len Berekson", "university": "", "year": null, "children": [{"id": 265, "name": "Michael McNamara", "university": "University of Nebraska", "year": 1988}]}, {"id": 230, "name": "Mark Greene", "university": "", "year": null, "children": [{"id": 231, "name": "Saul Adelman", "university": "University of Georgia", "year": 1980}]}, {"id": 187, "name": "Marshall Sarnat/ Tzvi Ophir", "university": "", "year": null, "children": [{"id": 188, "name": "Yehuda Kahane", "university": "Hebrew University", "year": 1972}]}, {"id": 282, "name": "Mary Weiss", "university": "", "year": null, "children": [{"id": 283, "name": "B. Paul Choi", "university": "Temple University", "year": 2002}]}, {"id": 232, "name": "Milton Harris", "university": "", "year": null, "children": [{"id": 233, "name": "Keith Crocker", "university": "Carnegie-Mellon University", "year": 1981}]}, {"id": 196, "name": "Morris Karson", "university": "", "year": null, "children": [{"id": 197, "name": "E.G. Miller", "university": "University of Alabama", "year": 1976}]}, {"id": 240, "name": "Myron Gordon", "university": "", "year": null, "children": [{"id": 241, "name": "Gilles Bernier", "university": "University of Toronto", "year": 1984}]}, {"id": 236, "name": "Robert Hershbarger", "university": "", "year": null, "children": [{"id": 237, "name": "Ronald Miller", "university": "University of Missouri", "year": 1982}]}, {"id": 179, "name": "Robert Pendleton", "university": "", "year": null, "children": [{"id": 180, "name": "Sam Cox", "university": "Louisiana State", "year": 1968}]}, {"id": 280, "name": "Robert Serfling", "university": "", "year": null, "children": [{"id": 281, "name": "Vytraras Brazauskas", "university": "University of Texas-Dallas", "year": 1999}]}, {"id": 198, "name": "Robert Zelten", "university": "", "year": null, "children": [{"id": 199, "name": "Terrie Troxel", "university": "University of Pennsylvania", "year": 1977}]}, {"id": 278, "name": "Walter Karten", "university": "", "year": null, "children": [{"id": 279, "name": "Andreas Richter", "university": "University of Hamburg", "year": 1998}]}, {"id": 192, "name": "William Sudderth", "university": "", "year": null, "children": [{"id": 193, "name": "Stuart Klugman", "university": "University of Minnesota", "year": 1975}]}, {"id": 177, "name": "Wright Hoffman", "university": "", "year": null, "children": [{"id": 178, "name": "Ken Black", "university": "University of Pennsylvania", "year": 1953}]}, {"id": 185, "name": "Yugi Ito", "university": "", "year": null, "children": [{"id": 186, "name": "Richard Derrig", "university": "Brown", "year": 1970}]}, {"id": 286, "name": "George Zanjani", "university": "University of Chicago", "year": 2000}]}, "coAdvisorEdges": [{"advisor": 54, "student": 16}, {"advisor": 54, "student": 19}, {"advisor": 271, "student": 27}, {"advisor": 100, "student": 42}, {"advisor": 83, "student": 73}, {"advisor": 83, "student": 74}, {"advisor": 254, "student": 154}, {"advisor": 254, "student": 155}], "stats": {"people": 288, "advisors": 81, "universities": 45, "roots": 52}, "generated": "2026-07-31"};</script>
+<script>window.ARIA_TREE_DATA = {"tree": {"id": "__root__", "children": [{"id": 1, "name": "Lawrence Klein", "university": "", "year": null, "children": [{"id": 2, "name": "J. David Cummins", "university": "University of Pennsylvania", "year": 1972, "children": [{"id": 20, "name": "Adel Rabh", "university": "University of Pennsylvania", "year": 1989}, {"id": 36, "name": "Alice Lee", "university": "University of Pennsylvania", "year": 1995}, {"id": 11, "name": "Andrew Turner", "university": "University of Pennsylvania", "year": 1981}, {"id": 48, "name": "Anita Lo", "university": "University of Pennsylvania", "year": 2006}, {"id": 22, "name": "Anne Carroll", "university": "University of Pennsylvania", "year": 1991}, {"id": 14, "name": "Barry D. Smith", "university": "University of Pennsylvania", "year": 1983}, {"id": 7, "name": "Barry Schweig", "university": "University of Pennsylvania", "year": 1977}, {"id": 51, "name": "Carol Park", "university": "University of Pennsylvania", "year": 2009}, {"id": 19, "name": "Chong Lee", "university": "University of Pennsylvania", "year": 1989, "coAdvisors": [{"id": 54, "name": "Scott Harrington"}]}, {"id": 4, "name": "D. Stuart Bancroft", "university": "University of Pennsylvania", "year": 1973}, {"id": 42, "name": "David L. Eckles", "university": "University of Pennsylvania", "year": 2003, "coAdvisors": [{"id": 100, "name": "Neil Doherty"}], "children": [{"id": 44, "name": "Evan Eastman", "university": "University of Georgia", "year": 2017}, {"id": 45, "name": "Jiyeon Yun", "university": "University of Georgia", "year": 2019}, {"id": 43, "name": "Peihan Chen", "university": "University of Georgia", "year": 2015}, {"id": 287, "name": "Taylor Graciano", "university": "University of Georgia", "year": 2025}]}, {"id": 25, "name": "David Sommer", "university": "University of Pennsylvania", "year": 1994, "children": [{"id": 29, "name": "Andre Liebenberg", "university": "University of Georgia", "year": 2004, "children": [{"id": 288, "name": "Xin Che", "university": "University of Mississippi", "year": 2018}]}, {"id": 26, "name": "Cassandra Cole", "university": "University of Georgia", "year": 2002, "children": [{"id": 27, "name": "J. Bradley Karl", "university": "Florida State University", "year": 2013, "coAdvisors": [{"id": 271, "name": "Patricia Born"}]}]}, {"id": 30, "name": "Enya He", "university": "University of Georgia", "year": 2006}, {"id": 31, "name": "Joe Ruhland", "university": "University of Georgia", "year": 2006}, {"id": 28, "name": "Lars Powell", "university": "University of Georgia", "year": 2002}]}, {"id": 6, "name": "Donald J. Doudna", "university": "University of Pennsylvania", "year": 1976}, {"id": 15, "name": "Elizabeth Grace", "university": "University of Pennsylvania", "year": 1984}, {"id": 50, "name": "Freda Song", "university": "University of Pennsylvania", "year": 2009}, {"id": 41, "name": "Gregory Nini", "university": "University of Pennsylvania", "year": 2002}, {"id": 10, "name": "Henry D. Martin", "university": "University of Pennsylvania", "year": 1981}, {"id": 33, "name": "Hongmin Zi", "university": "University of Pennsylvania", "year": 1994}, {"id": 12, "name": "Jack L. VanDerhei", "university": "University of Pennsylvania", "year": 1982}, {"id": 39, "name": "James Moore", "university": "University of Pennsylvania", "year": 1999}, {"id": 5, "name": "Jerry W. Caswell", "university": "University of Pennsylvania", "year": 1974}, {"id": 23, "name": "Kevin Eastman", "university": "University of Pennsylvania", "year": 1992}, {"id": 40, "name": "Krupa S. Viswanathan", "university": "University of Pennsylvania", "year": 2000}, {"id": 24, "name": "Laureen Regan", "university": "University of Pennsylvania", "year": 1993}, {"id": 13, "name": "Laurel J. Wiltbank", "university": "University of Pennsylvania", "year": 1983}, {"id": 17, "name": "Lawrence A. Berger", "university": "University of Pennsylvania", "year": 1985, "children": [{"id": 18, "name": "Vickie Bajtelsmit", "university": "University of Pennsylvania", "year": 1994}]}, {"id": 16, "name": "Peter Beresford", "university": "University of Pennsylvania", "year": 1984, "coAdvisors": [{"id": 54, "name": "Scott Harrington"}]}, {"id": 34, "name": "Raja Bouzouita", "university": "University of Pennsylvania", "year": 1995}, {"id": 49, "name": "Ran Wei", "university": "University of Pennsylvania", "year": 2006}, {"id": 32, "name": "Richard Phillips", "university": "University of Pennsylvania", "year": 1994, "children": [{"id": 289, "name": "Chenghsien Tsai", "university": "Georgia State University", "year": 1998}, {"id": 293, "name": "Jeungbo Shim", "university": "Georgia State University", "year": 2007}, {"id": 291, "name": "Otgontsetseg Erhemjamts", "university": "Georgia State University", "year": 2005}, {"id": 292, "name": "Puneet Prakash", "university": "Georgia State University", "year": 2005}, {"id": 290, "name": "Wenyan Shiu", "university": "Georgia State University", "year": 2000}, {"id": 294, "name": "Yuan Yuan", "university": "Georgia State University", "year": 2007}]}, {"id": 38, "name": "Roberta Schini", "university": "University of Pennsylvania", "year": 1999}, {"id": 37, "name": "Roderick Carr", "university": "University of Pennsylvania", "year": 1997}, {"id": 3, "name": "Steven Weisbart", "university": "University of Pennsylvania", "year": 1973}, {"id": 47, "name": "Suchun Ma", "university": "University of Pennsylvania", "year": 2005}, {"id": 35, "name": "Traci Allotey", "university": "University of Pennsylvania", "year": 1995}, {"id": 21, "name": "Tsai-Jyh Chen", "university": "University of Pennsylvania", "year": 1990}, {"id": 8, "name": "William C. Scheel", "university": "University of Pennsylvania", "year": 1978}, {"id": 46, "name": "Xiaoying Xie", "university": "University of Pennsylvania", "year": 2005}, {"id": 9, "name": "Yves Roy", "university": "University of Pennsylvania", "year": 1980}]}]}, {"id": 202, "name": "Marcel Boyer", "university": "", "year": null, "children": [{"id": 203, "name": "Georges Dionne", "university": "University of Montreal", "year": 1980, "children": [{"id": 225, "name": "Abdelhakim Nouira", "university": "HEC Montreal", "year": 2008}, {"id": 224, "name": "Denitsa Stefanova", "university": "HEC Montreal", "year": 2008}, {"id": 206, "name": "El Bachir A. Belhadji", "university": "University of Montreal", "year": 1994}, {"id": 216, "name": "Florence Giuliano", "university": "Universite de Paris X Nanterre", "year": 2004}, {"id": 209, "name": "Francois Gagnon", "university": "University of Montreal", "year": 1996}, {"id": 221, "name": "Hela Dahen", "university": "HEC Montreal", "year": 2007}, {"id": 228, "name": "Jean-Charles Bouvrette", "university": "HEC Montreal", "year": 2013}, {"id": 212, "name": "Kais Dachraoui", "university": "", "year": 1998}, {"id": 222, "name": "Khemais Hammami", "university": "HEC Montreal", "year": 2007}, {"id": 220, "name": "Maria Pacurar", "university": "HEC Montreal", "year": 2006}, {"id": 213, "name": "Marie-Gloriose Ingabire", "university": "", "year": 1999}, {"id": 214, "name": "Marko Savor", "university": "HEC Montreal", "year": 2002}, {"id": 229, "name": "Mohamed Mnasri", "university": "UQAM", "year": 2014}, {"id": 217, "name": "Nabil Tahani", "university": "HEC Montreal", "year": 2004}, {"id": 218, "name": "Nadia Ouetani", "university": "HEC Montreal", "year": 2005}, {"id": 211, "name": "Nathalie Fombaron", "university": "Universite de Paris X Nanterre", "year": 1997}, {"id": 215, "name": "Olfa Ghali", "university": "Universite de Paris X Nanterre", "year": 2003}, {"id": 226, "name": "Olfa Maalaoui", "university": "HEC Montreal", "year": 2009}, {"id": 223, "name": "Oussama Chakroun", "university": "HEC Montreal", "year": 2008}, {"id": 205, "name": "Pascale Viala", "university": "HEC Paris", "year": 1993}, {"id": 204, "name": "Robert Gagne", "university": "University of Montreal", "year": 1989}, {"id": 227, "name": "Sadok Laajimi", "university": "", "year": 2010}, {"id": 207, "name": "Tahar Mounsif", "university": "University of Montreal", "year": 1994}, {"id": 219, "name": "Thouraya Triki", "university": "HEC Montreal", "year": 2005}, {"id": 208, "name": "Yunxiang Shen", "university": "University of Montreal", "year": 1995}, {"id": 210, "name": "Yves Alarie", "university": "University of Montreal", "year": 1997}]}]}, {"id": 68, "name": "R. Neil Vance", "university": "", "year": null, "children": [{"id": 69, "name": "Robert E. Hoyt", "university": "University of Pennsylvania", "year": 1987, "children": [{"id": 82, "name": "Andrew Kuchar", "university": "University of Georgia", "year": 1999}, {"id": 70, "name": "Ho Kang", "university": "University of Georgia", "year": 1991}, {"id": 71, "name": "James M. Carson", "university": "University of Georgia", "year": 1993, "children": [{"id": 75, "name": "Anna Song", "university": "University of Georgia", "year": 2016}, {"id": 78, "name": "Dan Yang", "university": "University of Georgia", "year": 2022}, {"id": 76, "name": "Josh Frederick", "university": "University of Georgia", "year": 2019}, {"id": 73, "name": "Kevin Gatzlaff", "university": "Florida State University", "year": 2009, "coAdvisors": [{"id": 83, "name": "Kathleen McCullough"}]}, {"id": 77, "name": "Monica Heidesch", "university": "University of Georgia", "year": 2022}, {"id": 74, "name": "Stephen Fier", "university": "Florida State University", "year": 2011, "coAdvisors": [{"id": 83, "name": "Kathleen McCullough"}]}, {"id": 72, "name": "Yuling Wang", "university": "Florida State University", "year": 2009}]}, {"id": 83, "name": "Kathleen McCullough", "university": "University of Georgia", "year": 2000, "children": [{"id": 84, "name": "David Pooser", "university": "Florida State University", "year": 2012}, {"id": 85, "name": "Jill Bisco", "university": "Florida State University", "year": 2014}]}, {"id": 79, "name": "Lee Colquitt", "university": "University of Georgia", "year": 1995}, {"id": 87, "name": "Melvin T. Stith, Jr.", "university": "University of Georgia", "year": 2011}, {"id": 80, "name": "Randy Dumm", "university": "University of Georgia", "year": 1998}, {"id": 86, "name": "Steven Miller", "university": "University of Georgia", "year": 2010}, {"id": 81, "name": "Tim Query", "university": "University of Georgia", "year": 1999}]}]}, {"id": 52, "name": "Robert I. Mehr", "university": "", "year": null, "children": [{"id": 67, "name": "Han Kang", "university": "University of Illinois", "year": 1984}, {"id": 53, "name": "Mark Dorfman", "university": "University of Illinois", "year": 1970}, {"id": 61, "name": "Sandra Gustavson", "university": "University of Illinois", "year": 1979, "children": [{"id": 62, "name": "Robert Puelz", "university": "University of Georgia", "year": 1990}, {"id": 63, "name": "Ryan Lee", "university": "University of Georgia", "year": 2000}]}, {"id": 54, "name": "Scott Harrington", "university": "University of Illinois", "year": 1979, "children": [{"id": 55, "name": "Beom-ha Jee", "university": "University of Pennsylvania", "year": 1987}, {"id": 56, "name": "Jack Nelson", "university": "University of Pennsylvania", "year": 1987}, {"id": 57, "name": "Julie Cagle", "university": "University of South Carolina", "year": 1993}, {"id": 58, "name": "Karen Epermanis", "university": "University of South Carolina", "year": 2000}, {"id": 59, "name": "Tong Yu", "university": "University of South Carolina", "year": 2001}, {"id": 60, "name": "Vladimir Zdorovtsov", "university": "University of South Carolina", "year": 2004}]}, {"id": 64, "name": "Stephen D'Arcy", "university": "University of Illinois", "year": 1982, "children": [{"id": 66, "name": "Kevin Ahlgrim", "university": "", "year": null}, {"id": 65, "name": "Rick Gorvett", "university": "", "year": null}]}]}, {"id": 248, "name": "Sanford Berg", "university": "", "year": null, "children": [{"id": 249, "name": "Martin Grace", "university": "University of Florida", "year": 1986, "children": [{"id": 258, "name": "Fan Liu", "university": "Georgia State University", "year": 2012}, {"id": 252, "name": "Hun Soo Kim", "university": "Georgia State University", "year": 1995}, {"id": 254, "name": "J. Tyler Leverty", "university": "Georgia State University", "year": 2005, "children": [{"id": 255, "name": "Anastasia Ivantsova", "university": "University of Wisconsin", "year": 2018}, {"id": 256, "name": "Junhao Liu", "university": "University of Wisconsin", "year": 2019}, {"id": 295, "name": "Tyler Welch", "university": "University of Wisconsin", "year": 2026, "coAdvisors": [{"name": "Justin Sydnor"}]}]}, {"id": 251, "name": "Jean Kwon", "university": "Georgia State University", "year": 1995}, {"id": 257, "name": "Jian Wen", "university": "Georgia State University", "year": 2010}, {"id": 261, "name": "Jingshu Luo", "university": "Temple University", "year": 2020}, {"id": 262, "name": "Juan Zhang", "university": "Temple University", "year": 2020}, {"id": 250, "name": "Loriliee Medders", "university": "Georgia State University", "year": 1995}, {"id": 253, "name": "Minglai Zhu", "university": "Georgia State University", "year": 2003}, {"id": 259, "name": "Ning Wang", "university": "Georgia State University", "year": 2013}, {"id": 263, "name": "Sabrina Du", "university": "Temple University", "year": 2020}, {"id": 260, "name": "Yiling Deng", "university": "Georgia State University", "year": 2016}]}]}, {"id": 143, "name": "John Long", "university": "", "year": null, "children": [{"id": 144, "name": "Joan Schmit", "university": "University of Indiana", "year": 1984, "children": [{"id": 148, "name": "Dana Kerr", "university": "University of Wisconsin", "year": 2002}, {"id": 153, "name": "Doug Bujakowski", "university": "University of Wisconsin", "year": 2016}, {"id": 145, "name": "Han Duck Lee", "university": "University of Wisconsin", "year": 1992}, {"id": 147, "name": "Jia-Hsing Yeh", "university": "University of Wisconsin", "year": 2000}, {"id": 155, "name": "Kenny Wunder", "university": "University of Wisconsin", "year": 2019, "coAdvisors": [{"id": 254, "name": "J. Tyler Leverty"}]}, {"id": 151, "name": "Kitty Yao", "university": "University of Wisconsin", "year": 2012}, {"id": 154, "name": "Kyeonghee Kim", "university": "University of Wisconsin", "year": 2018, "coAdvisors": [{"id": 254, "name": "J. Tyler Leverty"}]}, {"id": 146, "name": "Linda Leetch", "university": "University of Wisconsin", "year": 1995}, {"id": 152, "name": "Marc Ragin", "university": "University of Wisconsin", "year": 2014}, {"id": 150, "name": "Shinichi Kamiya", "university": "University of Wisconsin", "year": 2010}, {"id": 149, "name": "Yayuan Ren", "university": "University of Wisconsin", "year": 2006}]}]}, {"id": 105, "name": "Patricia Danzon", "university": "University of Chicago", "year": 1973, "children": [{"id": 106, "name": "Helen Doerpinghaus", "university": "University of Pennsylvania", "year": 1989}, {"id": 117, "name": "Jan Ambrose", "university": "University of Pennsylvania", "year": 1994}, {"id": 116, "name": "Jim Ligon", "university": "University of Pennsylvania", "year": 1991}, {"id": 107, "name": "Mark Browne", "university": "University of Pennsylvania", "year": 1989, "children": [{"id": 115, "name": "Chunyan Zhang", "university": "University of Wisconsin", "year": 2014}, {"id": 114, "name": "Cuncun Luan", "university": "University of Wisconsin", "year": 2014}, {"id": 112, "name": "Lan Ju", "university": "University of Wisconsin", "year": 2008}, {"id": 111, "name": "Ping Wang", "university": "University of Wisconsin", "year": 2005}, {"id": 113, "name": "Ray Gilmore", "university": "University of Wisconsin", "year": 2010}, {"id": 109, "name": "Wenjiu (Jerry) Liu", "university": "University of Wisconsin", "year": 2001}, {"id": 110, "name": "Yu Lei", "university": "University of Wisconsin", "year": 2004}, {"id": 108, "name": "Yu-Luen Ma", "university": "University of Wisconsin", "year": 1999}]}]}, {"id": 88, "name": "Bernard L. Webb", "university": "", "year": null, "children": [{"id": 89, "name": "Claude Lilly", "university": "Georgia State University", "year": 1973, "children": [{"id": 90, "name": "John Bratton", "university": "Florida State University", "year": 1994}]}, {"id": 97, "name": "John Thornton", "university": "Georgia State University", "year": 1975}, {"id": 91, "name": "Richard Corbett", "university": "Georgia State University", "year": 1974, "children": [{"id": 95, "name": "Chris Taylor Berry", "university": "Florida State University", "year": 1995}, {"id": 96, "name": "Dave Marlett", "university": "Florida State University", "year": 1997}, {"id": 94, "name": "Emily Norman Zietz", "university": "Florida State University", "year": 1993}, {"id": 92, "name": "Karen Hamilton", "university": "Florida State University", "year": 1991}, {"id": 93, "name": "Stephen Avila", "university": "Florida State University", "year": 1993}]}, {"id": 98, "name": "William Feldhaus", "university": "Georgia State University", "year": 1980, "children": [{"id": 99, "name": "Mike Barth", "university": "Georgia State University", "year": 1993}]}]}, {"id": 162, "name": "Richard Kihlstrom/ Leonard Mirman", "university": "", "year": null, "children": [{"id": 163, "name": "Harris Schlesinger", "university": "University of Illinois", "year": 1980, "children": [{"id": 170, "name": "Amy Gehlken", "university": "University of Alabama", "year": 2003}, {"id": 171, "name": "Bum Kim", "university": "University of Alabama", "year": 2004}, {"id": 165, "name": "Hassan Said", "university": "University of Alabama", "year": 1993}, {"id": 167, "name": "Kiseok Oh", "university": "University of Alabama", "year": 1994}, {"id": 169, "name": "Larry Fogelberg", "university": "University of Alabama", "year": 1996}, {"id": 173, "name": "Qin Lian", "university": "University of Alabama", "year": 2006}, {"id": 164, "name": "Tae-Young Choi", "university": "University of Alabama", "year": 1990}, {"id": 166, "name": "Varun Agarwal", "university": "University of Alabama", "year": 1994}, {"id": 172, "name": "Wenan Fei", "university": "University of Alabama", "year": 2006}, {"id": 168, "name": "Wondon Lee", "university": "University of Alabama", "year": 1994}]}]}, {"id": 118, "name": "Dan McGill", "university": "", "year": null, "children": [{"id": 119, "name": "Al Hofflander", "university": "University of Pennsylvania", "year": 1964}, {"id": 122, "name": "Harold Skipper", "university": "University of Pennsylvania", "year": 1977}, {"id": 120, "name": "Iksander Hamwi", "university": "University of Pennsylvania", "year": 1970}, {"id": 123, "name": "Norma Nielson", "university": "University of Pennsylvania", "year": 1979}, {"id": 121, "name": "Robert Cooper", "university": "University of Pennsylvania", "year": 1972}]}, {"id": 100, "name": "Neil Doherty", "university": "", "year": null, "children": [{"id": 103, "name": "Anne Kleffner", "university": "University of Pennsylvania", "year": 1993}, {"id": 104, "name": "Charles Nyce", "university": "University of Pennsylvania", "year": 1999}, {"id": 101, "name": "James Garven", "university": "University of Illinois", "year": 1984}, {"id": 102, "name": "Lisa Posey", "university": "University of Pennsylvania", "year": 1992}]}, {"id": 127, "name": "Howard Tucker", "university": "", "year": null, "children": [{"id": 128, "name": "Patrick Brockett", "university": "University of California-Irvine", "year": 1975, "children": [{"id": 129, "name": "Jing Ai", "university": "University of Texas-Austin", "year": null}, {"id": 130, "name": "Mulong Wang", "university": "University of Texas-Austin", "year": 2001}]}]}, {"id": 270, "name": "W. Kip Viscusi", "university": "", "year": null, "children": [{"id": 271, "name": "Patricia Born", "university": "Duke University", "year": 1994, "children": [{"id": 273, "name": "Dana Telljohann", "university": "Florida State University", "year": null}, {"id": 272, "name": "E. Tice Sirmans", "university": "Florida State University", "year": 2017}]}]}, {"id": 189, "name": "C. Arthur Williams, Jr.", "university": "", "year": null, "children": [{"id": 190, "name": "Michael Smith", "university": "University of Minnesota", "year": 1974}, {"id": 191, "name": "Peter Young", "university": "", "year": null}]}, {"id": 137, "name": "David Hendry", "university": "", "year": null, "children": [{"id": 138, "name": "James Poterba", "university": "Oxford", "year": 1983, "children": [{"id": 139, "name": "Jeffrey Brown", "university": "MIT", "year": 1999}]}]}, {"id": 174, "name": "Emmett Vaughn", "university": "", "year": null, "children": [{"id": 175, "name": "George Flanigan", "university": "University of Iowa", "year": 1972}, {"id": 176, "name": "Mark Power", "university": "University of Iowa", "year": 1981}]}, {"id": 140, "name": "Gary Griepentrog", "university": "", "year": null, "children": [{"id": 141, "name": "Larry Cox", "university": "University of South Carolina", "year": 1984, "children": [{"id": 142, "name": "Bill Ferguson", "university": "University of Georgia", "year": 1995}]}]}, {"id": 156, "name": "Gerard Dickinson", "university": "", "year": null, "children": [{"id": 157, "name": "Stephen Diacon", "university": "University of Nottingham", "year": 1980, "children": [{"id": 158, "name": "Simon Ashby", "university": "University of Nottingham", "year": 1997}]}]}, {"id": 131, "name": "Harry Loman", "university": "", "year": null, "children": [{"id": 132, "name": "George Rejda", "university": "University of Pennsylvania", "year": 1961, "children": [{"id": 133, "name": "Joseph Haley", "university": "University of Nebraska", "year": 1990}]}]}, {"id": 134, "name": "Joseph Belth", "university": "", "year": null, "children": [{"id": 135, "name": "Travis Pritchett", "university": "University of Indiana", "year": 1969, "children": [{"id": 136, "name": "Nicos Scordis", "university": "University of South Carolina", "year": 1994}]}]}, {"id": 159, "name": "Peter Kempthorne/ John Pratt/ Howard Raiffa", "university": "", "year": null, "children": [{"id": 160, "name": "Michael Powers", "university": "Harvard", "year": 1987, "children": [{"id": 161, "name": "Larry Tzeng", "university": "Temple University", "year": 1996}]}]}, {"id": 124, "name": "Richard Heins", "university": "", "year": null, "children": [{"id": 125, "name": "Dan Anderson", "university": "University of Wisconsin", "year": 1970, "children": [{"id": 126, "name": "Nat Pope", "university": "University of Wisconsin", "year": 1999}]}]}, {"id": 276, "name": "Alan Kraus", "university": "", "year": null, "children": [{"id": 277, "name": "Mary Kelly", "university": "University of British Columbia", "year": 1998}]}, {"id": 266, "name": "Arthur Denzau", "university": "", "year": null, "children": [{"id": 267, "name": "Mary Ann Boose", "university": "Washington University", "year": 1988}]}, {"id": 238, "name": "Bob Hedges/ Wayne Snider", "university": "", "year": null, "children": [{"id": 239, "name": "Moshe Porat", "university": "Temple University", "year": 1982}]}, {"id": 284, "name": "Damian Ward / Hafiz Mirza", "university": "", "year": null, "children": [{"id": 285, "name": "Stephanie Hussels", "university": "Bradford", "year": 2004}]}, {"id": 268, "name": "Dennis Officer / Chuck Haywood", "university": "", "year": null, "children": [{"id": 269, "name": "Roger Shelorr", "university": "University of Kentucky", "year": 1989}]}, {"id": 274, "name": "Eliezer Priezman / Thomas Salisbury", "university": "", "year": null, "children": [{"id": 275, "name": "Moshe Milevsky", "university": "York University", "year": 1996}]}, {"id": 194, "name": "Howard Winklevoss", "university": "", "year": null, "children": [{"id": 195, "name": "Arnold Shapiro", "university": "University of Pennsylvania", "year": 1975}]}, {"id": 181, "name": "Irv Pfieffer", "university": "", "year": null, "children": [{"id": 182, "name": "Joseph Launie", "university": "UCLA", "year": 1968}]}, {"id": 242, "name": "J.J. Rosa", "university": "", "year": null, "children": [{"id": 243, "name": "J. Francois Outreville", "university": "University of Orleans", "year": null}]}, {"id": 244, "name": "Jack VanDerhei", "university": "", "year": null, "children": [{"id": 245, "name": "Terri Vaughn", "university": "University of Pennsylvania", "year": 1985}]}, {"id": 183, "name": "James Graaskamp", "university": "", "year": null, "children": [{"id": 184, "name": "Jerry Todd", "university": "University of Wisconsin", "year": 1968}]}, {"id": 200, "name": "James Heckman", "university": "", "year": null, "children": [{"id": 201, "name": "Richard Butler", "university": "University of Chicago", "year": 1979}]}, {"id": 246, "name": "John Glascock", "university": "", "year": null, "children": [{"id": 247, "name": "David Wood", "university": "Louisiana Tech", "year": 1985}]}, {"id": 234, "name": "Joseph Seneca", "university": "", "year": null, "children": [{"id": 235, "name": "James Barrese", "university": "Rutgers", "year": 1982}]}, {"id": 264, "name": "Len Berekson", "university": "", "year": null, "children": [{"id": 265, "name": "Michael McNamara", "university": "University of Nebraska", "year": 1988}]}, {"id": 230, "name": "Mark Greene", "university": "", "year": null, "children": [{"id": 231, "name": "Saul Adelman", "university": "University of Georgia", "year": 1980}]}, {"id": 187, "name": "Marshall Sarnat/ Tzvi Ophir", "university": "", "year": null, "children": [{"id": 188, "name": "Yehuda Kahane", "university": "Hebrew University", "year": 1972}]}, {"id": 282, "name": "Mary Weiss", "university": "", "year": null, "children": [{"id": 283, "name": "B. Paul Choi", "university": "Temple University", "year": 2002}]}, {"id": 232, "name": "Milton Harris", "university": "", "year": null, "children": [{"id": 233, "name": "Keith Crocker", "university": "Carnegie-Mellon University", "year": 1981}]}, {"id": 196, "name": "Morris Karson", "university": "", "year": null, "children": [{"id": 197, "name": "E.G. Miller", "university": "University of Alabama", "year": 1976}]}, {"id": 240, "name": "Myron Gordon", "university": "", "year": null, "children": [{"id": 241, "name": "Gilles Bernier", "university": "University of Toronto", "year": 1984}]}, {"id": 236, "name": "Robert Hershbarger", "university": "", "year": null, "children": [{"id": 237, "name": "Ronald Miller", "university": "University of Missouri", "year": 1982}]}, {"id": 179, "name": "Robert Pendleton", "university": "", "year": null, "children": [{"id": 180, "name": "Sam Cox", "university": "Louisiana State", "year": 1968}]}, {"id": 280, "name": "Robert Serfling", "university": "", "year": null, "children": [{"id": 281, "name": "Vytraras Brazauskas", "university": "University of Texas-Dallas", "year": 1999}]}, {"id": 198, "name": "Robert Zelten", "university": "", "year": null, "children": [{"id": 199, "name": "Terrie Troxel", "university": "University of Pennsylvania", "year": 1977}]}, {"id": 278, "name": "Walter Karten", "university": "", "year": null, "children": [{"id": 279, "name": "Andreas Richter", "university": "University of Hamburg", "year": 1998}]}, {"id": 192, "name": "William Sudderth", "university": "", "year": null, "children": [{"id": 193, "name": "Stuart Klugman", "university": "University of Minnesota", "year": 1975}]}, {"id": 177, "name": "Wright Hoffman", "university": "", "year": null, "children": [{"id": 178, "name": "Ken Black", "university": "University of Pennsylvania", "year": 1953}]}, {"id": 185, "name": "Yugi Ito", "university": "", "year": null, "children": [{"id": 186, "name": "Richard Derrig", "university": "Brown", "year": 1970}]}, {"id": 286, "name": "George Zanjani", "university": "University of Chicago", "year": 2000}]}, "coAdvisorEdges": [{"advisor": 54, "student": 16}, {"advisor": 54, "student": 19}, {"advisor": 271, "student": 27}, {"advisor": 100, "student": 42}, {"advisor": 83, "student": 73}, {"advisor": 83, "student": 74}, {"advisor": 254, "student": 154}, {"advisor": 254, "student": 155}], "stats": {"people": 295, "advisors": 82, "universities": 45, "roots": 52}, "generated": "2026-09-22"};</script>
 <script>
 /* ARIA Academic Family Tree — collapsible left-to-right dendrogram.
  *
@@ -622,6 +635,31 @@ Generated 2026-07-31.
 
   var childCount = function (node) { return (node.children || []).length; };
 
+  // Co-advising. A tree gives each person one parent, so a co-advised student
+  // sits in the data under one advisor, and a coAdvisorEdges entry names the
+  // other. Neither is primary on the page: buildDisplay draws the student under
+  // every advisor, each appearance alike, and ⇄ jumps between them. Only a
+  // student's own students are drawn once, under the data parent.
+  var coStudentsOf = {};
+  var coAdvisorsOf = {};
+  DATA.coAdvisorEdges.forEach(function (e) {
+    if (!byId[e.advisor] || !byId[e.student]) { return; }
+    (coStudentsOf[e.advisor] = coStudentsOf[e.advisor] || []).push(byId[e.student]);
+    (coAdvisorsOf[e.student] = coAdvisorsOf[e.student] || []).push(e.advisor);
+  });
+  var coCount = function (node) { return (coStudentsOf[node.id] || []).length; };
+  var kidCount = function (node) { return childCount(node) + coCount(node); };
+
+  // Every place a person is drawn, in advisor order: under the data parent,
+  // then under each co-advisor.
+  function appearances(personId) {
+    var out = [{ id: personId, advisorId: parentOf[personId] }];
+    (coAdvisorsOf[personId] || []).forEach(function (a) {
+      out.push({ id: 'co:' + a + ':' + personId, advisorId: a });
+    });
+    return out;
+  }
+
   // Per-node view state. `collapsed` hides all children; `bundleOpen` reveals
   // the childless children that got tucked behind a "N more students" stub.
   var view = {};
@@ -641,7 +679,7 @@ Generated 2026-07-31.
     var withKids = [];
     var leaves = [];
     node.children.forEach(function (kid) {
-      (childCount(kid) ? withKids : leaves).push(kid);
+      (kidCount(kid) ? withKids : leaves).push(kid);
     });
     if (leaves.length < CFG.bundleMin) { return null; }
     return { withKids: withKids, leaves: leaves };
@@ -697,7 +735,7 @@ Generated 2026-07-31.
     '<span class="at-key"><span class="at-swatch" style="background:' + FALLBACK_COLOR +
       '"></span> other</span>' +
     '<span class="at-key"><span class="at-key-ring"></span> collapsed (click to expand)</span>' +
-    '<span class="at-key"><span class="at-key-line"></span> co-advised</span>' +
+    '<span class="at-key"><span class="at-key-line"></span> co-advised · ⇄ jumps to the other advisor</span>' +
     '<span class="at-stats">' + DATA.stats.people + ' people · ' +
       DATA.stats.advisors + ' advisors · ' + DATA.stats.universities + ' universities</span>';
 
@@ -722,7 +760,6 @@ Generated 2026-07-31.
 
   var svg = d3.select(canvas).append('svg');
   var zoomLayer = svg.append('g');
-  var gCoadvise = zoomLayer.append('g').attr('class', 'at-coadvise-layer');
   var gLinks = zoomLayer.append('g').attr('class', 'at-link-layer');
   var gNodes = zoomLayer.append('g').attr('class', 'at-node-layer');
 
@@ -748,15 +785,16 @@ Generated 2026-07-31.
   function buildDisplay(node) {
     var out = {
       id: node.id,
+      person: node.id,
       name: node.name,
       university: node.university,
       year: node.year,
-      coAdvisors: node.coAdvisors,
-      totalChildren: childCount(node),
+      coAdvised: !!(node.coAdvisors && node.coAdvisors.length),
+      totalChildren: kidCount(node),
       children: null,
       hiddenCount: 0
     };
-    if (!childCount(node)) { return out; }
+    if (!kidCount(node)) { return out; }
 
     var state = st(node.id);
     if (state.collapsed) {
@@ -765,10 +803,18 @@ Generated 2026-07-31.
       return out;
     }
 
+    // Co-advised students join the advisor's own students in name order, so
+    // nothing marks which advisor holds them in the data. (Only then: the
+    // root advisors are ordered by lineage size, not name.)
     var split = state.bundleOpen ? null : bundleSplit(node);
+    var shown = (split ? split.withKids : node.children || []).map(buildDisplay);
+    if (coStudentsOf[node.id]) {
+      shown = shown
+        .concat(coStudentsOf[node.id].map(function (s) { return coEntry(node, s); }))
+        .sort(function (a, b) { return a.name.localeCompare(b.name); });
+    }
     if (split) {
-      out.children = split.withKids.map(buildDisplay);
-      out.children.push({
+      shown.push({
         id: 'bundle:' + node.id,
         isBundle: true,
         bundleParent: node.id,
@@ -776,16 +822,35 @@ Generated 2026-07-31.
         children: null
       });
       out.hiddenCount = split.leaves.length;
-    } else {
-      out.children = node.children.map(buildDisplay);
     }
+    out.children = shown;
     return out;
   }
 
+  // A co-advised student as drawn under the advisor who doesn't hold them in
+  // the data. It looks like any other entry but has no branch of its own: a
+  // student with students of their own shows the count, and ⇄ leads to it.
+  function coEntry(advisor, student) {
+    var below = descendantCount(student);
+    return {
+      id: 'co:' + advisor.id + ':' + student.id,
+      person: student.id,
+      name: student.name,
+      university: student.university,
+      year: student.year,
+      coAdvised: true,
+      totalChildren: 0,
+      collapsedCount: below || undefined,
+      children: null,
+      hiddenCount: 0
+    };
+  }
+
+  // A co-advised student counts in each advisor's lineage, along with
+  // everyone below them.
   function descendantCount(node) {
-    return (node.children || []).reduce(function (n, kid) {
-      return n + 1 + descendantCount(kid);
-    }, 0);
+    var kids = (node.children || []).concat(coStudentsOf[node.id] || []);
+    return kids.reduce(function (n, kid) { return n + 1 + descendantCount(kid); }, 0);
   }
 
   // --------------------------------------------------------------- rendering
@@ -804,9 +869,6 @@ Generated 2026-07-31.
     var links = root.links().filter(function (d) { return d.source.data.id !== '__root__'; });
     nodes.forEach(function (d) { d.y -= m.col; });
 
-    var visible = {};
-    nodes.forEach(function (d) { visible[d.data.id] = d; });
-
     // --- links -------------------------------------------------------------
     var link = gLinks.selectAll('path.at-link').data(links, function (d) { return d.target.data.id; });
 
@@ -820,26 +882,10 @@ Generated 2026-07-31.
         return linkPath({ source: o, target: o });
       })
       .merge(link)
+      .classed('is-co', function (d) { return !!d.target.data.coAdvised; })
       .transition().duration(duration)
       .attr('opacity', 1)
       .attr('d', linkPath);
-
-    // --- co-advisor links --------------------------------------------------
-    var coEdges = DATA.coAdvisorEdges.filter(function (e) {
-      return visible[e.advisor] && visible[e.student];
-    });
-
-    var co = gCoadvise.selectAll('path.at-coadvise').data(coEdges, function (d) {
-      return d.advisor + '->' + d.student;
-    });
-
-    co.exit().remove();
-
-    co.enter().append('path')
-      .attr('class', 'at-coadvise')
-      .merge(co)
-      .transition().duration(duration)
-      .attr('d', function (d) { return coadvisePath(visible[d.advisor], visible[d.student]); });
 
     // --- nodes -------------------------------------------------------------
     var node = gNodes.selectAll('g.at-node').data(nodes, function (d) { return d.data.id; });
@@ -896,6 +942,17 @@ Generated 2026-07-31.
       }
     });
 
+    // ⇄ sits just past the label, so it is placed after the label is measured.
+    merged.each(function (d) {
+      var g = d3.select(this);
+      g.select('text.at-jump').remove();
+      if (d.data.isBundle || appearances(d.data.person).length < 2) { return; }
+      var label = g.select('text.at-label').node();
+      g.append('text').attr('class', 'at-jump')
+        .attr('x', 12 + label.getComputedTextLength() + 7).attr('y', 1)
+        .text('⇄');
+    });
+
     merged.filter(function (d) { return d.data.isBundle; })
       .select('text')
       .text(function (d) { return '+ ' + d.data.count + ' more students'; });
@@ -920,35 +977,57 @@ Generated 2026-07-31.
   function applyHighlight() {
     var dimming = !!matchIds;
     var isLit = function (id) { return !lineageIds || lineageIds[id]; };
-    var dimmed = function (id) { return (dimming && !matchIds[id]) || !isLit(id); };
+    // Search matches people, so every appearance of a match lights; hover
+    // lineage follows drawn nodes, so each appearance lights on its own path.
+    var dimmed = function (searchId, lineId) {
+      return (dimming && !matchIds[searchId]) || !isLit(lineId);
+    };
+    var person = function (d) { return d.data.person != null ? d.data.person : d.data.id; };
+    var halo = function (d) {
+      return (dimming && exactIds[person(d)]) || d.data.id === flashId;
+    };
 
     gNodes.selectAll('g.at-node')
-      .classed('is-match', function (d) { return dimming && !!exactIds[d.data.id]; })
-      .classed('is-dimmed', function (d) { return dimmed(d.data.id); })
+      .classed('is-match', function (d) { return dimming && !!exactIds[person(d)]; })
+      .classed('is-dimmed', function (d) { return dimmed(person(d), d.data.id); })
       .select('circle.at-match-halo')
-      .attr('opacity', function (d) { return dimming && exactIds[d.data.id] ? 1 : 0; });
+      .attr('opacity', function (d) { return halo(d) ? 1 : 0; });
 
     gLinks.selectAll('path.at-link')
       .classed('is-lineage', function (d) { return !!lineageIds && !!lineageIds[d.target.data.id]; })
-      .classed('is-dimmed', function (d) { return dimmed(d.target.data.id); });
-
-    gCoadvise.selectAll('path.at-coadvise')
-      .classed('is-lineage', function (d) {
-        return !!lineageIds && !!lineageIds[d.student] && !!lineageIds[d.advisor];
-      })
-      .classed('is-dimmed', function (d) { return dimmed(d.student); });
+      .classed('is-dimmed', function (d) { return dimmed(person(d.target), d.target.data.id); });
   }
 
-  // A co-advisor edge usually spans several columns, so bow it well clear of
-  // the primary links rather than cutting straight through the tree.
-  function coadvisePath(a, b) {
-    var midY = (a.y + b.y) / 2;
-    var bow = Math.min(70, Math.abs(b.x - a.x) * 0.32 + 18);
-    var dir = b.x >= a.x ? 1 : -1;
-    return 'M' + a.y + ',' + a.x +
-           'C' + (midY) + ',' + (a.x + bow * dir) +
-           ' ' + (midY) + ',' + (b.x - bow * dir) +
-           ' ' + b.y + ',' + b.x;
+  // After a ⇄ jump, ring the landing spot briefly so the eye can find it.
+  var flashId = null;
+  var flashTimer;
+  function flash(id) {
+    flashId = id;
+    applyHighlight();
+    window.clearTimeout(flashTimer);
+    flashTimer = window.setTimeout(function () { flashId = null; applyHighlight(); }, 1600);
+  }
+
+  // Open the tree far enough that one appearance of a person is drawn.
+  function reveal(a) {
+    if (String(a.id).indexOf('co:') === 0) {
+      revealPathTo(a.advisorId);
+      st(a.advisorId).collapsed = false;
+      if (matchIds) { matchIds[a.advisorId] = true; }
+    } else {
+      revealPathTo(a.id);
+    }
+  }
+
+  // Move from one appearance of a co-advised student to the next.
+  function jumpFrom(d) {
+    var list = appearances(d.data.person);
+    var i = list.map(function (a) { return a.id; }).indexOf(d.data.id);
+    var next = list[(i + 1) % list.length];
+    reveal(next);
+    render();
+    centerOn(next.id);
+    flash(next.id);
   }
 
   // ---------------------------------------------------------- interactions
@@ -958,6 +1037,13 @@ Generated 2026-07-31.
     if (d.data.isBundle) {
       st(d.data.bundleParent).bundleOpen = true;
       render();
+      return;
+    }
+    // ⇄ always jumps. So does the rest of a co-advised entry with nothing
+    // below it to expand; one with students of its own still expands.
+    var onJump = event.target.classList && event.target.classList.contains('at-jump');
+    if (appearances(d.data.person).length > 1 && (onJump || !d.data.totalChildren)) {
+      jumpFrom(d);
       return;
     }
     if (!d.data.totalChildren) { return; }
@@ -981,7 +1067,11 @@ Generated 2026-07-31.
       lineageIds[walk.data.id] = true;
       walk = walk.parent;
     }
-    (d.data.coAdvisors || []).forEach(function (c) { lineageIds[c.id] = true; });
+    // A co-advised student lights up under every advisor at once.
+    appearances(d.data.person).forEach(function (a) {
+      lineageIds[a.id] = true;
+      for (var s = a.advisorId; s && s !== '__root__'; s = parentOf[s]) { lineageIds[s] = true; }
+    });
     applyHighlight();
     showTooltip(event, d);
   }
@@ -995,24 +1085,38 @@ Generated 2026-07-31.
   }
 
   function showTooltip(event, d) {
-    var advisorId = parentOf[d.data.id];
-    var advisor = advisorId && advisorId !== '__root__' ? byId[advisorId] : null;
-    var kids = childCount(byId[d.data.id] || {});
+    var src = byId[d.data.person] || {};
+    var list = appearances(src.id);
+    // Advisors are listed together, with no primary: everyone the student
+    // appears under, then any co-advisor named but not in the tree.
+    var advisors = list
+      .filter(function (a) { return a.advisorId && a.advisorId !== '__root__'; })
+      .map(function (a) { return byId[a.advisorId].name; })
+      .concat((src.coAdvisors || [])
+        .filter(function (c) { return c.id == null; })
+        .map(function (c) { return c.name; }));
+    var students = kidCount(src);
+    var coStudents = coCount(src) + (src.children || []).filter(function (k) {
+      return k.coAdvisors && k.coAdvisors.length;
+    }).length;
     var html = '<div class="at-tt-name">' + esc(d.data.name) + '</div>' +
       '<div class="at-tt-uni" style="color:' + color(d.data.university) + '">' +
       esc(d.data.university || 'Unknown') + (d.data.year ? ' · ' + d.data.year : '') + '</div>';
-    if (advisor) {
-      html += '<div class="at-tt-row"><strong>Advisor:</strong> ' + esc(advisor.name) + '</div>';
+    if (advisors.length) {
+      html += '<div class="at-tt-row"><strong>Advisor' + (advisors.length > 1 ? 's' : '') +
+        ':</strong> ' + advisors.map(esc).join(', ') + '</div>';
     } else {
       html += '<div class="at-tt-row"><strong>Root of this lineage</strong></div>';
     }
-    if (d.data.coAdvisors && d.data.coAdvisors.length) {
-      html += '<div class="at-tt-row"><strong>Co-advisor' +
-        (d.data.coAdvisors.length > 1 ? 's' : '') + ':</strong> ' +
-        d.data.coAdvisors.map(function (c) { return esc(c.name); }).join(', ') + '</div>';
+    if (students) {
+      html += '<div class="at-tt-row"><strong>Students:</strong> ' + students +
+        (coStudents ? ' (' + coStudents + ' co-advised)' : '') + '</div>';
     }
-    if (kids) {
-      html += '<div class="at-tt-row"><strong>Students:</strong> ' + kids + '</div>';
+    if (list.length > 1) {
+      var i = list.map(function (a) { return a.id; }).indexOf(d.data.id);
+      var next = byId[list[(i + 1) % list.length].advisorId];
+      html += '<div class="at-tt-row"><em>' + (d.data.totalChildren ? 'Click ⇄' : 'Click') +
+        ' to jump to their entry under ' + esc(next.name) + '.</em></div>';
     }
     tooltip.innerHTML = html;
     tooltip.classList.add('is-visible');
@@ -1061,14 +1165,8 @@ Generated 2026-07-31.
     found.forEach(function (p) {
       matchIds[p.id] = true;
       exactIds[p.id] = true;
-      revealPathTo(p.id);
-      // Reveal co-advisors too. A co-advising edge is only drawn when both ends
-      // are on screen, so without this the second advisor of someone like Karl
-      // stays hidden in a collapsed lineage and the relationship is invisible.
-      (byId[p.id].coAdvisors || []).forEach(function (c) {
-        matchIds[c.id] = true;
-        revealPathTo(c.id);
-      });
+      // Open every advisor a match appears under, not just one.
+      appearances(p.id).forEach(reveal);
     });
 
     hits.textContent = found.length === 0 ? 'no matches'
@@ -1086,8 +1184,8 @@ Generated 2026-07-31.
     while (pid && pid !== '__root__') {
       var state = st(pid);
       state.collapsed = false;
-      if (!childCount(byId[childId])) { state.bundleOpen = true; }
-      matchIds[pid] = true;
+      if (!kidCount(byId[childId])) { state.bundleOpen = true; }
+      if (matchIds) { matchIds[pid] = true; }   // null outside a search (⇄ jumps)
       childId = pid;
       pid = parentOf[pid];
     }
@@ -1108,7 +1206,7 @@ Generated 2026-07-31.
 
   function setAll(collapsed) {
     people.forEach(function (p) {
-      if (childCount(p)) {
+      if (kidCount(p)) {
         view[p.id] = { collapsed: collapsed, bundleOpen: !collapsed };
       }
     });
@@ -1143,12 +1241,12 @@ Generated 2026-07-31.
   function initialExpansion() {
     view = {};
     people.forEach(function (p) {
-      if (childCount(p)) { view[p.id] = { collapsed: true, bundleOpen: false }; }
+      if (kidCount(p)) { view[p.id] = { collapsed: true, bundleOpen: false }; }
     });
 
     var roots = DATA.tree.children || [];
     for (var i = 0; i < roots.length; i++) {
-      if (!childCount(roots[i])) { continue; }
+      if (!kidCount(roots[i])) { continue; }
       var saved = snapshot(roots[i]);
       openSubtree(roots[i]);
       if (visibleRowCount() > CFG.openRowBudget) {
@@ -1177,11 +1275,11 @@ Generated 2026-07-31.
   }
 
   function openSubtree(node) {
-    if (!childCount(node)) { return; }
+    if (!kidCount(node)) { return; }
     st(node.id).collapsed = false;
     st(node.id).bundleOpen = false;   // big leaf fans stay behind their stub
     var split = bundleSplit(node);
-    (split ? split.withKids : node.children).forEach(openSubtree);
+    (split ? split.withKids : node.children || []).forEach(openSubtree);
   }
 
   // Rows are leaves: d3.tree centres an internal node on its children rather
