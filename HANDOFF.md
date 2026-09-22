@@ -31,18 +31,25 @@ clean as of session close.
 machine" below the next time you sit there. This session didn't touch
 the Dropbox copy.
 
-**Content**: seven navbar pages — `index` (About), `research`,
-`teaching`, `presentations`, `service`, `awards`, `cv`. SSRN links
-across working/published papers; bio finalized; custom domain shipped.
+**Content**: eight navbar pages — `index` (About), `research`,
+`teaching`, `presentations`, `service`, `awards`, `resources`, `cv`.
+SSRN links across working/published papers; bio finalized; custom
+domain shipped.
 
-There are two **unlisted** pages, `family-tree.qmd` (the ARIA academic
-family tree) and `rts.qmd` (the Risk Theory Society publication
-record). Neither is in the navbar and nothing on the site links to
-them, so they are reachable only by direct URL. Each carries
+`resources.qmd` (added 2026-09-22) is the home for tools and records
+built for the RMI community, and the place to add more. It links
+**Insurance Tycoon** (also still on `teaching.qmd`), the **ARIA Academic
+Family Tree**, and the **Risk Theory Society** record. Each entry names
+whose work it is — the family tree is James M. Carson's, carried on
+here — and the RTS entry repeats the "blank journal means not recorded"
+caveat. Entries deliberately quote no counts, because the underlying
+pages' numbers change as their data grows.
+
+`family-tree.qmd` and `rts.qmd` are no longer unlinked: Resources
+links both. They are still **not in search results**: each carries
 `<meta name="robots" content="noindex, nofollow">` and `search: false`,
 and a post-render hook keeps them out of `sitemap.xml` (see Known
-quirks). Unlisted is not private — the repo is public and the page is
-served to anyone with the URL.
+quirks). Dropping those is a separate decision from linking them.
 
 `rts.qmd` is built from a spreadsheet Evan maintains,
 `files/RTSPublicationTracking_2025.xlsx`: 292 papers across 31 meetings
@@ -113,10 +120,11 @@ don't re-link them.
 
 ## What's left to add (next session ideas)
 
-- **RTS page — decide whether it goes public.** Built 2026-08-14 as an
-  unlisted page so Evan can send the URL to RTS leadership first. If
-  they are comfortable, add a navbar entry in `_quarto.yml` and drop
-  the `robots` meta and `search: false` from `rts.qmd`.
+- **RTS page and family tree — search visibility.** Both are linked
+  from `resources.qmd` as of 2026-09-22 but still noindex. To make
+  either fully public, drop the `robots` meta and `search: false` from
+  its `.qmd`. RTS leadership sign-off (RTS) and James Carson's (family
+  tree) were open questions when the Resources page was built.
 - **RTS data gaps** worth filling in the workbook, in rough order of
   value: the 2025 papers (the meeting is recorded with 10 papers but no
   program), 1985–1993 (no papers recorded at all), and the 105 papers

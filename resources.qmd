@@ -1,0 +1,27 @@
+---
+title: "Resources"
+---
+
+Tools and records for the risk management and insurance community. Each entry says whose work it is.
+
+## Teaching
+
+::: {.course-entry}
+**Insurance Tycoon — a homeowners underwriting simulation**<br>
+A browser-based simulation in which students price and underwrite a book of homeowners business against a live market. It runs solo for individual practice, or as an instructor-led multiplayer session in which a class competes on the same market.<br>
+[[Launch the simulation](https://insurance-tycoon-production.up.railway.app/)]
+:::
+
+## The Field
+
+::: {.course-entry}
+**ARIA Academic Family Tree**<br>
+Doctoral advising lineages in insurance and risk management, traced from dissertation chairs back to their root advisors. Expand a lineage, trace a name back to its root, or search for a person. The tree is James M. Carson's: he built it and presented it as the "Six Degrees of Solomon Huebner" in his ARIA presidential address. This page carries on that work.<br>
+[[Explore the tree](family-tree.qmd)]
+:::
+
+::: {.course-entry}
+**Risk Theory Society: Papers and Publication Outcomes**<br>
+What became of the papers selected for the Risk Theory Society's annual seminar: which reached print, where, and how long it took. It also covers the meeting history, including who presided, who hosted, and how the society grew. A blank journal means no publication has been recorded, not that the paper was never published.<br>
+[[View the record](rts.qmd)]
+:::

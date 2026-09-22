@@ -29,6 +29,8 @@ website:
         text: Service
       - href: awards.qmd
         text: Awards
+      - href: resources.qmd
+        text: Resources
       - href: cv.qmd
         text: CV
 
