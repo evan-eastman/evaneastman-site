@@ -14,7 +14,7 @@ about:
       text: FSU Profile
       href: "https://business.fsu.edu/person/evan-eastman"
     - icon: building
-      text: FSU Insurance Center
+      text: Florida Surplus Lines Center for Insurance Excellence
       href: "https://insurancecenter.business.fsu.edu/"
     - text: "{{< iconify simple-icons googlescholar >}} Scholar"
       href: "https://scholar.google.com/citations?user=ksnlHLAAAAAJ&hl=en"
