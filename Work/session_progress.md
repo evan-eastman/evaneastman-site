@@ -319,3 +319,118 @@ would be a decision rather than a formatting change.
    points at a Railway URL; SSRN backfill; school PC setup.
 **Blocked:** Staging the `.xlsx` is blocked by the permission
 classifier - needs one command from Evan (see Next #1).
+
+---
+
+## Session: 2026-09-26 10:16
+**Project:** evaneastman-site (Quarto personal website); the work itself is in
+`Dropbox\TempStuff\ARIA\PresidentialAddress\`, outside the repo
+**Objective:** Organize Evan's folder of ARIA presidential addresses, scope
+text analyses that could become a website feature, and list the addresses
+still to collect from JSTOR (JRI) and Wiley (RMIR).
+**Completed:**
+- **Found the full universe.** ARIA's official past-presidents list
+  (1933-2025) matched against Crossref's complete title lists for the
+  AAUTI Proceedings, the AAUTI Journal, *The Journal of Insurance*, JRI,
+  and RMIR. Result: 41 published addresses, 1960-2009. None before
+  Hedges (1960). None after Vaughan (2008 address, RMIR 2009). Gaps in
+  1962-64, 1974-77, 1997, and 2001.
+- **Reorganized the folder.** PDFs renamed `<delivered>_<Surname>.pdf`
+  into `addresses\`. Old names are in `_rename_log.csv`. Two old names
+  had the wrong year (Cummins1985 was delivered in 1986; Gustavson1989
+  in 1990). Weiss2008 is the published form of her 2007 address. The
+  Browne slides and the Zanjani *ARIA News* interview went to `related\`.
+- **catalog.xlsx**: one row per presidency (84 rows), with status, the
+  evidence for each identification, and links.
+- **code\intake.py**: files downloads dropped in `inbox\`, identifying each
+  by JSTOR stable ID, DOI, or journal header. It syncs the catalog and
+  rebuilds `text\`. Tested end to end on a real JSTOR file.
+- **Pilot on the 18 texts in hand** (`code\explore.py`): term rates,
+  president-to-president mentions, and a paragraph NMF.
+**Output:** in the Dropbox folder: `README.md`, `catalog.xlsx`,
+`code\build_catalog.py`, `code\intake.py`, `code\explore.py`, `text\`.
+In this repo: `HANDOFF.md` (new item under "What's left to add"), this entry.
+**Finding:** Belth's 1973 address records the resolution that moved the
+address from the outgoing to the incoming president. Every year
+before 1973 is the end of a term; every year after is the start. The
+addresses cite each other across decades. Gustavson (1990) recalls
+Hall's 1979 address, which confirms an identification the metadata
+alone could not.
+**Next:**
+1. Evan downloads the 23 "To collect" addresses into `inbox\`. Then he
+   runs `py -3 code\intake.py`.
+2. Read the nine "Inferred" addresses as they arrive. Set `basis` to
+   Stated where the text confirms it.
+3. Choose the analyses. Then decide whether a Resources page follows.
+**Blocked:** The downloads need Evan's FSU access to JSTOR and Wiley.
+**Update (same day):** Evan downloaded all 23. `intake.py` filed them, so
+all 41 addresses are in hand. Gregg (1961): JSTOR's PDF puts the Volume XXIX
+index where page 1 belongs, so that page is missing. Todd (1989): the
+scan's OCR is poor. The texts' own footnotes confirmed 8 of the 9 inferred
+identifications. Catalog synced once Evan closed it: 41 In folder, 40 Stated, 1 Inferred (Gregg).
+**Update (analyses):** Ran "presidents citing presidents" and the term trends
+on all 41 addresses. The scripts are `code\citations.py`, `code	erms.py`,
+and `codeigures.py`, with results in `analysis\` (four figures). All 494
+president mentions are hand-reviewed; the decisions are in
+`analysis\citation_review.csv`. Findings: 47 address-to-address references,
+and the share of addresses citing a predecessor rose from 0 of 7 in the
+1960s to 6 of 8 in the 2000s. "Risk management" rose from about 0.2 to 4.1
+uses per 1,000 words. Todd's OCR was repaired in `intake.py`. Gregg is
+confirmed by Rosenbloom's note 8, and Hofflander (1975) gave no address.
+Next: Evan decides whether a Resources page follows.
+
+
+---
+
+## Session: 2026-11-08 15:03
+
+In short: The November CV and corresponding website changes are live.
+The public PDF matches Evan's supplied file. All eight main pages match
+the verified build.
+
+**Project:** evaneastman-site (Quarto personal website)
+**Objective:** Upload Evan's updated CV and reflect its changes throughout the site.
+**Completed:**
+- Read the recent session history and handoff. Compared all 19 pages of the
+  November export with the previous CV and relevant website content.
+- Updated the research-director appointment to name the Florida Surplus
+  Lines Center for Insurance Excellence. Added Interim Doctoral Coordinator
+  to the bio and university service. Updated current center names in the
+  symposium descriptions.
+- Added both 2026 ARES manuscript prizes and Real Estate Economics reviewing.
+- Moved Errors in Claim-Level Reserving into Papers Under Review. Matched
+  the CV's ordering throughout publications, under review, and working papers.
+- Added November SRIA and December CEAR/MRIC presentations and the December
+  discussant assignment. Removed scheduled labels from September/October talks.
+- Dated the CV page November 2026 and supplied an accessible iframe title.
+- Removed future-tense October 15 notification wording from the symposium
+  notices. The official symposium page has no 2027 program yet.
+- Preserved the earlier choice to omit Works in Progress and the CAR
+  conditional-acceptance announcement from the research page. Journal/round
+  labels remain in the PDF rather than the public paper listing.
+- Rendered the complete site and published through the established GitHub
+  Pages workflow. Saved the source changes to project history and backed up.
+**Output:** `files/cv.pdf`, `index.qmd`, `research.qmd`, `presentations.qmd`,
+`service.qmd`, `awards.qmd`, `cv.qmd`, `HANDOFF.md`, `Work/session_progress.md`.
+Source commit `5d95599`; deployment commit `3625f8a468447b9564dc36b3446b96787a91abfb`.
+Existing unsaved notes about the September ARIA address archive were preserved.
+The pre-existing untracked `.claude/launch.json` and
+`files/RTSPublicationTracking_2025.xlsx` were left unchanged and unstaged.
+**Checks:** Full Quarto render completed. The 14 publication titles, eight
+under-review titles, and 12 working-paper titles match the CV in order.
+All local HTML asset/link targets resolve. Generated and live PDF bytes match
+Evan's source. All eight main public HTML pages match the local output.
+GitHub Pages reported built for the new deployment. Browser checks confirmed
+page layout, the November CV label/download link, and live ARES awards.
+The local preview server was stopped after verification.
+**Finding:** Beyond the two new prizes, the vita carries changes to the
+center appointment, doctoral coordination, reviewing, paper classification,
+and upcoming presentations. Publication entries and doctoral committees
+remain current.
+**Next:** Replace the symposium notices with program details when the
+2027 program is available. Future CV refreshes should repeat the full-document
+comparison. The ARIA presidential-address Resources idea remains a separate decision.
+**Blocked:** None. The in-app browser's PDF frame was blank during its initial
+load; the PDF was separately parsed, rendered for inspection, and verified live.
+Quarto cache and GitHub credential access required normal desktop access;
+rendering, authentication, and publication succeeded outside the restricted environment.

@@ -1,20 +1,53 @@
 # Handoff — evaneastman-site
 
-Last updated: 2026-08-14 (Risk Theory Society page built from Evan's
-tracking workbook and left unlisted, pending his call on publishing;
-earlier the same day: new CV export and the five site edits that
-followed from diffing it, 2027 symposium call for papers published,
-Insurance Tycoon simulation linked from Teaching).
+In short: The November 2026 CV and the corresponding website updates are
+live. The public download matches Evan's supplied PDF, and all eight main
+pages match the verified local build.
+
+Last updated: 2026-11-08.
 
 ## Status
+
+**November CV refresh (2026-11-08):** `files/cv.pdf` is Evan's November
+2026 export (19 pages). `cv.qmd` displays its date and labels the embedded
+document for accessibility. Full-CV comparison found these website changes:
+
+- `index.qmd`: research-director appointment now names the Florida Surplus
+  Lines Center for Insurance Excellence. Added Interim Doctoral Coordinator
+  for Risk Management and Insurance. Current center names also appear in
+  the symposium announcement and `presentations.qmd`.
+- `research.qmd`: moved "Errors in Claim-Level Reserving" into Papers
+  Under Review. The 14 publications, eight under-review papers, and 12
+  working papers match the CV's titles and ordering. Existing links remain.
+- `awards.qmd`: added the 2026 American Real Estate Society Manuscript
+  Prizes for Real Estate Finance and Sustainable Real Estate.
+- `service.qmd`: added Real Estate Economics reviewing and the 2026
+  Interim Doctoral Coordinator role.
+- `presentations.qmd`: added November SRIA and December CEAR/MRIC
+  presentations plus the December discussant assignment. September and
+  October talks no longer say scheduled. November/December remain scheduled,
+  as in the CV. Removed future-tense October 15 notification wording from
+  both symposium descriptions; the official page has no 2027 program yet.
+
+The earlier editorial choices still apply: no Works in Progress section
+and no CAR conditional-acceptance announcement on the research page. The
+public page continues its existing format without journal/round labels;
+the complete November review statuses remain in the downloadable CV.
+
+**Verification:** Full Quarto render succeeded. Research titles and order
+match the PDF. All internal page/asset targets resolve. The output PDF is
+identical to the source. All eight main public HTML pages and the public
+PDF matched the local output after deployment. GitHub Pages reported built.
+Browser checks confirmed the new CV page label and the live awards. The
+in-app browser's PDF frame stayed blank during its initial load; the PDF
+itself was separately parsed, its first page rendered and inspected, and
+the live PDF response verified. The raw RTS workbook was not published.
 
 **Site**: live at https://evaneastman.com with valid HTTPS. CNAME file
 committed on `main`; Quarto copies it into `_site/` on each render so
 it lands in the `gh-pages` branch on publish. GitHub Pages auto-detects
-the domain and re-issues the Let's Encrypt cert as needed (current cert
-covers both apex and `www.evaneastman.com`, expires 2026-10-22,
-GitHub auto-renews ~30 days before — the 2026-08-23 cert renewed on
-schedule without intervention).
+the domain and re-issues the Let's Encrypt cert as needed. Live HTTPS
+requests passed certificate validation on 2026-11-08.
 
 **Analytics**: Cloudflare Web Analytics wired in via `_quarto.yml`
 `include-in-header`. Token is bound to `evaneastman.com` in the
@@ -24,8 +57,9 @@ referrers, top pages, browsers, and OS. Data appears in the dashboard
 within a few minutes of each visit.
 
 **Home PC**: working copy at `C:\Users\Evan\Projects\evaneastman-site\`,
-all work pushed to `origin/main` and `origin/gh-pages`. Working tree
-clean as of session close.
+website updates pushed to `origin/main` and `origin/gh-pages`.
+The pre-existing untracked `.claude/launch.json` and RTS tracking
+workbook were preserved without staging them in this CV refresh.
 
 **School/work PC**: still on Dropbox — follow "Setting up the other
 machine" below the next time you sit there. This session didn't touch
@@ -120,6 +154,17 @@ don't re-link them.
 
 ## What's left to add (next session ideas)
 
+- **ARIA presidential addresses — possible Resources entry.** The corpus
+  lives outside this repo, at `Dropbox\TempStuff\ARIA\PresidentialAddress\`
+  (its `README.md` explains the layout). `catalog.xlsx` lists every ARIA
+  president, 1933 to the present, with the 41 published addresses
+  (1960–2009) and their JSTOR/Wiley links. As of 2026-09-26 all 41 PDFs
+  are in hand; Gregg (1961) lacks its first page (a JSTOR scan error, see
+  that folder's README). **Never commit the PDFs or the
+  `text\` extractions**: they are licensed JSTOR/Wiley copies, and this
+  repo is public. A page may carry the catalog's metadata, aggregate
+  statistics, and short quotations. Evan decides whether to build a page
+  after the corpus is complete and the analyses are chosen.
 - **RTS page and family tree — search visibility.** Both are linked
   from `resources.qmd` as of 2026-09-22 but still noindex. To make
   either fully public, drop the `robots` meta and `search: false` from
