@@ -15,7 +15,8 @@ document for accessibility. Full-CV comparison found these website changes:
 - `index.qmd`: research-director appointment now names the Florida Surplus
   Lines Center for Insurance Excellence. Added Interim Doctoral Coordinator
   for Risk Management and Insurance. Current center names also appear in
-  the symposium announcement and `presentations.qmd`.
+  the symposium announcement and `presentations.qmd`. The profile button
+  also uses the full center name, following Evan's same-day request.
 - `research.qmd`: moved "Errors in Claim-Level Reserving" into Papers
   Under Review. The 14 publications, eight under-review papers, and 12
   working papers match the CV's titles and ordering. Existing links remain.

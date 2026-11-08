@@ -434,3 +434,25 @@ comparison. The ARIA presidential-address Resources idea remains a separate deci
 load; the PDF was separately parsed, rendered for inspection, and verified live.
 Quarto cache and GitHub credential access required normal desktop access;
 rendering, authentication, and publication succeeded outside the restricted environment.
+
+
+---
+
+## Session: 2026-11-08 15:08
+
+In short: The profile button now displays the full new center name.
+The change is published and verified on the live homepage.
+
+**Project:** evaneastman-site
+**Objective:** Use the new center name on the button beneath Evan's profile.
+**Completed:** Replaced the abbreviated button label with Florida Surplus
+Lines Center for Insurance Excellence. Rendered and published the site.
+**Output:** `index.qmd`, `HANDOFF.md`, `Work/session_progress.md`.
+Source commit `e06e64e`; deployment commit `ec698a20b8d209dc1a2d51aab4ee325b24522fe1`.
+**Checks:** Full render succeeded. The full label fits the desktop profile
+column without overflow. Browser inspection confirmed the live button on
+both the desktop preview and the narrower public-page layout. The link
+retains its existing center destination. The live homepage matches the local
+build, and GitHub Pages reported built. Local preview stopped after verification.
+**Next:** As above: update symposium notices when the 2027 program is available.
+**Blocked:** None.
