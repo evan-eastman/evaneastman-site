@@ -2,10 +2,12 @@
 title: "CV"
 ---
 
+November 2026.
+
 [Download CV (PDF)](files/cv.pdf){.btn .btn-outline-primary}
 
 <br>
 
 ```{=html}
-<iframe src="files/cv.pdf" width="100%" height="900px" style="border: 1px solid #ddd;"></iframe>
+<iframe src="files/cv.pdf" title="Evan M. Eastman — November 2026 CV" width="100%" height="900px" style="border: 1px solid #ddd;"></iframe>
 ```

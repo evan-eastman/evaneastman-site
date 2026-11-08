@@ -116,6 +116,22 @@ With Anne C. Ehinger and Cathryn M. Meegan.<br>
 :::
 
 ::: {.pub-entry}
+**Insurer Investments: Accounting, Regulation, and Empirical Patterns**<br>
+With Dan Yang and James M. Carson.
+:::
+
+::: {.pub-entry}
+**Earnings Management, Executive Compensation, and Ownership Structure**<br>
+With David L. Eckles, Martin Halek, and Lawrence S. Powell.
+:::
+
+::: {.pub-entry}
+**Asymmetry in Earnings Management Surrounding Targeted Ratings**<br>
+With David L. Eckles and Martin Halek.<br>
+[[{{< iconify academicons ssrn >}} SSRN](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3846968)]
+:::
+
+::: {.pub-entry}
 **The Capital Market Consequences Associated with Classifying Unrealized Gains and Losses on Available-For-Sale (AFS) Equity Securities in GAAP Net Income**<br>
 With John L. Campbell, James M. Carson, Jingshu Luo, and Dan Yang.<br>
 [[{{< iconify academicons ssrn >}} SSRN](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4032821)]
@@ -128,25 +144,14 @@ With Kyeonghee Kim.<br>
 :::
 
 ::: {.pub-entry}
-**Asymmetry in Earnings Management Surrounding Targeted Ratings**<br>
-With David L. Eckles and Martin Halek.<br>
-[[{{< iconify academicons ssrn >}} SSRN](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3846968)]
-:::
-
-::: {.pub-entry}
-**Earnings Management, Executive Compensation, and Ownership Structure**<br>
-With David L. Eckles, Martin Halek, and Lawrence S. Powell.
-:::
-
-::: {.pub-entry}
-**Insurer Investments: Accounting, Regulation, and Empirical Patterns**<br>
-With Dan Yang and James M. Carson.
-:::
-
-::: {.pub-entry}
 **Climate Risk and the Cost of Commercial Property Insurance**<br>
 With Stephen L. Buschbom, Chongyu Wang, and Tingyu Zhou.<br>
 [[{{< iconify academicons ssrn >}} SSRN](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5841862)]
+:::
+
+::: {.pub-entry}
+**Errors in Claim-Level Reserving: Evidence from Medical Malpractice Claims**<br>
+With Patricia H. Born and Paul C. Schriefer.
 :::
 
 ## Working Papers
@@ -164,6 +169,11 @@ With Anne C. Ehinger and Andrea Tillet.<br>
 :::
 
 ::: {.pub-entry}
+**Enterprise Risk Management and Financial Misconduct**<br>
+With Chan Li, Lili Sun, and Jianren Xu.
+:::
+
+::: {.pub-entry}
 **Accounting Discretion and Loss Reserve Discounting: Evidence from Canadian Property-Casualty Insurers**<br>
 With David L. Eckles and Mary Kelly.<br>
 [[{{< iconify academicons ssrn >}} SSRN](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4130633)]
@@ -173,11 +183,6 @@ With David L. Eckles and Mary Kelly.<br>
 **A Text-Based Measure of Corporate Risk Management**<br>
 With Steve M. Miller and Po-Lin Wang.<br>
 [[{{< iconify academicons ssrn >}} SSRN](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5624330)]
-:::
-
-::: {.pub-entry}
-**Enterprise Risk Management and Financial Misconduct**<br>
-With Chan Li, Lili Sun, and Jianren Xu.
 :::
 
 ::: {.pub-entry}
@@ -198,11 +203,6 @@ With Michael M. Barth and Robert W. Klein.
 ::: {.pub-entry}
 **Personal Characteristics and Accounting Estimates: Evidence from CEOs, Actuaries, and Reported Loss Reserves**<br>
 With Olga Kanj and Mary Kelly.
-:::
-
-::: {.pub-entry}
-**Errors in Claim-Level Reserving: Evidence from Medical Malpractice Claims**<br>
-With Patricia H. Born and Paul C. Schriefer.
 :::
 
 ::: {.pub-entry}

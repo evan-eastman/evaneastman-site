@@ -14,7 +14,7 @@ about:
       text: FSU Profile
       href: "https://business.fsu.edu/person/evan-eastman"
     - icon: building
-      text: FSU RMI Center
+      text: FSU Insurance Center
       href: "https://insurancecenter.business.fsu.edu/"
     - text: "{{< iconify simple-icons googlescholar >}} Scholar"
       href: "https://scholar.google.com/citations?user=ksnlHLAAAAAJ&hl=en"
@@ -22,7 +22,7 @@ about:
       href: "https://papers.ssrn.com/sol3/cf_dev/AbsByAuth.cfm?per_id=2361505"
 ---
 
-I am the Independent Life and Accident Insurance Associate Professor and Director of Research for the [Risk Management and Insurance Center](https://insurancecenter.business.fsu.edu/) at Florida State University in the Herbert Wertheim College of Business.  I serve as a faculty member in the Department of Risk Management/Insurance, Real Estate, and Legal Studies in the Dr. William T. Hold/The Alliance's Program in Risk Management and Insurance.
+I am the Independent Life and Accident Insurance Associate Professor of Risk Management and Insurance at Florida State University in the Herbert Wertheim College of Business. I also serve as Director of Research for the [Florida Surplus Lines Center for Insurance Excellence](https://insurancecenter.business.fsu.edu/) and Interim Doctoral Coordinator for Risk Management and Insurance. I am a faculty member in the Department of Risk Management/Insurance, Real Estate, and Legal Studies in the Dr. William T. Hold/The Alliance's Program in Risk Management and Insurance.
 
 My research focuses on empirical archival insurance economics. Active areas include financial accounting, taxation, corporate risk management, and real estate.
 
@@ -34,11 +34,11 @@ My research focuses on empirical archival insurance economics. Active areas incl
   <div class="symposium-box__label">5th Annual FSU RMI Research Symposium</div>
   <p class="symposium-box__body">January 21&ndash;23, 2027 &middot; Tampa Hilton Downtown, Tampa, Florida.</p>
   <p class="symposium-box__deadline">Submissions closed September 15, 2026.</p>
-  <p class="symposium-box__body">Thank you to everyone who submitted. Authors will be notified on or soon after October 15, and the program will be posted once it is set.</p>
+  <p class="symposium-box__body">Thank you to everyone who submitted. See the symposium page for program updates.</p>
   <div class="symposium-box__links">
     <a class="symposium-box__link" href="https://wertheim.fsu.edu/rmiresearchsymposium">Symposium page &rarr;</a>
   </div>
-  <div class="symposium-box__host">Hosted by the <a href="https://insurancecenter.business.fsu.edu/">Risk Management and Insurance Center</a> and the Dr. William T. Hold/The Alliance's Program in Risk Management and Insurance. Questions: <a href="mailto:RMI-ResearchSymposium@wertheim.fsu.edu">RMI-ResearchSymposium@wertheim.fsu.edu</a>.</div>
+  <div class="symposium-box__host">Hosted by the <a href="https://insurancecenter.business.fsu.edu/">Florida Surplus Lines Center for Insurance Excellence</a> and the Dr. William T. Hold/The Alliance's Program in Risk Management and Insurance. Questions: <a href="mailto:RMI-ResearchSymposium@wertheim.fsu.edu">RMI-ResearchSymposium@wertheim.fsu.edu</a>.</div>
 </div>
 <script>
   (function () {

@@ -7,9 +7,9 @@ toc-title: " "
 
 ## Conferences
 
-**[FSU Risk Management and Insurance Research Symposium](https://wertheim.fsu.edu/rmiresearchsymposium)** — hosted by the [FSU Risk Management and Insurance Center](https://insurancecenter.business.fsu.edu/) and the Dr. William T. Hold/The Alliance's Program in Risk Management and Insurance.
+**[FSU Risk Management and Insurance Research Symposium](https://wertheim.fsu.edu/rmiresearchsymposium)** — hosted by the [Florida Surplus Lines Center for Insurance Excellence](https://insurancecenter.business.fsu.edu/) and the Dr. William T. Hold/The Alliance's Program in Risk Management and Insurance.
 
-The fifth annual symposium meets January 21–23, 2027 at the Tampa Hilton Downtown. The [call for papers](files/rmi-research-symposium-2027-cfp.pdf) closed on September 15, 2026, and authors will be notified on or soon after October 15. Each accepted paper gets an hour-long presentation slot and an assigned discussant, and the Hold/Alliance Program provides hotel accommodation for one author. Attendance is by invitation. Questions go to [RMI-ResearchSymposium@wertheim.fsu.edu](mailto:RMI-ResearchSymposium@wertheim.fsu.edu).
+The fifth annual symposium meets January 21–23, 2027 at the Tampa Hilton Downtown. The [call for papers](files/rmi-research-symposium-2027-cfp.pdf) closed on September 15, 2026. See the symposium page for program updates. Each accepted paper gets an hour-long presentation slot and an assigned discussant, and the Hold/Alliance Program provides hotel accommodation for one author. Attendance is by invitation. Questions go to [RMI-ResearchSymposium@wertheim.fsu.edu](mailto:RMI-ResearchSymposium@wertheim.fsu.edu).
 
 ## Invited Talks — Academic
 
@@ -29,11 +29,16 @@ The fifth annual symposium meets January 21–23, 2027 at the Tampa Hilton Downt
 
 ## Conference Presentations
 
-- **October 2026** · Financial Management Association Annual Meeting; Tampa, Florida *(scheduled)*
+- **December 2026** · CEAR/MRIC Behavioral Insurance Workshop; Munich, Germany *(scheduled)*
+    - *Homeowners Insurance and Housing Prices* (with Kyeonghee Kim and Tingyu Zhou)
+- **November 2026** · Southern Risk and Insurance Association Annual Meeting; Nashville, Tennessee *(scheduled)*
+    - *Negative Incurred Losses and Tort Reform in Medical Malpractice Insurance* (with J. Bradley Karl)
+    - *Managerial Style and Accounting Discretion: Evidence from the Property-Casualty Insurance Industry*
+- **October 2026** · Financial Management Association Annual Meeting; Tampa, Florida
     - *A Text-Based Measure of Corporate Risk Management* (with Steve M. Miller and Po-Lin Wang)
-- **October 2026** · NAIC/CIPR Research Symposium; Kansas City, Missouri *(scheduled)*
+- **October 2026** · NAIC/CIPR Research Symposium; Kansas City, Missouri
     - *Pricing Climate Risk in Commercial Property Insurance* (with Stephen L. Buschbom, Chongyu Wang, and Tingyu Zhou)
-- **September 2026** · Urban Economics Association North American Meeting; Chicago, Illinois *(scheduled)*
+- **September 2026** · Urban Economics Association North American Meeting; Chicago, Illinois
     - *Climate Risk and Commercial Property Insurance* (with Stephen L. Buschbom, Chongyu Wang, and Tingyu Zhou)
 - **August 2026** · American Risk and Insurance Association Annual Meeting; Orlando, Florida
     - *Climate Risk and Commercial Property Insurance* (with Stephen L. Buschbom, Chongyu Wang, and Tingyu Zhou)
@@ -236,6 +241,7 @@ The fifth annual symposium meets January 21–23, 2027 at the Tampa Hilton Downt
 
 ## Discussant Talks
 
+- **December 2026** · CEAR/MRIC Behavioral Insurance Workshop; Munich, Germany *(scheduled)* — *Public Paid Leave and Private Benefits: Evidence on Crowd-Out and Welfare* (Johanna Catherine Maclean, Stefan Pichler, and Nicolas R. Ziebarth).
 - **August 2026** · American Risk and Insurance Association Annual Meeting; Orlando, Florida — *The Rise in Insurance Costs for Commercial Properties: Causes, Effects on Rents, and the Role of Owners* (Minjoo Kim, Prateek Mahajan, and Zirui Wang).
 - **August 2025** · World Risk and Insurance Economics Congress; Calgary, Canada — *Unrealized Losses Recognition and Interest Rate Risk Hedging for Insurance Firms* (Selim Mankai).
 - **August 2024** · American Risk and Insurance Association Annual Meeting; Denver, Colorado — *Claims Adjudication, Insurance Distribution Channel, and Customer Satisfaction* (Mark J. Browne, Kerry McCabe, David M. Pooser, and Andreas Richter).
