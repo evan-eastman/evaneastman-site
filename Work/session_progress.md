@@ -456,3 +456,36 @@ retains its existing center destination. The live homepage matches the local
 build, and GitHub Pages reported built. Local preview stopped after verification.
 **Next:** As above: update symposium notices when the 2027 program is available.
 **Blocked:** None.
+
+
+---
+
+## Session: 2026-11-08 15:13
+
+In short: The November CV updates and the full center-name button are live.
+The website and its source are backed up to GitHub. No further publication
+step is needed for this session.
+
+**Project:** evaneastman-site (Quarto personal website)
+**Objective:** Close the session and confirm that the website has been pushed.
+**Completed:** Consolidated the session close-out. Confirmed that the local
+saved source matches GitHub and that the latest published site finished
+building. The earlier entries record the CV comparison, content changes,
+and live verification. The handoff is current.
+**Output:** `Work/session_progress.md`; source verified at
+`b9be862cd21337a098d7863a84827e0d50d7cae6`; deployed website verified at
+`ec698a20b8d209dc1a2d51aab4ee325b24522fe1` (GitHub Pages status: built).
+This closing entry is saved and backed up separately.
+**Finding:** Both the source backup and the public website publication are
+complete. The pre-existing local preview configuration and RTS workbook
+remain unchanged and outside this CV session's saved changes.
+**Index:** No project index exists. This is a website maintenance session;
+no research indexing or analysis work was needed.
+**Portfolio:** No material change. This session updated the personal
+website and did not change a research design, stage, decisive test, or
+reusable research asset. No portfolio files were modified.
+**Correspondence:** None; no correspondence log exists in this website project.
+**Next:** Replace the symposium notices with program details once the
+2027 program is available. Repeat the full-CV comparison at the next vita
+refresh. The ARIA presidential-address Resources idea remains a separate decision.
+**Blocked:** None.
